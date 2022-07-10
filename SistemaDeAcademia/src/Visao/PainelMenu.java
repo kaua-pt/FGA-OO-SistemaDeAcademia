@@ -42,13 +42,13 @@ public class PainelMenu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 464);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(39, 50, 72));
+		contentPane.setBackground(new Color(37,66,82));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panelMenu = new JPanel();
-		panelMenu.setBackground(new Color(255, 243, 100));
+		panelMenu.setBackground(new Color(23,28,45));
 		panelMenu.setBounds(0, 0, 185, 464);
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
@@ -62,7 +62,7 @@ public class PainelMenu extends JFrame {
 		
 		JPanel panelInicio = new JPanel();
 		panelInicio.setBounds(0, 119, 185, 48);
-		panelInicio.setBackground(new Color(252, 118, 67));
+		panelInicio.setBackground(new Color(231, 233, 238));
 		panelInicio.addMouseListener(new PanelAdaptador(panelInicio));
 		panelMenu.add(panelInicio);
 		panelInicio.setLayout(null);
@@ -84,7 +84,7 @@ public class PainelMenu extends JFrame {
 		
 		JPanel panelAlunos = new JPanel();
 		panelAlunos.setBounds(0, 178, 185, 48);
-		panelAlunos.setBackground(new Color(252, 118, 67));
+		panelAlunos.setBackground(new Color(231, 233, 238));
 		panelAlunos.addMouseListener(new PanelAdaptador(panelAlunos));
 		panelMenu.add(panelAlunos);
 		panelAlunos.setLayout(null);
@@ -106,7 +106,7 @@ public class PainelMenu extends JFrame {
 		
 		JPanel panelExercicios = new JPanel();
 		panelExercicios.setBounds(0, 237, 185, 48);
-		panelExercicios.setBackground(new Color(252, 118, 67));
+		panelExercicios.setBackground(new Color(231, 233, 238));
 		panelExercicios.addMouseListener(new PanelAdaptador(panelExercicios));
 		panelMenu.add(panelExercicios);
 		panelExercicios.setLayout(null);
@@ -128,7 +128,7 @@ public class PainelMenu extends JFrame {
 		
 		JPanel panelTreino = new JPanel();
 		panelTreino.setBounds(0, 296, 185, 48);
-		panelTreino.setBackground(new Color(252, 118, 67));
+		panelTreino.setBackground(new Color(231, 233, 238));
 		panelTreino.addMouseListener(new PanelAdaptador(panelTreino));
 		panelMenu.add(panelTreino);
 		panelTreino.setLayout(null);
@@ -152,9 +152,14 @@ public class PainelMenu extends JFrame {
 		
 		JPanel panelSair = new JPanel();
 		panelSair.setBounds(0, 355, 185, 48);
-		panelSair.setBackground(new Color(252, 118, 67));
+		panelSair.setBackground(new Color(231, 233, 238));
 		panelSair.addMouseListener(new PanelAdaptador(panelSair));
 		panelMenu.add(panelSair);
+		panelSair.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+					PainelMenu.this.dispose();
+			}
+		});
 		panelSair.setLayout(null);
 		
 		JLabel lblSair = new JLabel("Sair");
@@ -171,7 +176,7 @@ public class PainelMenu extends JFrame {
 		lblSairIcone.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(
 				PainelMenu.class.getResource("/Imagens/sair.png")).getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelSair.add(lblSairIcone);
-		setUndecorated(true);
+
 	}
 	
 	private class PanelAdaptador extends MouseAdapter{
@@ -183,19 +188,19 @@ public class PainelMenu extends JFrame {
 		}
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			panel.setBackground(new Color(255, 243, 10));
+			panel.setBackground(new Color(135, 148, 192));
 		}
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			panel.setBackground(new Color(255, 243, 10));
+			panel.setBackground(new Color(135, 148, 192));
 		}
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			panel.setBackground(new Color(255, 243, 10));
+			panel.setBackground(new Color(135, 148, 192));
 		}
 		@Override
 		public void mouseExited(MouseEvent e) {
-			panel.setBackground(new Color(252, 118, 67));
+			panel.setBackground(new Color(231, 233, 238));
 		}
 	}
 }
