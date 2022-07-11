@@ -2,11 +2,7 @@ package Visao;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-
 public class PainelInicio extends PainelMenu {
-
-	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -17,7 +13,7 @@ public class PainelInicio extends PainelMenu {
 			public void run() {
 				try {
 					PainelInicio window = new PainelInicio();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -30,16 +26,6 @@ public class PainelInicio extends PainelMenu {
 	 */
 	public PainelInicio() {
 		super("Inicio");
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

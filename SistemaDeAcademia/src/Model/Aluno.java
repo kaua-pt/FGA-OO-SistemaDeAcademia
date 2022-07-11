@@ -5,8 +5,8 @@ package Model;
 
 /**
  *
- * @author Kau� Vin�cius
- *	Classe respons�vel por armazenar as informa��es de um aluno
+ * @author Kau� Vin�cius Classe respons�vel por armazenar as informa��es de um
+ *         aluno
  *
  */
 public class Aluno extends Dados {
@@ -15,7 +15,7 @@ public class Aluno extends Dados {
 	public double altura;
 	public double peso;
 
-	public Aluno(String nome,int id,int idade,double altura, double peso){
+	public Aluno(String nome, int id, int idade, double altura, double peso) {
 		this.nome = nome;
 		this.id = id;
 		this.idade = idade;
@@ -23,9 +23,13 @@ public class Aluno extends Dados {
 		this.peso = peso;
 	}
 
-	public Aluno(String nome,int id) {
+	public Aluno(String nome, int id) {
 		this.nome = nome;
 		this.id = id;
+	}
+
+	public double calcularImc() {
+		return this.peso / (this.altura * this.altura);
 	}
 
 	public int getIdade() {
