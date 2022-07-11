@@ -3,8 +3,6 @@
  */
 package Model;
 
-import Model.TipoDeGrupamento;
-
 /**
  * @author Kauã
  *

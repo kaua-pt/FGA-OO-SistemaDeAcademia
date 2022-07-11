@@ -14,6 +14,8 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
 
 public class PainelMenu extends JFrame {
 
@@ -176,6 +178,12 @@ public class PainelMenu extends JFrame {
 		lblSairIcone.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(
 				PainelMenu.class.getResource("/Imagens/sair.png")).getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelSair.add(lblSairIcone);
+		
+		JPanel panelMainMenu = new JPanel();
+		panelMainMenu.setBackground(new Color(231, 233, 238));
+		panelMainMenu.setBounds(195, 11, 529, 403);
+		contentPane.add(panelMainMenu);
+		panelMainMenu.setLayout(null);
 
 	}
 	
