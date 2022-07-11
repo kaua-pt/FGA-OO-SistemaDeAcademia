@@ -1,25 +1,24 @@
 /**
- * 
+ *
  */
 package BancoDeDados;
 
-import java.sql.*;
 import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet; 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  * @author PC
  *
  */
 public class BaseDeDados {
-	
+
 	private Connection coneccao = null;
 	private Statement estado = null;
 	private ResultSet resultado = null;
-	
-	
+
+
 	public void conectar() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,14 +29,14 @@ public class BaseDeDados {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean estaConectado() {
 		if (coneccao != null) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public void inserirElemento() {
 		try {
 			String query = "INSERT INTO aluno(nome,id,altura,idade,peso)";

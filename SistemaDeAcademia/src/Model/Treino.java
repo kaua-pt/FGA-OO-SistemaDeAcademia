@@ -1,17 +1,17 @@
 /**
- * 
+ *
  */
 package Model;
 
 /**
- * @author Kauã Vinícius 
+ * @author Kauï¿½ Vinï¿½cius
  *
- *	Classe responsável por armazenar informações sobre os treinos
+ *	Classe responsï¿½vel por armazenar informaï¿½ï¿½es sobre os treinos
  */
 public class Treino extends Dados {
-	
+
 	Exercicio[] exercicios = new Exercicio[8];
-	
+
 	public Treino(String nome, int id, TipoDeGrupamento tipo) {
 		this.nome = nome;
 		this.id = id;
@@ -25,5 +25,5 @@ public class Treino extends Dados {
 	public void setExercicios(Exercicio[] exercicios) {
 		this.exercicios = exercicios;
 	}
-	
+
 }

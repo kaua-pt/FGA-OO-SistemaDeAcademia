@@ -1,20 +1,20 @@
 /**
- * 
+ *
  */
 package Model;
 
 /**
- * 
- * @author Kauã Vinícius
- *	Classe responsável por armazenar as informações de um aluno
+ *
+ * @author Kauï¿½ Vinï¿½cius
+ *	Classe responsï¿½vel por armazenar as informaï¿½ï¿½es de um aluno
  *
  */
 public class Aluno extends Dados {
-	
+
 	public int idade;
 	public double altura;
 	public double peso;
-	
+
 	public Aluno(String nome,int id,int idade,double altura, double peso){
 		this.nome = nome;
 		this.id = id;
@@ -22,12 +22,12 @@ public class Aluno extends Dados {
 		this.altura = altura;
 		this.peso = peso;
 	}
-	
+
 	public Aluno(String nome,int id) {
 		this.nome = nome;
 		this.id = id;
 	}
-	
+
 	public int getIdade() {
 		return idade;
 	}

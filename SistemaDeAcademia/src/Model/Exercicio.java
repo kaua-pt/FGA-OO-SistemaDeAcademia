@@ -1,19 +1,19 @@
 /**
- * 
+ *
  */
 package Model;
 
 /**
- * @author Kauã Vinícius 
+ * @author Kauï¿½ Vinï¿½cius
  *
- *	Classe responsável por armazenar elementos da classe exercício
+ *	Classe responsï¿½vel por armazenar elementos da classe exercï¿½cio
  */
 public class Exercicio extends Dados{
-	
+
 	private String descricao;
 	private int nRepeticao;
 	private int nSerie;
-	
+
 	public Exercicio(String nome, int id,TipoDeGrupamento tipo,
 			String descicao,int nRepeticao, int nSerie){
 		this.nome = nome;
@@ -23,7 +23,7 @@ public class Exercicio extends Dados{
 		this.nRepeticao = nRepeticao;
 		this.nSerie = nSerie;
 	}
-	
+
 	public Exercicio(String nome, int id,TipoDeGrupamento tipo) {
 		this.nome = nome;
 		this.id = id;
@@ -56,6 +56,6 @@ public class Exercicio extends Dados{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
+
+
 }
