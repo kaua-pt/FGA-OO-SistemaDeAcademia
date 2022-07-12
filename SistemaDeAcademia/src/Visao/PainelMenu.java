@@ -1,7 +1,6 @@
 package Visao;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -17,22 +16,22 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 public class PainelMenu extends JFrame {
-	
-	
+
 	private JPanel contentPane;
-	protected PainelInicio inicio = new PainelInicio();
-	protected PainelRedirecionar redirecionarAluno = new PainelRedirecionar("Aluno");
-	protected PainelRedirecionar redirecionarExercicio = new PainelRedirecionar("Exercicio");
-	protected PainelRedirecionar redirecionarTreino = new PainelRedirecionar("Treino");
-	
+	private PainelInicio inicio = new PainelInicio();
+	private PainelRedirecionar redirecionarAluno = new PainelRedirecionar("Alunos", "Consultar ");
+	private PainelRedirecionar redirecionarExercicio = new PainelRedirecionar("Exercicios", "Listar ");
+	private PainelRedirecionar redirecionarTreino = new PainelRedirecionar("Treinos", "Consultar ");
+
 	public static void main(String[] args) {
 		PainelMenu frame = new PainelMenu("Dale");
 		frame.setVisible(true);
 	}
-	
+
 	/**
 	 * Create the frame.
 	 */
+
 	public PainelMenu(String titulo) {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 464);
@@ -42,7 +41,7 @@ public class PainelMenu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
-		
+
 		JLabel labelTitulo = new JLabel(titulo);
 		add(labelTitulo);
 
@@ -210,24 +209,24 @@ public class PainelMenu extends JFrame {
 		panelMainMenu.setBounds(195, 11, 529, 403);
 		contentPane.add(panelMainMenu);
 		panelMainMenu.setLayout(null);
-		
+
 		panelMainMenu.add(inicio);
 		panelMainMenu.add(redirecionarAluno);
 		panelMainMenu.add(redirecionarExercicio);
 		panelMainMenu.add(redirecionarTreino);
 		menuClicked(inicio);
 	}
-	
+
 	public void menuClicked(JPanel panel) {
 		inicio.setVisible(false);
-		redirecionarAluno.setVisible(false); 
-		redirecionarExercicio.setVisible(false); 
-		redirecionarTreino.setVisible(false);  
-		
+		redirecionarAluno.setVisible(false);
+		redirecionarExercicio.setVisible(false);
+		redirecionarTreino.setVisible(false);
+
 		panel.setVisible(true);
 
 	}
-	
+
 	protected class PanelAdaptador extends MouseAdapter {
 
 		JPanel panel;
