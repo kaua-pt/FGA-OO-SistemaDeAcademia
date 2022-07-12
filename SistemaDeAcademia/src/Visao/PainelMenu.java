@@ -1,6 +1,7 @@
 package Visao;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -15,10 +16,20 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-public abstract class PainelMenu extends JFrame {
-
+public class PainelMenu extends JFrame {
+	
+	
 	private JPanel contentPane;
-
+	protected PainelInicio inicio = new PainelInicio();
+	protected PainelRedirecionar redirecionarAluno = new PainelRedirecionar("Aluno");
+	protected PainelRedirecionar redirecionarExercicio = new PainelRedirecionar("Exercicio");
+	protected PainelRedirecionar redirecionarTreino = new PainelRedirecionar("Treino");
+	
+	public static void main(String[] args) {
+		PainelMenu frame = new PainelMenu("Dale");
+		frame.setVisible(true);
+	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -30,7 +41,8 @@ public abstract class PainelMenu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		setResizable(false);
+		
 		JLabel labelTitulo = new JLabel(titulo);
 		add(labelTitulo);
 
@@ -52,6 +64,12 @@ public abstract class PainelMenu extends JFrame {
 		panelInicio.setBounds(0, 119, 185, 48);
 		panelInicio.setBackground(new Color(231, 233, 238));
 		panelInicio.addMouseListener(new PanelAdaptador(panelInicio));
+		panelInicio.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				menuClicked(inicio);
+			}
+		});
 		panelMenu.add(panelInicio);
 		panelInicio.setLayout(null);
 
@@ -76,6 +94,12 @@ public abstract class PainelMenu extends JFrame {
 		panelAlunos.setBackground(new Color(231, 233, 238));
 		panelAlunos.addMouseListener(new PanelAdaptador(panelAlunos));
 		panelMenu.add(panelAlunos);
+		panelAlunos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				menuClicked(redirecionarAluno);
+			}
+		});
 		panelAlunos.setLayout(null);
 
 		JLabel lblAlunos = new JLabel("Alunos");
@@ -98,6 +122,12 @@ public abstract class PainelMenu extends JFrame {
 		panelExercicios.setBounds(0, 237, 185, 48);
 		panelExercicios.setBackground(new Color(231, 233, 238));
 		panelExercicios.addMouseListener(new PanelAdaptador(panelExercicios));
+		panelExercicios.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				menuClicked(redirecionarExercicio);
+			}
+		});
 		panelMenu.add(panelExercicios);
 		panelExercicios.setLayout(null);
 
@@ -121,6 +151,12 @@ public abstract class PainelMenu extends JFrame {
 		panelTreino.setBounds(0, 296, 185, 48);
 		panelTreino.setBackground(new Color(231, 233, 238));
 		panelTreino.addMouseListener(new PanelAdaptador(panelTreino));
+		panelTreino.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				menuClicked(redirecionarTreino);
+			}
+		});
 		panelMenu.add(panelTreino);
 		panelTreino.setLayout(null);
 
@@ -174,10 +210,25 @@ public abstract class PainelMenu extends JFrame {
 		panelMainMenu.setBounds(195, 11, 529, 403);
 		contentPane.add(panelMainMenu);
 		panelMainMenu.setLayout(null);
+		
+		panelMainMenu.add(inicio);
+		panelMainMenu.add(redirecionarAluno);
+		panelMainMenu.add(redirecionarExercicio);
+		panelMainMenu.add(redirecionarTreino);
+		menuClicked(inicio);
+	}
+	
+	public void menuClicked(JPanel panel) {
+		inicio.setVisible(false);
+		redirecionarAluno.setVisible(false); 
+		redirecionarExercicio.setVisible(false); 
+		redirecionarTreino.setVisible(false);  
+		
+		panel.setVisible(true);
 
 	}
-
-	private class PanelAdaptador extends MouseAdapter {
+	
+	protected class PanelAdaptador extends MouseAdapter {
 
 		JPanel panel;
 
