@@ -15,13 +15,11 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import Controladores.ControladorMainLabel;
+
 public class PainelMenu extends JFrame {
 
 	private JPanel contentPane;
-	private PainelInicio inicio = new PainelInicio();
-	private PainelRedirecionar redirecionarAluno = new PainelRedirecionar("Alunos", "Consultar ");
-	private PainelRedirecionar redirecionarExercicio = new PainelRedirecionar("Exercicios", "Listar ");
-	private PainelRedirecionar redirecionarTreino = new PainelRedirecionar("Treinos", "Consultar ");
 
 	public static void main(String[] args) {
 		PainelMenu frame = new PainelMenu("Dale");
@@ -64,6 +62,8 @@ public class PainelMenu extends JFrame {
 						.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
 		panelMenu.add(lblMainIcone);
 
+		ControladorMainLabel controlador = new ControladorMainLabel(panelMainMenu);
+
 		JPanel panelInicio = new JPanel();
 		panelInicio.setBounds(0, 119, 185, 48);
 		panelInicio.setBackground(new Color(231, 233, 238));
@@ -71,7 +71,7 @@ public class PainelMenu extends JFrame {
 		panelInicio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				menuClicked(inicio);
+				controlador.caminho(1);
 			}
 		});
 		panelMenu.add(panelInicio);
@@ -101,7 +101,7 @@ public class PainelMenu extends JFrame {
 		panelAlunos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				menuClicked(redirecionarAluno);
+				controlador.caminho(2);
 			}
 		});
 		panelAlunos.setLayout(null);
@@ -129,7 +129,7 @@ public class PainelMenu extends JFrame {
 		panelExercicios.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				menuClicked(redirecionarExercicio);
+				controlador.caminho(3);
 			}
 		});
 		panelMenu.add(panelExercicios);
@@ -158,7 +158,7 @@ public class PainelMenu extends JFrame {
 		panelTreino.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				menuClicked(redirecionarTreino);
+				controlador.caminho(4);
 			}
 		});
 		panelMenu.add(panelTreino);
@@ -209,20 +209,7 @@ public class PainelMenu extends JFrame {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelSair.add(lblSairIcone);
 
-		panelMainMenu.add(inicio);
-		panelMainMenu.add(redirecionarAluno);
-		panelMainMenu.add(redirecionarExercicio);
-		panelMainMenu.add(redirecionarTreino);
-		menuClicked(inicio);
-	}
-
-	public void menuClicked(JPanel panel) {
-		inicio.setVisible(false);
-		redirecionarAluno.setVisible(false);
-		redirecionarExercicio.setVisible(false);
-		redirecionarTreino.setVisible(false);
-
-		panel.setVisible(true);
+		controlador.caminho(1);
 
 	}
 

@@ -26,8 +26,6 @@ public class PainelRedirecionar extends JPanel {
 
 		this.operacao = operacao;
 		this.listagem = listagem;
-		this.tela = tela;
-		this.main = main;
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
