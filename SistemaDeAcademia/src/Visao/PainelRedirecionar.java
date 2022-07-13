@@ -17,6 +17,8 @@ import javax.swing.border.LineBorder;
 public class PainelRedirecionar extends JPanel {
 
 	private JFrame frame;
+	private JPanel tela;
+	private JPanel main;
 	private String operacao;
 	private String listagem;
 
@@ -24,56 +26,59 @@ public class PainelRedirecionar extends JPanel {
 
 		this.operacao = operacao;
 		this.listagem = listagem;
+		this.tela = tela;
+		this.main = main;
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(135, 148, 192));
-		panel.setBounds(36, 103, 218, 206);
-		panel.addMouseListener(new PanelAdaptador(panel));
-		add(panel);
-		panel.setLayout(null);
+		JPanel panelCadastro = new JPanel();
+		panelCadastro.setBackground(new Color(135, 148, 192));
+		panelCadastro.setBounds(36, 103, 218, 206);
+		panelCadastro.addMouseListener(new PanelAdaptador(panelCadastro));
+		add(panelCadastro);
+		panelCadastro.setLayout(null);
 
 		JLabel lblCadastro = new JLabel("");
-		lblCadastro.setBounds(80, 58, 45, 58);
+		lblCadastro.setBounds(89, 60, 45, 58);
 		lblCadastro.setIcon(new ImageIcon(
 				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/cadastro.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		panel.add(lblCadastro);
+		panelCadastro.add(lblCadastro);
 
 		JLabel lblNewLabel_1 = new JLabel("Cadastrar " + this.operacao);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Fira Code", Font.BOLD, 16));
 		lblNewLabel_1.setBounds(0, 108, 218, 76);
-		panel.add(lblNewLabel_1);
+		panelCadastro.add(lblNewLabel_1);
 
 		JLabel lblNewLabel = new JLabel("Escolha uma op\u00E7\u00E3o");
 		lblNewLabel.setFont(new Font("Fira Code", Font.BOLD, 20));
 		lblNewLabel.setBounds(165, 27, 213, 61);
 		add(lblNewLabel);
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(135, 148, 192));
-		panel_1.setBounds(290, 103, 213, 206);
-		panel_1.addMouseListener(new PanelAdaptador(panel_1));
-		add(panel_1);
+		JPanel Listagem = new JPanel();
+		Listagem.setLayout(null);
+		Listagem.setBackground(new Color(135, 148, 192));
+		Listagem.setBounds(290, 103, 213, 206);
+		Listagem.addMouseListener(new PanelAdaptador(Listagem));
+		add(Listagem);
 
 		JLabel lblCadastro_1 = new JLabel("");
 		lblCadastro_1.setBounds(80, 58, 40, 58);
 		lblCadastro_1.setIcon(new ImageIcon(
 				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/pesquisa-de-dados.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		panel_1.add(lblCadastro_1);
+		Listagem.add(lblCadastro_1);
 
 		JLabel lblNewLabel_1_1 = new JLabel(this.listagem + this.operacao);
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("Fira Code", Font.BOLD, 16));
 		lblNewLabel_1_1.setBounds(0, 119, 213, 58);
-		panel_1.add(lblNewLabel_1_1);
+		Listagem.add(lblNewLabel_1_1);
+
 	}
 
 	class PanelAdaptador extends MouseAdapter {
@@ -90,17 +95,17 @@ public class PainelRedirecionar extends JPanel {
 		}
 
 		@Override
-		public void mouseClicked(MouseEvent e) {
-			panel.setBackground(new Color(135, 148, 192));
-		}
-
-		@Override
 		public void mouseEntered(MouseEvent e) {
 			panel.setBackground(new Color(90, 103, 148));
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
+			panel.setBackground(new Color(135, 148, 192));
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
 			panel.setBackground(new Color(135, 148, 192));
 		}
 	}

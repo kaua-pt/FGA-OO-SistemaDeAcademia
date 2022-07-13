@@ -51,6 +51,11 @@ public class PainelMenu extends JFrame {
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
 
+		JPanel panelMainMenu = new JPanel();
+		panelMainMenu.setBackground(new Color(231, 233, 238));
+		panelMainMenu.setBounds(195, 11, 529, 403);
+		contentPane.add(panelMainMenu);
+		panelMainMenu.setLayout(null);
 		JLabel lblMainIcone = new JLabel("");
 		lblMainIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMainIcone.setBounds(10, 11, 165, 98);
@@ -203,12 +208,6 @@ public class PainelMenu extends JFrame {
 				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/sair.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelSair.add(lblSairIcone);
-
-		JPanel panelMainMenu = new JPanel();
-		panelMainMenu.setBackground(new Color(231, 233, 238));
-		panelMainMenu.setBounds(195, 11, 529, 403);
-		contentPane.add(panelMainMenu);
-		panelMainMenu.setLayout(null);
 
 		panelMainMenu.add(inicio);
 		panelMainMenu.add(redirecionarAluno);
