@@ -9,7 +9,7 @@ import Visao.PainelInicio;
 import Visao.PainelRedirecionar;
 
 /**
- * @author PC
+ * @author Kauã Vinícius
  *
  */
 public class ControladorMainLabel {
