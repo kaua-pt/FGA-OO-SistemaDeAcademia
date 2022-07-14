@@ -15,34 +15,45 @@ import Visao.PainelRedirecionar;
 public class ControladorMainLabel {
 
 	private JPanel tela;
-	private PainelInicio inicio = new PainelInicio();
-	private PainelRedirecionar redirecionarAluno = new PainelRedirecionar("Alunos", "Consultar ");
-	private PainelRedirecionar redirecionarExercicio = new PainelRedirecionar("Exercicios", "Listar ");
-	private PainelRedirecionar redirecionarTreino = new PainelRedirecionar("Treinos", "Consultar ");
+	private JPanel[] telas = new JPanel[12];
 
 	public ControladorMainLabel(JPanel tela) {
 		this.tela = tela;
-		this.tela.add(inicio);
-		this.tela.add(redirecionarAluno);
-		this.tela.add(redirecionarExercicio);
-		this.tela.add(redirecionarTreino);
 	}
 
 	public void caminho(int id) {
 
-		inicio.setVisible(false);
-		redirecionarAluno.setVisible(false);
-		redirecionarExercicio.setVisible(false);
-		redirecionarTreino.setVisible(false);
+		esconderTelas();
 
 		if (id == 1) {
-			inicio.setVisible(true);
+			PainelInicio inicio = new PainelInicio();
+			operarTela(id, inicio);
+
 		} else if (id == 2) {
-			redirecionarAluno.setVisible(true);
+			PainelRedirecionar redirecionarAluno = new PainelRedirecionar("Alunos", "Consultar ");
+			operarTela(id, redirecionarAluno);
+
 		} else if (id == 3) {
-			redirecionarExercicio.setVisible(true);
+			PainelRedirecionar redirecionarExercicio = new PainelRedirecionar("Exercicios", "Listar ");
+			operarTela(id, redirecionarExercicio);
+
 		} else if (id == 4) {
-			redirecionarTreino.setVisible(true);
+			PainelRedirecionar redirecionarTreino = new PainelRedirecionar("Treinos", "Consultar ");
+			operarTela(id, redirecionarTreino);
+		}
+	}
+
+	public void operarTela(int id, JPanel elemento) {
+		telas[id - 1] = elemento;
+		this.tela.add(elemento);
+		elemento.setVisible(true);
+	}
+
+	public void esconderTelas() {
+		for (JPanel telaCriada : telas) {
+			if (telaCriada != null) {
+				telaCriada.setVisible(false);
+			}
 		}
 	}
 }

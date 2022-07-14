@@ -151,27 +151,27 @@ public class PanelCadastroAluno extends JPanel {
 		lblNewLabel_3.setBounds(10, 11, 89, 14);
 		panelCadastrar.add(lblNewLabel_3);
 
-		JPanel panelCancelar = new JPanel();
-		panelCancelar.addMouseListener(new MouseAdapter() {
+		JPanel panelVoltar = new JPanel();
+		panelVoltar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				panelCancelar.setBackground(new Color(169, 46, 23));
+				panelVoltar.setBackground(new Color(169, 46, 23));
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				panelCancelar.setBackground(new Color(226, 71, 43));
+				panelVoltar.setBackground(new Color(226, 71, 43));
 			}
 		});
-		panelCancelar.setLayout(null);
-		panelCancelar.setBackground(new Color(226, 71, 43));
-		panelCancelar.setBounds(101, 0, 106, 31);
-		Faixa_1.add(panelCancelar);
+		panelVoltar.setLayout(null);
+		panelVoltar.setBackground(new Color(226, 71, 43));
+		panelVoltar.setBounds(101, 0, 106, 31);
+		Faixa_1.add(panelVoltar);
 
-		JLabel lblNewLabel_3_1 = new JLabel("Limpar");
+		JLabel lblNewLabel_3_1 = new JLabel("Voltar");
 		lblNewLabel_3_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblNewLabel_3_1.setBounds(26, 11, 64, 14);
-		panelCancelar.add(lblNewLabel_3_1);
+		panelVoltar.add(lblNewLabel_3_1);
 
 		JLabel lblIconNome = new JLabel("");
 		lblIconNome.setBounds(19, 105, 40, 41);

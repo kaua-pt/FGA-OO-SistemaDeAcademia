@@ -47,6 +47,7 @@ public class PainelRedirecionar extends JPanel {
 		panelCadastro.setLayout(null);
 		panelCadastro.setBackground(new Color(135, 148, 192));
 		panelCadastro.setBounds(24, 132, 218, 206);
+		panelCadastro.addMouseListener(new PanelAdaptador(panelCadastro));
 		panelCadastro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -72,6 +73,7 @@ public class PainelRedirecionar extends JPanel {
 		Listagem.setLayout(null);
 		Listagem.setBackground(new Color(135, 148, 192));
 		Listagem.setBounds(278, 132, 213, 206);
+		Listagem.addMouseListener(new PanelAdaptador(Listagem));
 		panel.add(Listagem);
 
 		JLabel lblList = new JLabel("");
@@ -87,5 +89,34 @@ public class PainelRedirecionar extends JPanel {
 		lblNewLabel_1_1.setBounds(0, 119, 213, 58);
 		Listagem.add(lblNewLabel_1_1);
 
+	}
+
+	protected class PanelAdaptador extends MouseAdapter {
+
+		JPanel panel;
+
+		public PanelAdaptador(JPanel panel) {
+			this.panel = panel;
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			panel.setBackground(new Color(135, 148, 192));
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			panel.setBackground(new Color(135, 148, 192));
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			panel.setBackground(new Color(90, 103, 148));
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			panel.setBackground(new Color(135, 148, 192));
+		}
 	}
 }

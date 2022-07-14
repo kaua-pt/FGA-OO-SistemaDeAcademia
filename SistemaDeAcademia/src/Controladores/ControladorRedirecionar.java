@@ -15,6 +15,7 @@ public class ControladorRedirecionar {
 	public void caminho(int id, JPanel panel) {
 
 		if (id == 1) {
+			panel.setVisible(false);
 			this.tela.setVisible(true);
 		} else if (id == 2) {
 			PanelCadastroAluno cadastro = new PanelCadastroAluno();
@@ -22,6 +23,7 @@ public class ControladorRedirecionar {
 			cadastro.setVisible(true);
 			panel.setVisible(false);
 		}
+
 	}
 
 }
