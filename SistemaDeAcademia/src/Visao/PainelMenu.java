@@ -21,15 +21,6 @@ public class PainelMenu extends JFrame {
 
 	private JPanel contentPane;
 
-	public static void main(String[] args) {
-		PainelMenu frame = new PainelMenu("Dale");
-		frame.setVisible(true);
-	}
-
-	/**
-	 * Create the frame.
-	 */
-
 	public PainelMenu(String titulo) {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 464);
