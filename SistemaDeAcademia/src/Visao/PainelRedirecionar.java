@@ -36,7 +36,7 @@ public class PainelRedirecionar extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 
-		ControladorRedirecionar controlador = new ControladorRedirecionar(this);
+		ControladorRedirecionar controlador = new ControladorRedirecionar(this, panel);
 
 		JLabel lblNewLabel = new JLabel("Escolha uma op\u00E7\u00E3o");
 		lblNewLabel.setFont(new Font("Fira Code", Font.BOLD, 20));
@@ -51,7 +51,7 @@ public class PainelRedirecionar extends JPanel {
 		panelCadastro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(2, panel);
+				controlador.caminho(2);
 			}
 		});
 		panel.add(panelCadastro);

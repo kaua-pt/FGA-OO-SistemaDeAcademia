@@ -19,12 +19,14 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Controladores.ControladorRedirecionar;
+
 public class PanelCadastroAluno extends JPanel {
 
 	private JFrame frame;
 	private JTextField textNomeAluno;
 
-	public PanelCadastroAluno() {
+	public PanelCadastroAluno(ControladorRedirecionar controlador) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -164,6 +166,12 @@ public class PanelCadastroAluno extends JPanel {
 			}
 		});
 		panelVoltar.setLayout(null);
+		panelVoltar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.caminho(1);
+			}
+		});
 		panelVoltar.setBackground(new Color(226, 71, 43));
 		panelVoltar.setBounds(101, 0, 106, 31);
 		Faixa_1.add(panelVoltar);
