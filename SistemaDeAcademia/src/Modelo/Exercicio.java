@@ -6,16 +6,15 @@ package Modelo;
 /**
  * @author Kau� Vin�cius
  *
- *	Classe respons�vel por armazenar elementos da classe exerc�cio
+ *         Classe respons�vel por armazenar elementos da classe exerc�cio
  */
-public class Exercicio extends Dados{
+public class Exercicio extends Dados {
 
 	private String descricao;
 	private int nRepeticao;
 	private int nSerie;
 
-	public Exercicio(String nome, int id,TipoDeGrupamento tipo,
-			String descicao,int nRepeticao, int nSerie){
+	public Exercicio(String nome, int id, TipoDeGrupamento tipo, String descicao, int nRepeticao, int nSerie) {
 		this.nome = nome;
 		this.id = id;
 		this.tipo = tipo;
@@ -24,11 +23,11 @@ public class Exercicio extends Dados{
 		this.nSerie = nSerie;
 	}
 
-	public Exercicio(String nome, int id,TipoDeGrupamento tipo) {
+	public Exercicio(String nome, int id, TipoDeGrupamento tipo, String descricao) {
 		this.nome = nome;
 		this.id = id;
 		this.tipo = tipo;
-		this.descricao = null;
+		this.descricao = descricao;
 		this.nRepeticao = 0;
 		this.nSerie = 0;
 	}
@@ -56,6 +55,5 @@ public class Exercicio extends Dados{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
 
 }
