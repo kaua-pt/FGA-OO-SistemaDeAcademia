@@ -1,7 +1,7 @@
 /**
  *
  */
-package Model;
+package Modelo;
 
 /**
  * @author Kaua
