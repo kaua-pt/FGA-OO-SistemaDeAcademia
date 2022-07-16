@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -19,6 +20,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
+import Modelo.TipoDeGrupamento;
 
 public class PanelCadastroExercicio extends JPanel {
 
@@ -46,7 +48,7 @@ public class PanelCadastroExercicio extends JPanel {
 
 		nomeExercicio = new JTextField();
 		nomeExercicio.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
-		nomeExercicio.setBounds(0, 11, 290, 20);
+		nomeExercicio.setBounds(0, 11, 290, 25);
 		panel_1.add(nomeExercicio);
 		nomeExercicio.setColumns(10);
 
@@ -136,7 +138,8 @@ public class PanelCadastroExercicio extends JPanel {
 		panel.add(lblIconNome);
 
 		JComboBox comboBoxExercicio = new JComboBox();
-		comboBoxExercicio.setFont(new Font("Fira Code Light", Font.BOLD, 16));
+		comboBoxExercicio.setModel(new DefaultComboBoxModel(TipoDeGrupamento.values()));
+		comboBoxExercicio.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		comboBoxExercicio.setBounds(168, 173, 310, 31);
 		panel.add(comboBoxExercicio);
 

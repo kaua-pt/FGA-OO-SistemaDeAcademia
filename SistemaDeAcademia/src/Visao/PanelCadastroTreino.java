@@ -1,20 +1,19 @@
 package Visao;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.DebugGraphics;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
@@ -23,6 +22,7 @@ import Controladores.ControladorRedirecionar;
 public class PanelCadastroTreino extends JPanel {
 
 	private JFrame frame;
+	private JTextField textField;
 
 	public PanelCadastroTreino(ControladorRedirecionar controlador) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -42,49 +42,16 @@ public class PanelCadastroTreino extends JPanel {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 
-		JPanel panel_2 = new JPanel();
-		panel_2.setToolTipText("");
-		panel_2.setBounds(137, 160, 49, 41);
-		panel.add(panel_2);
-		panel_2.setLayout(null);
+		textField = new JTextField();
+		textField.setBounds(0, 11, 332, 25);
+		panel_1.add(textField);
+		textField.setColumns(10);
 
-		JSpinner SpinIdade = new JSpinner();
-		SpinIdade.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		SpinIdade.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
-		SpinIdade.setFont(new Font("Fira Code", Font.PLAIN, 12));
-		SpinIdade.setBounds(10, 11, 30, 20);
-		panel_2.add(SpinIdade);
-
-		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(137, 212, 91, 47);
-		panel.add(panel_3);
-		panel_3.setLayout(null);
-
-		JSpinner SpinAltura = new JSpinner();
-		SpinAltura.setDoubleBuffered(true);
-		SpinAltura.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
-		SpinAltura.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		SpinAltura.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
-		SpinAltura.setModel(new SpinnerNumberModel(new Float(0), new Float(0), new Float(10000000), new Float(1)));
-		SpinAltura.setBounds(10, 11, 71, 30);
-		panel_3.add(SpinAltura);
-
-		JLabel lblNewLabel = new JLabel("Cadastro de Aluno");
+		JLabel lblNewLabel = new JLabel("Cadastro de Treino");
 		lblNewLabel.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(128, 33, 279, 26);
 		panel.add(lblNewLabel);
-
-		JPanel panel_3_1 = new JPanel();
-		panel_3_1.setLayout(null);
-		panel_3_1.setBounds(137, 270, 91, 47);
-		panel.add(panel_3_1);
-
-		JSpinner SpinPeso = new JSpinner();
-		SpinPeso.setModel(new SpinnerNumberModel(new Long(0), null, new Long(100000), new Long(1)));
-		SpinPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
-		SpinPeso.setBounds(10, 11, 71, 30);
-		panel_3_1.add(SpinPeso);
 
 		JPanel Faixa = new JPanel();
 		Faixa.setBackground(new Color(216, 205, 176));
@@ -93,23 +60,8 @@ public class PanelCadastroTreino extends JPanel {
 
 		JLabel lblNewLabel_1 = new JLabel("Nome:");
 		lblNewLabel_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(75, 112, 63, 26);
+		lblNewLabel_1.setBounds(75, 117, 63, 26);
 		panel.add(lblNewLabel_1);
-
-		JLabel lblNewLabel_1_1 = new JLabel("Idade:");
-		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(75, 167, 63, 26);
-		panel.add(lblNewLabel_1_1);
-
-		JLabel lblNewLabel_1_2 = new JLabel("Altura:");
-		lblNewLabel_1_2.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_2.setBounds(75, 222, 70, 26);
-		panel.add(lblNewLabel_1_2);
-
-		JLabel lblNewLabel_1_3 = new JLabel("Peso:");
-		lblNewLabel_1_3.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_3.setBounds(75, 280, 63, 26);
-		panel.add(lblNewLabel_1_3);
 
 		JLabel lblInsiraOsDados = new JLabel("Insira os dados:");
 		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
@@ -137,12 +89,18 @@ public class PanelCadastroTreino extends JPanel {
 		});
 		panelCadastrar.setBackground(new Color(43, 226, 71));
 		panelCadastrar.setBounds(313, 0, 106, 31);
+		panelCadastrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.caminho(5);
+			}
+		});
 		Faixa_1.add(panelCadastrar);
 		panelCadastrar.setLayout(null);
 
-		JLabel lblNewLabel_3 = new JLabel("Cadastrar");
+		JLabel lblNewLabel_3 = new JLabel("Exerc\u00EDcios");
 		lblNewLabel_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(10, 11, 89, 14);
+		lblNewLabel_3.setBounds(6, 11, 96, 14);
 		panelCadastrar.add(lblNewLabel_3);
 
 		JPanel panelVoltar = new JPanel();
@@ -180,25 +138,26 @@ public class PanelCadastroTreino extends JPanel {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconNome);
 
-		JLabel lblIconIdade = new JLabel("");
-		lblIconIdade.setBounds(19, 160, 40, 41);
-		lblIconIdade.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/ampulheta.png"))
-						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		panel.add(lblIconIdade);
+		JLabel lblNewLabel_1_1 = new JLabel("Tipo:");
+		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblNewLabel_1_1.setBounds(75, 260, 63, 26);
+		panel.add(lblNewLabel_1_1);
 
-		JLabel lblIconAltura = new JLabel("");
-		lblIconAltura.setBounds(19, 215, 40, 41);
-		lblIconAltura.setIcon(
-				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/altura.png"))
-						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		panel.add(lblIconAltura);
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "A- Peito, Tr\u00EDceps e Ombro",
+				"B- Costa e B\u00EDceps", "C- Perna", "D- Aer\u00F3bico" }));
+		comboBox.setBounds(136, 258, 343, 31);
+		panel.add(comboBox);
 
-		JLabel lblIconPeso = new JLabel("");
-		lblIconPeso.setBounds(19, 273, 40, 41);
-		lblIconPeso.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/balancas.png"))
-						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		panel.add(lblIconPeso);
+		JLabel lblNewLabel_2 = new JLabel("Aluno:");
+		lblNewLabel_2.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(75, 189, 75, 14);
+		panel.add(lblNewLabel_2);
+
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		comboBox_1.setBounds(137, 181, 343, 31);
+		panel.add(comboBox_1);
 	}
 }

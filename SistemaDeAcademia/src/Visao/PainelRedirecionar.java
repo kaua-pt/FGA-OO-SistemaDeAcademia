@@ -51,7 +51,13 @@ public class PainelRedirecionar extends JPanel {
 		panelCadastro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(2);
+				if (operacao == "Alunos") {
+					controlador.caminho(2);
+				} else if (operacao == "Exercicios") {
+					controlador.caminho(3);
+				} else if (operacao == "Treinos") {
+					controlador.caminho(4);
+				}
 			}
 		});
 		panel.add(panelCadastro);

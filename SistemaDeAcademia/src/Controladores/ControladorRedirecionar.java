@@ -3,6 +3,9 @@ package Controladores;
 import javax.swing.JPanel;
 
 import Visao.PanelCadastroAluno;
+import Visao.PanelCadastroExercicio;
+import Visao.PanelCadastroTreino;
+import Visao.PanelTreinoExercicios;
 
 public class ControladorRedirecionar {
 
@@ -25,6 +28,15 @@ public class ControladorRedirecionar {
 		} else if (id == 2) {
 			PanelCadastroAluno cadastroA = new PanelCadastroAluno(this);
 			operarTela(2, cadastroA);
+		} else if (id == 3) {
+			PanelCadastroExercicio cadastroE = new PanelCadastroExercicio(this);
+			operarTela(3, cadastroE);
+		} else if (id == 4) {
+			PanelCadastroTreino cadastroT = new PanelCadastroTreino(this);
+			operarTela(4, cadastroT);
+		} else if (id == 5) {
+			PanelTreinoExercicios TE = new PanelTreinoExercicios(this);
+			operarTela(5, TE);
 		}
 
 	}
