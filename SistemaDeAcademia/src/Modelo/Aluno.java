@@ -14,7 +14,7 @@ public class Aluno extends Dados {
 	private int idade;
 	private double altura;
 	private double peso;
-	private Treino treino;
+	private Treino[] treino = new Treino[4];
 
 	public Aluno(String nome, int id, int idade, double altura, double peso) {
 		this.nome = nome;
@@ -24,7 +24,7 @@ public class Aluno extends Dados {
 		this.peso = peso;
 	}
 
-	public Aluno(String nome, int id, int idade, double altura, double peso, Treino treino) {
+	public Aluno(String nome, int id, int idade, double altura, double peso, Treino treino[]) {
 		this.nome = nome;
 		this.id = id;
 		this.idade = idade;
