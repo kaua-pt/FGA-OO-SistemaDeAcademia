@@ -19,6 +19,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Controladores.ControladorAluno;
 import Controladores.ControladorRedirecionar;
 
 public class PanelCadastroAluno extends JPanel {
@@ -27,6 +28,9 @@ public class PanelCadastroAluno extends JPanel {
 	private JTextField textNomeAluno;
 
 	public PanelCadastroAluno(ControladorRedirecionar controlador) {
+
+		ControladorAluno controladorAluno = new ControladorAluno();
+
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -73,7 +77,7 @@ public class PanelCadastroAluno extends JPanel {
 		SpinAltura.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
 		SpinAltura.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		SpinAltura.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
-		SpinAltura.setModel(new SpinnerNumberModel(new Float(0), new Float(0), new Float(10000000), new Float(1)));
+		SpinAltura.setModel(new SpinnerNumberModel(0.0, 0.0, 1.0E7, 1.0));
 		SpinAltura.setBounds(10, 11, 71, 30);
 		panel_3.add(SpinAltura);
 
@@ -89,7 +93,7 @@ public class PanelCadastroAluno extends JPanel {
 		panel.add(panel_3_1);
 
 		JSpinner SpinPeso = new JSpinner();
-		SpinPeso.setModel(new SpinnerNumberModel(new Long(0), null, new Long(100000), new Long(1)));
+		SpinPeso.setModel(new SpinnerNumberModel(0.0, null, 100000.0, 1.0));
 		SpinPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		SpinPeso.setBounds(10, 11, 71, 30);
 		panel_3_1.add(SpinPeso);
@@ -141,6 +145,13 @@ public class PanelCadastroAluno extends JPanel {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				panelCadastrar.setBackground(new Color(43, 226, 71));
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controladorAluno.CadastrarAluno(textNomeAluno.getText(), (int) SpinIdade.getValue(),
+						(double) SpinAltura.getValue(), (double) SpinPeso.getValue());
+				controlador.caminho(1);
 			}
 		});
 		panelCadastrar.setBackground(new Color(43, 226, 71));

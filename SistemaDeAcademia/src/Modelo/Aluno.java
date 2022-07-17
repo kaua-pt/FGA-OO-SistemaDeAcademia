@@ -16,26 +16,19 @@ public class Aluno extends Dados {
 	private double peso;
 	private Treino[] treino = new Treino[4];
 
-	public Aluno(String nome, int id, int idade, double altura, double peso) {
-		this.nome = nome;
-		this.id = id;
+	public Aluno(String nome, int idade, double altura, double peso) {
+		super(nome);
 		this.idade = idade;
 		this.altura = altura;
 		this.peso = peso;
 	}
 
 	public Aluno(String nome, int id, int idade, double altura, double peso, Treino treino[]) {
-		this.nome = nome;
-		this.id = id;
+		super(nome, id);
 		this.idade = idade;
 		this.altura = altura;
 		this.peso = peso;
 		this.treino = treino;
-	}
-
-	public Aluno(String nome, int id) {
-		this.nome = nome;
-		this.id = id;
 	}
 
 	public double calcularImc() {

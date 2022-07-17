@@ -15,21 +15,10 @@ public class Exercicio extends Dados {
 	private int nSerie;
 
 	public Exercicio(String nome, int id, TipoDeGrupamento tipo, String descicao, int nRepeticao, int nSerie) {
-		this.nome = nome;
-		this.id = id;
-		this.tipo = tipo;
+		super(nome, id, tipo);
 		this.descricao = descicao;
 		this.nRepeticao = nRepeticao;
 		this.nSerie = nSerie;
-	}
-
-	public Exercicio(String nome, int id, TipoDeGrupamento tipo, String descricao) {
-		this.nome = nome;
-		this.id = id;
-		this.tipo = tipo;
-		this.descricao = descricao;
-		this.nRepeticao = 0;
-		this.nSerie = 0;
 	}
 
 	public int getnRepeticao() {

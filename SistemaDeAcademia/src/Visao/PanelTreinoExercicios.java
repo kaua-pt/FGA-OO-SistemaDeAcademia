@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
@@ -103,6 +104,7 @@ public class PanelTreinoExercicios extends JPanel {
 		add(Faixa_1_1);
 
 		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinner.setBounds(380, 115, 65, 20);
 		Faixa_1_1.add(spinner);
 
@@ -117,6 +119,7 @@ public class PanelTreinoExercicios extends JPanel {
 		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 16));
 
 		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinner_1.setBounds(380, 198, 65, 20);
 		Faixa_1_1.add(spinner_1);
 

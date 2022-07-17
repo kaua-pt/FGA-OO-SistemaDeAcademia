@@ -4,10 +4,8 @@
 package Controladores;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Modelo.Aluno;
-import Modelo.Dados;
 import Modelo.Exercicio;
 import Modelo.Treino;
 
@@ -16,22 +14,9 @@ import Modelo.Treino;
  *
  */
 public class BancoDeDados {
-	private static ArrayList<Aluno> alunos = new ArrayList();
-	private static ArrayList<Exercicio> exercicios = new ArrayList();
-	private static ArrayList<Treino> treinos = new ArrayList();
-	private Dados variador;
-
-	public static List<Aluno> getTodosAlunos() {
-		return alunos;
-	}
-
-	public static List<Exercicio> getTodosExercicios() {
-		return exercicios;
-	}
-
-	public static List<Treino> getTodosTreinos() {
-		return treinos;
-	}
+	public static ArrayList<Aluno> alunos = new ArrayList();
+	public static ArrayList<Exercicio> exercicios = new ArrayList();
+	public static ArrayList<Treino> treinos = new ArrayList();
 
 	public static Aluno getUmAluno(String nome) {
 		for (Aluno alunoComparado : alunos) {
