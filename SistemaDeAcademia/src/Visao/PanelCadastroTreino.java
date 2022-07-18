@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
+import Controladores.ControladorTreino;
 
 public class PanelCadastroTreino extends JPanel {
 
@@ -25,6 +26,9 @@ public class PanelCadastroTreino extends JPanel {
 	private JTextField textField;
 
 	public PanelCadastroTreino(ControladorRedirecionar controlador) {
+
+		ControladorTreino controladorT = new ControladorTreino();
+
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -74,34 +78,6 @@ public class PanelCadastroTreino extends JPanel {
 		Faixa_1.setBounds(0, 349, 529, 31);
 		panel.add(Faixa_1);
 		Faixa_1.setLayout(null);
-
-		JPanel panelCadastrar = new JPanel();
-		panelCadastrar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelCadastrar.setBackground(new Color(21, 113, 35));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelCadastrar.setBackground(new Color(43, 226, 71));
-			}
-		});
-		panelCadastrar.setBackground(new Color(43, 226, 71));
-		panelCadastrar.setBounds(313, 0, 106, 31);
-		panelCadastrar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(5);
-			}
-		});
-		Faixa_1.add(panelCadastrar);
-		panelCadastrar.setLayout(null);
-
-		JLabel lblNewLabel_3 = new JLabel("Exerc\u00EDcios");
-		lblNewLabel_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(6, 11, 96, 14);
-		panelCadastrar.add(lblNewLabel_3);
 
 		JPanel panelVoltar = new JPanel();
 		panelVoltar.addMouseListener(new MouseAdapter() {
@@ -159,5 +135,34 @@ public class PanelCadastroTreino extends JPanel {
 		comboBox_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		comboBox_1.setBounds(137, 181, 343, 31);
 		panel.add(comboBox_1);
+
+		JPanel panelCadastrar = new JPanel();
+		panelCadastrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelCadastrar.setBackground(new Color(21, 113, 35));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelCadastrar.setBackground(new Color(43, 226, 71));
+			}
+		});
+		panelCadastrar.setBackground(new Color(43, 226, 71));
+		panelCadastrar.setBounds(313, 0, 106, 31);
+		panelCadastrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controladorT.cadastrarTreino(textField.getText(), comboBox_1.getSelectedIndex(), null);
+				controlador.caminho(5);
+			}
+		});
+		Faixa_1.add(panelCadastrar);
+		panelCadastrar.setLayout(null);
+
+		JLabel lblNewLabel_3 = new JLabel("Exerc\u00EDcios");
+		lblNewLabel_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblNewLabel_3.setBounds(6, 11, 96, 14);
+		panelCadastrar.add(lblNewLabel_3);
 	}
 }

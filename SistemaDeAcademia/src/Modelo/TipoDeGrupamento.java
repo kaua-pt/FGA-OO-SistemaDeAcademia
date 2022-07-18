@@ -11,13 +11,14 @@ package Modelo;
 public enum TipoDeGrupamento {
 	PEITO(1), COSTA(2), BICEPS(3), TRICEPS(4), OMBRO(5), QUADRICEPS(6), POSTERIOR(7), PANTURRILHA(8), AEROBICO(9);
 
-	private final int id;
+	private final int ID;
 
 	TipoDeGrupamento(int id) {
-		this.id = id;
+		this.ID = id;
 	}
 
 	public int getId() {
-		return id;
+		return ID;
 	}
+
 }

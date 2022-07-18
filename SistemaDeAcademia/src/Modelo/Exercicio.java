@@ -3,6 +3,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  * @author Kau� Vin�cius
  *
@@ -14,12 +16,12 @@ public class Exercicio extends BaseAcademia {
 	private int nRepeticao;
 	private int nSerie;
 
-	public Exercicio(String nome, TipoDeGrupamento[] tipo, String descricao) {
+	public Exercicio(String nome, ArrayList<TipoDeGrupamento> tipo, String descricao) {
 		super(nome, tipo);
 		this.descricao = descricao;
 	}
 
-	public Exercicio(String nome, TipoDeGrupamento[] tipo, String descricao, int nRepeticao, int nSerie) {
+	public Exercicio(String nome, ArrayList<TipoDeGrupamento> tipo, String descricao, int nRepeticao, int nSerie) {
 		super(nome, tipo);
 		this.descricao = descricao;
 		this.nRepeticao = nRepeticao;

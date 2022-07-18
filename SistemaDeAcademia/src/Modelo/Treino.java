@@ -3,6 +3,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  * @author Kau� Vin�cius
  *
@@ -13,7 +15,7 @@ public class Treino extends BaseAcademia {
 
 	Exercicio[] exercicios = new Exercicio[8];
 
-	public Treino(String nome, TipoDeGrupamento[] tipo, Exercicio[] exercicios) {
+	public Treino(String nome, ArrayList<TipoDeGrupamento> tipo, Exercicio[] exercicios) {
 		super(nome, tipo);
 		this.exercicios = exercicios;
 	}

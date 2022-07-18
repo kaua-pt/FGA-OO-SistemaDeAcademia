@@ -3,6 +3,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  * @author Kaua
  *
@@ -11,13 +13,13 @@ package Modelo;
 public abstract class BaseAcademia {
 
 	protected String nome;
-	protected TipoDeGrupamento[] tipo;
+	protected static ArrayList<TipoDeGrupamento> tipo;
 
 	public BaseAcademia(String nome) {
 		this.nome = nome;
 	}
 
-	public BaseAcademia(String nome, TipoDeGrupamento[] tipo) {
+	public BaseAcademia(String nome, ArrayList<TipoDeGrupamento> tipo) {
 		this.nome = nome;
 		this.tipo = tipo;
 	}
@@ -30,4 +32,11 @@ public abstract class BaseAcademia {
 		this.nome = nome;
 	}
 
+	public static ArrayList<TipoDeGrupamento> getTipo() {
+		return tipo;
+	}
+
+	public static void setTipo(ArrayList<TipoDeGrupamento> tipo) {
+		BaseAcademia.tipo = tipo;
+	}
 }
