@@ -8,12 +8,14 @@ package Modelo;
  *
  *         Classe respons�vel por armazenar informa��es sobre os treinos
  */
-public class Treino extends Dados {
+
+public class Treino extends BaseAcademia {
 
 	Exercicio[] exercicios = new Exercicio[8];
 
-	public Treino(String nome, int id, TipoDeGrupamento tipo) {
-		super(nome, id, tipo);
+	public Treino(String nome, TipoDeGrupamento[] tipo, Exercicio[] exercicios) {
+		super(nome, tipo);
+		this.exercicios = exercicios;
 	}
 
 	public Exercicio[] getExercicios() {

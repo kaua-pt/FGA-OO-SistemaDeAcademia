@@ -8,15 +8,20 @@ package Modelo;
  *
  *         Classe respons�vel por armazenar elementos da classe exerc�cio
  */
-public class Exercicio extends Dados {
+public class Exercicio extends BaseAcademia {
 
 	private String descricao;
 	private int nRepeticao;
 	private int nSerie;
 
-	public Exercicio(String nome, int id, TipoDeGrupamento tipo, String descicao, int nRepeticao, int nSerie) {
-		super(nome, id, tipo);
-		this.descricao = descicao;
+	public Exercicio(String nome, TipoDeGrupamento[] tipo, String descricao) {
+		super(nome, tipo);
+		this.descricao = descricao;
+	}
+
+	public Exercicio(String nome, TipoDeGrupamento[] tipo, String descricao, int nRepeticao, int nSerie) {
+		super(nome, tipo);
+		this.descricao = descricao;
 		this.nRepeticao = nRepeticao;
 		this.nSerie = nSerie;
 	}

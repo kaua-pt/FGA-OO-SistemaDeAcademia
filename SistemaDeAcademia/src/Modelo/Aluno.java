@@ -5,26 +5,27 @@ package Modelo;
 
 /**
  *
- * @author Kau� Vin�cius Classe respons�vel por armazenar as
- *         informa��es de um aluno
+ * @author Kau� Vin�cius Classe respons�vel por armazenar as informa��es de um
+ *         aluno
  *
  */
-public class Aluno extends Dados {
+public class Aluno {
 
+	private String nome;
 	private int idade;
 	private double altura;
 	private double peso;
 	private Treino[] treino = new Treino[4];
 
 	public Aluno(String nome, int idade, double altura, double peso) {
-		super(nome);
+		this.nome = nome;
 		this.idade = idade;
 		this.altura = altura;
 		this.peso = peso;
 	}
 
-	public Aluno(String nome, int id, int idade, double altura, double peso, Treino treino[]) {
-		super(nome, id);
+	public Aluno(String nome, int idade, double altura, double peso, Treino treino[]) {
+		this.nome = nome;
 		this.idade = idade;
 		this.altura = altura;
 		this.peso = peso;
@@ -57,5 +58,21 @@ public class Aluno extends Dados {
 
 	public void setPeso(double peso) {
 		this.peso = peso;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Treino[] getTreino() {
+		return treino;
+	}
+
+	public void setTreino(Treino[] treino) {
+		this.treino = treino;
 	}
 }
