@@ -22,14 +22,6 @@ public class ControladorExercicio {
 		System.out.println("Exercicio Cadastrado");
 	}
 
-	public void cadastrarExercicioeSerie(String nome, int tipo, String descricao, int nRepeticao, int nSerie) {
-
-		Exercicio exercicio = new Exercicio(nome, pegarTipo(tipo + 1), descricao, nRepeticao, nSerie);
-		BancoDeDados.exercicios.add(exercicio);
-		System.out.println("Exercicio com series e repetições cadastrado");
-
-	}
-
 	public static ArrayList<TipoDeGrupamento> pegarTipo(int valor) {
 
 		ArrayList<TipoDeGrupamento> grupos = new ArrayList();

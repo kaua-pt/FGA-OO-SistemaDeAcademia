@@ -8,28 +8,33 @@ import Modelo.Treino;
 
 public class ControladorTreino {
 
-	public void cadastrarTreino(String nome, int tipos, Exercicio[] exercicios) {
+	private Treino treinoAux;
 
-		Treino treino = new Treino(nome, pegarTipos(parearIndices(tipos + 1)), exercicios);
+	public void cadastrarTreino(String nome, int tipos) {
+		treinoAux = new Treino(nome, pegarTipos(parearIndices(tipos)));
+	}
+
+	public void finalizarCadastro(Exercicio[] exercicios, int nRep, int nSer) {
+		Treino treino = new Treino(treinoAux.getNome(), treinoAux.getTipo(), exercicios, nRep, nSer);
 		BancoDeDados.treinos.add(treino);
-		System.out.println("Treino Cadastrado");
+		System.out.println("Finalizado com sucesso " + BancoDeDados.treinos.get(0).getNome());
+
 	}
 
 	public static ArrayList<TipoDeGrupamento> pegarTipos(ArrayList<Integer> valores) {
 		ArrayList<TipoDeGrupamento> grupos = new ArrayList();
 		for (int valor : valores) {
 			for (TipoDeGrupamento tipo : TipoDeGrupamento.values()) {
-				System.out.println(grupos);
 				if (tipo.getId() == valor) {
 					grupos.add(tipo);
 				}
 			}
 		}
+		System.out.println(grupos);
 		return grupos;
 	}
 
 	public static ArrayList<Integer> parearIndices(int index) {
-		System.out.println(index);
 		ArrayList<Integer> pareador = new ArrayList();
 
 		switch (index) {

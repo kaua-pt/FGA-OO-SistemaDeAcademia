@@ -18,6 +18,14 @@ public class BancoDeDados {
 	public static ArrayList<Exercicio> exercicios = new ArrayList();
 	public static ArrayList<Treino> treinos = new ArrayList();
 
+	public static String[] getTodosAlunos() {
+		String retornoAluno[] = new String[alunos.size()];
+		for (int i = 0; i < alunos.size(); i++) {
+			retornoAluno[i] = alunos.get(i).getNome();
+		}
+		return retornoAluno;
+	}
+
 	public static Aluno getUmAluno(String nome) {
 		for (Aluno alunoComparado : alunos) {
 			if (alunoComparado.getNome() == nome) {

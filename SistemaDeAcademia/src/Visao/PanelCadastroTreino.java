@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -22,12 +21,10 @@ import Controladores.ControladorTreino;
 
 public class PanelCadastroTreino extends JPanel {
 
-	private JFrame frame;
 	private JTextField textField;
+	ControladorTreino controladorT = new ControladorTreino();
 
 	public PanelCadastroTreino(ControladorRedirecionar controlador) {
-
-		ControladorTreino controladorT = new ControladorTreino();
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -119,22 +116,23 @@ public class PanelCadastroTreino extends JPanel {
 		lblNewLabel_1_1.setBounds(75, 260, 63, 26);
 		panel.add(lblNewLabel_1_1);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "A- Peito, Tr\u00EDceps e Ombro",
+		JComboBox comboGrupo = new JComboBox();
+		comboGrupo.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		comboGrupo.setModel(new DefaultComboBoxModel(new String[] { "A- Peito, Tr\u00EDceps e Ombro",
 				"B- Costa e B\u00EDceps", "C- Perna", "D- Aer\u00F3bico" }));
-		comboBox.setBounds(136, 258, 343, 31);
-		panel.add(comboBox);
+		comboGrupo.setBounds(136, 258, 343, 31);
+		panel.add(comboGrupo);
 
 		JLabel lblNewLabel_2 = new JLabel("Aluno:");
 		lblNewLabel_2.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(75, 189, 75, 14);
 		panel.add(lblNewLabel_2);
 
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		comboBox_1.setBounds(137, 181, 343, 31);
-		panel.add(comboBox_1);
+		JComboBox comboAluno = new JComboBox();
+		comboAluno.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		comboAluno.setModel(new DefaultComboBoxModel<String>(Controladores.BancoDeDados.getTodosAlunos()));
+		comboAluno.setBounds(137, 181, 343, 31);
+		panel.add(comboAluno);
 
 		JPanel panelCadastrar = new JPanel();
 		panelCadastrar.addMouseListener(new MouseAdapter() {
@@ -153,8 +151,8 @@ public class PanelCadastroTreino extends JPanel {
 		panelCadastrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controladorT.cadastrarTreino(textField.getText(), comboBox_1.getSelectedIndex(), null);
-				controlador.caminho(5);
+				controladorT.cadastrarTreino(textField.getText(), comboGrupo.getSelectedIndex());
+				controlador.caminhoT(controladorT);
 			}
 		});
 		Faixa_1.add(panelCadastrar);

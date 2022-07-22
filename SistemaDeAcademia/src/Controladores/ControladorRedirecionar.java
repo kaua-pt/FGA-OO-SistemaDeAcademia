@@ -19,7 +19,6 @@ public class ControladorRedirecionar {
 	}
 
 	public void caminho(int id) {
-
 		this.padrao.setVisible(false);
 		esconderTelas();
 
@@ -34,11 +33,14 @@ public class ControladorRedirecionar {
 		} else if (id == 4) {
 			PanelCadastroTreino cadastroT = new PanelCadastroTreino(this);
 			operarTela(4, cadastroT);
-		} else if (id == 5) {
-			PanelTreinoExercicios TE = new PanelTreinoExercicios(this);
-			operarTela(5, TE);
 		}
 
+	}
+
+	public void caminhoT(ControladorTreino controlador) {
+		esconderTelas();
+		PanelTreinoExercicios TE = new PanelTreinoExercicios(this, controlador);
+		operarTela(10, TE);
 	}
 
 	public void operarTela(int id, JPanel elemento) {
@@ -54,4 +56,5 @@ public class ControladorRedirecionar {
 			}
 		}
 	}
+
 }

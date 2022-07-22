@@ -14,17 +14,18 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
+import Controladores.ControladorTreino;
 
 public class PanelTreinoExercicios extends JPanel {
 
 	private JFrame frame;
 
-	public PanelTreinoExercicios(ControladorRedirecionar controlador) {
+	public PanelTreinoExercicios(ControladorRedirecionar controlador, ControladorTreino controladorT) {
+
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
-
 		List list = new List();
 		list.setMultipleSelections(false);
 		list.setBounds(10, 58, 339, 294);
@@ -40,34 +41,6 @@ public class PanelTreinoExercicios extends JPanel {
 		Faixa_1.setBackground(new Color(216, 205, 176));
 		Faixa_1.setBounds(0, 358, 529, 31);
 		add(Faixa_1);
-
-		JPanel panelCadastrar = new JPanel();
-		panelCadastrar.setLayout(null);
-		panelCadastrar.setBackground(new Color(43, 226, 71));
-		panelCadastrar.setBounds(313, 0, 106, 31);
-		panelCadastrar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelCadastrar.setBackground(new Color(21, 113, 35));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelCadastrar.setBackground(new Color(43, 226, 71));
-			}
-		});
-		panelCadastrar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(1);
-			}
-		});
-		Faixa_1.add(panelCadastrar);
-
-		JLabel lblNewLabel_3 = new JLabel("Cadastrar");
-		lblNewLabel_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(6, 11, 96, 14);
-		panelCadastrar.add(lblNewLabel_3);
 
 		JPanel panelVoltar = new JPanel();
 		panelVoltar.setLayout(null);
@@ -103,10 +76,10 @@ public class PanelTreinoExercicios extends JPanel {
 		Faixa_1_1.setBounds(0, 0, 634, 403);
 		add(Faixa_1_1);
 
-		JSpinner spinner = new JSpinner();
-		spinner.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
-		spinner.setBounds(380, 115, 65, 20);
-		Faixa_1_1.add(spinner);
+		JSpinner spinSerie = new JSpinner();
+		spinSerie.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
+		spinSerie.setBounds(380, 115, 65, 20);
+		Faixa_1_1.add(spinSerie);
 
 		JLabel lblNewLabel_1 = new JLabel("S\u00E9ries:");
 		lblNewLabel_1.setBounds(370, 75, 91, 29);
@@ -118,10 +91,39 @@ public class PanelTreinoExercicios extends JPanel {
 		Faixa_1_1.add(lblNewLabel_1_1);
 		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 16));
 
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
-		spinner_1.setBounds(380, 198, 65, 20);
-		Faixa_1_1.add(spinner_1);
+		JSpinner spinRep = new JSpinner();
+		spinRep.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
+		spinRep.setBounds(380, 198, 65, 20);
+		Faixa_1_1.add(spinRep);
+
+		JPanel panelCadastrar = new JPanel();
+		panelCadastrar.setLayout(null);
+		panelCadastrar.setBackground(new Color(43, 226, 71));
+		panelCadastrar.setBounds(313, 0, 106, 31);
+		panelCadastrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelCadastrar.setBackground(new Color(21, 113, 35));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelCadastrar.setBackground(new Color(43, 226, 71));
+			}
+		});
+		panelCadastrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controladorT.finalizarCadastro(null, (int) spinRep.getValue(), (int) spinSerie.getValue());
+				controlador.caminho(1);
+			}
+		});
+		Faixa_1.add(panelCadastrar);
+
+		JLabel lblNewLabel_3 = new JLabel("Cadastrar");
+		lblNewLabel_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblNewLabel_3.setBounds(6, 11, 96, 14);
+		panelCadastrar.add(lblNewLabel_3);
 
 	}
 }

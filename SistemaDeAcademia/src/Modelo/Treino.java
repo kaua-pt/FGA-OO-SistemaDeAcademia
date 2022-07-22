@@ -13,11 +13,36 @@ import java.util.ArrayList;
 
 public class Treino extends BaseAcademia {
 
-	Exercicio[] exercicios = new Exercicio[8];
+	private Exercicio[] exercicios = new Exercicio[8];
+	private int nRepeticao;
+	private int nSerie;
 
-	public Treino(String nome, ArrayList<TipoDeGrupamento> tipo, Exercicio[] exercicios) {
+	public Treino(String nome, ArrayList<TipoDeGrupamento> tipo) {
+		super(nome, tipo);
+	}
+
+	public Treino(String nome, ArrayList<TipoDeGrupamento> tipo, Exercicio[] exercicios, int nRepeticao, int nSerie) {
+
 		super(nome, tipo);
 		this.exercicios = exercicios;
+		this.nRepeticao = nRepeticao;
+		this.nSerie = nSerie;
+	}
+
+	public int getnRepeticao() {
+		return nRepeticao;
+	}
+
+	public void setnRepeticao(int nRepeticao) {
+		this.nRepeticao = nRepeticao;
+	}
+
+	public int getnSerie() {
+		return nSerie;
+	}
+
+	public void setnSerie(int nSerie) {
+		this.nSerie = nSerie;
 	}
 
 	public Exercicio[] getExercicios() {

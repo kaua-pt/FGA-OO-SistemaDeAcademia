@@ -1,9 +1,7 @@
 /**
  * 
  */
-package Controladores;
-
-import Visao.PainelMenu;
+package Visao;
 
 /**
  * @author PC
