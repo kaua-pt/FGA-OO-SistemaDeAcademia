@@ -12,12 +12,8 @@ import java.util.ArrayList;
  */
 public abstract class BaseAcademia {
 
-	protected String nome;
-	protected static ArrayList<TipoDeGrupamento> tipo;
-
-	public BaseAcademia(String nome) {
-		this.nome = nome;
-	}
+	private String nome;
+	private ArrayList<TipoDeGrupamento> tipo;
 
 	public BaseAcademia(String nome, ArrayList<TipoDeGrupamento> tipo) {
 		this.nome = nome;
@@ -32,11 +28,7 @@ public abstract class BaseAcademia {
 		this.nome = nome;
 	}
 
-	public static ArrayList<TipoDeGrupamento> getTipo() {
+	public ArrayList<TipoDeGrupamento> getTipo() {
 		return tipo;
-	}
-
-	public static void setTipo(ArrayList<TipoDeGrupamento> tipo) {
-		BaseAcademia.tipo = tipo;
 	}
 }

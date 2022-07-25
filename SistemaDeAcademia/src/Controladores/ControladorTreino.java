@@ -15,6 +15,7 @@ public class ControladorTreino {
 	}
 
 	public void finalizarCadastro(Exercicio[] exercicios, int nRep, int nSer) {
+
 		Treino treino = new Treino(treinoAux.getNome(), treinoAux.getTipo(), exercicios, nRep, nSer);
 		BancoDeDados.treinos.add(treino);
 		System.out.println("Finalizado com sucesso " + BancoDeDados.treinos.get(0).getNome());

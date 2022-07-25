@@ -29,6 +29,8 @@ public class PanelTreinoExercicios extends JPanel {
 
 		ArrayList<String> stringExercicios = new ArrayList();
 
+		// problema
+
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -105,7 +107,9 @@ public class PanelTreinoExercicios extends JPanel {
 		DefaultListModel listaModelo = new DefaultListModel();
 
 		stringExercicios = BancoDeDados.getExercicioPorTipo(tipos);
-		listaModelo.addElement(stringExercicios);
+		for (String exercicio : stringExercicios) {
+			listaModelo.addElement(exercicio);
+		}
 
 		listExerciciosTreino.setModel(listaModelo);
 

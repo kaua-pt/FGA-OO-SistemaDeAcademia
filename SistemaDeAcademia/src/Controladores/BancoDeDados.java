@@ -19,8 +19,8 @@ public class BancoDeDados {
 	public static ArrayList<Exercicio> exercicios = new ArrayList();
 	public static ArrayList<Treino> treinos = new ArrayList();
 
-	public static void teste() {
-		System.out.println("nome: " + exercicios.get(0).toString());
+	public static String teste() {
+		return "nome: " + exercicios.get(0).toString();
 	}
 
 	public static String[] getTodosAlunos() {
@@ -64,12 +64,10 @@ public class BancoDeDados {
 
 		for (TipoDeGrupamento grupo : tipos) {
 
-			System.out.println(grupo);
 			for (int i = 0; i < exercicios.size(); i++) {
-				System.out.println("nome: " + exercicios.get(i).toString());
 
-				if (grupo.equals(exercicios.get(i).getTipo()) == true) {
-					System.out.println("entrei");
+				if (exercicios.get(i).toString().contains(grupo.name())) {
+
 					retorno.add(exercicios.get(i).getNome());
 				}
 

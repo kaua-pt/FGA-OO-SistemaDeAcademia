@@ -21,7 +21,7 @@ public class Exercicio extends BaseAcademia {
 
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome + " " + "Tipo: " + this.tipo.toString() + "Descricao: " + this.descricao;
+		return "Nome: " + this.getNome() + " " + "Tipo: " + this.getTipo().toString() + "Descricao: " + this.descricao;
 	}
 
 	public String getDescricao() {
@@ -31,5 +31,4 @@ public class Exercicio extends BaseAcademia {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
 }
