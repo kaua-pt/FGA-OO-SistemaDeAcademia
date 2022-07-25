@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import Modelo.Aluno;
 import Modelo.Exercicio;
+import Modelo.TipoDeGrupamento;
 import Modelo.Treino;
 
 /**
@@ -17,6 +18,10 @@ public class BancoDeDados {
 	public static ArrayList<Aluno> alunos = new ArrayList();
 	public static ArrayList<Exercicio> exercicios = new ArrayList();
 	public static ArrayList<Treino> treinos = new ArrayList();
+
+	public static void teste() {
+		System.out.println("nome: " + exercicios.get(0).toString());
+	}
 
 	public static String[] getTodosAlunos() {
 		String retornoAluno[] = new String[alunos.size()];
@@ -51,5 +56,25 @@ public class BancoDeDados {
 			}
 		}
 		return null;
+	}
+
+	public static ArrayList<String> getExercicioPorTipo(ArrayList<TipoDeGrupamento> tipos) {
+
+		ArrayList<String> retorno = new ArrayList();
+
+		for (TipoDeGrupamento grupo : tipos) {
+
+			System.out.println(grupo);
+			for (int i = 0; i < exercicios.size(); i++) {
+				System.out.println("nome: " + exercicios.get(i).toString());
+
+				if (grupo.equals(exercicios.get(i).getTipo()) == true) {
+					System.out.println("entrei");
+					retorno.add(exercicios.get(i).getNome());
+				}
+
+			}
+		}
+		return retorno;
 	}
 }

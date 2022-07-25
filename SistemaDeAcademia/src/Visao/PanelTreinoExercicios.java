@@ -2,34 +2,37 @@ package Visao;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.List;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.LineBorder;
 
+import Controladores.BancoDeDados;
 import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTreino;
+import Modelo.TipoDeGrupamento;
 
 public class PanelTreinoExercicios extends JPanel {
 
 	private JFrame frame;
 
-	public PanelTreinoExercicios(ControladorRedirecionar controlador, ControladorTreino controladorT) {
+	public PanelTreinoExercicios(ControladorRedirecionar controlador, ControladorTreino controladorT,
+			ArrayList<TipoDeGrupamento> tipos) {
+
+		ArrayList<String> stringExercicios = new ArrayList();
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
-		List list = new List();
-		list.setMultipleSelections(false);
-		list.setBounds(10, 58, 339, 294);
-		add(list);
 
 		JLabel lblNewLabel = new JLabel("Selecione os exerc\u00EDcios desejados");
 		lblNewLabel.setFont(new Font("Fira Code Light", Font.BOLD, 16));
@@ -96,6 +99,19 @@ public class PanelTreinoExercicios extends JPanel {
 		spinRep.setBounds(380, 198, 65, 20);
 		Faixa_1_1.add(spinRep);
 
+		JList listExerciciosTreino = new JList();
+		listExerciciosTreino.setFont(new Font("Fira Code Light", Font.PLAIN, 14));
+		listExerciciosTreino.setVisibleRowCount(80);
+		DefaultListModel listaModelo = new DefaultListModel();
+
+		stringExercicios = BancoDeDados.getExercicioPorTipo(tipos);
+		listaModelo.addElement(stringExercicios);
+
+		listExerciciosTreino.setModel(listaModelo);
+
+		listExerciciosTreino.setBounds(21, 63, 338, 282);
+		Faixa_1_1.add(listExerciciosTreino);
+
 		JPanel panelCadastrar = new JPanel();
 		panelCadastrar.setLayout(null);
 		panelCadastrar.setBackground(new Color(43, 226, 71));
@@ -115,6 +131,7 @@ public class PanelTreinoExercicios extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controladorT.finalizarCadastro(null, (int) spinRep.getValue(), (int) spinSerie.getValue());
+				System.out.println(listExerciciosTreino.getSelectedValuesList());
 				controlador.caminho(1);
 			}
 		});
@@ -122,7 +139,7 @@ public class PanelTreinoExercicios extends JPanel {
 
 		JLabel lblNewLabel_3 = new JLabel("Cadastrar");
 		lblNewLabel_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(6, 11, 96, 14);
+		lblNewLabel_3.setBounds(10, 11, 96, 14);
 		panelCadastrar.add(lblNewLabel_3);
 
 	}

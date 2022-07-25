@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Controladores.BancoDeDados;
 import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTreino;
 
@@ -25,7 +26,7 @@ public class PanelCadastroTreino extends JPanel {
 	ControladorTreino controladorT = new ControladorTreino();
 
 	public PanelCadastroTreino(ControladorRedirecionar controlador) {
-
+		BancoDeDados.teste();
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -152,7 +153,8 @@ public class PanelCadastroTreino extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controladorT.cadastrarTreino(textField.getText(), comboGrupo.getSelectedIndex());
-				controlador.caminhoT(controladorT);
+				controlador.caminhoT(controladorT,
+						controladorT.pegarTipos(controladorT.parearIndices(comboGrupo.getSelectedIndex())));
 			}
 		});
 		Faixa_1.add(panelCadastrar);

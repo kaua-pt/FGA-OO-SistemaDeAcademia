@@ -16,10 +16,10 @@ public class ControladorExercicio {
 
 	public void cadastrarExercicio(String nome, int tipo, String descricao) {
 
-		System.out.println(pegarTipo(tipo + 1));
 		Exercicio exercicio = new Exercicio(nome, pegarTipo(tipo + 1), descricao);
 		BancoDeDados.exercicios.add(exercicio);
 		System.out.println("Exercicio Cadastrado");
+
 	}
 
 	public static ArrayList<TipoDeGrupamento> pegarTipo(int valor) {

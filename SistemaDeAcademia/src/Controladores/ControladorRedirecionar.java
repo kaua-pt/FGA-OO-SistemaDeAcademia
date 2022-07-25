@@ -1,7 +1,10 @@
 package Controladores;
 
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
+import Modelo.TipoDeGrupamento;
 import Visao.PanelCadastroAluno;
 import Visao.PanelCadastroExercicio;
 import Visao.PanelCadastroTreino;
@@ -37,9 +40,9 @@ public class ControladorRedirecionar {
 
 	}
 
-	public void caminhoT(ControladorTreino controlador) {
+	public void caminhoT(ControladorTreino controlador, ArrayList<TipoDeGrupamento> lista) {
 		esconderTelas();
-		PanelTreinoExercicios TE = new PanelTreinoExercicios(this, controlador);
+		PanelTreinoExercicios TE = new PanelTreinoExercicios(this, controlador, lista);
 		operarTela(10, TE);
 	}
 

@@ -19,6 +19,11 @@ public class Exercicio extends BaseAcademia {
 		this.descricao = descricao;
 	}
 
+	@Override
+	public String toString() {
+		return "Nome: " + this.nome + " " + "Tipo: " + this.tipo.toString() + "Descricao: " + this.descricao;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
