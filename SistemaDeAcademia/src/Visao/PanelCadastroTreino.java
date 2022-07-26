@@ -151,8 +151,8 @@ public class PanelCadastroTreino extends JPanel {
 		panelCadastrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
-				controladorT.cadastrarTreino(textField.getText(), comboGrupo.getSelectedIndex());
+				controladorT.cadastrarTreino(textField.getText(), comboGrupo.getSelectedIndex(),
+						comboAluno.getSelectedItem().toString());
 				controlador.caminhoT(controladorT,
 						controladorT.pegarTipos(controladorT.parearIndices(comboGrupo.getSelectedIndex())));
 			}

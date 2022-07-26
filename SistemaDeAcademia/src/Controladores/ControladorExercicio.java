@@ -24,7 +24,7 @@ public class ControladorExercicio {
 
 	public static ArrayList<TipoDeGrupamento> pegarTipo(int valor) {
 
-		ArrayList<TipoDeGrupamento> grupos = new ArrayList();
+		ArrayList<TipoDeGrupamento> grupos = new ArrayList<TipoDeGrupamento>();
 
 		for (TipoDeGrupamento tipo : TipoDeGrupamento.values()) {
 			if (tipo.getId() == valor) {

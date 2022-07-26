@@ -1,6 +1,7 @@
 package Controladores;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
@@ -9,21 +10,38 @@ import Modelo.Treino;
 public class ControladorTreino {
 
 	private Treino treinoAux;
+	private ControladorAluno controladorA = new ControladorAluno();
+	private String nomeAlunoAux;
 
-	public void cadastrarTreino(String nome, int tipos) {
+	public void cadastrarTreino(String nome, int tipos, String nomeAluno) {
 		treinoAux = new Treino(nome, pegarTipos(parearIndices(tipos)));
+		nomeAlunoAux = nomeAluno;
 	}
 
-	public void finalizarCadastro(Exercicio[] exercicios, int nRep, int nSer) {
+	public void finalizarCadastro(List<String> nomes, int nRep, int nSer) {
 
-		Treino treino = new Treino(treinoAux.getNome(), treinoAux.getTipo(), exercicios, nRep, nSer);
+		Treino treino = new Treino(treinoAux.getNome(), treinoAux.getTipo(), parearExercicios(nomes), nRep, nSer);
 		BancoDeDados.treinos.add(treino);
-		System.out.println("Finalizado com sucesso " + BancoDeDados.treinos.get(0).getNome());
+		controladorA.anexarTreino(nomeAlunoAux, treino);
+		System.out.println("Finalizado com sucesso");
 
+	}
+
+	public static ArrayList<Exercicio> parearExercicios(List<String> nomes) {
+		ArrayList<Exercicio> exercicios = new ArrayList<Exercicio>();
+		for (String nome : nomes) {
+			for (Exercicio exercicioUnico : BancoDeDados.exercicios) {
+				if (nome == exercicioUnico.getNome()) {
+					exercicios.add(exercicioUnico);
+				}
+			}
+		}
+		System.out.println(exercicios);
+		return exercicios;
 	}
 
 	public static ArrayList<TipoDeGrupamento> pegarTipos(ArrayList<Integer> valores) {
-		ArrayList<TipoDeGrupamento> grupos = new ArrayList();
+		ArrayList<TipoDeGrupamento> grupos = new ArrayList<TipoDeGrupamento>();
 		for (int valor : valores) {
 			for (TipoDeGrupamento tipo : TipoDeGrupamento.values()) {
 				if (tipo.getId() == valor) {
@@ -36,7 +54,7 @@ public class ControladorTreino {
 	}
 
 	public static ArrayList<Integer> parearIndices(int index) {
-		ArrayList<Integer> pareador = new ArrayList();
+		ArrayList<Integer> pareador = new ArrayList<Integer>();
 
 		switch (index) {
 		case 0:

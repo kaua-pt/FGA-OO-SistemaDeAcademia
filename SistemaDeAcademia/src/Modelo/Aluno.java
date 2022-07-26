@@ -3,10 +3,12 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Kau� Vin�cius Classe respons�vel por armazenar as informa��es de um
- *         aluno
+ * @author Kau� Vin�cius Classe respons�vel por armazenar as
+ *         informa��es de um aluno
  *
  */
 public class Aluno {
@@ -15,7 +17,7 @@ public class Aluno {
 	private int idade;
 	private double altura;
 	private double peso;
-	private Treino[] treino = new Treino[4];
+	private ArrayList<Treino> treinos = new ArrayList<Treino>();
 
 	public Aluno(String nome, int idade, double altura, double peso) {
 		this.nome = nome;
@@ -24,12 +26,12 @@ public class Aluno {
 		this.peso = peso;
 	}
 
-	public Aluno(String nome, int idade, double altura, double peso, Treino treino[]) {
+	public Aluno(String nome, int idade, double altura, double peso, ArrayList<Treino> treinos) {
 		this.nome = nome;
 		this.idade = idade;
 		this.altura = altura;
 		this.peso = peso;
-		this.treino = treino;
+		this.treinos = treinos;
 	}
 
 	public double calcularImc() {
@@ -64,15 +66,16 @@ public class Aluno {
 		return nome;
 	}
 
+	public ArrayList<Treino> getTreinos() {
+		return treinos;
+	}
+
+	public void setTreinos(ArrayList<Treino> treinos) {
+		this.treinos = treinos;
+	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public Treino[] getTreino() {
-		return treino;
-	}
-
-	public void setTreino(Treino[] treino) {
-		this.treino = treino;
-	}
 }

@@ -56,7 +56,7 @@ public class PanelCadastroAluno extends JPanel {
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setToolTipText("");
-		panel_2.setBounds(137, 160, 49, 41);
+		panel_2.setBounds(137, 160, 55, 41);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 
@@ -64,7 +64,7 @@ public class PanelCadastroAluno extends JPanel {
 		SpinIdade.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		SpinIdade.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		SpinIdade.setFont(new Font("Fira Code", Font.PLAIN, 12));
-		SpinIdade.setBounds(10, 11, 30, 20);
+		SpinIdade.setBounds(10, 11, 45, 20);
 		panel_2.add(SpinIdade);
 
 		JPanel panel_3 = new JPanel();
@@ -77,7 +77,7 @@ public class PanelCadastroAluno extends JPanel {
 		SpinAltura.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
 		SpinAltura.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		SpinAltura.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
-		SpinAltura.setModel(new SpinnerNumberModel(0.0, 0.0, 1.0E7, 1.0));
+		SpinAltura.setModel(new SpinnerNumberModel(0.0, 0.0, 1.0E7, 5.0));
 		SpinAltura.setBounds(10, 11, 71, 30);
 		panel_3.add(SpinAltura);
 
@@ -149,7 +149,7 @@ public class PanelCadastroAluno extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controladorAluno.CadastrarAluno(textNomeAluno.getText(), (int) SpinIdade.getValue(),
+				controladorAluno.cadastrarAluno(textNomeAluno.getText(), (int) SpinIdade.getValue(),
 						(double) SpinAltura.getValue(), (double) SpinPeso.getValue());
 				controlador.caminho(1);
 			}

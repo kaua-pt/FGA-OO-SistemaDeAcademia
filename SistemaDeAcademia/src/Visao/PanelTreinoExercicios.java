@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -22,14 +21,11 @@ import Modelo.TipoDeGrupamento;
 
 public class PanelTreinoExercicios extends JPanel {
 
-	private JFrame frame;
-
+	@SuppressWarnings("removal")
 	public PanelTreinoExercicios(ControladorRedirecionar controlador, ControladorTreino controladorT,
 			ArrayList<TipoDeGrupamento> tipos) {
 
-		ArrayList<String> stringExercicios = new ArrayList();
-
-		// problema
+		ArrayList<String> stringExercicios = new ArrayList<String>();
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -134,8 +130,9 @@ public class PanelTreinoExercicios extends JPanel {
 		panelCadastrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controladorT.finalizarCadastro(null, (int) spinRep.getValue(), (int) spinSerie.getValue());
-				System.out.println(listExerciciosTreino.getSelectedValuesList());
+				controladorT.finalizarCadastro(listExerciciosTreino.getSelectedValuesList(), (int) spinRep.getValue(),
+						(int) spinSerie.getValue());
+
 				controlador.caminho(1);
 			}
 		});

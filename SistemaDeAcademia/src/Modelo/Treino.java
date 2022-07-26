@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class Treino extends BaseAcademia {
 
-	private Exercicio[] exercicios = new Exercicio[8];
+	private ArrayList<Exercicio> exercicios = new ArrayList<Exercicio>();
 	private int nRepeticao;
 	private int nSerie;
 
@@ -21,7 +21,8 @@ public class Treino extends BaseAcademia {
 		super(nome, tipo);
 	}
 
-	public Treino(String nome, ArrayList<TipoDeGrupamento> tipo, Exercicio[] exercicios, int nRepeticao, int nSerie) {
+	public Treino(String nome, ArrayList<TipoDeGrupamento> tipo, ArrayList<Exercicio> exercicios, int nRepeticao,
+			int nSerie) {
 
 		super(nome, tipo);
 		this.exercicios = exercicios;
@@ -45,11 +46,11 @@ public class Treino extends BaseAcademia {
 		this.nSerie = nSerie;
 	}
 
-	public Exercicio[] getExercicios() {
+	public ArrayList<Exercicio> getExercicios() {
 		return exercicios;
 	}
 
-	public void setExercicios(Exercicio[] exercicios) {
+	public void setExercicios(ArrayList<Exercicio> exercicios) {
 		this.exercicios = exercicios;
 	}
 
