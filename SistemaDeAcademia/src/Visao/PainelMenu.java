@@ -19,6 +19,10 @@ import Controladores.ControladorMainLabel;
 
 public class PainelMenu extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1076676034467007044L;
 	private JPanel contentPane;
 
 	public PainelMenu(String titulo) {

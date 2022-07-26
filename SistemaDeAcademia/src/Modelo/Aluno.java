@@ -38,6 +38,10 @@ public class Aluno {
 		return this.peso / (this.altura * this.altura);
 	}
 
+	public String getPrimeiroNome() {
+		return this.nome.split(" ")[0];
+	}
+
 	public int getIdade() {
 		return idade;
 	}

@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.DebugGraphics;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -24,9 +23,13 @@ import Controladores.ControladorRedirecionar;
 
 public class PanelCadastroAluno extends JPanel {
 
-	private JFrame frame;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3855518978965566703L;
 	private JTextField textNomeAluno;
 
+	@SuppressWarnings("removal")
 	public PanelCadastroAluno(ControladorRedirecionar controlador) {
 
 		ControladorAluno controladorAluno = new ControladorAluno();

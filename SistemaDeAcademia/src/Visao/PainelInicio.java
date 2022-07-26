@@ -15,6 +15,11 @@ import javax.swing.border.LineBorder;
 
 public class PainelInicio extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private JTextField txtAlunos;
 	private JTextField txtTreinos;
 	private JTextField txtExerccios;

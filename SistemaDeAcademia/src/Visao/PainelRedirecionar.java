@@ -17,6 +17,7 @@ import Controladores.ControladorRedirecionar;
 
 public class PainelRedirecionar extends JPanel {
 
+	private static final long serialVersionUID = -5262748883391237838L;
 	private String operacao;
 	private String listagem;
 

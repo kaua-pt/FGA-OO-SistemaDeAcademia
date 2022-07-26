@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -25,7 +24,10 @@ import Modelo.TipoDeGrupamento;
 
 public class PanelCadastroExercicio extends JPanel {
 
-	private JFrame frame;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -910184885933068706L;
 	private JTextField nomeExercicio;
 
 	public PanelCadastroExercicio(ControladorRedirecionar controlador) {
