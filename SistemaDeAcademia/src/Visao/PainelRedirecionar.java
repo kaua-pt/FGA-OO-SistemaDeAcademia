@@ -81,6 +81,18 @@ public class PainelRedirecionar extends JPanel {
 		Listagem.setBackground(new Color(135, 148, 192));
 		Listagem.setBounds(278, 132, 213, 206);
 		Listagem.addMouseListener(new PanelAdaptador(Listagem));
+		Listagem.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (operacao == "Alunos") {
+					controlador.caminho(5);
+				} else if (operacao == "Exercicios") {
+					controlador.caminho(6);
+				} else if (operacao == "Treinos") {
+					controlador.caminho(7);
+				}
+			}
+		});
 		panel.add(Listagem);
 
 		JLabel lblList = new JLabel("");

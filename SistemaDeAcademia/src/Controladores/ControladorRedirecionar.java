@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import Modelo.TipoDeGrupamento;
+import Visao.PanelBuscaAluno;
 import Visao.PanelCadastroAluno;
 import Visao.PanelCadastroExercicio;
 import Visao.PanelCadastroTreino;
@@ -26,16 +27,19 @@ public class ControladorRedirecionar {
 		esconderTelas();
 
 		if (id == 1) {
-			operarTela(1, this.padrao);
+			operarTela(id, this.padrao);
 		} else if (id == 2) {
 			PanelCadastroAluno cadastroA = new PanelCadastroAluno(this);
-			operarTela(2, cadastroA);
+			operarTela(id, cadastroA);
 		} else if (id == 3) {
 			PanelCadastroExercicio cadastroE = new PanelCadastroExercicio(this);
-			operarTela(3, cadastroE);
+			operarTela(id, cadastroE);
 		} else if (id == 4) {
 			PanelCadastroTreino cadastroT = new PanelCadastroTreino(this);
-			operarTela(4, cadastroT);
+			operarTela(id, cadastroT);
+		} else if (id == 5) {
+			PanelBuscaAluno buscaA = new PanelBuscaAluno(this);
+			operarTela(id, buscaA);
 		}
 
 	}

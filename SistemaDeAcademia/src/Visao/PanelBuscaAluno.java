@@ -18,21 +18,16 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import Controladores.BancoDeDados;
+import Controladores.ControladorRedirecionar;
 import Modelo.Aluno;
 
 public class PanelBuscaAluno extends JPanel {
 
-	Aluno aluno;
-
-	public static void main(String args[]) {
-		PanelBuscaAluno a = new PanelBuscaAluno();
-		a.setVisible(true);
-	}
-
 	private static final long serialVersionUID = 7399066554867365317L;
 	private JTextField textField;
 
-	public PanelBuscaAluno() {
+	public PanelBuscaAluno(ControladorRedirecionar controlador) {
+
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -79,10 +74,15 @@ public class PanelBuscaAluno extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+				Aluno aluno;
+
 				aluno = BancoDeDados.getUmAluno(textField.getText());
 				if (aluno == null) {
 					System.out.println("Aluno não encotrado, implementar");
 				} else {
+					System.out.println(aluno.getPeso());
+
+					resultadoBusca(panelInfo, aluno);
 					panelInfo.setVisible(true);
 				}
 			}
@@ -91,6 +91,37 @@ public class PanelBuscaAluno extends JPanel {
 		labelBusca.setBounds(451, 60, 68, 45);
 		add(labelBusca);
 
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(216, 205, 176));
+		panel_1.setAlignmentY(1.0f);
+		panel_1.setBounds(0, 364, 529, 28);
+		add(panel_1);
+		panel_1.setLayout(null);
+
+		JPanel panelVoltar = new JPanel();
+		panelVoltar.setBackground(Color.MAGENTA);
+		panelVoltar.setToolTipText("Voltar");
+		panelVoltar.setBounds(61, 0, 94, 28);
+		panel_1.add(panelVoltar);
+
+		JPanel panelVoltar_1 = new JPanel();
+		panelVoltar_1.setToolTipText("Voltar");
+		panelVoltar_1.setBackground(Color.GREEN);
+		panelVoltar_1.setBounds(216, 0, 94, 28);
+		panel_1.add(panelVoltar_1);
+
+		JPanel panelVoltar_1_1 = new JPanel();
+		panelVoltar_1_1.setToolTipText("Voltar");
+		panelVoltar_1_1.setBackground(Color.RED);
+		panelVoltar_1_1.setBounds(371, 0, 94, 28);
+		panel_1.add(panelVoltar_1_1);
+
+	}
+
+	public void resultadoBusca(JPanel panelInfo, Aluno aluno) {
+
+		System.out.println(aluno.getPeso());
+
 		JLabel lblPeso = new JLabel("Peso:\r " + aluno.getPeso());
 		lblPeso.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblPeso.setBounds(26, 152, 95, 14);
@@ -98,7 +129,7 @@ public class PanelBuscaAluno extends JPanel {
 
 		JLabel lblAltura = new JLabel("Altura:\r" + aluno.getAltura());
 		lblAltura.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblAltura.setBounds(26, 214, 95, 14);
+		lblAltura.setBounds(26, 214, 113, 14);
 		panelInfo.add(lblAltura);
 
 		JLabel lblIdade = new JLabel("Idade:\r" + aluno.getIdade());
@@ -139,31 +170,5 @@ public class PanelBuscaAluno extends JPanel {
 		listTreinos.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		listTreinos.setBounds(212, 46, 166, 193);
 		panelInfo.add(listTreinos);
-
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(216, 205, 176));
-		panel_1.setAlignmentY(1.0f);
-		panel_1.setBounds(0, 364, 529, 28);
-		add(panel_1);
-		panel_1.setLayout(null);
-
-		JPanel panelVoltar = new JPanel();
-		panelVoltar.setBackground(Color.MAGENTA);
-		panelVoltar.setToolTipText("Voltar");
-		panelVoltar.setBounds(61, 0, 94, 28);
-		panel_1.add(panelVoltar);
-
-		JPanel panelVoltar_1 = new JPanel();
-		panelVoltar_1.setToolTipText("Voltar");
-		panelVoltar_1.setBackground(Color.GREEN);
-		panelVoltar_1.setBounds(216, 0, 94, 28);
-		panel_1.add(panelVoltar_1);
-
-		JPanel panelVoltar_1_1 = new JPanel();
-		panelVoltar_1_1.setToolTipText("Voltar");
-		panelVoltar_1_1.setBackground(Color.RED);
-		panelVoltar_1_1.setBounds(371, 0, 94, 28);
-		panel_1.add(panelVoltar_1_1);
-
 	}
 }

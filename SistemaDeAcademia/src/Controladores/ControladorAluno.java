@@ -11,7 +11,7 @@ public class ControladorAluno {
 	public void cadastrarAluno(String nome, int idade, double altura, double peso) {
 		Aluno aluno = new Aluno(nome, idade, altura, peso);
 		BancoDeDados.alunos.add(aluno);
-		System.out.println("Aluno cadastrado");
+		System.out.println("Aluno cadastrado " + aluno.getPeso());
 	}
 
 	public void anexarTreino(String alunoNome, Treino treinos) {

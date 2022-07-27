@@ -29,7 +29,7 @@ public class BancoDeDados {
 
 	public static Aluno getUmAluno(String nome) {
 		for (Aluno alunoComparado : alunos) {
-			if (alunoComparado.getNome() == nome) {
+			if (nome.contains(alunoComparado.getNome())) {
 				return alunoComparado;
 			}
 		}
