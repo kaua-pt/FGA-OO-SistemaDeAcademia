@@ -18,6 +18,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Controladores.BancoDeDados;
 import Controladores.ControladorAluno;
 import Controladores.ControladorRedirecionar;
 
@@ -96,7 +97,7 @@ public class PanelCadastroAluno extends JPanel {
 		panel.add(panel_3_1);
 
 		JSpinner SpinPeso = new JSpinner();
-		SpinPeso.setModel(new SpinnerNumberModel(0.0, null, 100000.0, 1.0));
+		SpinPeso.setModel(new SpinnerNumberModel(0.0, 0.0, 100000.0, 1.0));
 		SpinPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		SpinPeso.setBounds(10, 11, 71, 30);
 		panel_3_1.add(SpinPeso);
@@ -152,9 +153,14 @@ public class PanelCadastroAluno extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controladorAluno.cadastrarAluno(textNomeAluno.getText(), (int) SpinIdade.getValue(),
-						(double) SpinAltura.getValue(), (double) SpinPeso.getValue());
-				controlador.caminho(1);
+				System.out.println(textNomeAluno);
+				if (((textNomeAluno.getText().isEmpty() == false) && (textNomeAluno.getText().isBlank() == false)
+						&& (BancoDeDados.getUmAluno(textNomeAluno.getText())) == null)) {
+
+					controladorAluno.cadastrarAluno(textNomeAluno.getText(), (int) SpinIdade.getValue(),
+							(double) SpinAltura.getValue(), (double) SpinPeso.getValue());
+					controlador.caminho(1);
+				}
 			}
 		});
 		panelCadastrar.setBackground(new Color(43, 226, 71));

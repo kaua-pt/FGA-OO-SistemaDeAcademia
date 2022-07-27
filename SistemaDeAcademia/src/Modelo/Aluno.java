@@ -19,6 +19,9 @@ public class Aluno {
 	private double peso;
 	private ArrayList<Treino> treinos = new ArrayList<Treino>();
 
+	public Aluno() {
+	}
+
 	public Aluno(String nome, int idade, double altura, double peso) {
 		this.nome = nome;
 		this.idade = idade;
@@ -35,7 +38,20 @@ public class Aluno {
 	}
 
 	public double calcularImc() {
-		return this.peso / (this.altura * this.altura);
+		return this.peso / ((this.altura * this.altura) / 10000);
+	}
+
+	public String calcularParametro() {
+		double imc = calcularImc();
+		if (imc < 18.5) {
+			return "Abaixo do Peso";
+		} else if (imc < 24.9) {
+			return "Peso normal";
+		} else if (imc < 29.9) {
+			return "Acima do Peso";
+		} else {
+			return "Obesidade";
+		}
 	}
 
 	public String getPrimeiroNome() {

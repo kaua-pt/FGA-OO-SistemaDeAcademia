@@ -10,12 +10,10 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
 
 import Controladores.BancoDeDados;
 import Controladores.ControladorRedirecionar;
@@ -57,33 +55,38 @@ public class PanelBuscaAluno extends JPanel {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(216, 205, 176));
 		panel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		panel.setBounds(0, 18, 529, 28);
+		panel.setBounds(1, 18, 527, 28);
 		add(panel);
 
 		JPanel panelInfo = new JPanel();
 		panelInfo.setBackground(Color.WHITE);
 		panelInfo.setAlignmentY(1.0f);
 		panelInfo.setVisible(false);
-		panelInfo.setBounds(0, 103, 529, 250);
+		panelInfo.setBounds(1, 103, 527, 250);
+		panelInfo.setVisible(false);
 		add(panelInfo);
 		panelInfo.setLayout(null);
+
+		JLabel lblnaoEncont = new JLabel("Aluno N\u00E3o Encontrado!");
+		lblnaoEncont.setVisible(false);
+		lblnaoEncont.setFont(new Font("Fira Code Light", Font.BOLD, 16));
+		lblnaoEncont.setBounds(153, 111, 220, 14);
+		panelInfo.add(lblnaoEncont);
 
 		JLabel labelBusca = new JLabel("Buscar");
 		labelBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		labelBusca.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
 				Aluno aluno;
 
 				aluno = BancoDeDados.getUmAluno(textField.getText());
 				if (aluno == null) {
-					System.out.println("Aluno não encotrado, implementar");
-				} else {
-					System.out.println(aluno.getPeso());
-
-					resultadoBusca(panelInfo, aluno);
+					lblnaoEncont.setVisible(true);
 					panelInfo.setVisible(true);
+				} else {
+					lblnaoEncont.setVisible(false);
+					controlador.caminhoBuscaA(panelInfo, aluno);
 				}
 			}
 		});
@@ -94,81 +97,96 @@ public class PanelBuscaAluno extends JPanel {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(216, 205, 176));
 		panel_1.setAlignmentY(1.0f);
-		panel_1.setBounds(0, 364, 529, 28);
+		panel_1.setBounds(1, 364, 527, 28);
 		add(panel_1);
 		panel_1.setLayout(null);
 
 		JPanel panelVoltar = new JPanel();
-		panelVoltar.setBackground(Color.MAGENTA);
+		panelVoltar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.caminho(1);
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelVoltar.setBackground(new Color(169, 46, 23));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelVoltar.setBackground(new Color(226, 71, 43));
+			}
+		});
+		panelVoltar.setBackground(new Color(226, 71, 43));
 		panelVoltar.setToolTipText("Voltar");
 		panelVoltar.setBounds(61, 0, 94, 28);
 		panel_1.add(panelVoltar);
+		panelVoltar.setLayout(null);
 
-		JPanel panelVoltar_1 = new JPanel();
-		panelVoltar_1.setToolTipText("Voltar");
-		panelVoltar_1.setBackground(Color.GREEN);
-		panelVoltar_1.setBounds(216, 0, 94, 28);
-		panel_1.add(panelVoltar_1);
+		JLabel lblNewLabel_1 = new JLabel("Voltar");
+		lblNewLabel_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(18, 9, 60, 14);
+		panelVoltar.add(lblNewLabel_1);
 
-		JPanel panelVoltar_1_1 = new JPanel();
-		panelVoltar_1_1.setToolTipText("Voltar");
-		panelVoltar_1_1.setBackground(Color.RED);
-		panelVoltar_1_1.setBounds(371, 0, 94, 28);
-		panel_1.add(panelVoltar_1_1);
+		JPanel panelEditar = new JPanel();
+		panelEditar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.caminho(1);
+			}
 
-	}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelEditar.setBackground(new Color(21, 113, 35));
+			}
 
-	public void resultadoBusca(JPanel panelInfo, Aluno aluno) {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelEditar.setBackground(new Color(43, 226, 71));
+			}
+		});
+		panelEditar.setToolTipText("Voltar");
+		panelEditar.setBackground(Color.GREEN);
+		panelEditar.setBounds(216, 0, 94, 28);
+		panel_1.add(panelEditar);
+		panelEditar.setLayout(null);
 
-		System.out.println(aluno.getPeso());
+		JLabel lblNewLabel_1_1 = new JLabel("Editar");
+		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblNewLabel_1_1.setBounds(18, 9, 60, 14);
+		panelEditar.add(lblNewLabel_1_1);
 
-		JLabel lblPeso = new JLabel("Peso:\r " + aluno.getPeso());
-		lblPeso.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblPeso.setBounds(26, 152, 95, 14);
-		panelInfo.add(lblPeso);
+		JPanel panelDeletar = new JPanel();
+		panelDeletar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controlador.caminho(1);
+			}
 
-		JLabel lblAltura = new JLabel("Altura:\r" + aluno.getAltura());
-		lblAltura.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblAltura.setBounds(26, 214, 113, 14);
-		panelInfo.add(lblAltura);
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelDeletar.setBackground(new Color(113, 35, 36));
+			}
 
-		JLabel lblIdade = new JLabel("Idade:\r" + aluno.getIdade());
-		lblIdade.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblIdade.setBounds(26, 85, 95, 14);
-		panelInfo.add(lblIdade);
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelDeletar.setBackground(new Color(162, 51, 52));
+			}
+		});
+		panelDeletar.setToolTipText("Voltar");
+		panelDeletar.setBackground(new Color(162, 51, 52));
+		panelDeletar.setBounds(371, 0, 94, 28);
+		panel_1.add(panelDeletar);
+		panelDeletar.setLayout(null);
 
-		JLabel lblIMC = new JLabel("IMC: " + aluno.calcularImc());
-		lblIMC.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblIMC.setBounds(422, 21, 81, 14);
-		panelInfo.add(lblIMC);
+		JLabel lblNewLabel_1_1_1 = new JLabel("Deletar");
+		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblNewLabel_1_1_1.setBounds(10, 9, 74, 14);
+		panelDeletar.add(lblNewLabel_1_1_1);
 
-		JLabel lblNome = new JLabel("Nome: " + aluno.getPrimeiroNome());
-		lblNome.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNome.setBounds(26, 21, 142, 14);
-		panelInfo.add(lblNome);
-
-		JLabel lblIMCPessoa = new JLabel("");
-		lblIMCPessoa.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIMCPessoa.setBounds(419, 46, 87, 157);
-		lblIMCPessoa.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
-				.getImage(PainelMenu.class.getResource("/Imagens/silhueta-de-corpo-humano-em-pe.png"))
-				.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
-		panelInfo.add(lblIMCPessoa);
-
-		JLabel lblTreinos = new JLabel("Treinos");
-		lblTreinos.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblTreinos.setBounds(260, 21, 71, 14);
-		panelInfo.add(lblTreinos);
-
-		JLabel Situação = new JLabel("");
-		Situação.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		Situação.setBounds(422, 214, 81, 14);
-		panelInfo.add(Situação);
-
-		JList listTreinos = new JList();
-		listTreinos.setFont(new Font("Fira Code Light", Font.PLAIN, 14));
-		listTreinos.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
-		listTreinos.setBounds(212, 46, 166, 193);
-		panelInfo.add(listTreinos);
 	}
 }

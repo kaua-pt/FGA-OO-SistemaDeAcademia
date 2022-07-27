@@ -28,7 +28,9 @@ public class BancoDeDados {
 	}
 
 	public static Aluno getUmAluno(String nome) {
+		System.out.println(nome);
 		for (Aluno alunoComparado : alunos) {
+			System.out.println(nome);
 			if (nome.contains(alunoComparado.getNome())) {
 				return alunoComparado;
 			}
