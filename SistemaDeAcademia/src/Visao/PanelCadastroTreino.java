@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Controladores.BancoDeDados;
 import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTreino;
 
@@ -151,10 +152,15 @@ public class PanelCadastroTreino extends JPanel {
 		panelCadastrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controladorT.cadastrarTreino(textField.getText(), comboGrupo.getSelectedIndex(),
-						comboAluno.getSelectedItem().toString());
-				controlador.caminhoT(controladorT,
-						controladorT.pegarTipos(controladorT.parearIndices(comboGrupo.getSelectedIndex())));
+
+				if ((textField.getText().isBlank() == false) && (textField.getText().isEmpty() == false)
+						&& (BancoDeDados.getUmTreino(textField.getText()) == null)) {
+					controladorT.cadastrarTreino(textField.getText(), comboGrupo.getSelectedIndex(),
+							comboAluno.getSelectedItem().toString());
+					controlador.caminhoT(controladorT,
+							controladorT.pegarTipos(controladorT.parearIndices(comboGrupo.getSelectedIndex())));
+				}
+
 			}
 		});
 		Faixa_1.add(panelCadastrar);

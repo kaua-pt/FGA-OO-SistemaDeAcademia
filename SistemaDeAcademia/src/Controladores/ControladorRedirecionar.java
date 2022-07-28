@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import Modelo.Aluno;
 import Modelo.TipoDeGrupamento;
-import Visao.AlunoEncontrado;
 import Visao.PanelBuscaAluno;
 import Visao.PanelCadastroAluno;
 import Visao.PanelCadastroExercicio;
@@ -17,8 +15,7 @@ public class ControladorRedirecionar {
 
 	private JPanel tela;
 	private JPanel padrao;
-	private JPanel[] telas = new JPanel[12];
-	private JPanel[] buscaAtual = new JPanel[12];
+	private JPanel[] telas = new JPanel[20];
 
 	public ControladorRedirecionar(JPanel tela, JPanel padrao) {
 		this.tela = tela;
@@ -45,13 +42,6 @@ public class ControladorRedirecionar {
 			operarTela(id, buscaA);
 		}
 
-	}
-
-	public void caminhoBuscaA(JPanel elemento, Aluno aluno) {
-		AlunoEncontrado alunoE = new AlunoEncontrado(aluno);
-		buscaAtual[0] = alunoE;
-		elemento.add(buscaAtual[0]);
-		elemento.setVisible(true);
 	}
 
 	public void caminhoT(ControladorTreino controlador, ArrayList<TipoDeGrupamento> lista) {

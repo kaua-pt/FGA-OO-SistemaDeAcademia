@@ -70,10 +70,10 @@ public class PanelAlunoEncontrado extends JPanel {
 		lblTreinos.setBounds(260, 21, 71, 14);
 		panelInfo.add(lblTreinos);
 
-		JLabel Situação = new JLabel("");
-		Situação.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		Situação.setBounds(422, 214, 81, 14);
-		panelInfo.add(Situação);
+		JLabel Situacao = new JLabel("");
+		Situacao.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		Situacao.setBounds(422, 214, 81, 14);
+		panelInfo.add(Situacao);
 
 		JList listTreinos = new JList();
 		listTreinos.setFont(new Font("Fira Code Light", Font.PLAIN, 14));

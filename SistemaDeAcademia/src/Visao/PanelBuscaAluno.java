@@ -10,10 +10,12 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
 import Controladores.BancoDeDados;
 import Controladores.ControladorRedirecionar;
@@ -21,8 +23,18 @@ import Modelo.Aluno;
 
 public class PanelBuscaAluno extends JPanel {
 
+	Aluno aluno;
 	private static final long serialVersionUID = 7399066554867365317L;
 	private JTextField textField;
+	private JList<Object> listTreinos;
+	private JLabel lblPeso;
+	private JLabel lblAltura;
+	private JLabel lblIdade;
+	private JLabel lblIMC;
+	private JLabel lblNome;
+	private JLabel lblIMCPessoa;
+	private JLabel lblTreinos;
+	private JLabel Situacao;
 
 	public PanelBuscaAluno(ControladorRedirecionar controlador) {
 
@@ -67,6 +79,57 @@ public class PanelBuscaAluno extends JPanel {
 		add(panelInfo);
 		panelInfo.setLayout(null);
 
+		lblPeso = new JLabel();
+		lblPeso.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblPeso.setBounds(26, 152, 115, 14);
+		panelInfo.add(lblPeso);
+
+		lblAltura = new JLabel();
+		lblAltura.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblAltura.setBounds(26, 214, 113, 14);
+		panelInfo.add(lblAltura);
+
+		lblIdade = new JLabel();
+		lblIdade.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblIdade.setBounds(26, 85, 95, 14);
+		panelInfo.add(lblIdade);
+
+		lblIMC = new JLabel();
+		lblIMC.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIMC.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblIMC.setBounds(405, 21, 115, 14);
+		panelInfo.add(lblIMC);
+
+		lblNome = new JLabel();
+		lblNome.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblNome.setBounds(26, 21, 142, 14);
+		panelInfo.add(lblNome);
+
+		lblIMCPessoa = new JLabel("");
+		lblIMCPessoa.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIMCPessoa.setBounds(419, 46, 87, 157);
+		lblIMCPessoa.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
+				.getImage(PainelMenu.class.getResource("/Imagens/silhueta-de-corpo-humano-em-pe.png"))
+				.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		panelInfo.add(lblIMCPessoa);
+
+		lblTreinos = new JLabel("Treinos");
+		lblTreinos.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		lblTreinos.setBounds(234, 21, 71, 14);
+		panelInfo.add(lblTreinos);
+
+		Situacao = new JLabel();
+		Situacao.setHorizontalAlignment(SwingConstants.CENTER);
+		Situacao.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		Situacao.setBounds(408, 214, 109, 36);
+		panelInfo.add(Situacao);
+
+		listTreinos = new JList<Object>();
+		listTreinos.setFont(new Font("Fira Code Light", Font.PLAIN, 14));
+		listTreinos.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+		listTreinos.setBounds(186, 46, 166, 193);
+		panelInfo.add(listTreinos);
+
 		JLabel lblnaoEncont = new JLabel("Aluno N\u00E3o Encontrado!");
 		lblnaoEncont.setVisible(false);
 		lblnaoEncont.setFont(new Font("Fira Code Light", Font.BOLD, 16));
@@ -78,7 +141,6 @@ public class PanelBuscaAluno extends JPanel {
 		labelBusca.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Aluno aluno;
 
 				aluno = BancoDeDados.getUmAluno(textField.getText());
 				if (aluno == null) {
@@ -86,10 +148,12 @@ public class PanelBuscaAluno extends JPanel {
 					panelInfo.setVisible(true);
 				} else {
 					lblnaoEncont.setVisible(false);
-					controlador.caminhoBuscaA(panelInfo, aluno);
+					alterarInformacoes();
+					panelInfo.setVisible(true);
 				}
 			}
 		});
+
 		labelBusca.setHorizontalAlignment(SwingConstants.CENTER);
 		labelBusca.setBounds(451, 60, 68, 45);
 		add(labelBusca);
@@ -188,5 +252,95 @@ public class PanelBuscaAluno extends JPanel {
 		lblNewLabel_1_1_1.setBounds(10, 9, 74, 14);
 		panelDeletar.add(lblNewLabel_1_1_1);
 
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+	public JList<Object> getListTreinos() {
+		return listTreinos;
+	}
+
+	public void setListTreinos(JList<Object> listTreinos) {
+		this.listTreinos = listTreinos;
+	}
+
+	public JLabel getLblPeso() {
+		return lblPeso;
+	}
+
+	public void setLblPeso(JLabel lblPeso) {
+		this.lblPeso = lblPeso;
+	}
+
+	public JLabel getLblAltura() {
+		return lblAltura;
+	}
+
+	public void setLblAltura(JLabel lblAltura) {
+		this.lblAltura = lblAltura;
+	}
+
+	public JLabel getLblIdade() {
+		return lblIdade;
+	}
+
+	public void setLblIdade(JLabel lblIdade) {
+		this.lblIdade = lblIdade;
+	}
+
+	public JLabel getLblIMC() {
+		return lblIMC;
+	}
+
+	public void setLblIMC(JLabel lblIMC) {
+		this.lblIMC = lblIMC;
+	}
+
+	public JLabel getLblNome() {
+		return lblNome;
+	}
+
+	public void setLblNome(JLabel lblNome) {
+		this.lblNome = lblNome;
+	}
+
+	public JLabel getLblIMCPessoa() {
+		return lblIMCPessoa;
+	}
+
+	public void setLblIMCPessoa(JLabel lblIMCPessoa) {
+		this.lblIMCPessoa = lblIMCPessoa;
+	}
+
+	public JLabel getLblTreinos() {
+		return lblTreinos;
+	}
+
+	public void setLblTreinos(JLabel lblTreinos) {
+		this.lblTreinos = lblTreinos;
+	}
+
+	public JLabel getSituacao() {
+		return Situacao;
+	}
+
+	public void setSituacao(JLabel situacao) {
+		Situacao = situacao;
+	}
+
+	public void alterarInformacoes() {
+		this.getLblNome().setText("Nome:" + aluno.getPrimeiroNome());
+		this.getLblAltura().setText("Altura:\r" + aluno.getAltura());
+		this.getLblIMC().setText(String.format("IMC:%.2f", aluno.calcularImc()));
+		this.getLblPeso().setText("Peso:\r" + aluno.getPeso());
+		this.getLblTreinos();
+		this.getLblIdade().setText("Idade:\r" + aluno.getIdade());
+		this.getSituacao().setText(aluno.calcularParametro());
 	}
 }

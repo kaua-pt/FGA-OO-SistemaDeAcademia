@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 
+import Controladores.BancoDeDados;
 import Controladores.ControladorExercicio;
 import Controladores.ControladorRedirecionar;
 import Modelo.TipoDeGrupamento;
@@ -165,9 +166,14 @@ public class PanelCadastroExercicio extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controladorE.cadastrarExercicio(nomeExercicio.getText(), comboBoxExercicio.getSelectedIndex(),
-						textArea.getText());
-				controlador.caminho(1);
+				if ((nomeExercicio.getText().isBlank() == false) && (nomeExercicio.getText().isEmpty() == false)
+						&& (BancoDeDados.getUmExercicio(nomeExercicio.getText()) == null)) {
+
+					controladorE.cadastrarExercicio(nomeExercicio.getText(), comboBoxExercicio.getSelectedIndex(),
+							textArea.getText());
+					controlador.caminho(1);
+				}
+
 			}
 		});
 		panelCadastrar.setBackground(new Color(43, 226, 71));

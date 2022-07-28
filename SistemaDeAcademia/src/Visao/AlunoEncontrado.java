@@ -16,7 +16,10 @@ import Modelo.Aluno;
 
 public class AlunoEncontrado extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	public AlunoEncontrado(Aluno aluno) {
+
 		setBackground(Color.WHITE);
 		setSize(527, 250);
 		setLayout(null);
@@ -36,9 +39,10 @@ public class AlunoEncontrado extends JPanel {
 		lblIdade.setBounds(26, 85, 95, 14);
 		add(lblIdade);
 
-		JLabel lblIMC = new JLabel(String.format("IMC: %.2f", aluno.calcularImc()));
+		JLabel lblIMC = new JLabel(String.format("IMC:%.2f", aluno.calcularImc()));
+		lblIMC.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIMC.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblIMC.setBounds(415, 21, 115, 14);
+		lblIMC.setBounds(405, 21, 115, 14);
 		add(lblIMC);
 
 		JLabel lblNome = new JLabel("Nome:" + aluno.getPrimeiroNome());
@@ -59,15 +63,13 @@ public class AlunoEncontrado extends JPanel {
 		lblTreinos.setBounds(234, 21, 71, 14);
 		add(lblTreinos);
 
-		System.out.println(aluno.calcularParametro());
+		JLabel Situacao = new JLabel(aluno.calcularParametro());
+		Situacao.setHorizontalAlignment(SwingConstants.CENTER);
+		Situacao.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		Situacao.setBounds(408, 214, 109, 36);
+		add(Situacao);
 
-		JLabel Situação = new JLabel(aluno.calcularParametro());
-		Situação.setHorizontalAlignment(SwingConstants.CENTER);
-		Situação.setFont(new Font("Fira Code Light", Font.BOLD, 12));
-		Situação.setBounds(409, 214, 109, 36);
-		add(Situação);
-
-		JList listTreinos = new JList();
+		JList<Object> listTreinos = new JList<Object>();
 		listTreinos.setFont(new Font("Fira Code Light", Font.PLAIN, 14));
 		listTreinos.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		listTreinos.setBounds(186, 46, 166, 193);
