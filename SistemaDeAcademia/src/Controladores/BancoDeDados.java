@@ -27,33 +27,6 @@ public class BancoDeDados {
 		return retornoAluno;
 	}
 
-	public static Aluno getUmAluno(String nome) {
-		for (Aluno alunoComparado : alunos) {
-			if (nome.contains(alunoComparado.getNome())) {
-				return alunoComparado;
-			}
-		}
-		return null;
-	}
-
-	public static Treino getUmTreino(String nome) {
-		for (Treino treinoComparado : treinos) {
-			if (treinoComparado.getNome() == nome) {
-				return treinoComparado;
-			}
-		}
-		return null;
-	}
-
-	public static Exercicio getUmExercicio(String nome) {
-		for (Exercicio exercicioComparado : exercicios) {
-			if (exercicioComparado.getNome() == nome) {
-				return exercicioComparado;
-			}
-		}
-		return null;
-	}
-
 	public static ArrayList<String> getExercicioPorTipo(ArrayList<TipoDeGrupamento> tipos) {
 
 		ArrayList<String> retorno = new ArrayList<String>();

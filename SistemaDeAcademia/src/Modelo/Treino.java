@@ -17,10 +17,6 @@ public class Treino extends BaseAcademia {
 	private int nRepeticao;
 	private int nSerie;
 
-	public Treino(String nome, ArrayList<TipoDeGrupamento> tipo) {
-		super(nome, tipo);
-	}
-
 	public Treino(String nome, ArrayList<TipoDeGrupamento> tipo, ArrayList<Exercicio> exercicios, int nRepeticao,
 			int nSerie) {
 

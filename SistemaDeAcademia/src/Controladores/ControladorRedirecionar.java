@@ -1,15 +1,11 @@
 package Controladores;
 
-import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
-import Modelo.TipoDeGrupamento;
 import Visao.PanelBuscaAluno;
 import Visao.PanelCadastroAluno;
 import Visao.PanelCadastroExercicio;
 import Visao.PanelCadastroTreino;
-import Visao.PanelTreinoExercicios;
 
 public class ControladorRedirecionar {
 
@@ -42,12 +38,6 @@ public class ControladorRedirecionar {
 			operarTela(id, buscaA);
 		}
 
-	}
-
-	public void caminhoT(ControladorTreino controlador, ArrayList<TipoDeGrupamento> lista) {
-		esconderTelas();
-		PanelTreinoExercicios TE = new PanelTreinoExercicios(this, controlador, lista);
-		operarTela(10, TE);
 	}
 
 	public void operarTela(int id, JPanel elemento) {

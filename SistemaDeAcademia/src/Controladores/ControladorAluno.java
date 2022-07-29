@@ -29,7 +29,33 @@ public class ControladorAluno {
 		}
 	}
 
+	public static void editarAluno(Aluno aluno) {
+		for (int i = 0; i <= BancoDeDados.alunos.size(); i++) {
+			if (BancoDeDados.alunos.get(i).getNome().contains(aluno.getNome())) {
+				BancoDeDados.alunos.set(i, aluno);
+			}
+		}
+	}
+
+	public static Aluno getUmAluno(String nome) {
+		for (Aluno alunoComparado : BancoDeDados.alunos) {
+			if (nome.equals(alunoComparado.getNome())) {
+				return alunoComparado;
+			}
+		}
+		return null;
+	}
+
+	public static void removerAluno(String nome) {
+		for (int i = 0; i <= BancoDeDados.alunos.size(); i++) {
+			if (BancoDeDados.alunos.get(i).getNome().contains(nome)) {
+				BancoDeDados.alunos.remove(i);
+			}
+		}
+	}
+
 	public static List<Aluno> listarAlunos() {
 		return BancoDeDados.alunos;
 	}
+
 }

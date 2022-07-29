@@ -17,7 +17,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
-import Controladores.BancoDeDados;
 import Controladores.ControladorRedirecionar;
 import Modelo.Aluno;
 
@@ -142,7 +141,7 @@ public class PanelBuscaAluno extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				aluno = BancoDeDados.getUmAluno(textField.getText());
+				aluno = Controladores.ControladorAluno.getUmAluno(textField.getText());
 				if (aluno == null) {
 					lblnaoEncont.setVisible(true);
 					panelInfo.setVisible(true);

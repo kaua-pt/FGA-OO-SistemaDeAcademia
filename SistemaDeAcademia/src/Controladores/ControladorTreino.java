@@ -9,22 +9,14 @@ import Modelo.Treino;
 
 public class ControladorTreino {
 
-	private Treino treinoAux;
 	private ControladorAluno controladorA = new ControladorAluno();
-	private String nomeAlunoAux;
 
-	public void cadastrarTreino(String nome, int tipos, String nomeAluno) {
-		treinoAux = new Treino(nome, pegarTipos(parearIndices(tipos)));
-		nomeAlunoAux = nomeAluno;
-	}
+	public void cadastrarTreino(String nome, int tipos, String nomeAluno, List<String> nomes, int nRep, int nSer) {
 
-	public void finalizarCadastro(List<String> nomes, int nRep, int nSer) {
-
-		Treino treino = new Treino(treinoAux.getNome(), treinoAux.getTipo(), parearExercicios(nomes), nRep, nSer);
+		Treino treino = new Treino(nome, pegarTipos(parearIndices(tipos)), parearExercicios(nomes), nRep, nSer);
 		BancoDeDados.treinos.add(treino);
-		controladorA.anexarTreino(nomeAlunoAux, treino);
-		System.out.println("Finalizado com sucesso");
-
+		controladorA.anexarTreino(nomeAluno, treino);
+		System.out.println(treino);
 	}
 
 	public static ArrayList<Exercicio> parearExercicios(List<String> nomes) {
@@ -51,6 +43,31 @@ public class ControladorTreino {
 		}
 		System.out.println(grupos);
 		return grupos;
+	}
+
+	public static Treino getUmTreino(String nome) {
+		for (Treino treinoComparado : BancoDeDados.treinos) {
+			if (nome.equals(treinoComparado.getNome())) {
+				return treinoComparado;
+			}
+		}
+		return null;
+	}
+
+	public static void editarTreino(Treino treino) {
+		for (int i = 0; i <= BancoDeDados.treinos.size(); i++) {
+			if (BancoDeDados.treinos.get(i).getNome().contains(treino.getNome())) {
+				BancoDeDados.treinos.set(i, treino);
+			}
+		}
+	}
+
+	public static void removerTreino(String nome) {
+		for (int i = 0; i <= BancoDeDados.treinos.size(); i++) {
+			if (BancoDeDados.treinos.get(i).getNome().contains(nome)) {
+				BancoDeDados.treinos.remove(i);
+			}
+		}
 	}
 
 	public static ArrayList<Integer> parearIndices(int index) {

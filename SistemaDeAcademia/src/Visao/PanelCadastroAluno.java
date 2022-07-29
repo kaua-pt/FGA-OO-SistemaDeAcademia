@@ -18,7 +18,6 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.BancoDeDados;
 import Controladores.ControladorAluno;
 import Controladores.ControladorRedirecionar;
 
@@ -155,7 +154,7 @@ public class PanelCadastroAluno extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				System.out.println(textNomeAluno);
 				if (((textNomeAluno.getText().isEmpty() == false) && (textNomeAluno.getText().isBlank() == false)
-						&& (BancoDeDados.getUmAluno(textNomeAluno.getText())) == null)) {
+						&& (Controladores.ControladorAluno.getUmAluno(textNomeAluno.getText())) == null)) {
 
 					controladorAluno.cadastrarAluno(textNomeAluno.getText(), (int) SpinIdade.getValue(),
 							(double) SpinAltura.getValue(), (double) SpinPeso.getValue());
