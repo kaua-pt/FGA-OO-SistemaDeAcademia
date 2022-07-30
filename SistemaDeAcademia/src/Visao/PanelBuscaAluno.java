@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
+import Controladores.ControladorAluno;
 import Controladores.ControladorRedirecionar;
 import Modelo.Aluno;
 
@@ -34,6 +35,21 @@ public class PanelBuscaAluno extends JPanel {
 	private JLabel lblIMCPessoa;
 	private JLabel lblTreinos;
 	private JLabel Situacao;
+	private JLabel lblNewLabel_1_1_1;
+	private JPanel panelDeletar;
+	private JLabel lblNewLabel_1_1;
+	private JPanel panelEditar;
+	private JLabel lblNewLabel_1;
+	private JPanel panelVoltar;
+	private JPanel panel_1;
+	private JLabel labelBusca;
+	private JLabel lblnaoEncont;
+	private JPanel panelInfo;
+	private JPanel panel;
+	private JLabel iconeBusca;
+	private JLabel lblNewLabel;
+	private ControladorAluno controladorA;
+	private JPanel panelNaoEncontrado;
 
 	public PanelBuscaAluno(ControladorRedirecionar controlador) {
 
@@ -42,7 +58,7 @@ public class PanelBuscaAluno extends JPanel {
 		setSize(529, 403);
 		setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Buscar Aluno");
+		lblNewLabel = new JLabel("Buscar Aluno");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		lblNewLabel.setBounds(184, 11, 151, 45);
@@ -54,22 +70,22 @@ public class PanelBuscaAluno extends JPanel {
 		add(textField);
 		textField.setColumns(10);
 
-		JLabel IconeBusca = new JLabel("");
-		IconeBusca.setHorizontalAlignment(SwingConstants.CENTER);
-		IconeBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		IconeBusca.setBounds(0, 52, 68, 58);
-		IconeBusca.setIcon(
+		iconeBusca = new JLabel("");
+		iconeBusca.setHorizontalAlignment(SwingConstants.CENTER);
+		iconeBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		iconeBusca.setBounds(0, 52, 68, 58);
+		iconeBusca.setIcon(
 				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/lupa.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		add(IconeBusca);
+		add(iconeBusca);
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBackground(new Color(216, 205, 176));
 		panel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		panel.setBounds(1, 18, 527, 28);
 		add(panel);
 
-		JPanel panelInfo = new JPanel();
+		panelInfo = new JPanel();
 		panelInfo.setBackground(Color.WHITE);
 		panelInfo.setAlignmentY(1.0f);
 		panelInfo.setVisible(false);
@@ -110,9 +126,10 @@ public class PanelBuscaAluno extends JPanel {
 		lblIMCPessoa.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
 				.getImage(PainelMenu.class.getResource("/Imagens/silhueta-de-corpo-humano-em-pe.png"))
 				.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		lblIMCPessoa.setVisible(false);
 		panelInfo.add(lblIMCPessoa);
 
-		lblTreinos = new JLabel("Treinos");
+		lblTreinos = new JLabel();
 		lblTreinos.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblTreinos.setBounds(234, 21, 71, 14);
 		panelInfo.add(lblTreinos);
@@ -127,44 +144,28 @@ public class PanelBuscaAluno extends JPanel {
 		listTreinos.setFont(new Font("Fira Code Light", Font.PLAIN, 14));
 		listTreinos.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		listTreinos.setBounds(186, 46, 166, 193);
+		listTreinos.setVisible(false);
 		panelInfo.add(listTreinos);
 
-		JLabel lblnaoEncont = new JLabel("Aluno N\u00E3o Encontrado!");
-		lblnaoEncont.setVisible(false);
+		panelNaoEncontrado = new JPanel();
+		panelNaoEncontrado.setBounds(1, 103, 527, 250);
+		panelNaoEncontrado.setVisible(false);
+		add(panelNaoEncontrado);
+		panelNaoEncontrado.setLayout(null);
+
+		lblnaoEncont = new JLabel("Aluno N\u00E3o Encontrado!");
 		lblnaoEncont.setFont(new Font("Fira Code Light", Font.BOLD, 16));
 		lblnaoEncont.setBounds(153, 111, 220, 14);
-		panelInfo.add(lblnaoEncont);
+		panelNaoEncontrado.add(lblnaoEncont);
 
-		JLabel labelBusca = new JLabel("Buscar");
-		labelBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		labelBusca.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				aluno = Controladores.ControladorAluno.getUmAluno(textField.getText());
-				if (aluno == null) {
-					lblnaoEncont.setVisible(true);
-					panelInfo.setVisible(true);
-				} else {
-					lblnaoEncont.setVisible(false);
-					alterarInformacoes();
-					panelInfo.setVisible(true);
-				}
-			}
-		});
-
-		labelBusca.setHorizontalAlignment(SwingConstants.CENTER);
-		labelBusca.setBounds(451, 60, 68, 45);
-		add(labelBusca);
-
-		JPanel panel_1 = new JPanel();
+		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(216, 205, 176));
 		panel_1.setAlignmentY(1.0f);
 		panel_1.setBounds(1, 364, 527, 28);
 		add(panel_1);
 		panel_1.setLayout(null);
 
-		JPanel panelVoltar = new JPanel();
+		panelVoltar = new JPanel();
 		panelVoltar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -187,13 +188,13 @@ public class PanelBuscaAluno extends JPanel {
 		panel_1.add(panelVoltar);
 		panelVoltar.setLayout(null);
 
-		JLabel lblNewLabel_1 = new JLabel("Voltar");
+		lblNewLabel_1 = new JLabel("Voltar");
 		lblNewLabel_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(18, 9, 60, 14);
 		panelVoltar.add(lblNewLabel_1);
 
-		JPanel panelEditar = new JPanel();
+		panelEditar = new JPanel();
 		panelEditar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -216,17 +217,20 @@ public class PanelBuscaAluno extends JPanel {
 		panel_1.add(panelEditar);
 		panelEditar.setLayout(null);
 
-		JLabel lblNewLabel_1_1 = new JLabel("Editar");
+		lblNewLabel_1_1 = new JLabel("Editar");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblNewLabel_1_1.setBounds(18, 9, 60, 14);
 		panelEditar.add(lblNewLabel_1_1);
 
-		JPanel panelDeletar = new JPanel();
+		panelDeletar = new JPanel();
 		panelDeletar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(1);
+				if (aluno != null) {
+					controladorA.removerAluno(aluno.getNome());
+					controlador.caminho(1);
+				}
 			}
 
 			@Override
@@ -245,12 +249,33 @@ public class PanelBuscaAluno extends JPanel {
 		panel_1.add(panelDeletar);
 		panelDeletar.setLayout(null);
 
-		JLabel lblNewLabel_1_1_1 = new JLabel("Deletar");
+		lblNewLabel_1_1_1 = new JLabel("Deletar");
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblNewLabel_1_1_1.setBounds(10, 9, 74, 14);
 		panelDeletar.add(lblNewLabel_1_1_1);
 
+		labelBusca = new JLabel("Buscar");
+		labelBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		labelBusca.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				aluno = Controladores.ControladorAluno.getUmAluno(textField.getText());
+				if (aluno == null) {
+					panelNaoEncontrado.setVisible(true);
+					panelInfo.setVisible(false);
+				} else {
+					panelNaoEncontrado.setVisible(false);
+					alterarInformacoes();
+					panelInfo.setVisible(true);
+				}
+			}
+		});
+
+		labelBusca.setHorizontalAlignment(SwingConstants.CENTER);
+		labelBusca.setBounds(451, 60, 68, 45);
+		add(labelBusca);
 	}
 
 	public JTextField getTextField() {
@@ -334,6 +359,7 @@ public class PanelBuscaAluno extends JPanel {
 	}
 
 	public void alterarInformacoes() {
+		this.getLblTreinos().setText("Treinos");
 		this.getLblNome().setText("Nome:" + aluno.getPrimeiroNome());
 		this.getLblAltura().setText("Altura:\r" + aluno.getAltura());
 		this.getLblIMC().setText(String.format("IMC:%.2f", aluno.calcularImc()));
@@ -341,5 +367,8 @@ public class PanelBuscaAluno extends JPanel {
 		this.getLblTreinos();
 		this.getLblIdade().setText("Idade:\r" + aluno.getIdade());
 		this.getSituacao().setText(aluno.calcularParametro());
+		lblIMCPessoa.setVisible(true);
+		listTreinos.setVisible(true);
 	}
+
 }

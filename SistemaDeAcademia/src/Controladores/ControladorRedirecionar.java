@@ -18,6 +18,16 @@ public class ControladorRedirecionar {
 		this.padrao = padrao;
 	}
 
+	public void receptacao(String operacao, int id) {
+		if (operacao == "Alunos") {
+			caminho(id);
+		} else if (operacao == "Exercicios") {
+			caminho(id + 1);
+		} else if (operacao == "Treinos") {
+			caminho(id + 2);
+		}
+	}
+
 	public void caminho(int id) {
 		this.padrao.setVisible(false);
 		esconderTelas();

@@ -20,6 +20,15 @@ public class PainelRedirecionar extends JPanel {
 	private static final long serialVersionUID = -5262748883391237838L;
 	private String operacao;
 	private String listagem;
+	private JPanel panel;
+	private ControladorRedirecionar controlador;
+	private JLabel lblNewLabel;
+	private JPanel panelCadastro;
+	private JLabel lblCadastro;
+	private JLabel lblNewLabel_1;
+	private JPanel listagem2;
+	private JLabel lblList;
+	private JLabel lblNewLabel_1_1;
 
 	public PainelRedirecionar(String operacao, String listagem) {
 
@@ -31,101 +40,77 @@ public class PainelRedirecionar extends JPanel {
 		setSize(529, 403);
 		setLayout(null);
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 0, 529, 403);
 		add(panel);
 		panel.setLayout(null);
 
-		ControladorRedirecionar controlador = new ControladorRedirecionar(this, panel);
+		controlador = new ControladorRedirecionar(this, panel);
 
-		JLabel lblNewLabel = new JLabel("Escolha uma op\u00E7\u00E3o");
+		lblNewLabel = new JLabel("Escolha uma op\u00E7\u00E3o");
 		lblNewLabel.setFont(new Font("Fira Code", Font.BOLD, 20));
 		lblNewLabel.setBounds(153, 56, 213, 61);
 		panel.add(lblNewLabel);
 
-		JPanel panelCadastro = new JPanel();
+		panelCadastro = new JPanel();
 		panelCadastro.setLayout(null);
 		panelCadastro.setBackground(new Color(135, 148, 192));
 		panelCadastro.setBounds(24, 132, 218, 206);
-		panelCadastro.addMouseListener(new PanelAdaptador(panelCadastro));
-		panelCadastro.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (operacao == "Alunos") {
-					controlador.caminho(2);
-				} else if (operacao == "Exercicios") {
-					controlador.caminho(3);
-				} else if (operacao == "Treinos") {
-					controlador.caminho(4);
-				}
-			}
-		});
+		panelCadastro.addMouseListener(new AcaoPerformada(panelCadastro, 2, operacao));
 		panel.add(panelCadastro);
 
-		JLabel lblCadastro = new JLabel("");
+		lblCadastro = new JLabel("");
 		lblCadastro.setBounds(89, 60, 45, 58);
 		lblCadastro.setIcon(new ImageIcon(
 				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/cadastro.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelCadastro.add(lblCadastro);
 
-		JLabel lblNewLabel_1 = new JLabel("Cadastrar " + this.operacao);
+		lblNewLabel_1 = new JLabel("Cadastrar " + this.operacao);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Fira Code", Font.BOLD, 16));
 		lblNewLabel_1.setBounds(0, 108, 218, 76);
 		panelCadastro.add(lblNewLabel_1);
 
-		JPanel Listagem = new JPanel();
-		Listagem.setLayout(null);
-		Listagem.setBackground(new Color(135, 148, 192));
-		Listagem.setBounds(278, 132, 213, 206);
-		Listagem.addMouseListener(new PanelAdaptador(Listagem));
-		Listagem.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (operacao == "Alunos") {
-					controlador.caminho(5);
-				} else if (operacao == "Exercicios") {
-					controlador.caminho(6);
-				} else if (operacao == "Treinos") {
-					controlador.caminho(7);
-				}
-			}
-		});
-		panel.add(Listagem);
+		listagem2 = new JPanel();
+		listagem2.setLayout(null);
+		listagem2.setBackground(new Color(135, 148, 192));
+		listagem2.setBounds(278, 132, 213, 206);
+		listagem2.addMouseListener(new AcaoPerformada(listagem2, 5, operacao));
+		panel.add(listagem2);
 
-		JLabel lblList = new JLabel("");
+		lblList = new JLabel("");
 		lblList.setBounds(80, 58, 40, 58);
 		lblList.setIcon(new ImageIcon(
 				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/pesquisa-de-dados.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		Listagem.add(lblList);
+		listagem2.add(lblList);
 
-		JLabel lblNewLabel_1_1 = new JLabel(this.listagem + this.operacao);
+		lblNewLabel_1_1 = new JLabel(this.listagem + this.operacao);
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("Fira Code", Font.BOLD, 16));
 		lblNewLabel_1_1.setBounds(0, 119, 213, 58);
-		Listagem.add(lblNewLabel_1_1);
+		listagem2.add(lblNewLabel_1_1);
 
 	}
 
-	protected class PanelAdaptador extends MouseAdapter {
+	private class AcaoPerformada extends MouseAdapter {
 
 		JPanel panel;
+		int id;
+		String operacao;
 
-		public PanelAdaptador(JPanel panel) {
+		public AcaoPerformada(JPanel panel, int id, String operacao) {
 			this.panel = panel;
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			panel.setBackground(new Color(135, 148, 192));
+			this.id = id;
+			this.operacao = operacao;
 		}
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			panel.setBackground(new Color(135, 148, 192));
+			controlador.receptacao(operacao, id);
 		}
 
 		@Override

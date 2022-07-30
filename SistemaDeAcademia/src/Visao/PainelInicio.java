@@ -25,24 +25,44 @@ public class PainelInicio extends JPanel {
 	private JTextField txtExerccios;
 	private JTextField txtInicio;
 
+	private JLabel lblNewLabel;
+
+	private JPanel panel;
+
+	private JLabel lblAlunoinc;
+
+	private JTextPane txtpBase;
+
+	private JPanel panel_1;
+
+	private JLabel lblNewLabel_1;
+
+	private JTextPane txtpnCliqueEmTreino;
+
+	private JPanel panel_1_1;
+
+	private JLabel lblNewLabel_1_1;
+
+	private JTextPane txtpcaixa2;
+
 	public PainelInicio() {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Bem Vindo ao Sistema We Go Gym");
+		lblNewLabel = new JLabel("Bem Vindo ao Sistema We Go Gym");
 		lblNewLabel.setFont(new Font("Fira Code Light", Font.BOLD, 17));
 		lblNewLabel.setBounds(102, 31, 330, 52);
 		add(lblNewLabel);
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBackground(new Color(135, 148, 192));
 		panel.setBounds(10, 94, 162, 276);
 		add(panel);
 		panel.setLayout(null);
 
-		JLabel lblAlunoinc = new JLabel("");
+		lblAlunoinc = new JLabel("");
 		lblAlunoinc.setIcon(new ImageIcon(
 				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/do-utilizador.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
@@ -58,7 +78,7 @@ public class PainelInicio extends JPanel {
 		panel.add(txtAlunos);
 		txtAlunos.setColumns(10);
 
-		JTextPane txtpBase = new JTextPane();
+		txtpBase = new JTextPane();
 		txtpBase.setEditable(false);
 		txtpBase.setFont(new Font("Fira Code", Font.PLAIN, 12));
 		txtpBase.setText(
@@ -66,13 +86,13 @@ public class PainelInicio extends JPanel {
 		txtpBase.setBounds(10, 125, 142, 127);
 		panel.add(txtpBase);
 
-		JPanel panel_1 = new JPanel();
+		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(135, 148, 192));
 		panel_1.setBounds(182, 94, 162, 276);
 		add(panel_1);
 		panel_1.setLayout(null);
 
-		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
 				.getImage(PainelMenu.class.getResource("/Imagens/exercicios-de-alongamento.png"))
 				.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
@@ -88,7 +108,7 @@ public class PainelInicio extends JPanel {
 		txtTreinos.setBounds(32, 69, 98, 27);
 		panel_1.add(txtTreinos);
 
-		JTextPane txtpnCliqueEmTreino = new JTextPane();
+		txtpnCliqueEmTreino = new JTextPane();
 		txtpnCliqueEmTreino.setEditable(false);
 		txtpnCliqueEmTreino.setText(
 				"Clique em treino para ser redirecionado ao campo de cadastro listagem, exclus\u00E3o e edi\u00E7\u00E3o dos treinos");
@@ -96,13 +116,13 @@ public class PainelInicio extends JPanel {
 		txtpnCliqueEmTreino.setBounds(10, 125, 142, 127);
 		panel_1.add(txtpnCliqueEmTreino);
 
-		JPanel panel_1_1 = new JPanel();
+		panel_1_1 = new JPanel();
 		panel_1_1.setBackground(new Color(135, 148, 192));
 		panel_1_1.setBounds(354, 94, 162, 276);
 		add(panel_1_1);
 		panel_1_1.setLayout(null);
 
-		JLabel lblNewLabel_1_1 = new JLabel("");
+		lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setIcon(new ImageIcon(
 				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/exercicio.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
@@ -118,7 +138,7 @@ public class PainelInicio extends JPanel {
 		txtExerccios.setBounds(29, 69, 104, 27);
 		panel_1_1.add(txtExerccios);
 
-		JTextPane txtpcaixa2 = new JTextPane();
+		txtpcaixa2 = new JTextPane();
 		txtpcaixa2.setEditable(false);
 		txtpcaixa2.setText(
 				"Clique em Exerc\u00EDcios para ser redirecionado ao campo de cadastro listagem, exclus\u00E3o e edi\u00E7\u00E3o dos exerc\u00EDcios");

@@ -6,6 +6,7 @@ package Controladores;
 import javax.swing.JPanel;
 
 import Visao.PainelInicio;
+import Visao.PainelMenu;
 import Visao.PainelRedirecionar;
 
 /**
@@ -14,15 +15,14 @@ import Visao.PainelRedirecionar;
  */
 public class ControladorMainLabel {
 
-	private JPanel tela;
+	private PainelMenu tela;
 	private JPanel[] telas = new JPanel[12];
 
-	public ControladorMainLabel(JPanel tela) {
-		this.tela = tela;
+	public ControladorMainLabel(PainelMenu painelMenu) {
+		this.tela = painelMenu;
 	}
 
 	public void caminho(int id) {
-
 		esconderTelas();
 
 		if (id == 1) {
@@ -40,12 +40,14 @@ public class ControladorMainLabel {
 		} else if (id == 4) {
 			PainelRedirecionar redirecionarTreino = new PainelRedirecionar("Treinos", "Consultar ");
 			operarTela(id, redirecionarTreino);
+		} else if (id == 5) {
+			tela.dispose();
 		}
 	}
 
 	public void operarTela(int id, JPanel elemento) {
 		telas[id - 1] = elemento;
-		this.tela.add(elemento);
+		this.tela.getPanelMainMenu().add(elemento);
 		elemento.setVisible(true);
 	}
 
