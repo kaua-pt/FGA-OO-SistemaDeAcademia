@@ -3,12 +3,11 @@ package Visao;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -19,14 +18,13 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorExercicio;
 import Controladores.ControladorRedirecionar;
-import Controladores.ControladorTreino;
+import Controladores.ControladorTelaCadastroTreino;
 
-public class PanelCadastroTreino extends JPanel {
+public class PanelCadastroTreino extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 6408302848948208845L;
 
-	ControladorTreino controladorT = new ControladorTreino();
+	private ControladorTelaCadastroTreino controladorTela;
 	private JTextField textField;
 	private JComboBox comboAluno;
 	private JComboBox comboGrupo;
@@ -34,49 +32,23 @@ public class PanelCadastroTreino extends JPanel {
 	private JSpinner spinSerie;
 	private JSpinner spinRep;
 	private JPanel panel;
-	private ArrayList<String> stringExercicios;
-
 	private JPanel panelMain2;
-
 	private JLabel lblNewLabel_4;
-
 	private JLabel lblNewLabel_1_2;
-
 	private JLabel lblNewLabel_1_1_1;
-
 	private JPanel panelMain1;
-
-	private JPanel panelVoltarCad;
-
-	private JLabel lblNewLabel_3_3;
-
 	private JLabel lblNewLabel;
-
 	private JPanel faixa;
-
 	private JPanel faixa_1;
-
-	private JPanel panelVoltar;
-
-	private JLabel lblNewLabel_3_1;
-
 	private JLabel lblNewLabel_1;
-
 	private JPanel panel_1_1;
-
-	private JLabel lblNewLabel_3;
-
-	private JPanel panelCadastrar;
-
 	private JLabel lblInsiraOsDados;
-
-	private JLabel lblNewLabel_3_2;
-
-	private JPanel panelVerExercicios;
-
 	private JLabel lblNewLabel_1_1;
-
 	private JLabel lblNewLabel_2;
+	private JButton btnInicio;
+	private JButton btnCadastrar;
+	private JButton btnVoltar;
+	private JButton btnExercicios;
 
 	public PanelCadastroTreino(ControladorRedirecionar controlador) {
 
@@ -128,34 +100,6 @@ public class PanelCadastroTreino extends JPanel {
 		panel.add(panelMain1);
 		panelMain1.setLayout(null);
 
-		panelVoltarCad = new JPanel();
-		panelVoltarCad.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panelMain1.setVisible(true);
-				panelMain2.setVisible(false);
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelVoltarCad.setBackground(new Color(229, 146, 90));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelVoltarCad.setBackground(new Color(255, 163, 100));
-			}
-		});
-		panelVoltarCad.setLayout(null);
-		panelVoltarCad.setBackground(new Color(255, 163, 100));
-		panelVoltarCad.setBounds(207, 244, 106, 31);
-		panelMain2.add(panelVoltarCad);
-
-		lblNewLabel_3_3 = new JLabel("Voltar");
-		lblNewLabel_3_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3_3.setBounds(25, 11, 57, 14);
-		panelVoltarCad.add(lblNewLabel_3_3);
-
 		lblNewLabel = new JLabel("Cadastro de Treino");
 		lblNewLabel.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -173,33 +117,19 @@ public class PanelCadastroTreino extends JPanel {
 		panel.add(faixa_1);
 		faixa_1.setLayout(null);
 
-		panelVoltar = new JPanel();
-		panelVoltar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelVoltar.setBackground(new Color(169, 46, 23));
-			}
+		btnInicio = new JButton("Inicio");
+		btnInicio.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnInicio.setBounds(96, 0, 117, 31);
+		btnInicio.addActionListener(this);
+		btnInicio.setBackground(new Color(226, 71, 43));
+		faixa_1.add(btnInicio);
 
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelVoltar.setBackground(new Color(226, 71, 43));
-			}
-		});
-		panelVoltar.setLayout(null);
-		panelVoltar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(1);
-			}
-		});
-		panelVoltar.setBackground(new Color(226, 71, 43));
-		panelVoltar.setBounds(101, 0, 106, 31);
-		faixa_1.add(panelVoltar);
-
-		lblNewLabel_3_1 = new JLabel("Inicio");
-		lblNewLabel_3_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3_1.setBounds(25, 11, 64, 14);
-		panelVoltar.add(lblNewLabel_3_1);
+		btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnCadastrar.setBounds(311, 0, 117, 31);
+		btnCadastrar.setBackground(new Color(43, 226, 71));
+		btnCadastrar.addActionListener(this);
+		faixa_1.add(btnCadastrar);
 
 		lblNewLabel_1 = new JLabel("Nome:");
 		lblNewLabel_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
@@ -247,44 +177,20 @@ public class PanelCadastroTreino extends JPanel {
 		listExerciciosTreino.setBounds(27, 44, 338, 189);
 		panelMain2.add(listExerciciosTreino);
 
-		panelVerExercicios = new JPanel();
-		panelVerExercicios.setLayout(null);
-		panelVerExercicios.setBackground(new Color(255, 163, 100));
-		panelVerExercicios.setBounds(207, 234, 106, 31);
-		panelVerExercicios.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnVoltar.setBounds(204, 244, 117, 31);
+		btnVoltar.addActionListener(this);
+		btnVoltar.setBackground(new Color(255, 163, 100));
+		btnVoltar.setForeground(Color.BLACK);
+		panelMain2.add(btnVoltar);
 
-				DefaultListModel listaModelo = new DefaultListModel();
-				stringExercicios = ControladorExercicio.getExercicioPorTipo(
-						controladorT.pegarTipos(controladorT.parearIndices(comboGrupo.getSelectedIndex())));
-
-				for (String exercicio : stringExercicios) {
-					listaModelo.addElement(exercicio);
-				}
-
-				listExerciciosTreino.setModel(listaModelo);
-
-				panelMain1.setVisible(false);
-				panelMain2.setVisible(true);
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelVerExercicios.setBackground(new Color(229, 146, 90));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelVerExercicios.setBackground(new Color(255, 163, 100));
-			}
-		});
-		panelMain1.add(panelVerExercicios);
-
-		lblNewLabel_3_2 = new JLabel("Exerc\u00EDcios");
-		lblNewLabel_3_2.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3_2.setBounds(6, 11, 96, 14);
-		panelVerExercicios.add(lblNewLabel_3_2);
+		btnExercicios = new JButton("Exercicios");
+		btnExercicios.setBounds(204, 235, 117, 31);
+		panelMain1.add(btnExercicios);
+		btnExercicios.addActionListener(this);
+		btnExercicios.setBackground(new Color(255, 163, 100));
+		btnExercicios.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 
 		lblInsiraOsDados = new JLabel("Insira os dados:");
 		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
@@ -292,42 +198,69 @@ public class PanelCadastroTreino extends JPanel {
 		lblInsiraOsDados.setBounds(126, 0, 279, 26);
 		panelMain1.add(lblInsiraOsDados);
 
-		panelCadastrar = new JPanel();
-		panelCadastrar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelCadastrar.setBackground(new Color(21, 113, 35));
-			}
+		controladorTela = new ControladorTelaCadastroTreino(this, controlador);
 
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelCadastrar.setBackground(new Color(43, 226, 71));
-			}
-		});
-		panelCadastrar.setBackground(new Color(43, 226, 71));
-		panelCadastrar.setBounds(313, 0, 106, 31);
-		panelCadastrar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				if ((textField.getText().isBlank() == false) && (textField.getText().isEmpty() == false)
-						&& (ControladorTreino.getUmTreino(textField.getText()) == null)
-						&& (listExerciciosTreino.getSelectedIndices().length > 0)) {
-
-					controladorT.cadastrarTreino(textField.getText(), comboGrupo.getSelectedIndex(),
-							comboAluno.getSelectedItem().toString(), listExerciciosTreino.getSelectedValuesList(),
-							(int) spinRep.getValue(), (int) spinSerie.getValue());
-					controlador.caminho(1);
-				}
-
-			}
-		});
-		faixa_1.add(panelCadastrar);
-		panelCadastrar.setLayout(null);
-
-		lblNewLabel_3 = new JLabel("Cadastrar");
-		lblNewLabel_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(10, 11, 96, 14);
-		panelCadastrar.add(lblNewLabel_3);
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		this.controladorTela.acaoPerformada(event.getSource());
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+	public JList<String> getListExerciciosTreino() {
+		return listExerciciosTreino;
+	}
+
+	public void setListExerciciosTreino(JList<String> listExerciciosTreino) {
+		this.listExerciciosTreino = listExerciciosTreino;
+	}
+
+	public JComboBox getComboAluno() {
+		return comboAluno;
+	}
+
+	public JComboBox getComboGrupo() {
+		return comboGrupo;
+	}
+
+	public JSpinner getSpinSerie() {
+		return spinSerie;
+	}
+
+	public JSpinner getSpinRep() {
+		return spinRep;
+	}
+
+	public JButton getBtnInicio() {
+		return btnInicio;
+	}
+
+	public JButton getBtnCadastrar() {
+		return btnCadastrar;
+	}
+
+	public JButton getBtnVoltar() {
+		return btnVoltar;
+	}
+
+	public JButton getBtnExercicios() {
+		return btnExercicios;
+	}
+
+	public JPanel getPanelMain2() {
+		return panelMain2;
+	}
+
+	public JPanel getPanelMain1() {
+		return panelMain1;
+	}
+
 }

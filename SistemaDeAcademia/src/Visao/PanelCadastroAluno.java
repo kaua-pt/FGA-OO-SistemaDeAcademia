@@ -5,11 +5,12 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DebugGraphics;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -18,14 +19,13 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorAluno;
 import Controladores.ControladorRedirecionar;
+import Controladores.ControladorTelaCadastroAluno;
 
-public class PanelCadastroAluno extends JPanel {
+public class PanelCadastroAluno extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 3855518978965566703L;
 	private JTextField textNomeAluno;
-	private ControladorAluno controladorAluno;
 	private JPanel panel;
 	private JPanel panel_1;
 	private JPanel panel_2;
@@ -42,19 +42,16 @@ public class PanelCadastroAluno extends JPanel {
 	private JLabel lblNewLabel_1_3;
 	private JLabel lblInsiraOsDados;
 	private JPanel faixa_1;
-	private JPanel panelCadastrar;
-	private JLabel lblNewLabel_3;
-	private JPanel panelVoltar;
-	private JLabel lblNewLabel_3_1;
 	private JLabel lblIconNome;
 	private JLabel lblIconIdade;
 	private JLabel lblIconAltura;
 	private JLabel lblIconPeso;
+	private JButton btnVoltar;
+	private JButton btnCadastrar;
+	private ControladorTelaCadastroAluno controladorTela;
 
 	@SuppressWarnings("removal")
 	public PanelCadastroAluno(ControladorRedirecionar controlador) {
-
-		controladorAluno = new ControladorAluno();
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -160,67 +157,21 @@ public class PanelCadastroAluno extends JPanel {
 		panel.add(faixa_1);
 		faixa_1.setLayout(null);
 
-		panelCadastrar = new JPanel();
-		panelCadastrar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelCadastrar.setBackground(new Color(21, 113, 35));
-			}
+		btnVoltar = new JButton("Inicio");
+		btnVoltar.setForeground(Color.BLACK);
+		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnVoltar.setBounds(98, 0, 117, 31);
+		btnVoltar.addActionListener(this);
+		btnVoltar.setBackground(new Color(226, 71, 43));
+		faixa_1.add(btnVoltar);
 
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelCadastrar.setBackground(new Color(43, 226, 71));
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println(textNomeAluno);
-				if (((textNomeAluno.getText().isEmpty() == false) && (textNomeAluno.getText().isBlank() == false)
-						&& (Controladores.ControladorAluno.getUmAluno(textNomeAluno.getText())) == null)) {
-
-					controladorAluno.cadastrarAluno(textNomeAluno.getText(), (int) spinIdade.getValue(),
-							(double) spinAltura.getValue(), (double) spinPeso.getValue());
-					controlador.caminho(1);
-				}
-			}
-		});
-		panelCadastrar.setBackground(new Color(43, 226, 71));
-		panelCadastrar.setBounds(313, 0, 106, 31);
-		faixa_1.add(panelCadastrar);
-		panelCadastrar.setLayout(null);
-
-		lblNewLabel_3 = new JLabel("Cadastrar");
-		lblNewLabel_3.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(10, 11, 89, 14);
-		panelCadastrar.add(lblNewLabel_3);
-
-		panelVoltar = new JPanel();
-		panelVoltar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelVoltar.setBackground(new Color(169, 46, 23));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelVoltar.setBackground(new Color(226, 71, 43));
-			}
-		});
-		panelVoltar.setLayout(null);
-		panelVoltar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(1);
-			}
-		});
-		panelVoltar.setBackground(new Color(226, 71, 43));
-		panelVoltar.setBounds(101, 0, 106, 31);
-		faixa_1.add(panelVoltar);
-
-		lblNewLabel_3_1 = new JLabel("Voltar");
-		lblNewLabel_3_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_3_1.setBounds(26, 11, 64, 14);
-		panelVoltar.add(lblNewLabel_3_1);
+		btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setForeground(Color.BLACK);
+		btnCadastrar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnCadastrar.setBounds(313, 0, 117, 31);
+		btnCadastrar.addActionListener(this);
+		btnCadastrar.setBackground(new Color(43, 226, 71));
+		faixa_1.add(btnCadastrar);
 
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(19, 105, 40, 41);
@@ -250,6 +201,36 @@ public class PanelCadastroAluno extends JPanel {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconPeso);
 
+		controladorTela = new ControladorTelaCadastroAluno(this, controlador);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		this.controladorTela.acaoPerformada(event.getSource());
+	}
+
+	public JButton getBtnVoltar() {
+		return btnVoltar;
+	}
+
+	public JButton getBtnCadastrar() {
+		return btnCadastrar;
+	}
+
+	public JTextField getTextNomeAluno() {
+		return textNomeAluno;
+	}
+
+	public JSpinner getSpinIdade() {
+		return spinIdade;
+	}
+
+	public JSpinner getSpinAltura() {
+		return spinAltura;
+	}
+
+	public JSpinner getSpinPeso() {
+		return spinPeso;
 	}
 
 }

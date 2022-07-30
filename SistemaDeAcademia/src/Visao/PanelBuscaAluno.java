@@ -5,10 +5,11 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -17,11 +18,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
-import Controladores.ControladorAluno;
 import Controladores.ControladorRedirecionar;
+import Controladores.ControladorTelaBuscaAluno;
 import Modelo.Aluno;
 
-public class PanelBuscaAluno extends JPanel {
+public class PanelBuscaAluno extends JPanel implements ActionListener {
 
 	Aluno aluno;
 	private static final long serialVersionUID = 7399066554867365317L;
@@ -35,21 +36,18 @@ public class PanelBuscaAluno extends JPanel {
 	private JLabel lblIMCPessoa;
 	private JLabel lblTreinos;
 	private JLabel Situacao;
-	private JLabel lblNewLabel_1_1_1;
-	private JPanel panelDeletar;
-	private JLabel lblNewLabel_1_1;
-	private JPanel panelEditar;
-	private JLabel lblNewLabel_1;
-	private JPanel panelVoltar;
 	private JPanel panel_1;
-	private JLabel labelBusca;
 	private JLabel lblnaoEncont;
 	private JPanel panelInfo;
 	private JPanel panel;
 	private JLabel iconeBusca;
 	private JLabel lblNewLabel;
-	private ControladorAluno controladorA;
 	private JPanel panelNaoEncontrado;
+	private JButton btnBuscar;
+	private JButton btnVoltar;
+	private JButton btnEditar;
+	private JButton btnDeletar;
+	private ControladorTelaBuscaAluno controladorTela;
 
 	public PanelBuscaAluno(ControladorRedirecionar controlador) {
 
@@ -66,7 +64,7 @@ public class PanelBuscaAluno extends JPanel {
 
 		textField = new JTextField();
 		textField.setToolTipText("Digite o nome do aluno");
-		textField.setBounds(65, 72, 376, 20);
+		textField.setBounds(65, 72, 366, 20);
 		add(textField);
 		textField.setColumns(10);
 
@@ -165,117 +163,42 @@ public class PanelBuscaAluno extends JPanel {
 		add(panel_1);
 		panel_1.setLayout(null);
 
-		panelVoltar = new JPanel();
-		panelVoltar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(1);
-			}
+		btnVoltar = new JButton("Inicio");
+		btnVoltar.setForeground(Color.BLACK);
+		btnVoltar.setBackground(new Color(226, 71, 43));
+		btnVoltar.addActionListener(this);
+		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnVoltar.setBounds(62, 0, 89, 28);
+		panel_1.add(btnVoltar);
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelVoltar.setBackground(new Color(169, 46, 23));
-			}
+		btnEditar = new JButton("Editar");
+		btnEditar.setForeground(Color.BLACK);
+		btnEditar.addActionListener(this);
+		btnEditar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnEditar.setBounds(213, 0, 89, 28);
+		btnEditar.setBackground(Color.GREEN);
+		panel_1.add(btnEditar);
 
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelVoltar.setBackground(new Color(226, 71, 43));
-			}
-		});
-		panelVoltar.setBackground(new Color(226, 71, 43));
-		panelVoltar.setToolTipText("Voltar");
-		panelVoltar.setBounds(61, 0, 94, 28);
-		panel_1.add(panelVoltar);
-		panelVoltar.setLayout(null);
+		btnDeletar = new JButton("Deletar");
+		btnDeletar.setForeground(Color.BLACK);
+		btnDeletar.addActionListener(this);
+		btnDeletar.setBackground(new Color(162, 51, 52));
+		btnDeletar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnDeletar.setBounds(364, 0, 99, 28);
+		panel_1.add(btnDeletar);
 
-		lblNewLabel_1 = new JLabel("Voltar");
-		lblNewLabel_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(18, 9, 60, 14);
-		panelVoltar.add(lblNewLabel_1);
+		btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(this);
+		btnBuscar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnBuscar.setBounds(435, 71, 89, 23);
+		add(btnBuscar);
 
-		panelEditar = new JPanel();
-		panelEditar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				controlador.caminho(1);
-			}
+		controladorTela = new ControladorTelaBuscaAluno(this, controlador);
+	}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelEditar.setBackground(new Color(21, 113, 35));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelEditar.setBackground(new Color(43, 226, 71));
-			}
-		});
-		panelEditar.setToolTipText("Voltar");
-		panelEditar.setBackground(Color.GREEN);
-		panelEditar.setBounds(216, 0, 94, 28);
-		panel_1.add(panelEditar);
-		panelEditar.setLayout(null);
-
-		lblNewLabel_1_1 = new JLabel("Editar");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(18, 9, 60, 14);
-		panelEditar.add(lblNewLabel_1_1);
-
-		panelDeletar = new JPanel();
-		panelDeletar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (aluno != null) {
-					controladorA.removerAluno(aluno.getNome());
-					controlador.caminho(1);
-				}
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				panelDeletar.setBackground(new Color(113, 35, 36));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				panelDeletar.setBackground(new Color(162, 51, 52));
-			}
-		});
-		panelDeletar.setToolTipText("Voltar");
-		panelDeletar.setBackground(new Color(162, 51, 52));
-		panelDeletar.setBounds(371, 0, 94, 28);
-		panel_1.add(panelDeletar);
-		panelDeletar.setLayout(null);
-
-		lblNewLabel_1_1_1 = new JLabel("Deletar");
-		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblNewLabel_1_1_1.setBounds(10, 9, 74, 14);
-		panelDeletar.add(lblNewLabel_1_1_1);
-
-		labelBusca = new JLabel("Buscar");
-		labelBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		labelBusca.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				aluno = Controladores.ControladorAluno.getUmAluno(textField.getText());
-				if (aluno == null) {
-					panelNaoEncontrado.setVisible(true);
-					panelInfo.setVisible(false);
-				} else {
-					panelNaoEncontrado.setVisible(false);
-					alterarInformacoes();
-					panelInfo.setVisible(true);
-				}
-			}
-		});
-
-		labelBusca.setHorizontalAlignment(SwingConstants.CENTER);
-		labelBusca.setBounds(451, 60, 68, 45);
-		add(labelBusca);
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		this.controladorTela.acaoPerformada(event.getSource());
 	}
 
 	public JTextField getTextField() {
@@ -358,17 +281,52 @@ public class PanelBuscaAluno extends JPanel {
 		Situacao = situacao;
 	}
 
-	public void alterarInformacoes() {
-		this.getLblTreinos().setText("Treinos");
-		this.getLblNome().setText("Nome:" + aluno.getPrimeiroNome());
-		this.getLblAltura().setText("Altura:\r" + aluno.getAltura());
-		this.getLblIMC().setText(String.format("IMC:%.2f", aluno.calcularImc()));
-		this.getLblPeso().setText("Peso:\r" + aluno.getPeso());
-		this.getLblTreinos();
-		this.getLblIdade().setText("Idade:\r" + aluno.getIdade());
-		this.getSituacao().setText(aluno.calcularParametro());
-		lblIMCPessoa.setVisible(true);
-		listTreinos.setVisible(true);
+	public JButton getBtnBuscar() {
+		return btnBuscar;
+	}
+
+	public void setBtnBuscar(JButton btnBuscar) {
+		this.btnBuscar = btnBuscar;
+	}
+
+	public JButton getBtnVoltar() {
+		return btnVoltar;
+	}
+
+	public void setBtnVoltar(JButton btnVoltar) {
+		this.btnVoltar = btnVoltar;
+	}
+
+	public JButton getBtnEditar() {
+		return btnEditar;
+	}
+
+	public void setBtnEditar(JButton btnEditar) {
+		this.btnEditar = btnEditar;
+	}
+
+	public JButton getBtnDeletar() {
+		return btnDeletar;
+	}
+
+	public void setBtnDeletar(JButton btnDeletar) {
+		this.btnDeletar = btnDeletar;
+	}
+
+	public JPanel getPanelInfo() {
+		return panelInfo;
+	}
+
+	public void setPanelInfo(JPanel panelInfo) {
+		this.panelInfo = panelInfo;
+	}
+
+	public JPanel getPanelNaoEncontrado() {
+		return panelNaoEncontrado;
+	}
+
+	public void setPanelNaoEncontrado(JPanel panelNaoEncontrado) {
+		this.panelNaoEncontrado = panelNaoEncontrado;
 	}
 
 }

@@ -39,4 +39,31 @@ public class BancoDeDados {
 		}
 		return retorno;
 	}
+
+	public static Aluno getUmAluno(String nome) {
+		for (Aluno alunoComparado : BancoDeDados.alunos) {
+			if (nome.equals(alunoComparado.getNome())) {
+				return alunoComparado;
+			}
+		}
+		return null;
+	}
+
+	public static Treino getUmTreino(String nome) {
+		for (Treino treinoComparado : BancoDeDados.treinos) {
+			if (nome.equals(treinoComparado.getNome())) {
+				return treinoComparado;
+			}
+		}
+		return null;
+	}
+
+	public static Exercicio getUmExercicio(String nome) {
+		for (Exercicio exercicioComparado : BancoDeDados.exercicios) {
+			if (nome.equals(exercicioComparado.getNome())) {
+				return exercicioComparado;
+			}
+		}
+		return null;
+	}
 }
