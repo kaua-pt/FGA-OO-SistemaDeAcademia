@@ -5,8 +5,6 @@ package Modelo;
 
 import java.util.ArrayList;
 
-import Controladores.BancoDeDados;
-
 /**
  * @author Kau� Vin�cius
  *

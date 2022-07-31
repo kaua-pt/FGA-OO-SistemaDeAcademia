@@ -1,6 +1,7 @@
 package Controladores;
 
 import Modelo.Aluno;
+import Modelo.BancoDeDados;
 import Visao.PanelBuscaAluno;
 
 public class ControladorTelaBuscaAluno {

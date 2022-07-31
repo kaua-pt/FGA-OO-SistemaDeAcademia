@@ -1,14 +1,6 @@
-/**
- * 
- */
-package Controladores;
+package Modelo;
 
 import java.util.ArrayList;
-
-import Modelo.Aluno;
-import Modelo.Exercicio;
-import Modelo.TipoDeGrupamento;
-import Modelo.Treino;
 
 /**
  * @author Kauã Vinícius

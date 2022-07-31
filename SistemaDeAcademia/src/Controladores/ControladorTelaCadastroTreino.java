@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 
 import Modelo.Aluno;
+import Modelo.BancoDeDados;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
 import Modelo.Treino;

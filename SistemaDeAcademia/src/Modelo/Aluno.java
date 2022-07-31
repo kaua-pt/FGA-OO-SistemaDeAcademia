@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
-import Controladores.BancoDeDados;
-
 /**
  *
  * @author Kau� Vin�cius Classe respons�vel por armazenar as

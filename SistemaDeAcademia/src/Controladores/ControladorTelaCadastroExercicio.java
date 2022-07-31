@@ -2,6 +2,7 @@ package Controladores;
 
 import java.util.ArrayList;
 
+import Modelo.BancoDeDados;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
 import Visao.PanelCadastroExercicio;
