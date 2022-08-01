@@ -121,9 +121,6 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		lblIMCPessoa = new JLabel("");
 		lblIMCPessoa.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIMCPessoa.setBounds(419, 46, 87, 157);
-		lblIMCPessoa.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
-				.getImage(PainelMenu.class.getResource("/Imagens/silhueta-de-corpo-humano-em-pe.png"))
-				.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		lblIMCPessoa.setVisible(false);
 		panelInfo.add(lblIMCPessoa);
 

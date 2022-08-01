@@ -49,6 +49,15 @@ public class Treino extends BaseAcademia implements Operacoes {
 		}
 	}
 
+	public static Treino getUmTreino(String nome) {
+		for (Treino treinoComparado : BancoDeDados.treinos) {
+			if (nome.equals(treinoComparado.getNome())) {
+				return treinoComparado;
+			}
+		}
+		return null;
+	}
+
 	public int getnRepeticao() {
 		return nRepeticao;
 	}

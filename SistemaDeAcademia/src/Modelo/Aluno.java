@@ -93,6 +93,23 @@ public class Aluno implements Operacoes {
 		return this.nome.split(" ")[0];
 	}
 
+	public static String[] getTodosAlunos() {
+		String retornoAluno[] = new String[BancoDeDados.alunos.size()];
+		for (int i = 0; i < BancoDeDados.alunos.size(); i++) {
+			retornoAluno[i] = BancoDeDados.alunos.get(i).getNome();
+		}
+		return retornoAluno;
+	}
+
+	public static Aluno getUmAluno(String nome) {
+		for (Aluno alunoComparado : BancoDeDados.alunos) {
+			if (nome.equals(alunoComparado.getNome())) {
+				return alunoComparado;
+			}
+		}
+		return null;
+	}
+
 	public int getIdade() {
 		return idade;
 	}

@@ -52,6 +52,28 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 		return "Nome: " + this.getNome() + " " + "Tipo: " + this.getTipo().toString() + "Descricao: " + this.descricao;
 	}
 
+	public static ArrayList<String> getExercicioPorTipo(ArrayList<TipoDeGrupamento> tipos) {
+
+		ArrayList<String> retorno = new ArrayList<String>();
+		for (TipoDeGrupamento grupo : tipos) {
+			for (int i = 0; i < BancoDeDados.exercicios.size(); i++) {
+				if (BancoDeDados.exercicios.get(i).toString().contains(grupo.name())) {
+					retorno.add(BancoDeDados.exercicios.get(i).getNome());
+				}
+			}
+		}
+		return retorno;
+	}
+
+	public static Exercicio getUmExercicio(String nome) {
+		for (Exercicio exercicioComparado : BancoDeDados.exercicios) {
+			if (nome.equals(exercicioComparado.getNome())) {
+				return exercicioComparado;
+			}
+		}
+		return null;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}

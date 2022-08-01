@@ -20,7 +20,7 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaCadastroTreino;
-import Modelo.BancoDeDados;
+import Modelo.Aluno;
 
 public class PanelCadastroTreino extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 6408302848948208845L;
@@ -151,7 +151,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		comboAluno = new JComboBox();
 		comboAluno.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		comboAluno.setBounds(126, 116, 343, 31);
-		comboAluno.setModel(new DefaultComboBoxModel<String>(BancoDeDados.getTodosAlunos()));
+		comboAluno.setModel(new DefaultComboBoxModel<String>(Aluno.getTodosAlunos()));
 		panelMain1.add(comboAluno);
 
 		lblNewLabel_2 = new JLabel("Aluno:");

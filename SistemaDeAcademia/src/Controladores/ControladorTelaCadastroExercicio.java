@@ -2,7 +2,6 @@ package Controladores;
 
 import java.util.ArrayList;
 
-import Modelo.BancoDeDados;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
 import Visao.PanelCadastroExercicio;
@@ -21,7 +20,7 @@ public class ControladorTelaCadastroExercicio {
 		if (e == tela.getBtnCadastrar()) {
 			if ((tela.getNomeExercicio().getText().isBlank() == false)
 					&& (tela.getNomeExercicio().getText().isEmpty() == false)
-					&& (BancoDeDados.getUmExercicio(tela.getNomeExercicio().getText()) == null)) {
+					&& (Exercicio.getUmExercicio(tela.getNomeExercicio().getText()) == null)) {
 
 				cadastrarExercicio(tela.getNomeExercicio().getText(), tela.getComboBoxExercicio().getSelectedIndex(),
 						tela.getTextArea().getText());

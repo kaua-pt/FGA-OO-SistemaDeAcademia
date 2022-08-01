@@ -26,7 +26,7 @@ public class ControladorTelaCadastroTreino {
 	public void acaoPerformada(Object e) {
 		if (e == tela.getBtnCadastrar()) {
 			if ((tela.getTextField().getText().isBlank() == false) && (tela.getTextField().getText().isEmpty() == false)
-					&& (BancoDeDados.getUmTreino(tela.getTextField().getText()) == null)
+					&& (Treino.getUmTreino(tela.getTextField().getText()) == null)
 					&& (tela.getListExerciciosTreino().getSelectedIndices().length > 0)) {
 
 				cadastrarTreino(tela.getTextField().getText(), tela.getComboGrupo().getSelectedIndex(),
@@ -41,7 +41,7 @@ public class ControladorTelaCadastroTreino {
 		} else if (e == tela.getBtnExercicios()) {
 
 			DefaultListModel<String> listaModelo = new DefaultListModel<String>();
-			stringExercicios = BancoDeDados.getExercicioPorTipo(parearTipos(tela.getComboGrupo().getSelectedIndex()));
+			stringExercicios = Exercicio.getExercicioPorTipo(parearTipos(tela.getComboGrupo().getSelectedIndex()));
 			for (String exercicio : stringExercicios) {
 				listaModelo.addElement(exercicio);
 			}

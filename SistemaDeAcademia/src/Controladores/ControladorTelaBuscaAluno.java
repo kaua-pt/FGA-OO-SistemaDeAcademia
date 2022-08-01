@@ -1,7 +1,12 @@
 package Controladores;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+
 import Modelo.Aluno;
-import Modelo.BancoDeDados;
+import Visao.PainelMenu;
 import Visao.PanelBuscaAluno;
 
 public class ControladorTelaBuscaAluno {
@@ -18,7 +23,7 @@ public class ControladorTelaBuscaAluno {
 	public void acaoPerformada(Object e) {
 		if (e == tela.getBtnBuscar()) {
 
-			aluno = BancoDeDados.getUmAluno(tela.getTextField().getText());
+			aluno = Aluno.getUmAluno(tela.getTextField().getText());
 			if (aluno == null) {
 				tela.getPanelNaoEncontrado().setVisible(true);
 				tela.getPanelInfo().setVisible(false);
@@ -44,6 +49,11 @@ public class ControladorTelaBuscaAluno {
 
 	public void alterarInformacoes() {
 
+		tela.getLblIMCPessoa()
+				.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
+						.getImage(PainelMenu.class
+								.getResource("/Imagens/" + aluno.calcularParametro().replaceAll(" ", "_") + ".png"))
+						.getScaledInstance(160, 160, Image.SCALE_SMOOTH)));
 		tela.getLblTreinos().setText("Treinos");
 		tela.getLblNome().setText("Nome:" + aluno.getPrimeiroNome());
 		tela.getLblAltura().setText("Altura:\r" + aluno.getAltura());

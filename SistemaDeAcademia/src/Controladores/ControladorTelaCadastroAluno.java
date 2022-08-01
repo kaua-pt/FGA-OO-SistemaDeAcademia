@@ -1,7 +1,6 @@
 package Controladores;
 
 import Modelo.Aluno;
-import Modelo.BancoDeDados;
 import Visao.PanelCadastroAluno;
 
 public class ControladorTelaCadastroAluno {
@@ -18,7 +17,7 @@ public class ControladorTelaCadastroAluno {
 		if (e == tela.getBtnCadastrar()) {
 			if (((tela.getTextNomeAluno().getText().isEmpty() == false)
 					&& (tela.getTextNomeAluno().getText().isBlank() == false)
-					&& (BancoDeDados.getUmAluno(tela.getTextNomeAluno().getText())) == null)) {
+					&& (Aluno.getUmAluno(tela.getTextNomeAluno().getText())) == null)) {
 
 				cadastrarAluno(tela.getTextNomeAluno().getText(), (int) tela.getSpinIdade().getValue(),
 						(double) tela.getSpinAltura().getValue(), (double) tela.getSpinPeso().getValue());
