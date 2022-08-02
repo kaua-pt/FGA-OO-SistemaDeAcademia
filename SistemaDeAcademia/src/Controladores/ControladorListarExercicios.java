@@ -25,8 +25,7 @@ public class ControladorListarExercicios {
 			for (Exercicio exercicio : BancoDeDados.exercicios) {
 				if (exercicio.getTipo()
 						.equals(TipoDeGrupamento.pegarTipo(panel.getComboGrupamento().getSelectedIndex() + 1))) {
-					System.out.println(exercicio.getNome());
-					retorno.addElement(exercicio.getNome() + " / " + exercicio.getDescricao());
+					retorno.addElement(exercicio.getNome() + "-" + exercicio.getDescricao());
 				}
 			}
 
@@ -34,14 +33,18 @@ public class ControladorListarExercicios {
 
 		} else if (e == panel.getBtnDeletar()) {
 			exercicio = Exercicio.getUmExercicio((String) panel.getListExercicios().getSelectedValue());
-			System.out.println(exercicio.toString());
 			exercicio.deletar();
 			controlador.caminho(1);
 		} else if (e == panel.getBtnEditar()) {
 
-			PanelEditarExercicio panelExercicio = new PanelEditarExercicio(controlador);
+			String nome = panel.getListExercicios().getSelectedValue().toString();
+			int pos = nome.indexOf("-");
+			nome.substring(0, pos);
+			PanelEditarExercicio panelExercicio = new PanelEditarExercicio(controlador,
+					Exercicio.getUmExercicio(nome.substring(0, pos)));
 			panel.add(panelExercicio);
 			panel.getPanelmain().setVisible(false);
+
 		} else if (e == panel.getBtnVoltar()) {
 			controlador.caminho(1);
 		}

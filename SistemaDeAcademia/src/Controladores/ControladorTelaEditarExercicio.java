@@ -20,6 +20,7 @@ public class ControladorTelaEditarExercicio {
 		if (e == panel.getBtnInicio()) {
 			controlador.caminho(1);
 		} else if (e == panel.getBtnFinalizar()) {
+
 			exercicioAux = new Exercicio(panel.getTextNome().getText(),
 					TipoDeGrupamento.pegarTipo(panel.getComboBoxExercicio().getSelectedIndex() + 1),
 					panel.getTextDescricao().getText());
@@ -34,6 +35,6 @@ public class ControladorTelaEditarExercicio {
 		exercicioNome = exercicio.getNome();
 		panel.getTextNome().setText(exercicio.getNome());
 		panel.getTextDescricao().setText(exercicio.getDescricao());
-		panel.getComboBoxExercicio().setSelectedIndex(exercicio.getTipo().get(0).getId());
+		panel.getComboBoxExercicio().setSelectedItem(exercicio.getTipo().get(0));
 	}
 }

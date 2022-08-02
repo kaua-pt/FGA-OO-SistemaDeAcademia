@@ -71,7 +71,6 @@ public class Aluno implements Operacoes {
 			}
 		}
 		BancoDeDados.alunos.add(this);
-
 	}
 
 	@Override

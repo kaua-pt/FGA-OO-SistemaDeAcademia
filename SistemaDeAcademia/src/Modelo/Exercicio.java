@@ -26,8 +26,13 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 
 	@Override
 	public void editar(String endereco) {
-		// TODO Auto-generated method stub
-
+		for (int i = 0; i <= BancoDeDados.exercicios.size(); i++) {
+			if (BancoDeDados.exercicios.get(i).getNome().contains(endereco)) {
+				BancoDeDados.exercicios.set(i, this);
+				return;
+			}
+		}
+		BancoDeDados.exercicios.add(this);
 	}
 
 	@Override
@@ -48,11 +53,6 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 			}
 		}
 
-	}
-
-	@Override
-	public String toString() {
-		return "Nome: " + this.getNome() + " " + "Tipo: " + this.getTipo().toString() + "Descricao: " + this.descricao;
 	}
 
 	public static ArrayList<String> getExercicioPorTipo(ArrayList<TipoDeGrupamento> tipos) {

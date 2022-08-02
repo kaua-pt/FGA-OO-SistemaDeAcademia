@@ -6,6 +6,7 @@ import Visao.PanelBuscaAluno;
 import Visao.PanelCadastroAluno;
 import Visao.PanelCadastroExercicio;
 import Visao.PanelCadastroTreino;
+import Visao.PanelConsultaTreino;
 import Visao.PanelListarExercicios;
 
 public class ControladorRedirecionar {
@@ -50,6 +51,9 @@ public class ControladorRedirecionar {
 		} else if (id == 6) {
 			PanelListarExercicios listarE = new PanelListarExercicios(this);
 			operarTela(id, listarE);
+		} else if (id == 7) {
+			PanelConsultaTreino consultaT = new PanelConsultaTreino(this);
+			operarTela(id, consultaT);
 		}
 
 	}

@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -16,8 +17,11 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaEditarExercicio;
+import Modelo.Exercicio;
+import Modelo.TipoDeGrupamento;
 
 public class PanelEditarExercicio extends JPanel implements ActionListener {
+
 	private JTextField textNome;
 	private JPanel faixa;
 	private JLabel lblEditarExercicio;
@@ -32,7 +36,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 	private JTextArea textDescricao;
 	private ControladorTelaEditarExercicio controladorT;
 
-	public PanelEditarExercicio(ControladorRedirecionar controlador) {
+	public PanelEditarExercicio(ControladorRedirecionar controlador, Exercicio exercicio) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -86,6 +90,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		add(textNome);
 
 		comboBoxExercicio = new JComboBox();
+		comboBoxExercicio.setModel(new DefaultComboBoxModel(TipoDeGrupamento.values()));
 		comboBoxExercicio.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		comboBoxExercicio.setBounds(168, 161, 310, 31);
 		add(comboBoxExercicio);
@@ -110,6 +115,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		add(textDescricao);
 
 		controladorT = new ControladorTelaEditarExercicio(this, controlador);
+		controladorT.iniciarCampos(exercicio);
 
 	}
 
