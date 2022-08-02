@@ -1,7 +1,5 @@
 package Controladores;
 
-import java.util.ArrayList;
-
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
 import Visao.PanelCadastroExercicio;
@@ -32,20 +30,8 @@ public class ControladorTelaCadastroExercicio {
 	}
 
 	public void cadastrarExercicio(String nome, int tipo, String descricao) {
-		Exercicio exercicio = new Exercicio(nome, pegarTipo(tipo + 1), descricao);
+		Exercicio exercicio = new Exercicio(nome, TipoDeGrupamento.pegarTipo(tipo + 1), descricao);
 		exercicio.cadastro();
-	}
-
-	public static ArrayList<TipoDeGrupamento> pegarTipo(int valor) {
-
-		ArrayList<TipoDeGrupamento> grupos = new ArrayList<TipoDeGrupamento>();
-		for (TipoDeGrupamento tipo : TipoDeGrupamento.values()) {
-			if (tipo.getId() == valor) {
-				grupos.add(tipo);
-				return grupos;
-			}
-		}
-		return null;
 	}
 
 }

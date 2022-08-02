@@ -25,7 +25,7 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 	}
 
 	@Override
-	public void editar() {
+	public void editar(String endereco) {
 		// TODO Auto-generated method stub
 
 	}
@@ -33,13 +33,16 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 	@Override
 	public void deletar() {
 		for (int i = 0; i < BancoDeDados.exercicios.size(); i++) {
-			if (BancoDeDados.exercicios.get(i).toString().equals(this.getNome())) {
+			System.out.println("vrau2");
+			System.out.println(this.getNome());
+			if (BancoDeDados.exercicios.get(i).getNome().equals(this.getNome())) {
+				System.out.println("vrau3");
 				BancoDeDados.exercicios.remove(i);
 			}
 		}
 		for (Treino treino : BancoDeDados.treinos) {
 			for (int j = 0; j < treino.getExercicios().size(); j++) {
-				if (treino.getExercicios().get(j).toString().equals(this.getNome())) {
+				if (treino.getExercicios().get(j).getNome().equals(this.getNome())) {
 					treino.getExercicios().remove(j);
 				}
 			}

@@ -3,6 +3,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  * @author Kau� Vin�cius
  *
@@ -21,4 +23,15 @@ public enum TipoDeGrupamento {
 		return ID;
 	}
 
+	public static ArrayList<TipoDeGrupamento> pegarTipo(int valor) {
+
+		ArrayList<TipoDeGrupamento> grupos = new ArrayList<TipoDeGrupamento>();
+		for (TipoDeGrupamento tipo : TipoDeGrupamento.values()) {
+			if (tipo.getId() == valor) {
+				grupos.add(tipo);
+				return grupos;
+			}
+		}
+		return null;
+	}
 }

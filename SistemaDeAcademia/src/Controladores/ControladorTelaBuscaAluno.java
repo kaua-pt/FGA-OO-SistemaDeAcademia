@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import Modelo.Aluno;
 import Visao.PainelMenu;
 import Visao.PanelBuscaAluno;
+import Visao.PanelEditarAluno;
 
 public class ControladorTelaBuscaAluno {
 
@@ -41,7 +42,11 @@ public class ControladorTelaBuscaAluno {
 			}
 
 		} else if (e == tela.getBtnEditar()) {
-			controlador.caminho(1);
+			PanelEditarAluno panelEditarA = new PanelEditarAluno(controlador, aluno);
+			tela.add(panelEditarA);
+			panelEditarA.setVisible(true);
+			tela.getPanelbase().setVisible(false);
+
 		} else if (e == tela.getBtnVoltar()) {
 			controlador.caminho(1);
 		}

@@ -60,22 +60,32 @@ public class Aluno implements Operacoes {
 	@Override
 	public void cadastro() {
 		BancoDeDados.alunos.add(this);
-		System.out.println(this);
 	}
 
 	@Override
-	public void editar() {
+	public void editar(String endereco) {
 		for (int i = 0; i <= BancoDeDados.alunos.size(); i++) {
-			if (BancoDeDados.alunos.get(i).getNome().contains(this.nome)) {
+			if (BancoDeDados.alunos.get(i).getNome().contains(endereco)) {
 				BancoDeDados.alunos.set(i, this);
+				return;
 			}
 		}
+		BancoDeDados.alunos.add(this);
+
 	}
 
 	@Override
 	public void deletar() {
 		for (int i = 0; i <= BancoDeDados.alunos.size(); i++) {
 			if (BancoDeDados.alunos.get(i).getNome().contains(this.nome)) {
+				for (Treino treino : BancoDeDados.alunos.get(i).getTreinos()) {
+					for (Treino treinoaux : BancoDeDados.treinos) {
+						if (treinoaux.getNome().contains(treino.getNome())) {
+							BancoDeDados.treinos.remove(treinoaux);
+						}
+					}
+				}
+
 				BancoDeDados.alunos.remove(i);
 			}
 		}

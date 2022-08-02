@@ -32,7 +32,7 @@ public class Treino extends BaseAcademia implements Operacoes {
 	}
 
 	@Override
-	public void editar() {
+	public void editar(String endereco) {
 		for (int i = 0; i <= BancoDeDados.treinos.size(); i++) {
 			if (BancoDeDados.treinos.get(i).getNome().contains(this.getNome())) {
 				BancoDeDados.treinos.set(i, this);

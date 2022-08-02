@@ -48,6 +48,7 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 	private JButton btnEditar;
 	private JButton btnDeletar;
 	private ControladorTelaBuscaAluno controladorTela;
+	private JPanel panelbase;
 
 	public PanelBuscaAluno(ControladorRedirecionar controlador) {
 
@@ -56,40 +57,45 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		setSize(529, 403);
 		setLayout(null);
 
+		panelbase = new JPanel();
+		panelbase.setBounds(0, 11, 528, 381);
+		add(panelbase);
+		panelbase.setLayout(null);
+
 		lblNewLabel = new JLabel("Buscar Aluno");
+		lblNewLabel.setBounds(184, 0, 151, 45);
+		panelbase.add(lblNewLabel);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Fira Code Light", Font.BOLD, 20));
-		lblNewLabel.setBounds(184, 11, 151, 45);
-		add(lblNewLabel);
 
 		textField = new JTextField();
+		textField.setBounds(65, 61, 366, 20);
+		panelbase.add(textField);
 		textField.setToolTipText("Digite o nome do aluno");
-		textField.setBounds(65, 72, 366, 20);
-		add(textField);
 		textField.setColumns(10);
 
 		iconeBusca = new JLabel("");
+		iconeBusca.setBounds(0, 41, 68, 58);
+		panelbase.add(iconeBusca);
 		iconeBusca.setHorizontalAlignment(SwingConstants.CENTER);
 		iconeBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		iconeBusca.setBounds(0, 52, 68, 58);
 		iconeBusca.setIcon(
 				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/lupa.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		add(iconeBusca);
 
 		panel = new JPanel();
+		panel.setBounds(1, 7, 527, 28);
+		panelbase.add(panel);
 		panel.setBackground(new Color(216, 205, 176));
 		panel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		panel.setBounds(1, 18, 527, 28);
-		add(panel);
 
 		panelInfo = new JPanel();
+		panelInfo.setBounds(1, 92, 527, 250);
+		panelbase.add(panelInfo);
 		panelInfo.setBackground(Color.WHITE);
 		panelInfo.setAlignmentY(1.0f);
 		panelInfo.setVisible(false);
-		panelInfo.setBounds(1, 103, 527, 250);
 		panelInfo.setVisible(false);
-		add(panelInfo);
 		panelInfo.setLayout(null);
 
 		lblPeso = new JLabel();
@@ -143,9 +149,9 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		panelInfo.add(listTreinos);
 
 		panelNaoEncontrado = new JPanel();
-		panelNaoEncontrado.setBounds(1, 103, 527, 250);
+		panelNaoEncontrado.setBounds(1, 92, 527, 250);
+		panelbase.add(panelNaoEncontrado);
 		panelNaoEncontrado.setVisible(false);
-		add(panelNaoEncontrado);
 		panelNaoEncontrado.setLayout(null);
 
 		lblnaoEncont = new JLabel("Aluno N\u00E3o Encontrado!");
@@ -154,10 +160,10 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		panelNaoEncontrado.add(lblnaoEncont);
 
 		panel_1 = new JPanel();
+		panel_1.setBounds(1, 353, 527, 28);
+		panelbase.add(panel_1);
 		panel_1.setBackground(new Color(216, 205, 176));
 		panel_1.setAlignmentY(1.0f);
-		panel_1.setBounds(1, 364, 527, 28);
-		add(panel_1);
 		panel_1.setLayout(null);
 
 		btnVoltar = new JButton("Inicio");
@@ -185,10 +191,10 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		panel_1.add(btnDeletar);
 
 		btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(435, 60, 89, 23);
+		panelbase.add(btnBuscar);
 		btnBuscar.addActionListener(this);
 		btnBuscar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
-		btnBuscar.setBounds(435, 71, 89, 23);
-		add(btnBuscar);
 
 		controladorTela = new ControladorTelaBuscaAluno(this, controlador);
 	}
@@ -324,6 +330,14 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 
 	public void setPanelNaoEncontrado(JPanel panelNaoEncontrado) {
 		this.panelNaoEncontrado = panelNaoEncontrado;
+	}
+
+	public JPanel getPanelbase() {
+		return panelbase;
+	}
+
+	public void setPanelbase(JPanel panelbase) {
+		this.panelbase = panelbase;
 	}
 
 }
