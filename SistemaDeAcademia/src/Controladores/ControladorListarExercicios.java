@@ -5,6 +5,7 @@ import javax.swing.DefaultListModel;
 import Modelo.BancoDeDados;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
+import Visao.PanelEditarExercicio;
 import Visao.PanelListarExercicios;
 
 public class ControladorListarExercicios {
@@ -25,7 +26,7 @@ public class ControladorListarExercicios {
 				if (exercicio.getTipo()
 						.equals(TipoDeGrupamento.pegarTipo(panel.getComboGrupamento().getSelectedIndex() + 1))) {
 					System.out.println(exercicio.getNome());
-					retorno.addElement(exercicio.getNome());
+					retorno.addElement(exercicio.getNome() + " / " + exercicio.getDescricao());
 				}
 			}
 
@@ -37,7 +38,10 @@ public class ControladorListarExercicios {
 			exercicio.deletar();
 			controlador.caminho(1);
 		} else if (e == panel.getBtnEditar()) {
-			controlador.caminho(1);
+
+			PanelEditarExercicio panelExercicio = new PanelEditarExercicio(controlador);
+			panel.add(panelExercicio);
+			panel.getPanelmain().setVisible(false);
 		} else if (e == panel.getBtnVoltar()) {
 			controlador.caminho(1);
 		}

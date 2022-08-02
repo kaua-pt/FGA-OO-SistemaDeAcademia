@@ -35,6 +35,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 	private JButton btnVoltar;
 	private JPanel panel_1;
 	private ControladorListarExercicios controladorTela;
+	private JPanel panelmain;
 
 	public PanelListarExercicios(ControladorRedirecionar controlador) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -42,11 +43,16 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		setSize(529, 403);
 		setLayout(null);
 
+		panelmain = new JPanel();
+		panelmain.setBounds(0, 11, 527, 374);
+		add(panelmain);
+		panelmain.setLayout(null);
+
 		panel = new JPanel();
+		panel.setBounds(0, 0, 527, 28);
+		panelmain.add(panel);
 		panel.setBackground(new Color(216, 205, 176));
 		panel.setAlignmentY(1.0f);
-		panel.setBounds(0, 11, 527, 28);
-		add(panel);
 		panel.setLayout(null);
 
 		lblTextinho = new JLabel("Listagem de Exercicios");
@@ -55,11 +61,11 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		panel.add(lblTextinho);
 
 		panel_1 = new JPanel();
+		panel_1.setBounds(0, 346, 527, 28);
+		panelmain.add(panel_1);
 		panel_1.setLayout(null);
 		panel_1.setBackground(new Color(216, 205, 176));
 		panel_1.setAlignmentY(1.0f);
-		panel_1.setBounds(0, 357, 527, 28);
-		add(panel_1);
 
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
@@ -86,31 +92,31 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		panel_1.add(btnDeletar);
 
 		listExercicios = new JList();
+		listExercicios.setBounds(10, 76, 509, 263);
+		panelmain.add(listExercicios);
 		listExercicios.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		listExercicios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listExercicios.setBorder(new LineBorder(new Color(0, 0, 0)));
-		listExercicios.setBounds(10, 87, 509, 263);
-		add(listExercicios);
 
 		iconeBusca = new JLabel("");
+		iconeBusca.setBounds(10, 21, 68, 58);
+		panelmain.add(iconeBusca);
 		iconeBusca.setHorizontalAlignment(SwingConstants.CENTER);
 		iconeBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		iconeBusca.setIcon(
 				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/lupa.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
-		iconeBusca.setBounds(10, 32, 68, 58);
-		add(iconeBusca);
 
 		btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(435, 39, 89, 23);
+		panelmain.add(btnBuscar);
 		btnBuscar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
-		btnBuscar.addActionListener(this);
-		btnBuscar.setBounds(435, 50, 89, 23);
-		add(btnBuscar);
 
 		comboGrupamento = new JComboBox();
+		comboGrupamento.setBounds(78, 39, 354, 22);
+		panelmain.add(comboGrupamento);
 		comboGrupamento.setModel(new DefaultComboBoxModel(TipoDeGrupamento.values()));
-		comboGrupamento.setBounds(78, 50, 354, 22);
-		add(comboGrupamento);
+		btnBuscar.addActionListener(this);
 
 		controladorTela = new ControladorListarExercicios(this, controlador);
 	}
@@ -167,6 +173,14 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 
 	public void setBtnVoltar(JButton btnVoltar) {
 		this.btnVoltar = btnVoltar;
+	}
+
+	public JPanel getPanelmain() {
+		return panelmain;
+	}
+
+	public void setPanelmain(JPanel panelmain) {
+		this.panelmain = panelmain;
 	}
 
 }
