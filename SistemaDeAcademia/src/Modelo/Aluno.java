@@ -58,6 +58,11 @@ public class Aluno implements Operacoes {
 	}
 
 	@Override
+	public String toString() {
+		return "Aluno: " + this.getNome() + "Com peso: " + this.getPeso() + "Kg e altura: " + this.getAltura();
+	}
+
+	@Override
 	public void cadastro() {
 		BancoDeDados.alunos.add(this);
 	}

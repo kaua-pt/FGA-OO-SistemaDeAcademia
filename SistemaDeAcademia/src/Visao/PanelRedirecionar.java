@@ -15,7 +15,7 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
 
-public class PainelRedirecionar extends JPanel {
+public class PanelRedirecionar extends JPanel {
 
 	private static final long serialVersionUID = -5262748883391237838L;
 	private String operacao;
@@ -30,7 +30,7 @@ public class PainelRedirecionar extends JPanel {
 	private JLabel lblList;
 	private JLabel lblNewLabel_1_1;
 
-	public PainelRedirecionar(String operacao, String listagem) {
+	public PanelRedirecionar(String operacao, String listagem) {
 
 		this.operacao = operacao;
 		this.listagem = listagem;
@@ -63,7 +63,7 @@ public class PainelRedirecionar extends JPanel {
 		lblCadastro = new JLabel("");
 		lblCadastro.setBounds(89, 60, 45, 58);
 		lblCadastro.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/cadastro.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/cadastro.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelCadastro.add(lblCadastro);
 
@@ -83,7 +83,7 @@ public class PainelRedirecionar extends JPanel {
 		lblList = new JLabel("");
 		lblList.setBounds(80, 58, 40, 58);
 		lblList.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/pesquisa-de-dados.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/pesquisa-de-dados.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		listagem2.add(lblList);
 

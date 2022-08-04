@@ -104,7 +104,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		iconeBusca.setHorizontalAlignment(SwingConstants.CENTER);
 		iconeBusca.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		iconeBusca.setIcon(
-				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/lupa.png"))
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/lupa.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 
 		btnBuscar = new JButton("Buscar");

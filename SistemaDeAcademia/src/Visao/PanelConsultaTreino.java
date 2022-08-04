@@ -11,6 +11,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import Controladores.ControladorConsultaTreino;
 import Controladores.ControladorRedirecionar;
 
 public class PanelConsultaTreino extends JPanel implements ActionListener {
@@ -19,9 +20,11 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 	private JLabel lblTexto;
 	private JPanel panel_1;
 	private JButton btnVoltar;
-	private JButton btnEditar;
+	private JButton btnVer;
 	private JButton btnDeletar;
 	private JList listTreinos;
+	private ControladorConsultaTreino controladorTela;
+	private JPanel panelGeral;
 
 	public PanelConsultaTreino(ControladorRedirecionar controlador) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -29,11 +32,16 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		setSize(529, 403);
 		setLayout(null);
 
+		panelGeral = new JPanel();
+		panelGeral.setBounds(0, 11, 529, 374);
+		add(panelGeral);
+		panelGeral.setLayout(null);
+
 		panel = new JPanel();
+		panel.setBounds(0, 0, 529, 28);
+		panelGeral.add(panel);
 		panel.setBackground(new Color(216, 205, 176));
 		panel.setAlignmentY(1.0f);
-		panel.setBounds(0, 11, 529, 28);
-		add(panel);
 		panel.setLayout(null);
 
 		lblTexto = new JLabel("Consultar Treinos");
@@ -42,44 +50,50 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		panel.add(lblTexto);
 
 		panel_1 = new JPanel();
+		panel_1.setBounds(0, 346, 527, 28);
+		panelGeral.add(panel_1);
 		panel_1.setLayout(null);
 		panel_1.setBackground(new Color(216, 205, 176));
 		panel_1.setAlignmentY(1.0f);
-		panel_1.setBounds(0, 357, 527, 28);
-		add(panel_1);
 
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnVoltar.setBackground(new Color(226, 71, 43));
 		btnVoltar.setBounds(62, 0, 89, 28);
+		btnVoltar.addActionListener(this);
 		panel_1.add(btnVoltar);
 
-		btnEditar = new JButton("Ver");
-		btnEditar.setForeground(Color.BLACK);
-		btnEditar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
-		btnEditar.setBackground(Color.GREEN);
-		btnEditar.setBounds(213, 0, 89, 28);
-		panel_1.add(btnEditar);
+		btnVer = new JButton("Ver");
+		btnVer.setForeground(Color.BLACK);
+		btnVer.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+		btnVer.setBackground(Color.GREEN);
+		btnVer.setBounds(213, 0, 89, 28);
+		btnVer.addActionListener(this);
+		panel_1.add(btnVer);
 
 		btnDeletar = new JButton("Deletar");
 		btnDeletar.setForeground(Color.BLACK);
 		btnDeletar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnDeletar.setBackground(new Color(162, 51, 52));
 		btnDeletar.setBounds(364, 0, 99, 28);
+		btnDeletar.addActionListener(this);
 		panel_1.add(btnDeletar);
 
 		listTreinos = new JList();
+		listTreinos.setBounds(10, 39, 509, 297);
+		panelGeral.add(listTreinos);
 		listTreinos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listTreinos.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		listTreinos.setBounds(10, 50, 509, 297);
-		add(listTreinos);
+
+		controladorTela = new ControladorConsultaTreino(this, controlador);
+		controladorTela.inicializar();
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		this.controladorTela.acaoPerformada(e.getSource());
 	}
 
 	public JButton getBtnVoltar() {
@@ -90,12 +104,12 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		this.btnVoltar = btnVoltar;
 	}
 
-	public JButton getBtnEditar() {
-		return btnEditar;
+	public JButton getBtnVer() {
+		return btnVer;
 	}
 
-	public void setBtnEditar(JButton btnEditar) {
-		this.btnEditar = btnEditar;
+	public void setBtnVer(JButton btnVer) {
+		this.btnVer = btnVer;
 	}
 
 	public JButton getBtnDeletar() {
@@ -113,4 +127,13 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 	public void setListTreinos(JList listTreinos) {
 		this.listTreinos = listTreinos;
 	}
+
+	public JPanel getPanelGeral() {
+		return panelGeral;
+	}
+
+	public void setPanelGeral(JPanel panelGeral) {
+		this.panelGeral = panelGeral;
+	}
+
 }

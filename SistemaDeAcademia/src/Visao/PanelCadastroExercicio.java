@@ -120,7 +120,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(10, 102, 40, 41);
 		lblIconNome.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/usuario-de-perfil.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/usuario-de-perfil.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconNome);
 

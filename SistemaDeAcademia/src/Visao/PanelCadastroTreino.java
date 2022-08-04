@@ -34,9 +34,9 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 	private JSpinner spinRep;
 	private JPanel panel;
 	private JPanel panelMain2;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_1_2;
-	private JLabel lblNewLabel_1_1_1;
+	private JLabel lblTexto;
+	private JLabel lblSeries;
+	private JLabel lblRepeticoes;
 	private JPanel panelMain1;
 	private JLabel lblNewLabel;
 	private JPanel faixa;
@@ -70,25 +70,25 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		panelMain2.setVisible(false);
 		panelMain2.setLayout(null);
 
-		lblNewLabel_4 = new JLabel("Selecione os exerc\u00EDcios desejados");
-		lblNewLabel_4.setFont(new Font("Fira Code Light", Font.BOLD, 16));
-		lblNewLabel_4.setBounds(100, 11, 361, 30);
-		panelMain2.add(lblNewLabel_4);
+		lblTexto = new JLabel("Selecione os exerc\u00EDcios desejados");
+		lblTexto.setFont(new Font("Fira Code Light", Font.BOLD, 16));
+		lblTexto.setBounds(100, 11, 361, 30);
+		panelMain2.add(lblTexto);
 
-		lblNewLabel_1_2 = new JLabel("S\u00E9ries:");
-		lblNewLabel_1_2.setFont(new Font("Fira Code Light", Font.BOLD, 16));
-		lblNewLabel_1_2.setBounds(375, 68, 91, 20);
-		panelMain2.add(lblNewLabel_1_2);
+		lblSeries = new JLabel("S\u00E9ries:");
+		lblSeries.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblSeries.setBounds(375, 68, 91, 20);
+		panelMain2.add(lblSeries);
 
 		spinSerie = new JSpinner();
 		spinSerie.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinSerie.setBounds(375, 99, 65, 20);
 		panelMain2.add(spinSerie);
 
-		lblNewLabel_1_1_1 = new JLabel("Repeti\u00E7\u00F5es:");
-		lblNewLabel_1_1_1.setFont(new Font("Fira Code Light", Font.BOLD, 16));
-		lblNewLabel_1_1_1.setBounds(375, 139, 121, 29);
-		panelMain2.add(lblNewLabel_1_1_1);
+		lblRepeticoes = new JLabel("Repeti\u00E7\u00F5es:");
+		lblRepeticoes.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblRepeticoes.setBounds(375, 139, 121, 29);
+		panelMain2.add(lblRepeticoes);
 
 		spinRep = new JSpinner();
 		spinRep.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));

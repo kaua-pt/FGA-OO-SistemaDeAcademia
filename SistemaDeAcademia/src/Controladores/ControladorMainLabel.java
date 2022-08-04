@@ -5,9 +5,9 @@ package Controladores;
 
 import javax.swing.JPanel;
 
-import Visao.PainelInicio;
-import Visao.PainelMenu;
-import Visao.PainelRedirecionar;
+import Visao.PanelInicio;
+import Visao.PanelMenu;
+import Visao.PanelRedirecionar;
 
 /**
  * @author Kauã Vinícius
@@ -15,10 +15,10 @@ import Visao.PainelRedirecionar;
  */
 public class ControladorMainLabel {
 
-	private PainelMenu tela;
+	private PanelMenu tela;
 	private JPanel[] telas = new JPanel[12];
 
-	public ControladorMainLabel(PainelMenu painelMenu) {
+	public ControladorMainLabel(PanelMenu painelMenu) {
 		this.tela = painelMenu;
 	}
 
@@ -26,19 +26,19 @@ public class ControladorMainLabel {
 		esconderTelas();
 
 		if (id == 1) {
-			PainelInicio inicio = new PainelInicio();
+			PanelInicio inicio = new PanelInicio();
 			operarTela(id, inicio);
 
 		} else if (id == 2) {
-			PainelRedirecionar redirecionarAluno = new PainelRedirecionar("Alunos", "Consultar ");
+			PanelRedirecionar redirecionarAluno = new PanelRedirecionar("Alunos", "Consultar ");
 			operarTela(id, redirecionarAluno);
 
 		} else if (id == 3) {
-			PainelRedirecionar redirecionarExercicio = new PainelRedirecionar("Exercicios", "Listar ");
+			PanelRedirecionar redirecionarExercicio = new PanelRedirecionar("Exercicios", "Listar ");
 			operarTela(id, redirecionarExercicio);
 
 		} else if (id == 4) {
-			PainelRedirecionar redirecionarTreino = new PainelRedirecionar("Treinos", "Consultar ");
+			PanelRedirecionar redirecionarTreino = new PanelRedirecionar("Treinos", "Consultar ");
 			operarTela(id, redirecionarTreino);
 		} else if (id == 5) {
 			tela.dispose();

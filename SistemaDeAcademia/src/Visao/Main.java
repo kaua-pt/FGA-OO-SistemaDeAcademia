@@ -13,7 +13,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		PainelMenu frame = new PainelMenu("Dale");
+		PanelMenu frame = new PanelMenu("Dale");
 		frame.setVisible(true);
 
 	}

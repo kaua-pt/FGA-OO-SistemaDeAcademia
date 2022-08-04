@@ -20,6 +20,11 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 	}
 
 	@Override
+	public String toString() {
+		return "Nome: " + this.getNome() + " Grupamento: " + this.getTipo() + " Descrição : " + this.getDescricao();
+	}
+
+	@Override
 	public void cadastro() {
 		BancoDeDados.exercicios.add(this);
 	}

@@ -175,28 +175,28 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(19, 105, 40, 41);
 		lblIconNome.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/usuario-de-perfil.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/usuario-de-perfil.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconNome);
 
 		lblIconIdade = new JLabel("");
 		lblIconIdade.setBounds(19, 160, 40, 41);
 		lblIconIdade.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/ampulheta.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/ampulheta.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconIdade);
 
 		lblIconAltura = new JLabel("");
 		lblIconAltura.setBounds(19, 215, 40, 41);
 		lblIconAltura.setIcon(
-				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/altura.png"))
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/altura.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconAltura);
 
 		lblIconPeso = new JLabel("");
 		lblIconPeso.setBounds(19, 273, 40, 41);
 		lblIconPeso.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/balancas.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/balancas.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconPeso);
 

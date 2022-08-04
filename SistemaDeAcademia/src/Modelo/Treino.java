@@ -5,6 +5,8 @@ package Modelo;
 
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
 /**
  * @author Kau� Vin�cius
  *
@@ -24,6 +26,11 @@ public class Treino extends BaseAcademia implements Operacoes {
 		this.exercicios = exercicios;
 		this.nRepeticao = nRepeticao;
 		this.nSerie = nSerie;
+	}
+
+	@Override
+	public String toString() {
+		return "Treino com nome: " + this.getNome() + "Com os exercicios: " + this.getExercicios();
 	}
 
 	@Override
@@ -47,12 +54,47 @@ public class Treino extends BaseAcademia implements Operacoes {
 				BancoDeDados.treinos.remove(i);
 			}
 		}
+		for (Aluno aluno : BancoDeDados.alunos) {
+			for (int j = 0; j <= aluno.getTreinos().size(); j++) {
+				if (aluno.getTreinos().get(j).getNome().contains(this.getNome())) {
+					aluno.getTreinos().remove(j);
+				}
+			}
+		}
 	}
 
 	public static Treino getUmTreino(String nome) {
 		for (Treino treinoComparado : BancoDeDados.treinos) {
 			if (nome.equals(treinoComparado.getNome())) {
 				return treinoComparado;
+			}
+		}
+		return null;
+	}
+
+	public String getNomesTipo() {
+		String stringTipos = "";
+		for (TipoDeGrupamento tipo : this.getTipo()) {
+			stringTipos = stringTipos + "," + tipo.toString().toLowerCase();
+		}
+		return stringTipos.substring(1, stringTipos.length() - 1);
+	}
+
+	public DefaultListModel<String> getNomesExercicios() {
+		DefaultListModel<String> listaRetorno = new DefaultListModel<String>();
+
+		for (int i = 0; i < this.getExercicios().size(); i++) {
+			listaRetorno.addElement(this.getExercicios().get(i).getNome());
+		}
+		return listaRetorno;
+	}
+
+	public String getAlunoAnexado() {
+		for (Aluno aluno : BancoDeDados.alunos) {
+			for (int i = 0; i < aluno.getTreinos().size(); i++) {
+				if (aluno.getTreinos().get(0).getNome().equals(this.getNome())) {
+					return aluno.getNome();
+				}
 			}
 		}
 		return null;

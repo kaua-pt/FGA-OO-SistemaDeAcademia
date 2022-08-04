@@ -13,7 +13,7 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-public class PainelInicio extends JPanel {
+public class PanelInicio extends JPanel {
 
 	/**
 	 * 
@@ -45,7 +45,7 @@ public class PainelInicio extends JPanel {
 
 	private JTextPane txtpcaixa2;
 
-	public PainelInicio() {
+	public PanelInicio() {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -64,7 +64,7 @@ public class PainelInicio extends JPanel {
 
 		lblAlunoinc = new JLabel("");
 		lblAlunoinc.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/do-utilizador.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/do-utilizador.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		lblAlunoinc.setBounds(61, 23, 40, 46);
 		panel.add(lblAlunoinc);
@@ -94,7 +94,7 @@ public class PainelInicio extends JPanel {
 
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
-				.getImage(PainelMenu.class.getResource("/Imagens/exercicios-de-alongamento.png"))
+				.getImage(PanelMenu.class.getResource("/Imagens/exercicios-de-alongamento.png"))
 				.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		lblNewLabel_1.setBounds(61, 23, 40, 46);
 		panel_1.add(lblNewLabel_1);
@@ -124,7 +124,7 @@ public class PainelInicio extends JPanel {
 
 		lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/exercicio.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/exercicio.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		lblNewLabel_1_1.setBounds(61, 22, 40, 46);
 		panel_1_1.add(lblNewLabel_1_1);

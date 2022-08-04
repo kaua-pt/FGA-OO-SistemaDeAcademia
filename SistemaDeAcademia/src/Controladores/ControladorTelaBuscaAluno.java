@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 import Modelo.Aluno;
-import Visao.PainelMenu;
+import Visao.PanelMenu;
 import Visao.PanelBuscaAluno;
 import Visao.PanelEditarAluno;
 
@@ -56,7 +56,7 @@ public class ControladorTelaBuscaAluno {
 
 		tela.getLblIMCPessoa()
 				.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
-						.getImage(PainelMenu.class
+						.getImage(PanelMenu.class
 								.getResource("/Imagens/" + aluno.calcularParametro().replaceAll(" ", "_") + ".png"))
 						.getScaledInstance(160, 160, Image.SCALE_SMOOTH)));
 		tela.getLblTreinos().setText("Treinos");

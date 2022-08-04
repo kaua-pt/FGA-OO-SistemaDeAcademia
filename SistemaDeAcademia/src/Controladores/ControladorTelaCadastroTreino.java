@@ -40,9 +40,11 @@ public class ControladorTelaCadastroTreino {
 			controlador.caminho(1);
 		} else if (e == tela.getBtnExercicios()) {
 
-			DefaultListModel<String> listaModelo = new DefaultListModel<String>();
+			DefaultListModel listaModelo = new DefaultListModel();
 			stringExercicios = Exercicio.getExercicioPorTipo(parearTipos(tela.getComboGrupo().getSelectedIndex()));
+
 			for (String exercicio : stringExercicios) {
+				System.out.println(exercicio);
 				listaModelo.addElement(exercicio);
 			}
 

@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import Controladores.ControladorMainLabel;
 
-public class PainelMenu extends JFrame {
+public class PanelMenu extends JFrame {
 
 	/**
 	 * 
@@ -45,7 +45,7 @@ public class PainelMenu extends JFrame {
 	private JLabel lblSair;
 	private JLabel lblSairIcone;
 
-	public PainelMenu(String titulo) {
+	public PanelMenu(String titulo) {
 
 		controlador = new ControladorMainLabel(this);
 
@@ -77,7 +77,7 @@ public class PainelMenu extends JFrame {
 		lblMainIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMainIcone.setBounds(10, 11, 165, 98);
 		lblMainIcone.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/academia.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/academia.png"))
 						.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
 		panelMenu.add(lblMainIcone);
 
@@ -99,7 +99,7 @@ public class PainelMenu extends JFrame {
 		lblInicioIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInicioIcone.setBackground(Color.WHITE);
 		lblInicioIcone.setIcon(
-				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/casa.png"))
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/casa.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		lblInicioIcone.setBounds(10, 0, 53, 48);
 		panelInicio.add(lblInicioIcone);
@@ -122,7 +122,7 @@ public class PainelMenu extends JFrame {
 		lblAlunosIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAlunosIcone.setBackground(Color.WHITE);
 		lblAlunosIcone.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/do-utilizador.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/do-utilizador.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		lblAlunosIcone.setBounds(10, 0, 53, 48);
 		panelAlunos.add(lblAlunosIcone);
@@ -145,7 +145,7 @@ public class PainelMenu extends JFrame {
 		lblExerciciosIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblExerciciosIcone.setBackground(Color.WHITE);
 		lblExerciciosIcone.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/exercicio.png"))
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/exercicio.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		lblExerciciosIcone.setBounds(10, 0, 53, 48);
 		panelExercicios.add(lblExerciciosIcone);
@@ -168,7 +168,7 @@ public class PainelMenu extends JFrame {
 		lblTreinoIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTreinoIcone.setBackground(Color.WHITE);
 		lblTreinoIcone.setIcon(new ImageIcon(Toolkit.getDefaultToolkit()
-				.getImage(PainelMenu.class.getResource("/Imagens/exercicios-de-alongamento.png"))
+				.getImage(PanelMenu.class.getResource("/Imagens/exercicios-de-alongamento.png"))
 				.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		lblTreinoIcone.setBounds(10, 0, 53, 48);
 		panelTreino.add(lblTreinoIcone);
@@ -192,7 +192,7 @@ public class PainelMenu extends JFrame {
 		lblSairIcone.setBackground(Color.WHITE);
 		lblSairIcone.setBounds(10, 0, 53, 48);
 		lblSairIcone.setIcon(
-				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PainelMenu.class.getResource("/Imagens/sair.png"))
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/sair.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelSair.add(lblSairIcone);
 
