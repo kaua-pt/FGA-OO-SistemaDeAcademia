@@ -34,4 +34,40 @@ public enum TipoDeGrupamento {
 		}
 		return null;
 	}
+
+	public static ArrayList<TipoDeGrupamento> parearTipos(int index) {
+		ArrayList<Integer> pareador = new ArrayList<Integer>();
+		ArrayList<TipoDeGrupamento> grupos = new ArrayList<TipoDeGrupamento>();
+
+		switch (index) {
+		case 0:
+			pareador.add(1);
+			pareador.add(4);
+			pareador.add(5);
+			break;
+		case 1:
+			pareador.add(2);
+			pareador.add(3);
+			break;
+		case 2:
+			pareador.add(6);
+			pareador.add(7);
+			pareador.add(8);
+
+			break;
+		case 3:
+			pareador.add(9);
+			break;
+		}
+
+		for (int valor : pareador) {
+			for (TipoDeGrupamento tipo : TipoDeGrupamento.values()) {
+				if (tipo.getId() == valor) {
+					grupos.add(tipo);
+				}
+			}
+		}
+		System.out.println(grupos);
+		return grupos;
+	}
 }

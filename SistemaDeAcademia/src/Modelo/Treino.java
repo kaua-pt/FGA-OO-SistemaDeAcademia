@@ -45,6 +45,14 @@ public class Treino extends BaseAcademia implements Operacoes {
 				BancoDeDados.treinos.set(i, this);
 			}
 		}
+
+		for (Aluno aluno : BancoDeDados.alunos) {
+			for (int j = 0; j <= aluno.getTreinos().size(); j++) {
+				if (aluno.getTreinos().get(j).getNome().equals(endereco)) {
+					aluno.getTreinos().set(j, this);
+				}
+			}
+		}
 	}
 
 	@Override
@@ -77,7 +85,7 @@ public class Treino extends BaseAcademia implements Operacoes {
 		for (TipoDeGrupamento tipo : this.getTipo()) {
 			stringTipos = stringTipos + "," + tipo.toString().toLowerCase();
 		}
-		return stringTipos.substring(1, stringTipos.length() - 1);
+		return stringTipos.substring(1, stringTipos.length());
 	}
 
 	public DefaultListModel<String> getNomesExercicios() {

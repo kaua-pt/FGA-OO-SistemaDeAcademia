@@ -27,7 +27,7 @@ public class ControladorVerTreino {
 		tela.getLblNome().setText(treino.getNome());
 		tela.getLblRepeticoes().setText("Repetições: " + treino.getnRepeticao());
 		tela.getLblSeries().setText("Séries: " + treino.getnSerie());
-		tela.getLblTipo().setText("Tipo: " + treino.getNomesTipo());
+		tela.getTextTipo().setText("Tipo: " + treino.getNomesTipo());
 		tela.getListExerciciosTreino().setModel(treino.getNomesExercicios());
 	}
 }

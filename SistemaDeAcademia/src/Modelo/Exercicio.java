@@ -4,6 +4,9 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.DefaultListModel;
 
 /**
  * @author Kau� Vin�cius
@@ -80,6 +83,30 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 			}
 		}
 		return null;
+	}
+
+	public static DefaultListModel listaExercicio(int index) {
+		ArrayList<String> stringExercicios;
+		DefaultListModel listaModelo = new DefaultListModel();
+
+		stringExercicios = Exercicio.getExercicioPorTipo(TipoDeGrupamento.parearTipos(index));
+		for (String exercicio : stringExercicios) {
+			listaModelo.addElement(exercicio);
+		}
+
+		return listaModelo;
+	}
+
+	public static ArrayList<Exercicio> parearExercicios(List<String> nomes) {
+		ArrayList<Exercicio> exercicios = new ArrayList<Exercicio>();
+		for (String nome : nomes) {
+			for (Exercicio exercicioUnico : BancoDeDados.exercicios) {
+				if (nome == exercicioUnico.getNome()) {
+					exercicios.add(exercicioUnico);
+				}
+			}
+		}
+		return exercicios;
 	}
 
 	public String getDescricao() {

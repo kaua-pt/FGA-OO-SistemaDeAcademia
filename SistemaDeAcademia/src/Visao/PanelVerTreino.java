@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
@@ -24,11 +25,11 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 	private JButton btnEditar;
 	private JLabel lblNome;
 	private JLabel lblAluno;
-	private JLabel lblTipo;
 	private JLabel lblSeries;
 	private JLabel lblRepeticoes;
 	private JList listExerciciosTreino;
 	private JLabel lblExercicios;
+	private JTextArea textTipo;
 	private ControladorVerTreino controladorTela;
 
 	public PanelVerTreino(ControladorRedirecionar controlador, Treino treino) {
@@ -74,22 +75,17 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 
 		lblAluno = new JLabel();
 		lblAluno.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblAluno.setBounds(32, 69, 215, 14);
+		lblAluno.setBounds(10, 70, 254, 14);
 		add(lblAluno);
-
-		lblTipo = new JLabel();
-		lblTipo.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblTipo.setBounds(32, 132, 215, 41);
-		add(lblTipo);
 
 		lblSeries = new JLabel();
 		lblSeries.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblSeries.setBounds(32, 198, 215, 20);
+		lblSeries.setBounds(10, 199, 254, 20);
 		add(lblSeries);
 
 		lblRepeticoes = new JLabel();
 		lblRepeticoes.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblRepeticoes.setBounds(32, 257, 215, 29);
+		lblRepeticoes.setBounds(10, 258, 254, 29);
 		add(lblRepeticoes);
 
 		listExerciciosTreino = new JList();
@@ -105,6 +101,13 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		add(lblExercicios);
 
 		controladorTela = new ControladorVerTreino(this, controlador, treino);
+
+		textTipo = new JTextArea();
+		textTipo.setLineWrap(true);
+		textTipo.setFont(new Font("Fira Code Light", Font.BOLD, 14));
+		textTipo.setEditable(false);
+		textTipo.setBounds(10, 121, 254, 43);
+		add(textTipo);
 		controladorTela.inicializar();
 
 	}
@@ -146,12 +149,12 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		this.lblAluno = lblAluno;
 	}
 
-	public JLabel getLblTipo() {
-		return lblTipo;
+	public JTextArea getTextTipo() {
+		return textTipo;
 	}
 
-	public void setLblTipo(JLabel lblTipo) {
-		this.lblTipo = lblTipo;
+	public void setTextTipo(JTextArea textTipo) {
+		this.textTipo = textTipo;
 	}
 
 	public JLabel getLblSeries() {
@@ -177,5 +180,4 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 	public void setListExerciciosTreino(JList listExerciciosTreino) {
 		this.listExerciciosTreino = listExerciciosTreino;
 	}
-
 }

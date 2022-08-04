@@ -3,8 +3,6 @@ package Controladores;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.DefaultListModel;
-
 import Modelo.Aluno;
 import Modelo.BancoDeDados;
 import Modelo.Exercicio;
@@ -16,7 +14,6 @@ public class ControladorTelaCadastroTreino {
 
 	private PanelCadastroTreino tela;
 	private ControladorRedirecionar controlador;
-	private ArrayList<String> stringExercicios;
 
 	public ControladorTelaCadastroTreino(PanelCadastroTreino tela, ControladorRedirecionar controlador) {
 		this.tela = tela;
@@ -40,15 +37,7 @@ public class ControladorTelaCadastroTreino {
 			controlador.caminho(1);
 		} else if (e == tela.getBtnExercicios()) {
 
-			DefaultListModel listaModelo = new DefaultListModel();
-			stringExercicios = Exercicio.getExercicioPorTipo(parearTipos(tela.getComboGrupo().getSelectedIndex()));
-
-			for (String exercicio : stringExercicios) {
-				System.out.println(exercicio);
-				listaModelo.addElement(exercicio);
-			}
-
-			tela.getListExerciciosTreino().setModel(listaModelo);
+			tela.getListExerciciosTreino().setModel(Exercicio.listaExercicio(tela.getComboGrupo().getSelectedIndex()));
 
 			tela.getPanelMain1().setVisible(false);
 			tela.getPanelMain2().setVisible(true);
@@ -61,57 +50,10 @@ public class ControladorTelaCadastroTreino {
 
 	public void cadastrarTreino(String nome, int tipos, String nomeAluno, List<String> nomes, int nRep, int nSer) {
 
-		Treino treino = new Treino(nome, parearTipos(tipos), parearExercicios(nomes), nRep, nSer);
+		Treino treino = new Treino(nome, TipoDeGrupamento.parearTipos(tipos), Exercicio.parearExercicios(nomes), nRep,
+				nSer);
 		treino.cadastro();
 		anexarTreino(nomeAluno, treino);
-	}
-
-	public static ArrayList<Exercicio> parearExercicios(List<String> nomes) {
-		ArrayList<Exercicio> exercicios = new ArrayList<Exercicio>();
-		for (String nome : nomes) {
-			for (Exercicio exercicioUnico : BancoDeDados.exercicios) {
-				if (nome == exercicioUnico.getNome()) {
-					exercicios.add(exercicioUnico);
-				}
-			}
-		}
-		return exercicios;
-	}
-
-	public static ArrayList<TipoDeGrupamento> parearTipos(int index) {
-		ArrayList<Integer> pareador = new ArrayList<Integer>();
-		ArrayList<TipoDeGrupamento> grupos = new ArrayList<TipoDeGrupamento>();
-
-		switch (index) {
-		case 0:
-			pareador.add(1);
-			pareador.add(4);
-			pareador.add(5);
-			break;
-		case 1:
-			pareador.add(2);
-			pareador.add(3);
-			break;
-		case 2:
-			pareador.add(6);
-			pareador.add(7);
-			pareador.add(8);
-
-			break;
-		case 3:
-			pareador.add(9);
-			break;
-		}
-
-		for (int valor : pareador) {
-			for (TipoDeGrupamento tipo : TipoDeGrupamento.values()) {
-				if (tipo.getId() == valor) {
-					grupos.add(tipo);
-				}
-			}
-		}
-		System.out.println(grupos);
-		return grupos;
 	}
 
 	public static void anexarTreino(String alunoNome, Treino treinos) {
