@@ -7,11 +7,9 @@ import Visao.PanelCadastroExercicio;
 public class ControladorTelaCadastroExercicio {
 
 	private PanelCadastroExercicio tela;
-	private ControladorRedirecionar controlador;
 
-	public ControladorTelaCadastroExercicio(PanelCadastroExercicio tela, ControladorRedirecionar controlador) {
+	public ControladorTelaCadastroExercicio(PanelCadastroExercicio tela) {
 		this.tela = tela;
-		this.controlador = controlador;
 	}
 
 	public void acaoPerformada(Object e) {
@@ -22,10 +20,10 @@ public class ControladorTelaCadastroExercicio {
 
 				cadastrarExercicio(tela.getNomeExercicio().getText(), tela.getComboBoxExercicio().getSelectedIndex(),
 						tela.getTextArea().getText());
-				controlador.caminho(1);
+				ControladorRedirecionar.caminho(1);
 			}
 		} else if (e == tela.getBtnVoltar()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		}
 	}
 

@@ -13,7 +13,6 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorRedirecionar;
 import Controladores.ControladorVerTreino;
 import Modelo.Treino;
 
@@ -32,7 +31,7 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 	private JTextArea textTipo;
 	private ControladorVerTreino controladorTela;
 
-	public PanelVerTreino(ControladorRedirecionar controlador, Treino treino) {
+	public PanelVerTreino(Treino treino) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -100,7 +99,7 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		lblExercicios.setBounds(274, 63, 110, 26);
 		add(lblExercicios);
 
-		controladorTela = new ControladorVerTreino(this, controlador, treino);
+		controladorTela = new ControladorVerTreino(this, treino);
 
 		textTipo = new JTextArea();
 		textTipo.setLineWrap(true);

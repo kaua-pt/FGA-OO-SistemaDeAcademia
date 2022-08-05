@@ -19,7 +19,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaCadastroExercicio;
 import Modelo.TipoDeGrupamento;
 
@@ -47,7 +46,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 	private JButton btnCadastrar;
 	private ControladorTelaCadastroExercicio controladorTela;
 
-	public PanelCadastroExercicio(ControladorRedirecionar controlador) {
+	public PanelCadastroExercicio() {
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -155,7 +154,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		textArea.setBounds(0, 0, 324, 78);
 		panelDescricao.add(textArea);
 
-		controladorTela = new ControladorTelaCadastroExercicio(this, controlador);
+		controladorTela = new ControladorTelaCadastroExercicio(this);
 	}
 
 	@Override

@@ -11,16 +11,11 @@ import Visao.PanelListarExercicios;
 
 public class ControladorRedirecionar {
 
-	private JPanel tela;
-	private JPanel padrao;
-	private JPanel[] telas = new JPanel[20];
+	private static JPanel tela;
+	private static JPanel padrao;
+	private static JPanel[] telas = new JPanel[20];
 
-	public ControladorRedirecionar(JPanel tela, JPanel padrao) {
-		this.tela = tela;
-		this.padrao = padrao;
-	}
-
-	public void receptacao(String operacao, int id) {
+	public static void receptacao(String operacao, int id) {
 		if (operacao == "Alunos") {
 			caminho(id);
 		} else if (operacao == "Exercicios") {
@@ -30,46 +25,62 @@ public class ControladorRedirecionar {
 		}
 	}
 
-	public void caminho(int id) {
-		this.padrao.setVisible(false);
+	public static void caminho(int id) {
+		ControladorRedirecionar.padrao.setVisible(false);
 		esconderTelas();
 
 		if (id == 1) {
-			operarTela(id, this.padrao);
+			operarTela(id, ControladorRedirecionar.padrao);
 		} else if (id == 2) {
-			PanelCadastroAluno cadastroA = new PanelCadastroAluno(this);
+			PanelCadastroAluno cadastroA = new PanelCadastroAluno();
 			operarTela(id, cadastroA);
 		} else if (id == 3) {
-			PanelCadastroExercicio cadastroE = new PanelCadastroExercicio(this);
+			PanelCadastroExercicio cadastroE = new PanelCadastroExercicio();
 			operarTela(id, cadastroE);
 		} else if (id == 4) {
-			PanelCadastroTreino cadastroT = new PanelCadastroTreino(this);
+			PanelCadastroTreino cadastroT = new PanelCadastroTreino();
 			operarTela(id, cadastroT);
 		} else if (id == 5) {
-			PanelBuscaAluno buscaA = new PanelBuscaAluno(this);
+			PanelBuscaAluno buscaA = new PanelBuscaAluno();
 			operarTela(id, buscaA);
 		} else if (id == 6) {
-			PanelListarExercicios listarE = new PanelListarExercicios(this);
+			PanelListarExercicios listarE = new PanelListarExercicios();
 			operarTela(id, listarE);
 		} else if (id == 7) {
-			PanelConsultaTreino consultaT = new PanelConsultaTreino(this);
+			PanelConsultaTreino consultaT = new PanelConsultaTreino();
 			operarTela(id, consultaT);
 		}
 
 	}
 
-	public void operarTela(int id, JPanel elemento) {
+	public static void operarTela(int id, JPanel elemento) {
 		telas[id - 1] = elemento;
-		this.tela.add(elemento);
+		ControladorRedirecionar.tela.add(elemento);
 		elemento.setVisible(true);
 	}
 
-	public void esconderTelas() {
+	public static void esconderTelas() {
 		for (JPanel telaCriada : telas) {
 			if (telaCriada != null) {
 				telaCriada.setVisible(false);
 			}
 		}
+	}
+
+	public static JPanel getTela() {
+		return tela;
+	}
+
+	public static void setTela(JPanel tela) {
+		ControladorRedirecionar.tela = tela;
+	}
+
+	public static JPanel getPadrao() {
+		return padrao;
+	}
+
+	public static void setPadrao(JPanel padrao) {
+		ControladorRedirecionar.padrao = padrao;
 	}
 
 }

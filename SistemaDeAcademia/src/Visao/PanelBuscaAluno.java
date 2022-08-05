@@ -18,7 +18,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
-import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaBuscaAluno;
 import Modelo.Aluno;
 
@@ -50,7 +49,7 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 	private ControladorTelaBuscaAluno controladorTela;
 	private JPanel panelbase;
 
-	public PanelBuscaAluno(ControladorRedirecionar controlador) {
+	public PanelBuscaAluno() {
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -196,7 +195,7 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		btnBuscar.addActionListener(this);
 		btnBuscar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 
-		controladorTela = new ControladorTelaBuscaAluno(this, controlador);
+		controladorTela = new ControladorTelaBuscaAluno(this);
 	}
 
 	@Override

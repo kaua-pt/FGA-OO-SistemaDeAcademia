@@ -6,12 +6,10 @@ import Visao.PanelEditarAluno;
 public class ControladorTelaEditarAluno {
 
 	private PanelEditarAluno panel;
-	private ControladorRedirecionar controlador;
 	private String nomeAluno;
 
-	public ControladorTelaEditarAluno(PanelEditarAluno panel, ControladorRedirecionar controlador) {
+	public ControladorTelaEditarAluno(PanelEditarAluno panel) {
 		this.panel = panel;
-		this.controlador = controlador;
 	}
 
 	public void acaoPerformada(Object e) {
@@ -19,9 +17,9 @@ public class ControladorTelaEditarAluno {
 			Aluno alunoSet = new Aluno(panel.getTextNomeAluno().getText(), (int) panel.getSpinIdade().getValue(),
 					(double) panel.getSpinAltura().getValue(), (double) panel.getSpinPeso().getValue());
 			alunoSet.editar(nomeAluno);
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		} else if (e == panel.getBtnVoltar()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		}
 	}
 

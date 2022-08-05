@@ -11,7 +11,9 @@ import Visao.PanelRedirecionar;
 
 /**
  * @author Kauã Vinícius
- *
+ * 
+ * 
+ * @see PanelMenu
  */
 public class ControladorMainLabel {
 

@@ -5,18 +5,16 @@ import Visao.PanelVerTreino;
 
 public class ControladorVerTreino {
 	private PanelVerTreino tela;
-	private ControladorRedirecionar controlador;
 	private Treino treino;
 
-	public ControladorVerTreino(PanelVerTreino tela, ControladorRedirecionar controlador, Treino treino) {
+	public ControladorVerTreino(PanelVerTreino tela, Treino treino) {
 		this.tela = tela;
-		this.controlador = controlador;
 		this.treino = treino;
 	}
 
 	public void acaoPerformada(Object e) {
 		if (e == tela.getBtnVoltar()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		} else if (e == tela.getBtnEditar()) {
 
 		}

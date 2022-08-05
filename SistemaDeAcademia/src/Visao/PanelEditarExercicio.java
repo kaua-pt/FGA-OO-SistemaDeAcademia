@@ -15,7 +15,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaEditarExercicio;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
@@ -36,7 +35,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 	private JTextArea textDescricao;
 	private ControladorTelaEditarExercicio controladorT;
 
-	public PanelEditarExercicio(ControladorRedirecionar controlador, Exercicio exercicio) {
+	public PanelEditarExercicio(Exercicio exercicio) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -114,7 +113,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		textDescricao.setBounds(168, 231, 324, 78);
 		add(textDescricao);
 
-		controladorT = new ControladorTelaEditarExercicio(this, controlador);
+		controladorT = new ControladorTelaEditarExercicio(this);
 		controladorT.iniciarCampos(exercicio);
 
 	}

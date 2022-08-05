@@ -7,6 +7,7 @@ import java.util.ArrayList;
  *
  */
 public class BancoDeDados {
+	// private e final
 	public static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
 	public static ArrayList<Exercicio> exercicios = new ArrayList<Exercicio>();
 	public static ArrayList<Treino> treinos = new ArrayList<Treino>();

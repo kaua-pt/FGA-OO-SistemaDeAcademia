@@ -76,8 +76,8 @@ public class PanelMenu extends JFrame {
 		lblMainIcone = new JLabel("");
 		lblMainIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMainIcone.setBounds(10, 11, 165, 98);
-		lblMainIcone.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/academia.png"))
+		lblMainIcone.setIcon(
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/academia.png"))
 						.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
 		panelMenu.add(lblMainIcone);
 
@@ -249,6 +249,14 @@ public class PanelMenu extends JFrame {
 
 	public JPanel getPanelMainMenu() {
 		return panelMainMenu;
+	}
+
+	public JLabel getLabelTitulo() {
+		return labelTitulo;
+	}
+
+	public void setLabelTitulo(JLabel labelTitulo) {
+		this.labelTitulo = labelTitulo;
 	}
 
 }

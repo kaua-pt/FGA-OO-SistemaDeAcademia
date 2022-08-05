@@ -67,7 +67,6 @@ public enum TipoDeGrupamento {
 				}
 			}
 		}
-		System.out.println(grupos);
 		return grupos;
 	}
 }

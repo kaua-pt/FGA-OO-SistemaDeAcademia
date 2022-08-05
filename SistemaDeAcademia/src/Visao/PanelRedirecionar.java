@@ -46,7 +46,9 @@ public class PanelRedirecionar extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 
-		controlador = new ControladorRedirecionar(this, panel);
+		controlador = new ControladorRedirecionar();
+		ControladorRedirecionar.setTela(this);
+		ControladorRedirecionar.setPadrao(panel);
 
 		lblNewLabel = new JLabel("Escolha uma op\u00E7\u00E3o");
 		lblNewLabel.setFont(new Font("Fira Code", Font.BOLD, 20));
@@ -62,8 +64,8 @@ public class PanelRedirecionar extends JPanel {
 
 		lblCadastro = new JLabel("");
 		lblCadastro.setBounds(89, 60, 45, 58);
-		lblCadastro.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/cadastro.png"))
+		lblCadastro.setIcon(
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/cadastro.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelCadastro.add(lblCadastro);
 

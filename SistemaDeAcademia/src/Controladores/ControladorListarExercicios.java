@@ -11,12 +11,10 @@ import Visao.PanelListarExercicios;
 public class ControladorListarExercicios {
 
 	private PanelListarExercicios panel;
-	private ControladorRedirecionar controlador;
 	private Exercicio exercicio;
 
-	public ControladorListarExercicios(PanelListarExercicios panel, ControladorRedirecionar controlador) {
+	public ControladorListarExercicios(PanelListarExercicios panel) {
 		this.panel = panel;
-		this.controlador = controlador;
 	}
 
 	public void acaoPerformada(Object e) {
@@ -34,19 +32,19 @@ public class ControladorListarExercicios {
 		} else if (e == panel.getBtnDeletar()) {
 			exercicio = Exercicio.getUmExercicio((String) panel.getListExercicios().getSelectedValue());
 			exercicio.deletar();
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		} else if (e == panel.getBtnEditar()) {
 
 			String nome = panel.getListExercicios().getSelectedValue().toString();
 			int pos = nome.indexOf("-");
 			nome.substring(0, pos);
-			PanelEditarExercicio panelExercicio = new PanelEditarExercicio(controlador,
+			PanelEditarExercicio panelExercicio = new PanelEditarExercicio(
 					Exercicio.getUmExercicio(nome.substring(0, pos)));
 			panel.add(panelExercicio);
 			panel.getPanelmain().setVisible(false);
 
 		} else if (e == panel.getBtnVoltar()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		}
 	}
 }

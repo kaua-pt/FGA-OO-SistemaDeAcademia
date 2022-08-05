@@ -15,6 +15,7 @@ import javax.swing.DefaultListModel;
 
 public class Treino extends BaseAcademia implements Operacoes {
 
+	// string chave
 	private ArrayList<Exercicio> exercicios = new ArrayList<Exercicio>();
 	private int nRepeticao;
 	private int nSerie;

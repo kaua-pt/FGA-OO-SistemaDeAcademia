@@ -6,19 +6,17 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 import Modelo.Aluno;
-import Visao.PanelMenu;
 import Visao.PanelBuscaAluno;
 import Visao.PanelEditarAluno;
+import Visao.PanelMenu;
 
 public class ControladorTelaBuscaAluno {
 
 	private PanelBuscaAluno tela;
 	private Aluno aluno;
-	private ControladorRedirecionar controlador;
 
-	public ControladorTelaBuscaAluno(PanelBuscaAluno tela, ControladorRedirecionar controlador) {
+	public ControladorTelaBuscaAluno(PanelBuscaAluno tela) {
 		this.tela = tela;
-		this.controlador = controlador;
 	}
 
 	public void acaoPerformada(Object e) {
@@ -38,17 +36,17 @@ public class ControladorTelaBuscaAluno {
 
 			if (aluno != null) {
 				aluno.deletar();
-				controlador.caminho(1);
+				ControladorRedirecionar.caminho(1);
 			}
 
 		} else if (e == tela.getBtnEditar()) {
-			PanelEditarAluno panelEditarA = new PanelEditarAluno(controlador, aluno);
+			PanelEditarAluno panelEditarA = new PanelEditarAluno(aluno);
 			tela.add(panelEditarA);
 			panelEditarA.setVisible(true);
 			tela.getPanelbase().setVisible(false);
 
 		} else if (e == tela.getBtnVoltar()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		}
 	}
 

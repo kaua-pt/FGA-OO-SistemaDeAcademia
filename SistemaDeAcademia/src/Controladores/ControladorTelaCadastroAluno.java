@@ -6,11 +6,9 @@ import Visao.PanelCadastroAluno;
 public class ControladorTelaCadastroAluno {
 
 	private PanelCadastroAluno tela;
-	private ControladorRedirecionar controlador;
 
-	public ControladorTelaCadastroAluno(PanelCadastroAluno tela, ControladorRedirecionar controlador) {
+	public ControladorTelaCadastroAluno(PanelCadastroAluno tela) {
 		this.tela = tela;
-		this.controlador = controlador;
 	}
 
 	public void acaoPerformada(Object e) {
@@ -21,10 +19,10 @@ public class ControladorTelaCadastroAluno {
 
 				cadastrarAluno(tela.getTextNomeAluno().getText(), (int) tela.getSpinIdade().getValue(),
 						(double) tela.getSpinAltura().getValue(), (double) tela.getSpinPeso().getValue());
-				controlador.caminho(1);
+				ControladorRedirecionar.caminho(1);
 			}
 		} else if (e == tela.getBtnVoltar()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		}
 	}
 

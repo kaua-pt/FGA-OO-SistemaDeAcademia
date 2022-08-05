@@ -13,11 +13,9 @@ import Visao.PanelCadastroTreino;
 public class ControladorTelaCadastroTreino {
 
 	private PanelCadastroTreino tela;
-	private ControladorRedirecionar controlador;
 
-	public ControladorTelaCadastroTreino(PanelCadastroTreino tela, ControladorRedirecionar controlador) {
+	public ControladorTelaCadastroTreino(PanelCadastroTreino tela) {
 		this.tela = tela;
-		this.controlador = controlador;
 	}
 
 	public void acaoPerformada(Object e) {
@@ -31,10 +29,10 @@ public class ControladorTelaCadastroTreino {
 						tela.getListExerciciosTreino().getSelectedValuesList(), (int) tela.getSpinRep().getValue(),
 						(int) tela.getSpinSerie().getValue());
 
-				controlador.caminho(1);
+				ControladorRedirecionar.caminho(1);
 			}
 		} else if (e == tela.getBtnInicio()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		} else if (e == tela.getBtnExercicios()) {
 
 			tela.getListExerciciosTreino().setModel(Exercicio.listaExercicio(tela.getComboGrupo().getSelectedIndex()));
@@ -64,6 +62,7 @@ public class ControladorTelaCadastroTreino {
 				if (adicionar.size() < 4) {
 					adicionar.add(treinos);
 				} else {
+					// adicionar
 					System.out.println("Aluno Sobrecarregado");
 				}
 				aluno.setTreinos(adicionar);

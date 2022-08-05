@@ -8,18 +8,16 @@ import Visao.PanelEditarTreino;
 public class ControladorTelaEditarTreino {
 
 	private PanelEditarTreino tela;
-	private ControladorRedirecionar controlador;
 	private Treino treino;
 
-	public ControladorTelaEditarTreino(PanelEditarTreino tela, ControladorRedirecionar controlador, Treino treino) {
+	public ControladorTelaEditarTreino(PanelEditarTreino tela, Treino treino) {
 		this.tela = tela;
-		this.controlador = controlador;
 		this.treino = treino;
 	}
 
 	public void acaoPerformada(Object e) {
 		if (e == tela.getBtnInicio()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		} else if (e == tela.getBtnVoltar()) {
 			tela.getPanelMain2().setVisible(false);
 			tela.getPanelMain1().setVisible(true);
@@ -36,7 +34,7 @@ public class ControladorTelaEditarTreino {
 					Exercicio.parearExercicios(tela.getListExerciciosTreino().getSelectedValuesList()),
 					(int) tela.getSpinnerRepeticao().getValue(), (int) tela.getSpinnerSerie().getValue());
 			treinoaux.editar(treino.getNome());
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		}
 	}
 }

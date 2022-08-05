@@ -18,11 +18,12 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaCadastroTreino;
 import Modelo.Treino;
 
 public class PanelEditarTreino extends JPanel implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
 
 	private ControladorTelaCadastroTreino controladorTela;
 	private JTextField textNome;
@@ -48,7 +49,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 	private JSpinner spinnerSerie;
 	private JSpinner spinnerRepeticao;
 
-	public PanelEditarTreino(ControladorRedirecionar controlador, Treino treino) {
+	public PanelEditarTreino(Treino treino) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);

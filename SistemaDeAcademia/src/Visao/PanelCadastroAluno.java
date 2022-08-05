@@ -19,7 +19,6 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaCadastroAluno;
 
 public class PanelCadastroAluno extends JPanel implements ActionListener {
@@ -51,7 +50,7 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 	private ControladorTelaCadastroAluno controladorTela;
 
 	@SuppressWarnings("removal")
-	public PanelCadastroAluno(ControladorRedirecionar controlador) {
+	public PanelCadastroAluno() {
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -196,12 +195,12 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 
 		lblIconPeso = new JLabel("");
 		lblIconPeso.setBounds(19, 273, 40, 41);
-		lblIconPeso.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/balancas.png"))
+		lblIconPeso.setIcon(
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/balancas.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconPeso);
 
-		controladorTela = new ControladorTelaCadastroAluno(this, controlador);
+		controladorTela = new ControladorTelaCadastroAluno(this);
 	}
 
 	@Override

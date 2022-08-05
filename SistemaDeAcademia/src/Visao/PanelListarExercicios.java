@@ -19,7 +19,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Controladores.ControladorListarExercicios;
-import Controladores.ControladorRedirecionar;
 import Modelo.TipoDeGrupamento;
 
 public class PanelListarExercicios extends JPanel implements ActionListener {
@@ -37,7 +36,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 	private ControladorListarExercicios controladorTela;
 	private JPanel panelmain;
 
-	public PanelListarExercicios(ControladorRedirecionar controlador) {
+	public PanelListarExercicios() {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -118,7 +117,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		comboGrupamento.setModel(new DefaultComboBoxModel(TipoDeGrupamento.values()));
 		btnBuscar.addActionListener(this);
 
-		controladorTela = new ControladorListarExercicios(this, controlador);
+		controladorTela = new ControladorListarExercicios(this);
 	}
 
 	@Override

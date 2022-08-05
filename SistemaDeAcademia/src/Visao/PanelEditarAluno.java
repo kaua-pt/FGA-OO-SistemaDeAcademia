@@ -19,7 +19,6 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaEditarAluno;
 import Modelo.Aluno;
 
@@ -51,7 +50,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 	private JButton btnFinalizar;
 	private ControladorTelaEditarAluno controladorT;
 
-	public PanelEditarAluno(ControladorRedirecionar controlador, Aluno aluno) {
+	public PanelEditarAluno(Aluno aluno) {
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -195,12 +194,12 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 
 		lblIconPeso = new JLabel("");
 		lblIconPeso.setBounds(19, 273, 40, 41);
-		lblIconPeso.setIcon(new ImageIcon(
-				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/balancas.png"))
+		lblIconPeso.setIcon(
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/balancas.png"))
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconPeso);
 
-		controladorT = new ControladorTelaEditarAluno(this, controlador);
+		controladorT = new ControladorTelaEditarAluno(this);
 		controladorT.setarInformacoes(aluno);
 	}
 

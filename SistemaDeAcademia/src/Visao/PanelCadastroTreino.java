@@ -18,7 +18,6 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorRedirecionar;
 import Controladores.ControladorTelaCadastroTreino;
 import Modelo.Aluno;
 
@@ -51,7 +50,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 	private JButton btnVoltar;
 	private JButton btnExercicios;
 
-	public PanelCadastroTreino(ControladorRedirecionar controlador) {
+	public PanelCadastroTreino() {
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -199,7 +198,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		lblInsiraOsDados.setBounds(126, 0, 279, 26);
 		panelMain1.add(lblInsiraOsDados);
 
-		controladorTela = new ControladorTelaCadastroTreino(this, controlador);
+		controladorTela = new ControladorTelaCadastroTreino(this);
 
 	}
 

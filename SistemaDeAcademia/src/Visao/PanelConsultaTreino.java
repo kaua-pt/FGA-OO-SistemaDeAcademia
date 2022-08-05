@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import Controladores.ControladorConsultaTreino;
-import Controladores.ControladorRedirecionar;
 
 public class PanelConsultaTreino extends JPanel implements ActionListener {
 
@@ -26,7 +25,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 	private ControladorConsultaTreino controladorTela;
 	private JPanel panelGeral;
 
-	public PanelConsultaTreino(ControladorRedirecionar controlador) {
+	public PanelConsultaTreino() {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -86,7 +85,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		listTreinos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listTreinos.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 
-		controladorTela = new ControladorConsultaTreino(this, controlador);
+		controladorTela = new ControladorConsultaTreino(this);
 		controladorTela.inicializar();
 
 	}

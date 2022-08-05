@@ -7,18 +7,16 @@ import Visao.PanelEditarExercicio;
 public class ControladorTelaEditarExercicio {
 
 	private PanelEditarExercicio panel;
-	private ControladorRedirecionar controlador;
 	private Exercicio exercicioAux;
 	private String exercicioNome;
 
-	public ControladorTelaEditarExercicio(PanelEditarExercicio panel, ControladorRedirecionar controlador) {
+	public ControladorTelaEditarExercicio(PanelEditarExercicio panel) {
 		this.panel = panel;
-		this.controlador = controlador;
 	}
 
 	public void acaoPerformada(Object e) {
 		if (e == panel.getBtnInicio()) {
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		} else if (e == panel.getBtnFinalizar()) {
 
 			exercicioAux = new Exercicio(panel.getTextNome().getText(),
@@ -26,7 +24,7 @@ public class ControladorTelaEditarExercicio {
 					panel.getTextDescricao().getText());
 
 			exercicioAux.editar(exercicioNome);
-			controlador.caminho(1);
+			ControladorRedirecionar.caminho(1);
 		}
 
 	}
