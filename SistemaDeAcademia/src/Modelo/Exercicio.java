@@ -24,7 +24,7 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 
 	@Override
 	public String toString() {
-		return "Nome: " + this.getNome() + " Grupamento: " + this.getTipo() + " Descrição : " + this.getDescricao();
+		return "Nome: " + this.getNome() + " Grupamento: " + this.getTipo() + " Descriï¿½ï¿½o : " + this.getDescricao();
 	}
 
 	@Override

@@ -21,6 +21,17 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorTelaCadastroAluno;
 
+/**
+ * @author Kauã Vinícius
+ * 
+ *         Classe em que é implementado a tela para cadastro de aluno Herda a
+ *         classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a iteração dos botões
+ * 
+ * @see JPanel
+ * @see ActionListener
+ */
+
 public class PanelCadastroAluno extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 3855518978965566703L;
