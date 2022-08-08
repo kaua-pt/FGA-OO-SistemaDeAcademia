@@ -15,6 +15,7 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
 
+@SuppressWarnings({"unused"})
 public class PanelRedirecionar extends JPanel {
 
 	private static final long serialVersionUID = -5262748883391237838L;
@@ -112,7 +113,7 @@ public class PanelRedirecionar extends JPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			panel.setBackground(new Color(135, 148, 192));
-			controlador.receptacao(operacao, id);
+			ControladorRedirecionar.receptacao(operacao, id);
 		}
 
 		@Override

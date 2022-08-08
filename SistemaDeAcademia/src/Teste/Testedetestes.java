@@ -23,7 +23,7 @@ public class Testedetestes {
 
 	@BeforeAll
 	public static void iniciar() {
-		PanelMenu frame = new PanelMenu("Dale");
+
 	}
 
 	@AfterAll
@@ -42,19 +42,19 @@ public class Testedetestes {
 	public void testeCadastroAlunoSemDados() {
 		PanelCadastroAluno cadastroAluno = new PanelCadastroAluno();
 		cadastroAluno.getBtnCadastrar().doClick();
-		assertEquals(0, BancoDeDados.alunos.size());
+		assertEquals(0, BancoDeDados.getAlunos().size());
 	}
 
 	@Test
 	public void testeCadastroAluno() {
 		new PanelRedirecionar("Alunos", "Consultar ");
 		PanelCadastroAluno cadastroAluno = new PanelCadastroAluno();
-		cadastroAluno.getTextNomeAluno().setText("Kauã");
+		cadastroAluno.getTextNomeAluno().setText("Kauï¿½");
 		cadastroAluno.getSpinAltura().setValue(160.0);
 		cadastroAluno.getSpinIdade().setValue(19);
 		cadastroAluno.getSpinPeso().setValue(60.0);
 		cadastroAluno.getBtnCadastrar().doClick();
-		assertEquals(1, BancoDeDados.alunos.size());
+		assertEquals(1, BancoDeDados.getAlunos().size());
 	}
 
 }

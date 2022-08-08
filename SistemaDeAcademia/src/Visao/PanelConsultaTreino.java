@@ -13,8 +13,10 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorConsultaTreino;
 
+@SuppressWarnings({"rawtypes"})
 public class PanelConsultaTreino extends JPanel implements ActionListener {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel panel;
 	private JLabel lblTexto;
 	private JPanel panel_1;

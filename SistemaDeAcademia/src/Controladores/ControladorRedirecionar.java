@@ -2,6 +2,7 @@ package Controladores;
 
 import javax.swing.JPanel;
 
+import Modelo.BancoDeDados;
 import Visao.PanelBuscaAluno;
 import Visao.PanelCadastroAluno;
 import Visao.PanelCadastroExercicio;
@@ -39,7 +40,12 @@ public class ControladorRedirecionar {
 			operarTela(id, cadastroE);
 		} else if (id == 4) {
 			PanelCadastroTreino cadastroT = new PanelCadastroTreino();
-			operarTela(id, cadastroT);
+			if(BancoDeDados.getExercicios().size()>0 && 
+					BancoDeDados.getAlunos().size() > 0) {
+				operarTela(id, cadastroT);
+			}else {
+				operarTela(id, ControladorRedirecionar.padrao);
+			}
 		} else if (id == 5) {
 			PanelBuscaAluno buscaA = new PanelBuscaAluno();
 			operarTela(id, buscaA);

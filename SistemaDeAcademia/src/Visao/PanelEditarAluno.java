@@ -22,6 +22,7 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorTelaEditarAluno;
 import Modelo.Aluno;
 
+@SuppressWarnings({"removal"})
 public class PanelEditarAluno extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 3855518978965566703L;

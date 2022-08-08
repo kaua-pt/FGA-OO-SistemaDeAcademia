@@ -32,9 +32,10 @@ public class ControladorConsultaTreino {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void inicializar() {
 		DefaultListModel<Object> retorno = new DefaultListModel<Object>();
-		for (Treino treino : BancoDeDados.treinos) {
+		for (Treino treino : BancoDeDados.getTreinos()) {
 			retorno.addElement(treino.getNome());
 		}
 		tela.getListTreinos().setModel(retorno);
