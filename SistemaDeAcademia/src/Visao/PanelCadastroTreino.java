@@ -2,11 +2,14 @@ package Visao;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -49,6 +52,9 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 	private JButton btnCadastrar;
 	private JButton btnVoltar;
 	private JButton btnExercicios;
+	private JLabel lblIconNome;
+	private JLabel lblIconAluno;
+	private JLabel lblIconTipo;
 
 	public PanelCadastroTreino() {
 
@@ -62,37 +68,6 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		panel.setBounds(0, 0, 529, 403);
 		add(panel);
 		panel.setLayout(null);
-
-		panelMain2 = new JPanel();
-		panelMain2.setBounds(0, 61, 529, 277);
-		panel.add(panelMain2);
-		panelMain2.setVisible(false);
-		panelMain2.setLayout(null);
-
-		lblTexto = new JLabel("Selecione os exerc\u00EDcios desejados");
-		lblTexto.setFont(new Font("Fira Code Light", Font.BOLD, 16));
-		lblTexto.setBounds(100, 11, 361, 30);
-		panelMain2.add(lblTexto);
-
-		lblSeries = new JLabel("S\u00E9ries:");
-		lblSeries.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblSeries.setBounds(375, 68, 91, 20);
-		panelMain2.add(lblSeries);
-
-		spinSerie = new JSpinner();
-		spinSerie.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
-		spinSerie.setBounds(375, 99, 65, 20);
-		panelMain2.add(spinSerie);
-
-		lblRepeticoes = new JLabel("Repeti\u00E7\u00F5es:");
-		lblRepeticoes.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblRepeticoes.setBounds(375, 139, 121, 29);
-		panelMain2.add(lblRepeticoes);
-
-		spinRep = new JSpinner();
-		spinRep.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
-		spinRep.setBounds(375, 179, 65, 20);
-		panelMain2.add(spinRep);
 
 		panelMain1 = new JPanel();
 		panelMain1.setVisible(true);
@@ -170,6 +145,71 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 				"B- Costa e B\u00EDceps", "C- Perna", "D- Aer\u00F3bico" }));
 		panelMain1.add(comboGrupo);
 
+		btnExercicios = new JButton("Exercicios");
+		btnExercicios.setBounds(204, 235, 117, 31);
+		panelMain1.add(btnExercicios);
+		btnExercicios.addActionListener(this);
+		btnExercicios.setBackground(new Color(255, 163, 100));
+		btnExercicios.setFont(new Font("Fira Code Light", Font.BOLD, 12));
+
+		lblInsiraOsDados = new JLabel("Insira os dados:");
+		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInsiraOsDados.setFont(new Font("Fira Code Light", Font.BOLD, 20));
+		lblInsiraOsDados.setBounds(126, 0, 279, 26);
+		panelMain1.add(lblInsiraOsDados);
+
+		lblIconNome = new JLabel("");
+		lblIconNome.setBounds(14, 37, 40, 41);
+		lblIconNome.setIcon(new ImageIcon(
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/sinal-de-arroba.png"))
+						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
+		panelMain1.add(lblIconNome);
+
+		lblIconAluno = new JLabel("");
+		lblIconAluno.setBounds(14, 114, 40, 41);
+		lblIconAluno.setIcon(new ImageIcon(
+				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/usuario-de-perfil.png"))
+						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
+		panelMain1.add(lblIconAluno);
+
+		lblIconTipo = new JLabel("");
+		lblIconTipo.setBounds(14, 180, 40, 41);
+		lblIconTipo.setIcon(
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/tipo-2.png"))
+						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
+		panelMain1.add(lblIconTipo);
+
+		panelMain2 = new JPanel();
+		panelMain2.setBounds(0, 61, 529, 277);
+		panel.add(panelMain2);
+		panelMain2.setVisible(false);
+		panelMain2.setLayout(null);
+
+		lblTexto = new JLabel("Selecione os exerc\u00EDcios desejados");
+		lblTexto.setFont(new Font("Fira Code Light", Font.BOLD, 16));
+		lblTexto.setBounds(100, 11, 361, 30);
+		panelMain2.add(lblTexto);
+
+		lblSeries = new JLabel("S\u00E9ries:");
+		lblSeries.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblSeries.setBounds(375, 68, 91, 20);
+		panelMain2.add(lblSeries);
+
+		spinSerie = new JSpinner();
+		spinSerie.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
+		spinSerie.setBounds(375, 99, 65, 20);
+		panelMain2.add(spinSerie);
+
+		lblRepeticoes = new JLabel("Repeti\u00E7\u00F5es:");
+		lblRepeticoes.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblRepeticoes.setBounds(375, 139, 121, 29);
+		panelMain2.add(lblRepeticoes);
+
+		spinRep = new JSpinner();
+		spinRep.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
+		spinRep.setBounds(375, 179, 65, 20);
+		panelMain2.add(spinRep);
+
 		listExerciciosTreino = new JList();
 		listExerciciosTreino.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listExerciciosTreino.setVisibleRowCount(80);
@@ -184,19 +224,6 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		btnVoltar.setBackground(new Color(255, 163, 100));
 		btnVoltar.setForeground(Color.BLACK);
 		panelMain2.add(btnVoltar);
-
-		btnExercicios = new JButton("Exercicios");
-		btnExercicios.setBounds(204, 235, 117, 31);
-		panelMain1.add(btnExercicios);
-		btnExercicios.addActionListener(this);
-		btnExercicios.setBackground(new Color(255, 163, 100));
-		btnExercicios.setFont(new Font("Fira Code Light", Font.BOLD, 12));
-
-		lblInsiraOsDados = new JLabel("Insira os dados:");
-		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInsiraOsDados.setFont(new Font("Fira Code Light", Font.BOLD, 20));
-		lblInsiraOsDados.setBounds(126, 0, 279, 26);
-		panelMain1.add(lblInsiraOsDados);
 
 		controladorTela = new ControladorTelaCadastroTreino(this);
 

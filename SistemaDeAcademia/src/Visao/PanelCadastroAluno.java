@@ -37,21 +37,21 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 3855518978965566703L;
 	private JTextField textNomeAluno;
 	private JPanel panel;
-	private JPanel panel_1;
-	private JPanel panel_2;
+	private JPanel panelNome;
+	private JPanel panelIdade;
 	private JSpinner spinIdade;
-	private JPanel panel_3;
+	private JPanel panelAltura;
 	private JSpinner spinAltura;
-	private JLabel lblNewLabel;
-	private JPanel panel_3_1;
+	private JLabel lblTitulo;
+	private JPanel panelPeso;
 	private JSpinner spinPeso;
 	private JPanel faixa;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_1_1;
-	private JLabel lblNewLabel_1_2;
-	private JLabel lblNewLabel_1_3;
+	private JLabel lblNome;
+	private JLabel lblIdade;
+	private JLabel lblAltura;
+	private JLabel lblPeso;
 	private JLabel lblInsiraOsDados;
-	private JPanel faixa_1;
+	private JPanel faixaInferior;
 	private JLabel lblIconNome;
 	private JLabel lblIconIdade;
 	private JLabel lblIconAltura;
@@ -60,49 +60,59 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 	private JButton btnCadastrar;
 	private ControladorTelaCadastroAluno controladorTela;
 
+	/**
+	 * Construtor no qual cria a tela e suas dependências Ação dos botões atrelado
+	 * ao BackEnd
+	 * 
+	 * @see ControladorPanelCadastroAluno
+	 */
 	@SuppressWarnings("removal")
 	public PanelCadastroAluno() {
 
+		// Defino as caracteristicas básicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
+		// Defino o panel principal que é usado como base
 		panel = new JPanel();
 		panel.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		panel.setBounds(0, 0, 529, 403);
 		add(panel);
 		panel.setLayout(null);
 
-		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(240, 240, 240));
-		panel_1.setBounds(137, 102, 342, 47);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
+		// Defino o campo que armazena o textNomeAluno
+		panelNome = new JPanel();
+		panelNome.setBackground(new Color(240, 240, 240));
+		panelNome.setBounds(137, 102, 342, 47);
+		panel.add(panelNome);
+		panelNome.setLayout(null);
 
+		// Defino o campo onde será inserido o nome do aluno
 		textNomeAluno = new JTextField();
 		textNomeAluno.setFont(new Font("Fira Code", Font.PLAIN, 14));
 		textNomeAluno.setBounds(10, 11, 322, 31);
-		panel_1.add(textNomeAluno);
+		panelNome.add(textNomeAluno);
 		textNomeAluno.setColumns(10);
 
-		panel_2 = new JPanel();
-		panel_2.setToolTipText("");
-		panel_2.setBounds(137, 160, 55, 41);
-		panel.add(panel_2);
-		panel_2.setLayout(null);
+		panelIdade = new JPanel();
+		panelIdade.setToolTipText("");
+		panelIdade.setBounds(137, 160, 55, 41);
+		panel.add(panelIdade);
+		panelIdade.setLayout(null);
 
 		spinIdade = new JSpinner();
 		spinIdade.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		spinIdade.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinIdade.setFont(new Font("Fira Code", Font.PLAIN, 12));
 		spinIdade.setBounds(10, 11, 45, 20);
-		panel_2.add(spinIdade);
+		panelIdade.add(spinIdade);
 
-		panel_3 = new JPanel();
-		panel_3.setBounds(137, 212, 91, 47);
-		panel.add(panel_3);
-		panel_3.setLayout(null);
+		panelAltura = new JPanel();
+		panelAltura.setBounds(137, 212, 91, 47);
+		panel.add(panelAltura);
+		panelAltura.setLayout(null);
 
 		spinAltura = new JSpinner();
 		spinAltura.setDoubleBuffered(true);
@@ -111,49 +121,49 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		spinAltura.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		spinAltura.setModel(new SpinnerNumberModel(0.0, 0.0, 1.0E7, 5.0));
 		spinAltura.setBounds(10, 11, 71, 30);
-		panel_3.add(spinAltura);
+		panelAltura.add(spinAltura);
 
-		lblNewLabel = new JLabel("Cadastro de Aluno");
-		lblNewLabel.setFont(new Font("Fira Code Light", Font.BOLD, 20));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(128, 33, 279, 26);
-		panel.add(lblNewLabel);
+		lblTitulo = new JLabel("Cadastro de Aluno");
+		lblTitulo.setFont(new Font("Fira Code Light", Font.BOLD, 20));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(128, 33, 279, 26);
+		panel.add(lblTitulo);
 
-		panel_3_1 = new JPanel();
-		panel_3_1.setLayout(null);
-		panel_3_1.setBounds(137, 270, 91, 47);
-		panel.add(panel_3_1);
+		panelPeso = new JPanel();
+		panelPeso.setLayout(null);
+		panelPeso.setBounds(137, 270, 91, 47);
+		panel.add(panelPeso);
 
 		spinPeso = new JSpinner();
 		spinPeso.setModel(new SpinnerNumberModel(0.0, 0.0, 100000.0, 1.0));
 		spinPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		spinPeso.setBounds(10, 11, 71, 30);
-		panel_3_1.add(spinPeso);
+		panelPeso.add(spinPeso);
 
 		faixa = new JPanel();
 		faixa.setBackground(new Color(216, 205, 176));
 		faixa.setBounds(0, 28, 529, 31);
 		panel.add(faixa);
 
-		lblNewLabel_1 = new JLabel("Nome:");
-		lblNewLabel_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(75, 112, 63, 26);
-		panel.add(lblNewLabel_1);
+		lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblNome.setBounds(75, 112, 63, 26);
+		panel.add(lblNome);
 
-		lblNewLabel_1_1 = new JLabel("Idade:");
-		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(75, 167, 63, 26);
-		panel.add(lblNewLabel_1_1);
+		lblIdade = new JLabel("Idade:");
+		lblIdade.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblIdade.setBounds(75, 167, 63, 26);
+		panel.add(lblIdade);
 
-		lblNewLabel_1_2 = new JLabel("Altura:");
-		lblNewLabel_1_2.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_2.setBounds(75, 222, 70, 26);
-		panel.add(lblNewLabel_1_2);
+		lblAltura = new JLabel("Altura:");
+		lblAltura.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblAltura.setBounds(75, 222, 70, 26);
+		panel.add(lblAltura);
 
-		lblNewLabel_1_3 = new JLabel("Peso:");
-		lblNewLabel_1_3.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_3.setBounds(75, 280, 63, 26);
-		panel.add(lblNewLabel_1_3);
+		lblPeso = new JLabel("Peso:");
+		lblPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblPeso.setBounds(75, 280, 63, 26);
+		panel.add(lblPeso);
 
 		lblInsiraOsDados = new JLabel("Insira os dados:");
 		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
@@ -161,11 +171,11 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		lblInsiraOsDados.setBounds(128, 71, 279, 26);
 		panel.add(lblInsiraOsDados);
 
-		faixa_1 = new JPanel();
-		faixa_1.setBackground(new Color(216, 205, 176));
-		faixa_1.setBounds(0, 349, 529, 31);
-		panel.add(faixa_1);
-		faixa_1.setLayout(null);
+		faixaInferior = new JPanel();
+		faixaInferior.setBackground(new Color(216, 205, 176));
+		faixaInferior.setBounds(0, 349, 529, 31);
+		panel.add(faixaInferior);
+		faixaInferior.setLayout(null);
 
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
@@ -173,7 +183,7 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		btnVoltar.setBounds(98, 0, 117, 31);
 		btnVoltar.addActionListener(this);
 		btnVoltar.setBackground(new Color(226, 71, 43));
-		faixa_1.add(btnVoltar);
+		faixaInferior.add(btnVoltar);
 
 		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setForeground(Color.BLACK);
@@ -181,7 +191,7 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		btnCadastrar.setBounds(313, 0, 117, 31);
 		btnCadastrar.addActionListener(this);
 		btnCadastrar.setBackground(new Color(43, 226, 71));
-		faixa_1.add(btnCadastrar);
+		faixaInferior.add(btnCadastrar);
 
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(19, 105, 40, 41);

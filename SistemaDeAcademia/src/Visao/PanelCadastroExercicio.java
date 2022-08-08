@@ -44,6 +44,8 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 	private JTextArea textArea;
 	private JButton btnVoltar;
 	private JButton btnCadastrar;
+	private JLabel lblIconTipo;
+	private JLabel lblIconDescricao;
 	private ControladorTelaCadastroExercicio controladorTela;
 
 	public PanelCadastroExercicio() {
@@ -154,6 +156,20 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		textArea.setBounds(0, 0, 324, 78);
 		panelDescricao.add(textArea);
 
+		lblIconTipo = new JLabel("");
+		lblIconTipo.setBounds(10, 163, 40, 41);
+		lblIconTipo.setIcon(
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/tipo-2.png"))
+						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
+		panel.add(lblIconTipo);
+
+		lblIconDescricao = new JLabel("");
+		lblIconDescricao.setBounds(10, 229, 40, 41);
+		lblIconDescricao.setIcon(
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/escrita.png"))
+						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
+		panel.add(lblIconDescricao);
+
 		controladorTela = new ControladorTelaCadastroExercicio(this);
 	}
 
@@ -185,5 +201,4 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 	public JTextArea getTextArea() {
 		return textArea;
 	}
-
 }
