@@ -15,6 +15,7 @@ public class ControladorTelaEditarTreino {
 		this.treino = treino;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void acaoPerformada(Object e) {
 		if (e == tela.getBtnInicio()) {
 			ControladorRedirecionar.caminho(1);

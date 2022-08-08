@@ -16,8 +16,10 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorVerTreino;
 import Modelo.Treino;
 
+@SuppressWarnings({"rawtypes"})
 public class PanelVerTreino extends JPanel implements ActionListener {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel panel;
 	private JPanel panel_1;
 	private JButton btnVoltar;

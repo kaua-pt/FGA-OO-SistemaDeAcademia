@@ -21,8 +21,10 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorListarExercicios;
 import Modelo.TipoDeGrupamento;
 
+@SuppressWarnings({"rawtypes","unchecked"})
 public class PanelListarExercicios extends JPanel implements ActionListener {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel panel;
 	private JLabel lblTextinho;
 	private JButton btnEditar;

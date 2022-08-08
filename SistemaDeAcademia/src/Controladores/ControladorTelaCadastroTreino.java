@@ -18,11 +18,13 @@ public class ControladorTelaCadastroTreino {
 		this.tela = tela;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void acaoPerformada(Object e) {
 		if (e == tela.getBtnCadastrar()) {
 			if ((tela.getTextField().getText().isBlank() == false) && (tela.getTextField().getText().isEmpty() == false)
 					&& (Treino.getUmTreino(tela.getTextField().getText()) == null)
-					&& (tela.getListExerciciosTreino().getSelectedIndices().length > 0)) {
+					&& (tela.getListExerciciosTreino().getSelectedIndices().length > 0)
+					&& (Aluno.getUmAluno(tela.getComboAluno().getSelectedItem().toString()).getTreinos().size() < 5)) {
 
 				cadastrarTreino(tela.getTextField().getText(), tela.getComboGrupo().getSelectedIndex(),
 						tela.getComboAluno().getSelectedItem().toString(),
@@ -54,17 +56,14 @@ public class ControladorTelaCadastroTreino {
 		anexarTreino(nomeAluno, treino);
 	}
 
-	public static void anexarTreino(String alunoNome, Treino treinos) {
+	public void anexarTreino(String alunoNome, Treino treinos) {
 		ArrayList<Treino> adicionar = new ArrayList<Treino>();
-		for (Aluno aluno : BancoDeDados.alunos) {
+		for (Aluno aluno : BancoDeDados.getAlunos()) {
 			if (aluno.getNome() == alunoNome) {
 				adicionar.addAll(aluno.getTreinos());
 				if (adicionar.size() < 4) {
 					adicionar.add(treinos);
-				} else {
-					// adicionar
-					System.out.println("Aluno Sobrecarregado");
-				}
+				} 
 				aluno.setTreinos(adicionar);
 			}
 		}

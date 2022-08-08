@@ -18,14 +18,13 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Controladores.ControladorTelaCadastroTreino;
 import Modelo.Treino;
 
+@SuppressWarnings({"rawtypes","unchecked","removal"})
 public class PanelEditarTreino extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	private ControladorTelaCadastroTreino controladorTela;
 	private JTextField textNome;
 	private JComboBox comboGrupo;
 	private JList<String> listExerciciosTreino;

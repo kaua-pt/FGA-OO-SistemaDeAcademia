@@ -22,6 +22,7 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorTelaCadastroExercicio;
 import Modelo.TipoDeGrupamento;
 
+@SuppressWarnings({"rawtypes","unchecked"})
 public class PanelCadastroExercicio extends JPanel implements ActionListener {
 
 	/**

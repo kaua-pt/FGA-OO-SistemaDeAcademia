@@ -19,8 +19,11 @@ import Controladores.ControladorTelaEditarExercicio;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
 
+@SuppressWarnings({"rawtypes","unchecked"})
 public class PanelEditarExercicio extends JPanel implements ActionListener {
 
+
+	private static final long serialVersionUID = 1L;
 	private JTextField textNome;
 	private JPanel faixa;
 	private JLabel lblEditarExercicio;

@@ -17,10 +17,11 @@ public class ControladorListarExercicios {
 		this.panel = panel;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void acaoPerformada(Object e) {
 		if (e == panel.getBtnBuscar()) {
 			DefaultListModel<Object> retorno = new DefaultListModel<Object>();
-			for (Exercicio exercicio : BancoDeDados.exercicios) {
+			for (Exercicio exercicio : BancoDeDados.getExercicios()) {
 				if (exercicio.getTipo()
 						.equals(TipoDeGrupamento.pegarTipo(panel.getComboGrupamento().getSelectedIndex() + 1))) {
 					retorno.addElement(exercicio.getNome() + "-" + exercicio.getDescricao());

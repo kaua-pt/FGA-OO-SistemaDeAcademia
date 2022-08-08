@@ -21,6 +21,7 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorTelaCadastroTreino;
 import Modelo.Aluno;
 
+@SuppressWarnings({"rawtypes","unchecked","removal"})
 public class PanelCadastroTreino extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 6408302848948208845L;
 
