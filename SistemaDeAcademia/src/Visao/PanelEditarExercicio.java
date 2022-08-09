@@ -80,6 +80,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		faixa1.setBounds(0, 346, 529, 31);
 		add(faixa1);
 
+		// Defino o botão para retornar ao início
 		btnInicio = new JButton("Inicio");
 		btnInicio.setForeground(Color.BLACK);
 		btnInicio.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -88,6 +89,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		btnInicio.addActionListener(this);
 		faixa1.add(btnInicio);
 
+		// Defino o botão para finalizar a edição de exercício
 		btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setForeground(Color.BLACK);
 		btnFinalizar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -96,6 +98,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		btnFinalizar.setBounds(313, 0, 117, 31);
 		faixa1.add(btnFinalizar);
 
+		// Defino a label onde ficará o icone de nome
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(10, 90, 40, 41);
 		add(lblIconNome);
@@ -106,6 +109,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		lblNome.setBounds(59, 100, 63, 26);
 		add(lblNome);
 
+		// Defino o local onde será colocado o nome do exercicio
 		textNome = new JTextField();
 		textNome.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		textNome.setColumns(10);
@@ -131,6 +135,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		lblDescricao.setBounds(59, 225, 100, 20);
 		add(lblDescricao);
 
+		// Defino o local onde será colocado a edição da descrição
 		textDescricao = new JTextArea();
 		textDescricao.setTabSize(4);
 		textDescricao.setRows(4);
