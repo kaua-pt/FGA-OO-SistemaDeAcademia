@@ -7,6 +7,7 @@ import Modelo.Treino;
 import Visao.PanelConsultaTreino;
 import Visao.PanelVerTreino;
 
+@SuppressWarnings("unchecked")
 public class ControladorConsultaTreino {
 
 	private PanelConsultaTreino tela;
@@ -32,7 +33,6 @@ public class ControladorConsultaTreino {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public void inicializar() {
 		DefaultListModel<Object> retorno = new DefaultListModel<Object>();
 		for (Treino treino : BancoDeDados.getTreinos()) {
