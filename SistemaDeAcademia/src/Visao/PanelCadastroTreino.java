@@ -24,7 +24,7 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorTelaCadastroTreino;
 import Modelo.Aluno;
 
-@SuppressWarnings({"rawtypes","unchecked","removal"})
+@SuppressWarnings({ "rawtypes", "unchecked", "removal" })
 public class PanelCadastroTreino extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 6408302848948208845L;
 
@@ -230,6 +230,11 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 
 	}
 
+	/**
+	 * Método responsável por conectar o backend e o frontend
+	 * 
+	 * @param event Evento no qual representa o clique de um botão
+	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		this.controladorTela.acaoPerformada(event.getSource());

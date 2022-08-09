@@ -239,11 +239,17 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		controladorTela = new ControladorTelaBuscaAluno(this);
 	}
 
+	/**
+	 * Método responsável por conectar o backend e o frontend
+	 * 
+	 * @param event Evento no qual representa o clique de um botão
+	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		this.controladorTela.acaoPerformada(event.getSource());
 	}
 
+	// Getters e Setters
 	public JTextField getTextField() {
 		return textFieldNome;
 	}

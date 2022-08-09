@@ -13,7 +13,7 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorConsultaTreino;
 
-@SuppressWarnings({"rawtypes"})
+@SuppressWarnings({ "rawtypes" })
 public class PanelConsultaTreino extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -92,6 +92,11 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 
 	}
 
+	/**
+	 * Método responsável por conectar o backend e o frontend
+	 * 
+	 * @param event Evento no qual representa o clique de um botão
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.controladorTela.acaoPerformada(e.getSource());

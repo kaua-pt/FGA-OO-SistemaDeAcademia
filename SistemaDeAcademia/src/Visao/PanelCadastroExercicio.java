@@ -22,12 +22,20 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorTelaCadastroExercicio;
 import Modelo.TipoDeGrupamento;
 
-@SuppressWarnings({"rawtypes","unchecked"})
+/**
+ * @author Kau√£ Vin√≠cius
+ * 
+ *         Classe em que √© implementado a tela para cadastro de exercÌcio.Herda
+ *         a classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a itera√ß√£o dos bot√µes
+ * 
+ * @see JPanel
+ * @see ActionListener
+ */
+
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class PanelCadastroExercicio extends JPanel implements ActionListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -910184885933068706L;
 	private JTextField nomeExercicio;
 	private JPanel panel;
@@ -49,13 +57,19 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 	private JLabel lblIconDescricao;
 	private ControladorTelaCadastroExercicio controladorTela;
 
+	/**
+	 * Construtor que cria a tela
+	 * 
+	 * @see ControladorTelaCadastroExercicio
+	 */
 	public PanelCadastroExercicio() {
-
+		// Defino as caracterÌsticas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
+		// Defino uma panel base da tela
 		panel = new JPanel();
 		panel.setBorder(new CompoundBorder());
 		panel.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -174,11 +188,17 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		controladorTela = new ControladorTelaCadastroExercicio(this);
 	}
 
+	/**
+	 * MÈtodo respons·vel por conectar o backend e o frontend
+	 * 
+	 * @param event Evento no qual representa o clique de um bot„o
+	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		this.controladorTela.acaoPerformada(event.getSource());
 	}
 
+	// Getters e setters
 	public JTextField getNomeExercicio() {
 		return nomeExercicio;
 	}
