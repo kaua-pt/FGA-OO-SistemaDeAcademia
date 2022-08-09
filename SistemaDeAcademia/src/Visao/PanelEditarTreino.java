@@ -48,7 +48,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 	private JPanel faixa;
 	private JPanel faixaBaixo;
 	private JLabel lblNome;
-	private JPanel panel_1_1;
+	private JPanel panelAux;
 	private JLabel lblInsiraOsDados;
 	private JLabel lblTipo;
 	private JButton btnInicio;
@@ -68,31 +68,37 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 	 * @see ControladorTelaEditarTreino
 	 */
 	public PanelEditarTreino(Treino treino) {
+		// Defino as caracteristicas básicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
+		// Defino o panel base da tela
 		panel = new JPanel();
 		panel.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		panel.setBounds(0, 0, 529, 403);
 		add(panel);
 		panel.setLayout(null);
 
+		// Defino o primeiro panel base das informações
 		panelMain1 = new JPanel();
 		panelMain1.setVisible(true);
 
+		// Defino o segundo panel base das informações
 		panelMain2 = new JPanel();
 		panelMain2.setBounds(0, 61, 529, 277);
 		panel.add(panelMain2);
 		panelMain2.setVisible(false);
 		panelMain2.setLayout(null);
 
+		// Defino um texto de ajuda ao usuário
 		lblTexto = new JLabel("Selecione Novamente os exercicios desejados");
 		lblTexto.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblTexto.setBounds(71, 11, 412, 30);
 		panelMain2.add(lblTexto);
 
+		// Defino uma lista contendo os exercícios compatíveis com o treino
 		listExerciciosTreino = new JList();
 		listExerciciosTreino.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listExerciciosTreino.setVisibleRowCount(80);
@@ -100,6 +106,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		listExerciciosTreino.setBounds(81, 44, 378, 189);
 		panelMain2.add(listExerciciosTreino);
 
+		// Defino o botão para retornar
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnVoltar.setBounds(204, 244, 117, 31);
@@ -111,23 +118,27 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		panel.add(panelMain1);
 		panelMain1.setLayout(null);
 
+		// Defino uma label com um texto de ajuda ao usuário
 		lblTitulo = new JLabel("Editar Treino");
 		lblTitulo.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(128, 33, 279, 26);
 		panel.add(lblTitulo);
 
+		// Defino a faixa superior para design
 		faixa = new JPanel();
 		faixa.setBackground(new Color(216, 205, 176));
 		faixa.setBounds(0, 28, 529, 31);
 		panel.add(faixa);
 
+		// Defino a faixa inferior para design
 		faixaBaixo = new JPanel();
 		faixaBaixo.setBackground(new Color(216, 205, 176));
 		faixaBaixo.setBounds(0, 349, 529, 31);
 		panel.add(faixaBaixo);
 		faixaBaixo.setLayout(null);
 
+		// Defino o botão para retornar ao início
 		btnInicio = new JButton("Inicio");
 		btnInicio.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnInicio.setBounds(96, 0, 117, 31);
@@ -135,6 +146,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		btnInicio.setBackground(new Color(226, 71, 43));
 		faixaBaixo.add(btnInicio);
 
+		// Defino o botão para finalizar a edição
 		btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnFinalizar.setBounds(311, 0, 117, 31);
@@ -142,27 +154,32 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		btnFinalizar.addActionListener(this);
 		faixaBaixo.add(btnFinalizar);
 
+		// Defino a label indicando aonde colocar o nome
 		lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblNome.setBounds(64, 52, 63, 26);
 		panelMain1.add(lblNome);
 
-		panel_1_1 = new JPanel();
-		panel_1_1.setLayout(null);
-		panel_1_1.setBackground(SystemColor.menu);
-		panel_1_1.setBounds(126, 37, 342, 47);
-		panelMain1.add(panel_1_1);
+		// Defino um panel auxiliar
+		panelAux = new JPanel();
+		panelAux.setLayout(null);
+		panelAux.setBackground(SystemColor.menu);
+		panelAux.setBounds(126, 37, 342, 47);
+		panelMain1.add(panelAux);
 
+		// Defino o local onde será inserido o nome do treino
 		textNome = new JTextField();
 		textNome.setColumns(10);
 		textNome.setBounds(0, 16, 332, 25);
-		panel_1_1.add(textNome);
+		panelAux.add(textNome);
 
+		// Defino a label indicando aonde colocar o tipo de grupamento
 		lblTipo = new JLabel("Tipo:");
 		lblTipo.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblTipo.setBounds(64, 119, 63, 26);
 		panelMain1.add(lblTipo);
 
+		// Defino o combo contendo os grupamentos musculares
 		comboGrupo = new JComboBox();
 		comboGrupo.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		comboGrupo.setBounds(126, 117, 343, 31);
@@ -170,6 +187,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 				"B- Costa e B\u00EDceps", "C- Perna", "D- Aer\u00F3bico" }));
 		panelMain1.add(comboGrupo);
 
+		// Defino o botão para entrar na tela de exercícios
 		btnExercicios = new JButton("Exercicios");
 		btnExercicios.setBounds(204, 235, 117, 31);
 		panelMain1.add(btnExercicios);
@@ -177,32 +195,38 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		btnExercicios.setBackground(new Color(255, 163, 100));
 		btnExercicios.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 
+		// Defino a label de ajuda a usuário
 		lblInsiraOsDados = new JLabel("Insira os dados:");
 		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInsiraOsDados.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		lblInsiraOsDados.setBounds(126, 0, 279, 26);
 		panelMain1.add(lblInsiraOsDados);
 
+		// Defino a label indicando aonde colocar as series
 		lblSeries = new JLabel("S\u00E9ries:");
 		lblSeries.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblSeries.setBounds(64, 176, 76, 26);
 		panelMain1.add(lblSeries);
 
+		// Defino a label indicando aonde colocar as repetições
 		lblRep = new JLabel("Repeti\u00E7\u00F5es:");
 		lblRep.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblRep.setBounds(312, 176, 117, 26);
 		panelMain1.add(lblRep);
 
+		// Defino o spin para inserir as séries
 		spinnerSerie = new JSpinner();
 		spinnerSerie.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinnerSerie.setBounds(147, 179, 56, 20);
 		panelMain1.add(spinnerSerie);
 
+		// Defino o spin para inserir as repetições
 		spinnerRepeticao = new JSpinner();
 		spinnerRepeticao.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinnerRepeticao.setBounds(429, 179, 56, 20);
 		panelMain1.add(spinnerRepeticao);
 
+		// Defino o controlador que realiza a conecção entre o backend e o frontend
 		controladorTela = new ControladorTelaEditarTreino(this);
 		controladorTela.iniciarTela(treino);
 	}

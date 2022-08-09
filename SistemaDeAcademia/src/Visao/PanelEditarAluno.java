@@ -39,21 +39,21 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 3855518978965566703L;
 	private JTextField textNomeAluno;
 	private JPanel panel;
-	private JPanel panel_1;
-	private JPanel panel_2;
+	private JPanel panelDesign1;
+	private JPanel panelDesign2;
 	private JSpinner spinIdade;
-	private JPanel panel_3;
+	private JPanel panelDesign3;
 	private JSpinner spinAltura;
-	private JLabel lblNewLabel;
-	private JPanel panel_3_1;
+	private JLabel lblEditarAluno;
+	private JPanel panelDesign4;
 	private JSpinner spinPeso;
 	private JPanel faixa;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_1_1;
-	private JLabel lblNewLabel_1_2;
-	private JLabel lblNewLabel_1_3;
+	private JLabel lblNome;
+	private JLabel lblIdade;
+	private JLabel lblAltura;
+	private JLabel lblPeso;
 	private JLabel lblInsiraOsDados;
-	private JPanel faixa_1;
+	private JPanel faixa2;
 	private JLabel lblIconNome;
 	private JLabel lblIconIdade;
 	private JLabel lblIconAltura;
@@ -69,48 +69,55 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 	 * @see ControladorTelaEditarAluno
 	 */
 	public PanelEditarAluno(Aluno aluno) {
-
+		// Defino as caracteristicas básicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
+		// Defino o panel base da tela
 		panel = new JPanel();
 		panel.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		panel.setBounds(0, 0, 529, 403);
 		add(panel);
 		panel.setLayout(null);
 
-		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(240, 240, 240));
-		panel_1.setBounds(137, 102, 342, 47);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
+		// Defino que contém as informações
+		panelDesign1 = new JPanel();
+		panelDesign1.setBackground(new Color(240, 240, 240));
+		panelDesign1.setBounds(137, 102, 342, 47);
+		panel.add(panelDesign1);
+		panelDesign1.setLayout(null);
 
+		// Defino a textbox para retornar o nome do aluno
 		textNomeAluno = new JTextField();
 		textNomeAluno.setFont(new Font("Fira Code", Font.PLAIN, 14));
 		textNomeAluno.setBounds(10, 11, 322, 31);
-		panel_1.add(textNomeAluno);
+		panelDesign1.add(textNomeAluno);
 		textNomeAluno.setColumns(10);
 
-		panel_2 = new JPanel();
-		panel_2.setToolTipText("");
-		panel_2.setBounds(137, 160, 55, 41);
-		panel.add(panel_2);
-		panel_2.setLayout(null);
+		// Defino o panel com a segunda tela de informações
+		panelDesign2 = new JPanel();
+		panelDesign2.setToolTipText("");
+		panelDesign2.setBounds(137, 160, 55, 41);
+		panel.add(panelDesign2);
+		panelDesign2.setLayout(null);
 
+		// Defino o spin de idade do aluno
 		spinIdade = new JSpinner();
 		spinIdade.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		spinIdade.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinIdade.setFont(new Font("Fira Code", Font.PLAIN, 12));
 		spinIdade.setBounds(10, 11, 45, 20);
-		panel_2.add(spinIdade);
+		panelDesign2.add(spinIdade);
 
-		panel_3 = new JPanel();
-		panel_3.setBounds(137, 212, 91, 47);
-		panel.add(panel_3);
-		panel_3.setLayout(null);
+		// Defino o panel com caracteísticas de design da página
+		panelDesign3 = new JPanel();
+		panelDesign3.setBounds(137, 212, 91, 47);
+		panel.add(panelDesign3);
+		panelDesign3.setLayout(null);
 
+		// Defino o spin para puxar a altura do aluno
 		spinAltura = new JSpinner();
 		spinAltura.setDoubleBuffered(true);
 		spinAltura.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
@@ -118,77 +125,90 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		spinAltura.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		spinAltura.setModel(new SpinnerNumberModel(0.0, 0.0, 1.0E7, 5.0));
 		spinAltura.setBounds(10, 11, 71, 30);
-		panel_3.add(spinAltura);
+		panelDesign3.add(spinAltura);
 
-		panel_3_1 = new JPanel();
-		panel_3_1.setLayout(null);
-		panel_3_1.setBounds(137, 270, 91, 47);
-		panel.add(panel_3_1);
+		// Defino um quarto panel de design
+		panelDesign4 = new JPanel();
+		panelDesign4.setLayout(null);
+		panelDesign4.setBounds(137, 270, 91, 47);
+		panel.add(panelDesign4);
 
+		// Defino o spin para armazenar o peso do aluno
 		spinPeso = new JSpinner();
 		spinPeso.setModel(new SpinnerNumberModel(0.0, 0.0, 100000.0, 1.0));
 		spinPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		spinPeso.setBounds(10, 11, 71, 30);
-		panel_3_1.add(spinPeso);
+		panelDesign4.add(spinPeso);
 
+		// Defino a faixa para armaznar os botões
 		faixa = new JPanel();
 		faixa.setBackground(new Color(216, 205, 176));
 		faixa.setBounds(0, 28, 529, 31);
 		panel.add(faixa);
 
-		lblNewLabel = new JLabel("Editar aluno");
-		faixa.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Fira Code Light", Font.BOLD, 20));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		// Defino um texto para tela
+		lblEditarAluno = new JLabel("Editar aluno");
+		faixa.add(lblEditarAluno);
+		lblEditarAluno.setFont(new Font("Fira Code Light", Font.BOLD, 20));
+		lblEditarAluno.setHorizontalAlignment(SwingConstants.CENTER);
 
-		lblNewLabel_1 = new JLabel("Nome:");
-		lblNewLabel_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(75, 112, 63, 26);
-		panel.add(lblNewLabel_1);
+		// Defino um texto para tela
+		lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblNome.setBounds(75, 112, 63, 26);
+		panel.add(lblNome);
 
-		lblNewLabel_1_1 = new JLabel("Idade:");
-		lblNewLabel_1_1.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(75, 167, 63, 26);
-		panel.add(lblNewLabel_1_1);
+		// Defino um texto para tela
+		lblIdade = new JLabel("Idade:");
+		lblIdade.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblIdade.setBounds(75, 167, 63, 26);
+		panel.add(lblIdade);
 
-		lblNewLabel_1_2 = new JLabel("Altura:");
-		lblNewLabel_1_2.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_2.setBounds(75, 222, 70, 26);
-		panel.add(lblNewLabel_1_2);
+		// Defino um texto para tela
+		lblAltura = new JLabel("Altura:");
+		lblAltura.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblAltura.setBounds(75, 222, 70, 26);
+		panel.add(lblAltura);
 
-		lblNewLabel_1_3 = new JLabel("Peso:");
-		lblNewLabel_1_3.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel_1_3.setBounds(75, 280, 63, 26);
-		panel.add(lblNewLabel_1_3);
+		// Defino um texto para tela
+		lblPeso = new JLabel("Peso:");
+		lblPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblPeso.setBounds(75, 280, 63, 26);
+		panel.add(lblPeso);
 
+		// Defino um texto de ajuda ao usuário
 		lblInsiraOsDados = new JLabel("Insira os dados:");
 		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInsiraOsDados.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		lblInsiraOsDados.setBounds(128, 71, 279, 26);
 		panel.add(lblInsiraOsDados);
 
-		faixa_1 = new JPanel();
-		faixa_1.setBackground(new Color(216, 205, 176));
-		faixa_1.setBounds(0, 349, 529, 31);
-		panel.add(faixa_1);
-		faixa_1.setLayout(null);
+		// Defino uma faixa de design da tela
+		faixa2 = new JPanel();
+		faixa2.setBackground(new Color(216, 205, 176));
+		faixa2.setBounds(0, 349, 529, 31);
+		panel.add(faixa2);
+		faixa2.setLayout(null);
 
+		// Defino o botão para retornar para o início
 		btnInicio = new JButton("Inicio");
 		btnInicio.setForeground(Color.BLACK);
 		btnInicio.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnInicio.setBounds(98, 0, 117, 31);
 		btnInicio.addActionListener(this);
 		btnInicio.setBackground(new Color(226, 71, 43));
-		faixa_1.add(btnInicio);
+		faixa2.add(btnInicio);
 
+		// Defino o botão para finalizar a edição
 		btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setForeground(Color.BLACK);
 		btnFinalizar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnFinalizar.setBounds(313, 0, 117, 31);
 		btnFinalizar.addActionListener(this);
 		btnFinalizar.setBackground(new Color(43, 226, 71));
-		faixa_1.add(btnFinalizar);
+		faixa2.add(btnFinalizar);
 
+		// Defino o icone do nome
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(19, 105, 40, 41);
 		lblIconNome.setIcon(new ImageIcon(
@@ -196,6 +216,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconNome);
 
+		// Defino o icone da idade
 		lblIconIdade = new JLabel("");
 		lblIconIdade.setBounds(19, 160, 40, 41);
 		lblIconIdade.setIcon(new ImageIcon(
@@ -203,6 +224,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconIdade);
 
+		// Defino o icone da altura
 		lblIconAltura = new JLabel("");
 		lblIconAltura.setBounds(19, 215, 40, 41);
 		lblIconAltura.setIcon(
@@ -210,6 +232,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconAltura);
 
+		// Defino o icone do peso
 		lblIconPeso = new JLabel("");
 		lblIconPeso.setBounds(19, 273, 40, 41);
 		lblIconPeso.setIcon(
@@ -217,6 +240,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconPeso);
 
+		// Defino o controlador que realiza a conecção entre o backend e o frontend
 		controladorT = new ControladorTelaEditarAluno(this);
 		controladorT.setarInformacoes(aluno);
 	}

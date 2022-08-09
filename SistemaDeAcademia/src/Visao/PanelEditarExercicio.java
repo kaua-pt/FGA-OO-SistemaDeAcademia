@@ -35,16 +35,16 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField textNome;
-	private JPanel faixa;
+	private JPanel panelBase;
 	private JLabel lblEditarExercicio;
-	private JPanel faixa_1;
+	private JPanel faixa1;
 	private JButton btnInicio;
 	private JButton btnFinalizar;
 	private JLabel lblIconNome;
 	private JComboBox comboBoxExercicio;
 	private JLabel lblNome;
 	private JLabel lbltipo;
-	private JLabel lblNewLabel;
+	private JLabel lblDescricao;
 	private JTextArea textDescricao;
 	private ControladorTelaEditarExercicio controladorT;
 
@@ -55,26 +55,30 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 	 * @see ControladorTelaEditarExercicio
 	 */
 	public PanelEditarExercicio(Exercicio exercicio) {
+		// Defino as caracteristicas básicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
-		faixa = new JPanel();
-		faixa.setBackground(new Color(216, 205, 176));
-		faixa.setBounds(0, 25, 529, 31);
-		add(faixa);
+		// Defino o panel base da tela
+		panelBase = new JPanel();
+		panelBase.setBackground(new Color(216, 205, 176));
+		panelBase.setBounds(0, 25, 529, 31);
+		add(panelBase);
 
+		// Defino a label de ajuda ao usuário
 		lblEditarExercicio = new JLabel("Editar Exercicio");
 		lblEditarExercicio.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEditarExercicio.setFont(new Font("Fira Code Light", Font.BOLD, 20));
-		faixa.add(lblEditarExercicio);
+		panelBase.add(lblEditarExercicio);
 
-		faixa_1 = new JPanel();
-		faixa_1.setLayout(null);
-		faixa_1.setBackground(new Color(216, 205, 176));
-		faixa_1.setBounds(0, 346, 529, 31);
-		add(faixa_1);
+		// Defino faixa onde estão inseridos os botões
+		faixa1 = new JPanel();
+		faixa1.setLayout(null);
+		faixa1.setBackground(new Color(216, 205, 176));
+		faixa1.setBounds(0, 346, 529, 31);
+		add(faixa1);
 
 		btnInicio = new JButton("Inicio");
 		btnInicio.setForeground(Color.BLACK);
@@ -82,7 +86,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		btnInicio.setBackground(new Color(226, 71, 43));
 		btnInicio.setBounds(98, 0, 117, 31);
 		btnInicio.addActionListener(this);
-		faixa_1.add(btnInicio);
+		faixa1.add(btnInicio);
 
 		btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setForeground(Color.BLACK);
@@ -90,12 +94,13 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		btnFinalizar.setBackground(new Color(43, 226, 71));
 		btnFinalizar.addActionListener(this);
 		btnFinalizar.setBounds(313, 0, 117, 31);
-		faixa_1.add(btnFinalizar);
+		faixa1.add(btnFinalizar);
 
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(10, 90, 40, 41);
 		add(lblIconNome);
 
+		// Defino a label indicando aonde colocar o nome
 		lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblNome.setBounds(59, 100, 63, 26);
@@ -107,21 +112,24 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		textNome.setBounds(168, 101, 290, 25);
 		add(textNome);
 
+		// Defino a combobox contendo os tipos de grupamento
 		comboBoxExercicio = new JComboBox();
 		comboBoxExercicio.setModel(new DefaultComboBoxModel(TipoDeGrupamento.values()));
 		comboBoxExercicio.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		comboBoxExercicio.setBounds(168, 161, 310, 31);
 		add(comboBoxExercicio);
 
+		// Defino a label indicando aonde colocar o tipo
 		lbltipo = new JLabel("Tipo:");
 		lbltipo.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lbltipo.setBounds(59, 169, 113, 14);
 		add(lbltipo);
 
-		lblNewLabel = new JLabel("Descri\u00E7\u00E3o:");
-		lblNewLabel.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
-		lblNewLabel.setBounds(59, 225, 100, 20);
-		add(lblNewLabel);
+		// Defino a label indicando aonde colocar a descrição
+		lblDescricao = new JLabel("Descri\u00E7\u00E3o:");
+		lblDescricao.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
+		lblDescricao.setBounds(59, 225, 100, 20);
+		add(lblDescricao);
 
 		textDescricao = new JTextArea();
 		textDescricao.setTabSize(4);
@@ -132,6 +140,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		textDescricao.setBounds(168, 231, 324, 78);
 		add(textDescricao);
 
+		// Defino o controlador que realiza a conecção entre o backend e o frontend
 		controladorT = new ControladorTelaEditarExercicio(this);
 		controladorT.iniciarCampos(exercicio);
 

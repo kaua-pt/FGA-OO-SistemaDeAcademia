@@ -203,7 +203,6 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		panel.add(lblIconDescricao);
 
 		// Defino o controlador que realiza a conecção entre o backend e o frontend
-
 		controladorTela = new ControladorTelaCadastroExercicio(this);
 	}
 

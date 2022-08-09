@@ -30,7 +30,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
 	private JLabel lblTexto;
-	private JPanel panel_1;
+	private JPanel panelDesign;
 	private JButton btnVoltar;
 	private JButton btnVer;
 	private JButton btnDeletar;
@@ -45,16 +45,19 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 	 * @see ControladorConsultaTreino
 	 */
 	public PanelConsultaTreino() {
+		// Defino as caracteristicas básicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
+		// Defino o panel base da tela
 		panelGeral = new JPanel();
 		panelGeral.setBounds(0, 11, 529, 374);
 		add(panelGeral);
 		panelGeral.setLayout(null);
 
+		// Defino o panel base das informações
 		panel = new JPanel();
 		panel.setBounds(0, 0, 529, 28);
 		panelGeral.add(panel);
@@ -62,48 +65,55 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		panel.setAlignmentY(1.0f);
 		panel.setLayout(null);
 
+		// Defino a label de ajuda ao usuário
 		lblTexto = new JLabel("Consultar Treinos");
 		lblTexto.setFont(new Font("Fira Code Light", Font.BOLD, 16));
 		lblTexto.setBounds(167, 8, 184, 14);
 		panel.add(lblTexto);
 
-		panel_1 = new JPanel();
-		panel_1.setBounds(0, 346, 527, 28);
-		panelGeral.add(panel_1);
-		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(216, 205, 176));
-		panel_1.setAlignmentY(1.0f);
+		// Defino o panel de design inferior
+		panelDesign = new JPanel();
+		panelDesign.setBounds(0, 346, 527, 28);
+		panelGeral.add(panelDesign);
+		panelDesign.setLayout(null);
+		panelDesign.setBackground(new Color(216, 205, 176));
+		panelDesign.setAlignmentY(1.0f);
 
+		// Defino o botão para retornar para o início
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnVoltar.setBackground(new Color(226, 71, 43));
 		btnVoltar.setBounds(62, 0, 89, 28);
 		btnVoltar.addActionListener(this);
-		panel_1.add(btnVoltar);
+		panelDesign.add(btnVoltar);
 
+		// Defino o botão para visualizar informações do treino
 		btnVer = new JButton("Ver");
 		btnVer.setForeground(Color.BLACK);
 		btnVer.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnVer.setBackground(Color.GREEN);
 		btnVer.setBounds(213, 0, 89, 28);
 		btnVer.addActionListener(this);
-		panel_1.add(btnVer);
+		panelDesign.add(btnVer);
 
+		// Defino o botão para deletar o treino
 		btnDeletar = new JButton("Deletar");
 		btnDeletar.setForeground(Color.BLACK);
 		btnDeletar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnDeletar.setBackground(new Color(162, 51, 52));
 		btnDeletar.setBounds(364, 0, 99, 28);
 		btnDeletar.addActionListener(this);
-		panel_1.add(btnDeletar);
+		panelDesign.add(btnDeletar);
 
+		// Defino a lista com os treinos no banco de dados
 		listTreinos = new JList();
 		listTreinos.setBounds(10, 39, 509, 297);
 		panelGeral.add(listTreinos);
 		listTreinos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listTreinos.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 
+		// Defino o controlador que realiza a conecção entre o backend e o frontend
 		controladorTela = new ControladorConsultaTreino(this);
 		controladorTela.inicializar();
 
