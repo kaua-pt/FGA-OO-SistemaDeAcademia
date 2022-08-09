@@ -8,11 +8,10 @@ import Visao.PanelEditarTreino;
 public class ControladorTelaEditarTreino {
 
 	private PanelEditarTreino tela;
-	private Treino treino;
+	private String nomeTreino;
 
-	public ControladorTelaEditarTreino(PanelEditarTreino tela, Treino treino) {
+	public ControladorTelaEditarTreino(PanelEditarTreino tela) {
 		this.tela = tela;
-		this.treino = treino;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -23,8 +22,6 @@ public class ControladorTelaEditarTreino {
 			tela.getPanelMain2().setVisible(false);
 			tela.getPanelMain1().setVisible(true);
 		} else if (e == tela.getBtnExercicios()) {
-
-			treino.getNomesExercicios();
 			tela.getListExerciciosTreino().setModel(Exercicio.listaExercicio(tela.getComboGrupo().getSelectedIndex()));
 			tela.getPanelMain2().setVisible(true);
 			tela.getPanelMain1().setVisible(false);
@@ -34,8 +31,16 @@ public class ControladorTelaEditarTreino {
 					TipoDeGrupamento.parearTipos(tela.getComboGrupo().getSelectedIndex()),
 					Exercicio.parearExercicios(tela.getListExerciciosTreino().getSelectedValuesList()),
 					(int) tela.getSpinnerRepeticao().getValue(), (int) tela.getSpinnerSerie().getValue());
-			treinoaux.editar(treino.getNome());
+			treinoaux.editar(nomeTreino);
 			ControladorRedirecionar.caminho(1);
 		}
+	}
+
+	public void iniciarTela(Treino treino) {
+		nomeTreino = treino.getNome();
+		tela.getTextNome().setText(treino.getNome());
+		tela.getComboGrupo().setSelectedItem(treino.getTipo());
+		tela.getSpinnerRepeticao().setValue(treino.getnRepeticao());
+		tela.getSpinnerSerie().setValue(treino.getnSerie());
 	}
 }

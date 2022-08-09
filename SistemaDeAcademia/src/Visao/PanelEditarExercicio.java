@@ -19,9 +19,19 @@ import Controladores.ControladorTelaEditarExercicio;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
 
-@SuppressWarnings({"rawtypes","unchecked"})
-public class PanelEditarExercicio extends JPanel implements ActionListener {
+/**
+ * @author Kauã Vinícius
+ * 
+ *         Classe em que Ã© implementado a tela para edição de exercícios.Herda
+ *         a classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a iteraÃ§Ã£o dos botÃµes
+ * 
+ * @see JPanel
+ * @see ActionListener
+ */
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
+public class PanelEditarExercicio extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField textNome;
@@ -38,6 +48,12 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 	private JTextArea textDescricao;
 	private ControladorTelaEditarExercicio controladorT;
 
+	/**
+	 * Construitor em que Ã© gerado a tela de edição de exercicio juntamente com
+	 * seus componentes. MÃ©todos atrelados aos botÃµes estÃ£o no backend
+	 * 
+	 * @see ControladorTelaEditarExercicio
+	 */
 	public PanelEditarExercicio(Exercicio exercicio) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -121,11 +137,17 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 
 	}
 
+	/**
+	 * Método responsável por conectar o backend e o frontend
+	 * 
+	 * @param event Evento no qual representa o clique de um botão
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.controladorT.acaoPerformada(e.getSource());
 	}
 
+	// Getters e Setters
 	public JTextField getTextNome() {
 		return textNome;
 	}

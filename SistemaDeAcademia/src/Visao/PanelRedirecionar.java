@@ -15,7 +15,16 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorRedirecionar;
 
-@SuppressWarnings({"unused"})
+/**
+ * @author Kauã Vinícius
+ * 
+ *         Classe em que Ã© implementado a tela para redirecionamento. Herda
+ *         classe JPanel pra confeccionar a tela.
+ * 
+ * @see JPanel
+ */
+
+@SuppressWarnings({ "unused" })
 public class PanelRedirecionar extends JPanel {
 
 	private static final long serialVersionUID = -5262748883391237838L;
@@ -23,39 +32,50 @@ public class PanelRedirecionar extends JPanel {
 	private String listagem;
 	private JPanel panel;
 	private ControladorRedirecionar controlador;
-	private JLabel lblNewLabel;
+	private JLabel lblMsg;
 	private JPanel panelCadastro;
 	private JLabel lblCadastro;
-	private JLabel lblNewLabel_1;
+	private JLabel lblBaseCadastro;
 	private JPanel listagem2;
 	private JLabel lblList;
-	private JLabel lblNewLabel_1_1;
+	private JLabel lblMsg2;
 
+	/**
+	 * Construitor em que Ã© gerado a tela de redirecionamento juntamente com seus
+	 * componentes. MÃ©todos atrelados aos botÃµes estÃ£o no backend
+	 * 
+	 * @see ControladorRedirecionar
+	 */
 	public PanelRedirecionar(String operacao, String listagem) {
-
+		// instâcio eventos da tela
 		this.operacao = operacao;
 		this.listagem = listagem;
 
+		// Defino características da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
+		// Defino o panel base da tela
 		panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 0, 529, 403);
 		add(panel);
 		panel.setLayout(null);
 
+		// Defino o controlador redirecionar para ser utilizado em todo o programa
 		controlador = new ControladorRedirecionar();
 		ControladorRedirecionar.setTela(this);
 		ControladorRedirecionar.setPadrao(panel);
 
-		lblNewLabel = new JLabel("Escolha uma op\u00E7\u00E3o");
-		lblNewLabel.setFont(new Font("Fira Code", Font.BOLD, 20));
-		lblNewLabel.setBounds(153, 56, 213, 61);
-		panel.add(lblNewLabel);
+		// Defino a mensagem base da tela
+		lblMsg = new JLabel("Escolha uma op\u00E7\u00E3o");
+		lblMsg.setFont(new Font("Fira Code", Font.BOLD, 20));
+		lblMsg.setBounds(153, 56, 213, 61);
+		panel.add(lblMsg);
 
+		// Defino o panel de cadastro que é utilizado como botão
 		panelCadastro = new JPanel();
 		panelCadastro.setLayout(null);
 		panelCadastro.setBackground(new Color(135, 148, 192));
@@ -63,6 +83,7 @@ public class PanelRedirecionar extends JPanel {
 		panelCadastro.addMouseListener(new AcaoPerformada(panelCadastro, 2, operacao));
 		panel.add(panelCadastro);
 
+		// Defino a label de cadastro
 		lblCadastro = new JLabel("");
 		lblCadastro.setBounds(89, 60, 45, 58);
 		lblCadastro.setIcon(
@@ -70,12 +91,14 @@ public class PanelRedirecionar extends JPanel {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelCadastro.add(lblCadastro);
 
-		lblNewLabel_1 = new JLabel("Cadastrar " + this.operacao);
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Fira Code", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(0, 108, 218, 76);
-		panelCadastro.add(lblNewLabel_1);
+		// Defino a label de cadastro
+		lblBaseCadastro = new JLabel("Cadastrar " + this.operacao);
+		lblBaseCadastro.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBaseCadastro.setFont(new Font("Fira Code", Font.BOLD, 16));
+		lblBaseCadastro.setBounds(0, 108, 218, 76);
+		panelCadastro.add(lblBaseCadastro);
 
+		// Defino o panel de listagem
 		listagem2 = new JPanel();
 		listagem2.setLayout(null);
 		listagem2.setBackground(new Color(135, 148, 192));
@@ -83,6 +106,7 @@ public class PanelRedirecionar extends JPanel {
 		listagem2.addMouseListener(new AcaoPerformada(listagem2, 5, operacao));
 		panel.add(listagem2);
 
+		// Defino a label de lista
 		lblList = new JLabel("");
 		lblList.setBounds(80, 58, 40, 58);
 		lblList.setIcon(new ImageIcon(
@@ -90,37 +114,63 @@ public class PanelRedirecionar extends JPanel {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		listagem2.add(lblList);
 
-		lblNewLabel_1_1 = new JLabel(this.listagem + this.operacao);
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setFont(new Font("Fira Code", Font.BOLD, 16));
-		lblNewLabel_1_1.setBounds(0, 119, 213, 58);
-		listagem2.add(lblNewLabel_1_1);
+		// Defino o texto de listagem
+		lblMsg2 = new JLabel(this.listagem + this.operacao);
+		lblMsg2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMsg2.setFont(new Font("Fira Code", Font.BOLD, 16));
+		lblMsg2.setBounds(0, 119, 213, 58);
+		listagem2.add(lblMsg2);
 
 	}
 
+	/**
+	 * 
+	 * @author Kauã Vinícius
+	 *
+	 *         Defino a classe que é utilizada para padronizar os pseudoBotões da
+	 *         tela. Herdo elementos da classe MouseAdapter
+	 *
+	 * @see MouseAdapter
+	 */
 	private class AcaoPerformada extends MouseAdapter {
 
 		JPanel panel;
 		int id;
 		String operacao;
 
+		/**
+		 * Constutor da classe para instânciar a tela, id e o operação
+		 * 
+		 * @param panel    Jpanel onde está sendo realizado as operações
+		 * @param id       Int que contém o id do botão
+		 * @param operacao String contendo a operação desejada
+		 */
 		public AcaoPerformada(JPanel panel, int id, String operacao) {
 			this.panel = panel;
 			this.id = id;
 			this.operacao = operacao;
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			panel.setBackground(new Color(135, 148, 192));
 			ControladorRedirecionar.receptacao(operacao, id);
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			panel.setBackground(new Color(90, 103, 148));
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public void mouseExited(MouseEvent e) {
 			panel.setBackground(new Color(135, 148, 192));

@@ -1,6 +1,7 @@
 package Controladores;
 
 import Modelo.Treino;
+import Visao.PanelEditarTreino;
 import Visao.PanelVerTreino;
 
 public class ControladorVerTreino {
@@ -16,7 +17,9 @@ public class ControladorVerTreino {
 		if (e == tela.getBtnVoltar()) {
 			ControladorRedirecionar.caminho(1);
 		} else if (e == tela.getBtnEditar()) {
-
+			PanelEditarTreino editarTreino = new PanelEditarTreino(treino);
+			tela.add(editarTreino);
+			tela.getPanelBaseGeral().setVisible(false);
 		}
 	}
 
@@ -24,8 +27,8 @@ public class ControladorVerTreino {
 	public void inicializar() {
 		tela.getLblAluno().setText("Aluno: " + treino.getAlunoAnexado());
 		tela.getLblNome().setText(treino.getNome());
-		tela.getLblRepeticoes().setText("Repetiï¿½ï¿½es: " + treino.getnRepeticao());
-		tela.getLblSeries().setText("Sï¿½ries: " + treino.getnSerie());
+		tela.getLblRepeticoes().setText("Repetições: " + treino.getnRepeticao());
+		tela.getLblSeries().setText("Séries: " + treino.getnSerie());
 		tela.getTextTipo().setText("Tipo: " + treino.getNomesTipo());
 		tela.getListExerciciosTreino().setModel(treino.getNomesExercicios());
 	}

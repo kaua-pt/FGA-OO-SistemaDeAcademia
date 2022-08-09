@@ -22,7 +22,18 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorTelaEditarAluno;
 import Modelo.Aluno;
 
-@SuppressWarnings({"removal"})
+/**
+ * @author Kau„ VinÌcius
+ * 
+ *         Classe em que √© implementado a tela para ediÁao de aluno.Herda a
+ *         classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a itera√ß√£o dos bot√µes
+ * 
+ * @see JPanel
+ * @see ActionListener
+ */
+
+@SuppressWarnings({ "removal" })
 public class PanelEditarAluno extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 3855518978965566703L;
@@ -51,6 +62,12 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 	private JButton btnFinalizar;
 	private ControladorTelaEditarAluno controladorT;
 
+	/**
+	 * Construitor em que √© gerado a tela de ediÁ„o de aluno juntamente com seus
+	 * componentes. M√©todos atrelados aos bot√µes est√£o no backend
+	 * 
+	 * @see ControladorTelaEditarAluno
+	 */
 	public PanelEditarAluno(Aluno aluno) {
 
 		setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -204,11 +221,17 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		controladorT.setarInformacoes(aluno);
 	}
 
+	/**
+	 * MÈtodo respons·vel por conectar o backend e o frontend
+	 * 
+	 * @param event Evento no qual representa o clique de um bot„o
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.controladorT.acaoPerformada(e.getSource());
 	}
 
+	// Getters e Setters
 	public JTextField getTextNomeAluno() {
 		return textNomeAluno;
 	}

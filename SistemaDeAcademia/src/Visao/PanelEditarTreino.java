@@ -18,9 +18,21 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Controladores.ControladorTelaEditarTreino;
 import Modelo.Treino;
 
-@SuppressWarnings({"rawtypes","unchecked","removal"})
+/**
+ * @author Kau„ VinÌcius
+ * 
+ *         Classe em que √© implementado a tela para ediÁ„o de Treino.Herda a
+ *         classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a itera√ß√£o dos bot√µes
+ * 
+ * @see JPanel
+ * @see ActionListener
+ */
+
+@SuppressWarnings({ "rawtypes", "unchecked", "removal" })
 public class PanelEditarTreino extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -47,7 +59,14 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 	private JLabel lblRep;
 	private JSpinner spinnerSerie;
 	private JSpinner spinnerRepeticao;
+	private ControladorTelaEditarTreino controladorTela;
 
+	/**
+	 * Construitor em que √© gerado a tela de editar treino juntamente com seus
+	 * componentes. M√©todos atrelados aos bot√µes est√£o no backend
+	 * 
+	 * @see ControladorTelaEditarTreino
+	 */
 	public PanelEditarTreino(Treino treino) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -184,13 +203,21 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		spinnerRepeticao.setBounds(429, 179, 56, 20);
 		panelMain1.add(spinnerRepeticao);
 
+		controladorTela = new ControladorTelaEditarTreino(this);
+		controladorTela.iniciarTela(treino);
 	}
 
+	/**
+	 * MÈtodo respons·vel por conectar o backend e o frontend
+	 * 
+	 * @param event Evento no qual representa o clique de um bot„o
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		this.controladorTela.acaoPerformada(e.getSource());
 	}
 
+	// Getters e Setters
 	public JComboBox getComboGrupo() {
 		return comboGrupo;
 	}

@@ -14,8 +14,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 /**
- * Classe que implementa a tela incial com informações básicas do programa.
- * Herda JPanel para criar a interface gráfica
+ * @author Kau� Vin�cius
+ * 
+ *         Classe que implementa a tela incial com informações básicas do
+ *         programa. Herda JPanel para criar a interface gráfica
  * 
  * @see JPanel
  **/

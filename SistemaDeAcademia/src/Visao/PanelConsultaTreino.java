@@ -13,6 +13,17 @@ import javax.swing.border.LineBorder;
 
 import Controladores.ControladorConsultaTreino;
 
+/**
+ * @author Kau� Vin�cius
+ * 
+ *         Classe em que é implementado a tela para consulta de Treino.Herda a
+ *         classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a iteração dos botões
+ * 
+ * @see JPanel
+ * @see ActionListener
+ */
+
 @SuppressWarnings({ "rawtypes" })
 public class PanelConsultaTreino extends JPanel implements ActionListener {
 
@@ -27,6 +38,12 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 	private ControladorConsultaTreino controladorTela;
 	private JPanel panelGeral;
 
+	/**
+	 * Construitor em que é gerado a tela de consulta de treino juntamente com seus
+	 * componentes. Métodos atrelados aos botões estão no backend
+	 * 
+	 * @see ControladorConsultaTreino
+	 */
 	public PanelConsultaTreino() {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
@@ -102,6 +119,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		this.controladorTela.acaoPerformada(e.getSource());
 	}
 
+	// Getters e Setters
 	public JButton getBtnVoltar() {
 		return btnVoltar;
 	}

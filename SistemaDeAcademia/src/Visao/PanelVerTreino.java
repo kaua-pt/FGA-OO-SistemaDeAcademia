@@ -16,12 +16,23 @@ import javax.swing.border.LineBorder;
 import Controladores.ControladorVerTreino;
 import Modelo.Treino;
 
-@SuppressWarnings({"rawtypes"})
+/**
+ * @author Kauã Vinícius
+ * 
+ *         Classe em que Ã© implementado a tela para visualizar um treino.Herda
+ *         a classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a iteraÃ§Ã£o dos botÃµes
+ * 
+ * @see JPanel
+ * @see ActionListener
+ */
+
+@SuppressWarnings({ "rawtypes" })
 public class PanelVerTreino extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
-	private JPanel panel_1;
+	private JPanel panelBase;
 	private JButton btnVoltar;
 	private JButton btnEditar;
 	private JLabel lblNome;
@@ -32,92 +43,125 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 	private JLabel lblExercicios;
 	private JTextArea textTipo;
 	private ControladorVerTreino controladorTela;
+	private JPanel panelBaseGeral;
 
+	/**
+	 * Construitor em que Ã© gerado a tela de visualização de treino juntamente com
+	 * seus componentes. MÃ©todos atrelados aos botÃµes estÃ£o no backend
+	 * 
+	 * @see ControladorVerTreino
+	 */
 	public PanelVerTreino(Treino treino) {
+		// Defino características da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
-		panel_1 = new JPanel();
-		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(216, 205, 176));
-		panel_1.setAlignmentY(1.0f);
-		panel_1.setBounds(0, 357, 527, 28);
-		add(panel_1);
+		// Defino o panel que é utilizado como base para todos os elementos
+		panelBaseGeral = new JPanel();
+		panelBaseGeral.setBounds(0, 11, 529, 374);
+		add(panelBaseGeral);
+		panelBaseGeral.setLayout(null);
 
+		// Defino o panel que é utilizado como base para os botões
+		panelBase = new JPanel();
+		panelBase.setBounds(0, 346, 527, 28);
+		panelBaseGeral.add(panelBase);
+		panelBase.setLayout(null);
+		panelBase.setBackground(new Color(216, 205, 176));
+		panelBase.setAlignmentY(1.0f);
+
+		// Defino o botão para voltar para o início
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnVoltar.setBackground(new Color(226, 71, 43));
 		btnVoltar.setBounds(116, 0, 89, 28);
 		btnVoltar.addActionListener(this);
-		panel_1.add(btnVoltar);
+		panelBase.add(btnVoltar);
 
+		// Defino o botão para editar o treino
 		btnEditar = new JButton("Editar");
 		btnEditar.setForeground(Color.BLACK);
 		btnEditar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnEditar.setBackground(Color.GREEN);
 		btnEditar.setBounds(321, 0, 89, 28);
-		panel_1.add(btnEditar);
+		btnEditar.addActionListener(this);
+		panelBase.add(btnEditar);
 
+		// Defino o panel que é utilizado como base
 		panel = new JPanel();
+		panel.setBounds(0, 0, 529, 28);
+		panelBaseGeral.add(panel);
 		panel.setLayout(null);
 		panel.setBackground(new Color(216, 205, 176));
 		panel.setAlignmentY(1.0f);
-		panel.setBounds(0, 11, 529, 28);
-		add(panel);
 
+		// Defino o label onde será inserido o nome
 		lblNome = new JLabel();
 		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNome.setBounds(122, 0, 290, 26);
 		panel.add(lblNome);
 		lblNome.setFont(new Font("Fira Code Light", Font.BOLD, 16));
 
+		// Defino o label onde será inserido o aluno
 		lblAluno = new JLabel();
+		lblAluno.setBounds(10, 59, 254, 14);
+		panelBaseGeral.add(lblAluno);
 		lblAluno.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblAluno.setBounds(10, 70, 254, 14);
-		add(lblAluno);
 
+		// Defino o label onde será inserido o numero de séries
 		lblSeries = new JLabel();
+		lblSeries.setBounds(10, 188, 254, 20);
+		panelBaseGeral.add(lblSeries);
 		lblSeries.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblSeries.setBounds(10, 199, 254, 20);
-		add(lblSeries);
 
+		// Defino o label onde será inserido o numero de repetições
 		lblRepeticoes = new JLabel();
+		lblRepeticoes.setBounds(10, 247, 254, 29);
+		panelBaseGeral.add(lblRepeticoes);
 		lblRepeticoes.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblRepeticoes.setBounds(10, 258, 254, 29);
-		add(lblRepeticoes);
 
+		// Defino o label onde será inserido os exercícios
 		listExerciciosTreino = new JList();
+		listExerciciosTreino.setBounds(274, 86, 245, 235);
+		panelBaseGeral.add(listExerciciosTreino);
 		listExerciciosTreino.setVisibleRowCount(80);
 		listExerciciosTreino.setFont(new Font("Fira Code Light", Font.PLAIN, 14));
 		listExerciciosTreino.setBorder(new LineBorder(new Color(0, 0, 0)));
-		listExerciciosTreino.setBounds(274, 97, 245, 235);
-		add(listExerciciosTreino);
 
+		// Defino a label indicando os exercícios
 		lblExercicios = new JLabel("Exercicios:");
+		lblExercicios.setBounds(274, 52, 110, 26);
+		panelBaseGeral.add(lblExercicios);
 		lblExercicios.setFont(new Font("Fira Code Light", Font.BOLD, 14));
-		lblExercicios.setBounds(274, 63, 110, 26);
-		add(lblExercicios);
 
-		controladorTela = new ControladorVerTreino(this, treino);
-
+		// Defino o label para receber o tipo do treino
 		textTipo = new JTextArea();
+		textTipo.setBounds(10, 110, 254, 43);
+		panelBaseGeral.add(textTipo);
 		textTipo.setLineWrap(true);
 		textTipo.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		textTipo.setEditable(false);
-		textTipo.setBounds(10, 121, 254, 43);
-		add(textTipo);
+
+		// Defino o controlador que realizará a conecção entre o backend e o frontend
+		controladorTela = new ControladorVerTreino(this, treino);
 		controladorTela.inicializar();
 
 	}
 
+	/**
+	 * Método responsável por conectar o backend e o frontend
+	 * 
+	 * @param event Evento no qual representa o clique de um botão
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.controladorTela.acaoPerformada(e.getSource());
 	}
 
+	// Getters e Setters
 	public JButton getBtnVoltar() {
 		return btnVoltar;
 	}
@@ -181,4 +225,13 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 	public void setListExerciciosTreino(JList listExerciciosTreino) {
 		this.listExerciciosTreino = listExerciciosTreino;
 	}
+
+	public JPanel getPanelBaseGeral() {
+		return panelBaseGeral;
+	}
+
+	public void setPanelBaseGeral(JPanel panelBaseGeral) {
+		this.panelBaseGeral = panelBaseGeral;
+	}
+
 }
