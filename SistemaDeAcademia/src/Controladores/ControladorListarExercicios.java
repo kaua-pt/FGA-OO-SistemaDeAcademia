@@ -2,22 +2,63 @@ package Controladores;
 
 import javax.swing.DefaultListModel;
 
+import Modelo.Aluno;
 import Modelo.BancoDeDados;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
+import Visao.PanelEditarAluno;
 import Visao.PanelEditarExercicio;
 import Visao.PanelListarExercicios;
 
+/**
+ * @author Kauã Vinícius
+ * @version 1.0	
+ * 
+ * 		Classe criada com o intuito de controlar as ações
+ * 		da tela de listagem de exercicios.
+ * 
+ * @see PanelListarExercicios
+ */
+@SuppressWarnings("unchecked")
 public class ControladorListarExercicios {
 
 	private PanelListarExercicios panel;
 	private Exercicio exercicio;
 
+	/**
+	 * 	Construtor em que inicializa o controlador e integra
+	 * o frontend e o backend da respectiva tela.
+	 * 
+	 * @param tela PanelListarExercicios panel que chamou o controlador
+	 */
 	public ControladorListarExercicios(PanelListarExercicios panel) {
 		this.panel = panel;
 	}
-
-	@SuppressWarnings("unchecked")
+	
+	/**
+	 * Método que irá realizar algo caso algum botão seja
+	 * pressionado na tela.
+	 * 
+	 * O usuário tem a função de voltar para o inicio do programa,
+	 * Buscar um Exercicio, no qual irá extrair o nome do exercicio que foi 
+	 * inserido e o buscará no banco de dados, Caso seja encontrado,
+	 * o usuário pode deletar o exercicio do banco de dados, ou edita-lo
+	 * ultimo no qual irá leva-lo a outra tela.
+	 * 
+	 * Para buscar o aluno, devemos colocar todos os seus nomes em uma lista 
+	 * a fim de envia-la para um JList no frontend.Para a edição do aluno,
+	 * deve-se separar o nome de sua descrição, já que o nome vem anexado à 
+	 * descriçao do frontend, após isto, apenas resta editar o aluno com o 
+	 * método de editar.
+	 * 
+	 * @param e Object com as informações do botão precionado.
+	 * @see Exercicio
+	 * @see DefaultListModel
+	 * @see BancoDeDados
+	 * @see PanelEditarExercicios
+	 * @see TipoDeGrupamento
+	 * @see ControladorRedirecionar
+	 */
 	public void acaoPerformada(Object e) {
 		if (e == panel.getBtnBuscar()) {
 			DefaultListModel<Object> retorno = new DefaultListModel<Object>();

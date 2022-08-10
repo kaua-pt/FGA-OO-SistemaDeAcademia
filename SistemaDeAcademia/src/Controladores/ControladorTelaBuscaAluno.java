@@ -10,15 +10,45 @@ import Visao.PanelBuscaAluno;
 import Visao.PanelEditarAluno;
 import Visao.PanelMenu;
 
+/**
+ * @author Kauã Vinícius
+ * @version 1.0	
+ * 
+ * 		Classe criada com o intuito de controlar as ações
+ * 		da tela de busca de alunos.
+ * 
+ * @see PanelBuscaAluno
+ */
 public class ControladorTelaBuscaAluno {
 
 	private PanelBuscaAluno tela;
 	private Aluno aluno;
-
+	
+	/**
+	 * 	Construtor em que inicializa o controlador e integra
+	 * o frontend e o backend da respectiva tela.
+	 * 
+	 * @param tela PanelBuscaAluno panel que chamou o controlador
+	 */
 	public ControladorTelaBuscaAluno(PanelBuscaAluno tela) {
 		this.tela = tela;
 	}
-
+	
+	/**
+	 * Método que irá realizar algo caso algum botão seja
+	 * pressionado na tela.
+	 * 
+	 * O usuário tem a função de voltar para o inicio do programa,
+	 * Buscar um aluno, no qual irá extrair o nome do aluno que foi 
+	 * escrito e o buscará no banco de dados, Caso seja encontrado,
+	 * o usuário pode deletar o aluno do banco de dados, ou edita-lo
+	 * ultimo no qual irá leva-lo a outra tela.
+	 * 
+	 * @param e Object com as informações do botão precionado.
+	 * @see Aluno
+	 * @see ControladorRedirecionar
+	 * @see PanelEditarAluno
+	 */
 	public void acaoPerformada(Object e) {
 		if (e == tela.getBtnBuscar()) {
 
@@ -40,16 +70,23 @@ public class ControladorTelaBuscaAluno {
 			}
 
 		} else if (e == tela.getBtnEditar()) {
-			PanelEditarAluno panelEditarA = new PanelEditarAluno(aluno);
-			tela.add(panelEditarA);
-			panelEditarA.setVisible(true);
-			tela.getPanelbase().setVisible(false);
+			if(aluno != null) {
+				PanelEditarAluno panelEditarA = new PanelEditarAluno(aluno);
+				tela.add(panelEditarA);
+				panelEditarA.setVisible(true);
+				tela.getPanelbase().setVisible(false);
+			}
 
 		} else if (e == tela.getBtnVoltar()) {
 			ControladorRedirecionar.caminho(1);
 		}
 	}
-
+	
+	/**
+	 * Método que mostra as informações na tela 
+	 * 
+	 * @see PanelMenu
+	 */
 	public void alterarInformacoes() {
 
 		tela.getLblIMCPessoa()

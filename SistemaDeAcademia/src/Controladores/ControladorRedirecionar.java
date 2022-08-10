@@ -10,12 +10,30 @@ import Visao.PanelCadastroTreino;
 import Visao.PanelConsultaTreino;
 import Visao.PanelListarExercicios;
 
+/**
+ * @author Kauã Vinícius
+ * @version 1.0	
+ * 
+ * 		Classe criada com o intuito de controlar o redirecionamento
+ * 		de telas do programa.
+ * 
+ */
+
 public class ControladorRedirecionar {
 
 	private static JPanel tela;
 	private static JPanel padrao;
 	private static JPanel[] telas = new JPanel[20];
-
+	
+	/**
+	 * Método para receptar as informações vindas da escolha do usuário
+	 * no panelMenu.O método deve ser Static para poder ser utilizado 
+	 * globalmente,ou seja, sempre que necessário.
+	 * 
+	 * @param operacao String contendo para qual parte do programa o usuário
+	 * deseja ir
+	 * @param id Int contendo a id do que o usuário deseja fazer
+	 */
 	public static void receptacao(String operacao, int id) {
 		if (operacao == "Alunos") {
 			caminho(id);
@@ -25,7 +43,29 @@ public class ControladorRedirecionar {
 			caminho(id + 2);
 		}
 	}
-
+	
+	/**
+	 * Método Static que irá mudar a tela para qual o usuário deseja ir.
+	 * 
+	 * No método, a tela padrão, que é a atual, é setada como invisível,e
+	 * logo após é feito o mesmo com todas as telas ativas.É feito então
+	 * o redirecionamento com base no id fornecido nos parâmetros. Para 
+	 * acessar a tela de Cadastro de Treino,é primeiramente feita uma 
+	 * verificação no banco de dados para saber se há ao menos um aluno
+	 * e um treino cadastrado.Logo após, a tela criada é passada para a
+	 * função de operar tela.
+	 * 
+	 * @param id Int contendo o id da tela que o usuário deseja acessar.
+	 * @see esconderTelas
+	 * @see operarTela
+	 * @see PanelCadastroAluno
+	 * @see PanelCadastroExercicio
+	 * @see PanelCadastroTreino
+	 * @see PanelBuscaAluno
+	 * @see PanelListarExercicios
+	 * @see PanelConsultaTreino
+	 * @see BancoDeDados
+	 */
 	public static void caminho(int id) {
 		ControladorRedirecionar.padrao.setVisible(false);
 		esconderTelas();
@@ -59,12 +99,27 @@ public class ControladorRedirecionar {
 
 	}
 
+	/**
+	 * Método no qual irá adicionar a tela criada em uma array e adiciona-la
+	 * a tela de menu, isso deve ocorrer para a tela ser sobrescrita a cada 
+	 * vez que o usuário apertar um botão
+	 * 
+	 * @param id Int contendo o id da tela 
+	 * @param elemento JPanel  tela em que será operada
+	 */
 	public static void operarTela(int id, JPanel elemento) {
 		telas[id - 1] = elemento;
 		ControladorRedirecionar.tela.add(elemento);
 		elemento.setVisible(true);
 	}
-
+	
+	/**
+	 * Método em que irá deixar todas as JPanels salvas no array
+	 * invisíveis.
+	 * 
+	 * É utilizado um loop for para percorrer as tela, e para cada
+	 * tela sua visibilidade se torna falsa.
+	 */
 	public static void esconderTelas() {
 		for (JPanel telaCriada : telas) {
 			if (telaCriada != null) {
@@ -72,7 +127,8 @@ public class ControladorRedirecionar {
 			}
 		}
 	}
-
+	
+	//Getters e Setters
 	public static JPanel getTela() {
 		return tela;
 	}
