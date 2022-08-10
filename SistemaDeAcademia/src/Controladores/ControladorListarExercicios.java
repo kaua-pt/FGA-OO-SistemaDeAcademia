@@ -2,11 +2,9 @@ package Controladores;
 
 import javax.swing.DefaultListModel;
 
-import Modelo.Aluno;
 import Modelo.BancoDeDados;
 import Modelo.Exercicio;
 import Modelo.TipoDeGrupamento;
-import Visao.PanelEditarAluno;
 import Visao.PanelEditarExercicio;
 import Visao.PanelListarExercicios;
 
