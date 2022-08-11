@@ -22,11 +22,11 @@ import javax.swing.border.LineBorder;
 import controladores.ControladorTelaCadastroAluno;
 
 /**
- * @author Kauã Vinícius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para cadastro de aluno Herda a
+ *         Classe em que e implementado a tela para cadastro de aluno Herda a
  *         classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botões
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -61,7 +61,7 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 	private ControladorTelaCadastroAluno controladorTela;
 
 	/**
-	 * Construtor no qual cria a tela e suas depend�ncias A��o dos bot�es atrelado
+	 * Construtor no qual cria a tela e suas dependencias, acao dos botoes atrelado
 	 * ao BackEnd
 	 * 
 	 * @see ControladorPanelCadastroAluno
@@ -69,13 +69,13 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 	@SuppressWarnings("removal")
 	public PanelCadastroAluno() {
 
-		// Defino as caracteristicas b�sicas da tela
+		// Defino as caracteristicas basicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
-		// Defino o panel principal que � usado como base
+		// Defino o panel principal que e usado como base
 		panel = new JPanel();
 		panel.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		panel.setBounds(0, 0, 529, 403);
@@ -89,21 +89,21 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		panel.add(panelNome);
 		panelNome.setLayout(null);
 
-		// Defino o campo onde ser� inserido o nome do aluno
+		// Defino o campo onde � inserido o nome do aluno
 		textNomeAluno = new JTextField();
 		textNomeAluno.setFont(new Font("Fira Code", Font.PLAIN, 14));
 		textNomeAluno.setBounds(10, 11, 322, 31);
 		panelNome.add(textNomeAluno);
 		textNomeAluno.setColumns(10);
 
-		// Defino o onde � inserido o spin da idade
+		// Defino o onde e inserido o spin da idade
 		panelIdade = new JPanel();
 		panelIdade.setToolTipText("");
 		panelIdade.setBounds(137, 160, 55, 41);
 		panel.add(panelIdade);
 		panelIdade.setLayout(null);
 
-		// Defino spin que absorver� a idade
+		// Defino spin que absorvera a idade
 		spinIdade = new JSpinner();
 		spinIdade.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		spinIdade.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
@@ -111,13 +111,13 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		spinIdade.setBounds(10, 11, 45, 20);
 		panelIdade.add(spinIdade);
 
-		// Defino o campo onde ser� colocado o panel para inserir a altura
+		// Defino o campo onde sera colocado o panel para inserir a altura
 		panelAltura = new JPanel();
 		panelAltura.setBounds(137, 212, 91, 47);
 		panel.add(panelAltura);
 		panelAltura.setLayout(null);
 
-		// Defino o spin que absorver� a altura
+		// Defino o spin que absorvera a altura
 		spinAltura = new JSpinner();
 		spinAltura.setDoubleBuffered(true);
 		spinAltura.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
@@ -127,54 +127,54 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		spinAltura.setBounds(10, 11, 71, 30);
 		panelAltura.add(spinAltura);
 
-		// Defino o campo em que estar� o titulo
+		// Defino o campo em que estara o titulo
 		lblTitulo = new JLabel("Cadastro de Aluno");
 		lblTitulo.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(128, 33, 279, 26);
 		panel.add(lblTitulo);
 
-		// Defino o campo onde ser� colocado o spin de peso
+		// Defino o campo onde sera colocado o spin de peso
 		panelPeso = new JPanel();
 		panelPeso.setLayout(null);
 		panelPeso.setBounds(137, 270, 91, 47);
 		panel.add(panelPeso);
 
-		// Defino o spin onde ser� inserido peso do aluno
+		// Defino o spin onde sera inserido peso do aluno
 		spinPeso = new JSpinner();
 		spinPeso.setModel(new SpinnerNumberModel(0.0, 0.0, 100000.0, 1.0));
 		spinPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		spinPeso.setBounds(10, 11, 71, 30);
 		panelPeso.add(spinPeso);
 
-		// Defino um panel para design da p�gina
+		// Defino um panel para design da pagina
 		faixa = new JPanel();
 		faixa.setBackground(new Color(216, 205, 176));
 		faixa.setBounds(0, 28, 529, 31);
 		panel.add(faixa);
 
-		// Defino o campo onde ser� colocado um texto de ajuda ao usu�rio em rela��o ao
+		// Defino o campo onde sera colocado um texto de ajuda ao usuario em relacao ao
 		// nome
 		lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblNome.setBounds(75, 112, 63, 26);
 		panel.add(lblNome);
 
-		// Defino o campo onde ser� colocado um texto de ajuda ao usu�rio em rela��o a
+		// Defino o campo onde sera colocado um texto de ajuda ao usuario em relacao a
 		// idade
 		lblIdade = new JLabel("Idade:");
 		lblIdade.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblIdade.setBounds(75, 167, 63, 26);
 		panel.add(lblIdade);
 
-		// Defino o campo onde ser� colocado um texto de ajuda ao usu�rio em rela��o a
+		// Defino o campo onde sera colocado um texto de ajuda ao usuario em relacao a
 		// altura
 		lblAltura = new JLabel("Altura:");
 		lblAltura.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblAltura.setBounds(75, 222, 70, 26);
 		panel.add(lblAltura);
 
-		// Defino o campo onde ser� colocado um texto de ajuda ao usu�rio em rela��o ao
+		// Defino o campo onde sera colocado um texto de ajuda ao usuario em relacao ao
 		// peso
 		lblPeso = new JLabel("Peso:");
 		lblPeso.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
@@ -195,7 +195,7 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		panel.add(faixaInferior);
 		faixaInferior.setLayout(null);
 
-		// Defino o bot�o para voltar ao in�cio
+		// Defino o botao para voltar ao in�cio
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -204,7 +204,7 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		btnVoltar.setBackground(new Color(226, 71, 43));
 		faixaInferior.add(btnVoltar);
 
-		// Defino o bot�o para cadastro
+		// Defino o botao para cadastro
 		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setForeground(Color.BLACK);
 		btnCadastrar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -245,14 +245,14 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconPeso);
 
-		// Defino o controlador da tela que realizar� a liga��o com o backend
+		// Defino o controlador da tela que realizara a ligacao com o backend
 		controladorTela = new ControladorTelaCadastroAluno(this);
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {

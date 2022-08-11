@@ -14,11 +14,11 @@ import javax.swing.border.LineBorder;
 import controladores.ControladorConsultaTreino;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para consulta de Treino.Herda a
+ *         Classe em que e implementado a tela para consulta de Treino.Herda a
  *         classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botões
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -39,13 +39,13 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 	private JPanel panelGeral;
 
 	/**
-	 * Construitor em que é gerado a tela de consulta de treino juntamente com seus
-	 * componentes. Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela de consulta de treino juntamente com seus
+	 * componentes. Metodos atrelados aos botoes estao no backend
 	 * 
 	 * @see ControladorConsultaTreino
 	 */
 	public PanelConsultaTreino() {
-		// Defino as caracteristicas b�sicas da tela
+		// Defino as caracteristicas basicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -57,7 +57,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		add(panelGeral);
 		panelGeral.setLayout(null);
 
-		// Defino o panel base das informa��es
+		// Defino o panel base das informacoes
 		panel = new JPanel();
 		panel.setBounds(0, 0, 529, 28);
 		panelGeral.add(panel);
@@ -65,7 +65,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		panel.setAlignmentY(1.0f);
 		panel.setLayout(null);
 
-		// Defino a label de ajuda ao usu�rio
+		// Defino a label de ajuda ao usuario
 		lblTexto = new JLabel("Consultar Treinos");
 		lblTexto.setFont(new Font("Fira Code Light", Font.BOLD, 16));
 		lblTexto.setBounds(167, 8, 184, 14);
@@ -79,7 +79,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		panelDesign.setBackground(new Color(216, 205, 176));
 		panelDesign.setAlignmentY(1.0f);
 
-		// Defino o bot�o para retornar para o in�cio
+		// Defino o botao para retornar para o inicio
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -88,7 +88,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		btnVoltar.addActionListener(this);
 		panelDesign.add(btnVoltar);
 
-		// Defino o bot�o para visualizar informa��es do treino
+		// Defino o botao para visualizar informacoes do treino
 		btnVer = new JButton("Ver");
 		btnVer.setForeground(Color.BLACK);
 		btnVer.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -97,7 +97,7 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		btnVer.addActionListener(this);
 		panelDesign.add(btnVer);
 
-		// Defino o bot�o para deletar o treino
+		// Defino o botao para deletar o treino
 		btnDeletar = new JButton("Deletar");
 		btnDeletar.setForeground(Color.BLACK);
 		btnDeletar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -113,16 +113,16 @@ public class PanelConsultaTreino extends JPanel implements ActionListener {
 		listTreinos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listTreinos.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 
-		// Defino o controlador que realiza a conec��o entre o backend e o frontend
+		// Defino o controlador que realiza a coneccao entre o backend e o frontend
 		controladorTela = new ControladorConsultaTreino(this);
 		controladorTela.inicializar();
 
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

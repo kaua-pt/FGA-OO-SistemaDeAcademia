@@ -3,10 +3,10 @@ package visao;
 import controladores.ControladorMainLabel;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * @version 1.0
  * 
- *          Classe respons�vel por inicializar o programa chamando o PanelMenu.
+ *          Classe responsavel por inicializar o programa chamando o PanelMenu.
  * 
  * @see PanelMenu
  * @see ControladorMainLabel
@@ -15,7 +15,7 @@ import controladores.ControladorMainLabel;
 public class Main {
 
 	/**
-	 * M�todo Main que inst�ncia a classe Panel menu e a torna vis�vel;
+	 * Metodo Main que instancia a classe Panel menu e a torna visivel;
 	 * 
 	 * @param args
 	 */

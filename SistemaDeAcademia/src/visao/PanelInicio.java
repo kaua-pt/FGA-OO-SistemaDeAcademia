@@ -14,10 +14,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe que implementa a tela incial com informações básicas do
- *         programa. Herda JPanel para criar a interface gráfica
+ *         Classe que implementa a tela incial com informacoes basicas do
+ *         programa. Herda JPanel para criar a interface grafica
  * 
  * @see JPanel
  **/
@@ -42,7 +42,7 @@ public class PanelInicio extends JPanel {
 	private JTextPane txtInfoExercicio;
 
 	/**
-	 * Construtor que cria a tela e suas características
+	 * Construtor que cria a tela e suas caracterasticas
 	 */
 	public PanelInicio() {
 		// Defino a borda, a cor de fundo, tamanho da tela e seu layout;
@@ -64,7 +64,7 @@ public class PanelInicio extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 
-		// Defino o ícone das informações dos alunos
+		// Defino o icone das informacoes dos alunos
 		lblAlunoinc = new JLabel("");
 		lblAlunoinc.setIcon(new ImageIcon(
 				Toolkit.getDefaultToolkit().getImage(PanelMenu.class.getResource("/Imagens/do-utilizador.png"))
@@ -72,7 +72,7 @@ public class PanelInicio extends JPanel {
 		lblAlunoinc.setBounds(61, 23, 40, 46);
 		panel.add(lblAlunoinc);
 
-		// Defino o texto contendo o título para alunos
+		// Defino o texto contendo o titulo para alunos
 		txtAlunos = new JTextField();
 		txtAlunos.setEditable(false);
 		txtAlunos.setFont(new Font("Fira Code Light", Font.BOLD, 14));
@@ -82,7 +82,7 @@ public class PanelInicio extends JPanel {
 		panel.add(txtAlunos);
 		txtAlunos.setColumns(10);
 
-		// Defino o texto para as operações com alunos
+		// Defino o texto para as operacoes com alunos
 		txtpBase = new JTextPane();
 		txtpBase.setEditable(false);
 		txtpBase.setFont(new Font("Fira Code", Font.PLAIN, 12));
@@ -91,7 +91,7 @@ public class PanelInicio extends JPanel {
 		txtpBase.setBounds(10, 125, 142, 127);
 		panel.add(txtpBase);
 
-		// Primeiro Panel usado como base gráfica
+		// Primeiro Panel usado como base grafica
 		panelBase = new JPanel();
 		panelBase.setBackground(new Color(135, 148, 192));
 		panelBase.setBounds(182, 94, 162, 276);
@@ -106,7 +106,7 @@ public class PanelInicio extends JPanel {
 		iconTreino.setBounds(61, 23, 40, 46);
 		panelBase.add(iconTreino);
 
-		// Defino o texto contendo o título para treinos
+		// Defino o texto contendo o titulo para treinos
 		txtTreinos = new JTextField();
 		txtTreinos.setEditable(false);
 		txtTreinos.setText("Treinos");
@@ -116,7 +116,7 @@ public class PanelInicio extends JPanel {
 		txtTreinos.setBounds(32, 69, 98, 27);
 		panelBase.add(txtTreinos);
 
-		// Defino o texto para as operações com Treino
+		// Defino o texto para as operacoes com Treino
 		txtpnCliqueEmTreino = new JTextPane();
 		txtpnCliqueEmTreino.setEditable(false);
 		txtpnCliqueEmTreino.setText(
@@ -140,7 +140,7 @@ public class PanelInicio extends JPanel {
 		lblIconeExercicio.setBounds(61, 22, 40, 46);
 		panelBase1.add(lblIconeExercicio);
 
-		// Defino o texto contendo o título para exercícios
+		// Defino o texto contendo o titulo para exercicios
 		txtExerccios = new JTextField();
 		txtExerccios.setEditable(false);
 		txtExerccios.setText("Exerc\u00EDcios");
@@ -150,7 +150,7 @@ public class PanelInicio extends JPanel {
 		txtExerccios.setBounds(29, 69, 104, 27);
 		panelBase1.add(txtExerccios);
 
-		// Defino o texto para as operações com Exercicios
+		// Defino o texto para as operacoes com Exercicios
 		txtInfoExercicio = new JTextPane();
 		txtInfoExercicio.setEditable(false);
 		txtInfoExercicio.setText(

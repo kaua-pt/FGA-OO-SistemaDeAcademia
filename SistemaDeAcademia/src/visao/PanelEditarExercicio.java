@@ -20,11 +20,11 @@ import modelo.Exercicio;
 import modelo.TipoDeGrupamento;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para edi��o de exerc�cios.Herda
- *         a classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botões
+ *         Classe em que e implementado a tela para edicao de exercicios.Herda a
+ *         classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -49,13 +49,13 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 	private ControladorTelaEditarExercicio controladorT;
 
 	/**
-	 * Construitor em que é gerado a tela de edi��o de exercicio juntamente com
-	 * seus componentes. Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela de edicao de exercicio juntamente com seus
+	 * componentes. Metodos atrelados aos botoes estao no backend
 	 * 
 	 * @see ControladorTelaEditarExercicio
 	 */
 	public PanelEditarExercicio(Exercicio exercicio) {
-		// Defino as caracteristicas b�sicas da tela
+		// Defino as caracteristicas basicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -67,20 +67,20 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		panelBase.setBounds(0, 25, 529, 31);
 		add(panelBase);
 
-		// Defino a label de ajuda ao usu�rio
+		// Defino a label de ajuda ao usuario
 		lblEditarExercicio = new JLabel("Editar Exercicio");
 		lblEditarExercicio.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEditarExercicio.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		panelBase.add(lblEditarExercicio);
 
-		// Defino faixa onde est�o inseridos os bot�es
+		// Defino faixa onde estao inseridos os botoes
 		faixa1 = new JPanel();
 		faixa1.setLayout(null);
 		faixa1.setBackground(new Color(216, 205, 176));
 		faixa1.setBounds(0, 346, 529, 31);
 		add(faixa1);
 
-		// Defino o bot�o para retornar ao in�cio
+		// Defino o botao para retornar ao inicio
 		btnInicio = new JButton("Inicio");
 		btnInicio.setForeground(Color.BLACK);
 		btnInicio.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -89,7 +89,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		btnInicio.addActionListener(this);
 		faixa1.add(btnInicio);
 
-		// Defino o bot�o para finalizar a edi��o de exerc�cio
+		// Defino o botao para finalizar a edicao de exercicio
 		btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setForeground(Color.BLACK);
 		btnFinalizar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -98,7 +98,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		btnFinalizar.setBounds(313, 0, 117, 31);
 		faixa1.add(btnFinalizar);
 
-		// Defino a label onde ficar� o icone de nome
+		// Defino a label onde ficara o icone de nome
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(10, 90, 40, 41);
 		add(lblIconNome);
@@ -109,7 +109,7 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		lblNome.setBounds(59, 100, 63, 26);
 		add(lblNome);
 
-		// Defino o local onde ser� colocado o nome do exercicio
+		// Defino o local onde sera colocado o nome do exercicio
 		textNome = new JTextField();
 		textNome.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		textNome.setColumns(10);
@@ -129,13 +129,13 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		lbltipo.setBounds(59, 169, 113, 14);
 		add(lbltipo);
 
-		// Defino a label indicando aonde colocar a descri��o
+		// Defino a label indicando aonde colocar a descricao
 		lblDescricao = new JLabel("Descri\u00E7\u00E3o:");
 		lblDescricao.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblDescricao.setBounds(59, 225, 100, 20);
 		add(lblDescricao);
 
-		// Defino o local onde ser� colocado a edi��o da descri��o
+		// Defino o local onde sera colocado a edicao da descricao
 		textDescricao = new JTextArea();
 		textDescricao.setTabSize(4);
 		textDescricao.setRows(4);
@@ -145,16 +145,16 @@ public class PanelEditarExercicio extends JPanel implements ActionListener {
 		textDescricao.setBounds(168, 231, 324, 78);
 		add(textDescricao);
 
-		// Defino o controlador que realiza a conec��o entre o backend e o frontend
+		// Defino o controlador que realiza a coneccao entre o backend e o frontend
 		controladorT = new ControladorTelaEditarExercicio(this);
 		controladorT.iniciarCampos(exercicio);
 
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

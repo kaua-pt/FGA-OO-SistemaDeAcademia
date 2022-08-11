@@ -23,11 +23,11 @@ import controladores.ControladorTelaEditarAluno;
 import modelo.Aluno;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para edi�ao de aluno.Herda a
+ *         Classe em que e implementado a tela para edicao de aluno.Herda a
  *         classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botões
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -63,13 +63,13 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 	private ControladorTelaEditarAluno controladorT;
 
 	/**
-	 * Construitor em que é gerado a tela de edi��o de aluno juntamente com seus
-	 * componentes. Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela de edicao de aluno juntamente com seus
+	 * componentes. Metodos atrelados aos botoes estão no backend
 	 * 
 	 * @see ControladorTelaEditarAluno
 	 */
 	public PanelEditarAluno(Aluno aluno) {
-		// Defino as caracteristicas b�sicas da tela
+		// Defino as caracteristicas basicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -82,7 +82,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		add(panel);
 		panel.setLayout(null);
 
-		// Defino que cont�m as informa��es
+		// Defino que contem as informacoes
 		panelDesign1 = new JPanel();
 		panelDesign1.setBackground(new Color(240, 240, 240));
 		panelDesign1.setBounds(137, 102, 342, 47);
@@ -96,7 +96,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		panelDesign1.add(textNomeAluno);
 		textNomeAluno.setColumns(10);
 
-		// Defino o panel com a segunda tela de informa��es
+		// Defino o panel com a segunda tela de informacoes
 		panelDesign2 = new JPanel();
 		panelDesign2.setToolTipText("");
 		panelDesign2.setBounds(137, 160, 55, 41);
@@ -111,7 +111,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		spinIdade.setBounds(10, 11, 45, 20);
 		panelDesign2.add(spinIdade);
 
-		// Defino o panel com caracte�sticas de design da p�gina
+		// Defino o panel com caracteristicas de design da pagina
 		panelDesign3 = new JPanel();
 		panelDesign3.setBounds(137, 212, 91, 47);
 		panel.add(panelDesign3);
@@ -140,7 +140,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		spinPeso.setBounds(10, 11, 71, 30);
 		panelDesign4.add(spinPeso);
 
-		// Defino a faixa para armaznar os bot�es
+		// Defino a faixa para armaznar os botoes
 		faixa = new JPanel();
 		faixa.setBackground(new Color(216, 205, 176));
 		faixa.setBounds(0, 28, 529, 31);
@@ -176,7 +176,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		lblPeso.setBounds(75, 280, 63, 26);
 		panel.add(lblPeso);
 
-		// Defino um texto de ajuda ao usu�rio
+		// Defino um texto de ajuda ao usuario
 		lblInsiraOsDados = new JLabel("Insira os dados:");
 		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInsiraOsDados.setFont(new Font("Fira Code Light", Font.BOLD, 20));
@@ -190,7 +190,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		panel.add(faixa2);
 		faixa2.setLayout(null);
 
-		// Defino o bot�o para retornar para o in�cio
+		// Defino o botao para retornar para o inicio
 		btnInicio = new JButton("Inicio");
 		btnInicio.setForeground(Color.BLACK);
 		btnInicio.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -199,7 +199,7 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 		btnInicio.setBackground(new Color(226, 71, 43));
 		faixa2.add(btnInicio);
 
-		// Defino o bot�o para finalizar a edi��o
+		// Defino o botao para finalizar a edicao
 		btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setForeground(Color.BLACK);
 		btnFinalizar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -240,15 +240,15 @@ public class PanelEditarAluno extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconPeso);
 
-		// Defino o controlador que realiza a conec��o entre o backend e o frontend
+		// Defino o controlador que realiza a coneccao entre o backend e o frontend
 		controladorT = new ControladorTelaEditarAluno(this);
 		controladorT.setarInformacoes(aluno);
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

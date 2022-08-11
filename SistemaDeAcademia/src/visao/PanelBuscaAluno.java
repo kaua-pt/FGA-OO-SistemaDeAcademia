@@ -22,12 +22,12 @@ import controladores.ControladorTelaBuscaAluno;
 import modelo.Aluno;
 
 /**
- * @author Kauã Vinícius
+ * @author Kaua Vinicius
  *
- *         Classe em que é implementada a tela de busca de aluno
+ *         Classe em que e implementada a tela de busca de aluno
  * 
  *         Herda a classe JPanel pra confeccionar a tela e implementa a
- *         interface ActionListener para a iteração dos botões
+ *         interface ActionListener para a iteracao dos botoes
  *
  * @see JPanel
  * @see ActionListener
@@ -62,8 +62,8 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 	private JPanel panelbase;
 
 	/**
-	 * Construitor em que é gerado a tela de busca de aluno juntamente com seus
-	 * componentes. Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela de busca de aluno juntamente com seus
+	 * componentes. Metodos atrelados aos botoes estao no backend
 	 * 
 	 * @see ControladorTelaBuscaAluno
 	 */
@@ -111,7 +111,7 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		panel.setBackground(new Color(216, 205, 176));
 		panel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 
-		// Defino o panel em que é anexado as informações
+		// Defino o panel em que e anexado as informacoes
 		panelInfo = new JPanel();
 		panelInfo.setBounds(1, 92, 527, 250);
 		panelbase.add(panelInfo);
@@ -165,14 +165,14 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		lblTreinos.setBounds(234, 21, 71, 14);
 		panelInfo.add(lblTreinos);
 
-		// Defino o campo de situação do aluno relativo ao IMC
+		// Defino o campo de situacao do aluno relativo ao IMC
 		Situacao = new JLabel();
 		Situacao.setHorizontalAlignment(SwingConstants.CENTER);
 		Situacao.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		Situacao.setBounds(408, 214, 109, 36);
 		panelInfo.add(Situacao);
 
-		// Defino a lista que será mostrado os treinos
+		// Defino a lista que sera mostrado os treinos
 		listTreinos = new JList<Object>();
 		listTreinos.setFont(new Font("Fira Code Light", Font.PLAIN, 14));
 		listTreinos.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
@@ -180,20 +180,20 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		listTreinos.setVisible(false);
 		panelInfo.add(listTreinos);
 
-		// Defino a tela base caso o aluno não seja encontrado
+		// Defino a tela base caso o aluno nao seja encontrado
 		panelNaoEncontrado = new JPanel();
 		panelNaoEncontrado.setBounds(1, 92, 527, 250);
 		panelbase.add(panelNaoEncontrado);
 		panelNaoEncontrado.setVisible(false);
 		panelNaoEncontrado.setLayout(null);
 
-		// Defino a escrita caso o aluno não seja encontrado
+		// Defino a escrita caso o aluno nao seja encontrado
 		lblnaoEncont = new JLabel("Aluno N\u00E3o Encontrado!");
 		lblnaoEncont.setFont(new Font("Fira Code Light", Font.BOLD, 16));
 		lblnaoEncont.setBounds(153, 111, 220, 14);
 		panelNaoEncontrado.add(lblnaoEncont);
 
-		// Defino um panel para estilização
+		// Defino um panel para estilizacao
 		panelEstilo = new JPanel();
 		panelEstilo.setBounds(1, 353, 527, 28);
 		panelbase.add(panelEstilo);
@@ -201,7 +201,7 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		panelEstilo.setAlignmentY(1.0f);
 		panelEstilo.setLayout(null);
 
-		// Defino o botão para voltar para o inicio
+		// Defino o botao para voltar para o inicio
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setBackground(new Color(226, 71, 43));
@@ -210,7 +210,7 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		btnVoltar.setBounds(62, 0, 89, 28);
 		panelEstilo.add(btnVoltar);
 
-		// Defino o botão para editar o aluno
+		// Defino o botao para editar o aluno
 		btnEditar = new JButton("Editar");
 		btnEditar.setForeground(Color.BLACK);
 		btnEditar.addActionListener(this);
@@ -219,7 +219,7 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		btnEditar.setBackground(Color.GREEN);
 		panelEstilo.add(btnEditar);
 
-		// Defino o botão de deletar o aluno
+		// Defino o botao de deletar o aluno
 		btnDeletar = new JButton("Deletar");
 		btnDeletar.setForeground(Color.BLACK);
 		btnDeletar.addActionListener(this);
@@ -228,7 +228,7 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 		btnDeletar.setBounds(364, 0, 99, 28);
 		panelEstilo.add(btnDeletar);
 
-		// Defino o botão para buscar o aluno
+		// Defino o botao para buscar o aluno
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(435, 60, 89, 23);
 		panelbase.add(btnBuscar);
@@ -240,9 +240,9 @@ public class PanelBuscaAluno extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {

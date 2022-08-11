@@ -22,11 +22,11 @@ import controladores.ControladorListarExercicios;
 import modelo.TipoDeGrupamento;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para listagem de
- *         Exercicios.Herda a classe JPanel pra confeccionar a tela e implementa
- *         a interface ActionListener para a iteração dos botões
+ *         Classe em que e implementado a tela para listagem de Exercicios.Herda
+ *         a classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -50,13 +50,13 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 	private JPanel panelmain;
 
 	/**
-	 * Construitor em que é gerado a tela de listagem de exercicios juntamente com
-	 * seus componentes. Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela de listagem de exercicios juntamente com
+	 * seus componentes. Metodos atrelados aos botões estao no backend
 	 * 
 	 * @see ControladorListarExercicios
 	 */
 	public PanelListarExercicios() {
-		// Defino as caracteristicas b�sicas da tela
+		// Defino as caracteristicas basicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -68,7 +68,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		panelmain.setLayout(null);
 		add(panelmain);
 
-		// Defino o panel base das informa��es
+		// Defino o panel base das informacoes
 		panel = new JPanel();
 		panel.setBounds(0, 0, 527, 28);
 		panel.setBackground(new Color(216, 205, 176));
@@ -76,13 +76,13 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		panel.setLayout(null);
 		panelmain.add(panel);
 
-		// Defino a label de ajuda ao usu�rio
+		// Defino a label de ajuda ao usuario
 		lblTextinho = new JLabel("Listagem de Exercicios");
 		lblTextinho.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblTextinho.setBounds(165, 4, 214, 25);
 		panel.add(lblTextinho);
 
-		// Defino o panel para conter os bot�es
+		// Defino o panel para conter os botoes
 		panelDesign = new JPanel();
 		panelDesign.setBounds(0, 346, 527, 28);
 		panelDesign.setLayout(null);
@@ -90,7 +90,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		panelDesign.setAlignmentY(1.0f);
 		panelmain.add(panelDesign);
 
-		// Defino o bot�o para voltar para a tela de in�cio
+		// Defino o botao para voltar para a tela de inicio
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -99,7 +99,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		btnVoltar.setBounds(62, 0, 89, 28);
 		panelDesign.add(btnVoltar);
 
-		// Defino bot�o para editar o treino
+		// Defino botao para editar o treino
 		btnEditar = new JButton("Editar");
 		btnEditar.setForeground(Color.BLACK);
 		btnEditar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -108,7 +108,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		btnEditar.setBounds(213, 0, 89, 28);
 		panelDesign.add(btnEditar);
 
-		// Defino o bot�o para deletar o exerc�cio selecionado
+		// Defino o botao para deletar o exercicio selecionado
 		btnDeletar = new JButton("Deletar");
 		btnDeletar.setForeground(Color.BLACK);
 		btnDeletar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -117,7 +117,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		btnDeletar.setBounds(364, 0, 99, 28);
 		panelDesign.add(btnDeletar);
 
-		// Defino a lista com todos os exerc�cios em backend
+		// Defino a lista com todos os exercicios em backend
 		listExercicios = new JList();
 		listExercicios.setBounds(10, 76, 509, 263);
 		listExercicios.setFont(new Font("Fira Code Light", Font.BOLD, 14));
@@ -125,7 +125,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		listExercicios.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelmain.add(listExercicios);
 
-		// Defino �cone para busca
+		// Defino icone para busca
 		iconeBusca = new JLabel("");
 		iconeBusca.setBounds(10, 21, 68, 58);
 		iconeBusca.setHorizontalAlignment(SwingConstants.CENTER);
@@ -135,7 +135,7 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelmain.add(iconeBusca);
 
-		// Defino o bot�o de busca
+		// Defino o botao de busca
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(435, 39, 89, 23);
 		btnBuscar.addActionListener(this);
@@ -148,14 +148,14 @@ public class PanelListarExercicios extends JPanel implements ActionListener {
 		comboGrupamento.setModel(new DefaultComboBoxModel(TipoDeGrupamento.values()));
 		panelmain.add(comboGrupamento);
 
-		// Defino o controlador que realiza a conec��o entre o backend e o frontend
+		// Defino o controlador que realiza a coneccao entre o backend e o frontend
 		controladorTela = new ControladorListarExercicios(this);
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

@@ -22,11 +22,11 @@ import controladores.ControladorTelaEditarTreino;
 import modelo.Treino;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para edi��o de Treino.Herda a
+ *         Classe em que e implementado a tela para edicao de Treino.Herda a
  *         classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botões
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -62,13 +62,13 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 	private ControladorTelaEditarTreino controladorTela;
 
 	/**
-	 * Construitor em que é gerado a tela de editar treino juntamente com seus
-	 * componentes. Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela de editar treino juntamente com seus
+	 * componentes. Metodos atrelados aos botoes estao no backend
 	 * 
 	 * @see ControladorTelaEditarTreino
 	 */
 	public PanelEditarTreino(Treino treino) {
-		// Defino as caracteristicas b�sicas da tela
+		// Defino as caracteristicas basicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -81,24 +81,24 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		add(panel);
 		panel.setLayout(null);
 
-		// Defino o primeiro panel base das informa��es
+		// Defino o primeiro panel base das informacoes
 		panelMain1 = new JPanel();
 		panelMain1.setVisible(true);
 
-		// Defino o segundo panel base das informa��es
+		// Defino o segundo panel base das informacoes
 		panelMain2 = new JPanel();
 		panelMain2.setBounds(0, 61, 529, 277);
 		panel.add(panelMain2);
 		panelMain2.setVisible(false);
 		panelMain2.setLayout(null);
 
-		// Defino um texto de ajuda ao usu�rio
+		// Defino um texto de ajuda ao usuario
 		lblTexto = new JLabel("Selecione Novamente os exercicios desejados");
 		lblTexto.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		lblTexto.setBounds(71, 11, 412, 30);
 		panelMain2.add(lblTexto);
 
-		// Defino uma lista contendo os exerc�cios compat�veis com o treino
+		// Defino uma lista contendo os exercicios compativeis com o treino
 		listExerciciosTreino = new JList();
 		listExerciciosTreino.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listExerciciosTreino.setVisibleRowCount(80);
@@ -106,7 +106,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		listExerciciosTreino.setBounds(81, 44, 378, 189);
 		panelMain2.add(listExerciciosTreino);
 
-		// Defino o bot�o para retornar
+		// Defino o botao para retornar
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnVoltar.setBounds(204, 244, 117, 31);
@@ -118,7 +118,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		panel.add(panelMain1);
 		panelMain1.setLayout(null);
 
-		// Defino uma label com um texto de ajuda ao usu�rio
+		// Defino uma label com um texto de ajuda ao usuario
 		lblTitulo = new JLabel("Editar Treino");
 		lblTitulo.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -138,7 +138,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		panel.add(faixaBaixo);
 		faixaBaixo.setLayout(null);
 
-		// Defino o bot�o para retornar ao in�cio
+		// Defino o botao para retornar ao inicio
 		btnInicio = new JButton("Inicio");
 		btnInicio.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnInicio.setBounds(96, 0, 117, 31);
@@ -146,7 +146,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		btnInicio.setBackground(new Color(226, 71, 43));
 		faixaBaixo.add(btnInicio);
 
-		// Defino o bot�o para finalizar a edi��o
+		// Defino o botao para finalizar a edicao
 		btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnFinalizar.setBounds(311, 0, 117, 31);
@@ -167,7 +167,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		panelAux.setBounds(126, 37, 342, 47);
 		panelMain1.add(panelAux);
 
-		// Defino o local onde ser� inserido o nome do treino
+		// Defino o local onde sera inserido o nome do treino
 		textNome = new JTextField();
 		textNome.setColumns(10);
 		textNome.setBounds(0, 16, 332, 25);
@@ -187,7 +187,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 				"B- Costa e B\u00EDceps", "C- Perna", "D- Aer\u00F3bico" }));
 		panelMain1.add(comboGrupo);
 
-		// Defino o bot�o para entrar na tela de exerc�cios
+		// Defino o botao para entrar na tela de exerc�cios
 		btnExercicios = new JButton("Exercicios");
 		btnExercicios.setBounds(204, 235, 117, 31);
 		panelMain1.add(btnExercicios);
@@ -195,7 +195,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		btnExercicios.setBackground(new Color(255, 163, 100));
 		btnExercicios.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 
-		// Defino a label de ajuda a usu�rio
+		// Defino a label de ajuda a usuario
 		lblInsiraOsDados = new JLabel("Insira os dados:");
 		lblInsiraOsDados.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInsiraOsDados.setFont(new Font("Fira Code Light", Font.BOLD, 20));
@@ -208,33 +208,33 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 		lblSeries.setBounds(64, 176, 76, 26);
 		panelMain1.add(lblSeries);
 
-		// Defino a label indicando aonde colocar as repeti��es
+		// Defino a label indicando aonde colocar as repeticoes
 		lblRep = new JLabel("Repeti\u00E7\u00F5es:");
 		lblRep.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblRep.setBounds(312, 176, 117, 26);
 		panelMain1.add(lblRep);
 
-		// Defino o spin para inserir as s�ries
+		// Defino o spin para inserir as series
 		spinnerSerie = new JSpinner();
 		spinnerSerie.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinnerSerie.setBounds(147, 179, 56, 20);
 		panelMain1.add(spinnerSerie);
 
-		// Defino o spin para inserir as repeti��es
+		// Defino o spin para inserir as repeticoes
 		spinnerRepeticao = new JSpinner();
 		spinnerRepeticao.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinnerRepeticao.setBounds(429, 179, 56, 20);
 		panelMain1.add(spinnerRepeticao);
 
-		// Defino o controlador que realiza a conec��o entre o backend e o frontend
+		// Defino o controlador que realiza a coneccao entre o backend e o frontend
 		controladorTela = new ControladorTelaEditarTreino(this);
 		controladorTela.iniciarTela(treino);
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

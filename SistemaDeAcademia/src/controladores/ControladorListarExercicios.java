@@ -9,11 +9,11 @@ import visao.PanelEditarExercicio;
 import visao.PanelListarExercicios;
 
 /**
- * @author Kauã Vinícius
- * @version 1.0	
+ * @author Kaua Vinicius
+ * @version 1.0
  * 
- * 		Classe criada com o intuito de controlar as ações
- * 		da tela de listagem de exercicios.
+ *          Classe criada com o intuito de controlar as acoes da tela de
+ *          listagem de exercicios.
  * 
  * @see PanelListarExercicios
  */
@@ -23,33 +23,32 @@ public class ControladorListarExercicios {
 	private PanelListarExercicios panel;
 
 	/**
-	 * 	Construtor em que inicializa o controlador e integra
-	 * o frontend e o backend da respectiva tela.
+	 * Construtor em que inicializa o controlador e integra o frontend e o backend
+	 * da respectiva tela.
 	 * 
 	 * @param tela PanelListarExercicios panel que chamou o controlador
 	 */
 	public ControladorListarExercicios(PanelListarExercicios panel) {
 		this.panel = panel;
 	}
-	
+
 	/**
-	 * Método que irá realizar algo caso algum botão seja
-	 * pressionado na tela.
+	 * Metodo que ira realizar algo caso algum botao seja pressionado na tela.
 	 * 
-	 * O usuário tem a função de voltar para o inicio do programa,
-	 * Buscar um Exercicio, no qual irá extrair o nome do exercicio que foi 
-	 * inserido e o buscará no banco de dados, Caso seja encontrado,
-	 * o usuário pode deletar o exercicio do banco de dados, ou edita-lo
-	 * ultimo no qual irá leva-lo a outra tela.
+	 * O usuario tem a funcao de voltar para o inicio do programa, Buscar um
+	 * Exercicio, no qual ira extrair o nome do exercicio que foi inserido e o
+	 * buscara no banco de dados, Caso seja encontrado, o usuario pode deletar o
+	 * exercicio do banco de dados, ou edita-lo ultimo no qual ira leva-lo a outra
+	 * tela.
 	 * 
-	 * Para buscar o aluno, devemos colocar todos os seus nomes em uma lista 
-	 * a fim de envia-la para um JList no frontend.Para a edição do exercicio,
-	 * deve-se separar o nome de sua descrição, já que o nome vem anexado à 
-	 * descriçao do frontend, após isto, apenas resta editar o exercicio com o 
-	 * método de editar, caso não seja selecionado nenhum exercício,ele irá 
-	 * capturar um erro e não fará nada.
+	 * Para buscar o aluno, devemos colocar todos os seus nomes em uma lista a fim
+	 * de envia-la para um JList no frontend.Para a edicao do exercicio, deve-se
+	 * separar o nome de sua descricao, ja que o nome vem anexado a descricao do
+	 * frontend, apos isto, apenas resta editar o exercicio com o metodo de editar,
+	 * caso nao seja selecionado nenhum exercicio,ele ira capturar um erro e nao
+	 * fara nada.
 	 * 
-	 * @param e Object com as informações do botão precionado.
+	 * @param e Object com as informacoes do botao precionado.
 	 * @see Exercicio
 	 * @see DefaultListModel
 	 * @see BancoDeDados
@@ -74,9 +73,10 @@ public class ControladorListarExercicios {
 				String nome = panel.getListExercicios().getSelectedValue().toString();
 				int pos = nome.indexOf("-");
 				nome.substring(0, pos);
-				Exercicio.getUmExercicio(nome.substring(0, pos)).deletar();;
+				Exercicio.getUmExercicio(nome.substring(0, pos)).deletar();
+				;
 				ControladorRedirecionar.caminho(1);
-			} catch(Exception error) {
+			} catch (Exception error) {
 			}
 
 		} else if (e == panel.getBtnEditar()) {
@@ -89,8 +89,8 @@ public class ControladorListarExercicios {
 						Exercicio.getUmExercicio(nome.substring(0, pos)));
 				panel.add(panelExercicio);
 				panel.getPanelmain().setVisible(false);
-				
-			} catch(Exception error) {
+
+			} catch (Exception error) {
 			}
 
 		} else if (e == panel.getBtnVoltar()) {

@@ -16,9 +16,9 @@ import javax.swing.border.LineBorder;
 import controladores.ControladorRedirecionar;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para redirecionamento. Herda
+ *         Classe em que e implementado a tela para redirecionamento. Herda
  *         classe JPanel pra confeccionar a tela.
  * 
  * @see JPanel
@@ -41,17 +41,17 @@ public class PanelRedirecionar extends JPanel {
 	private JLabel lblMsg2;
 
 	/**
-	 * Construitor em que é gerado a tela de redirecionamento juntamente com seus
-	 * componentes. Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela de redirecionamento juntamente com seus
+	 * componentes. Metodos atrelados aos botões estao no backend
 	 * 
 	 * @see ControladorRedirecionar
 	 */
 	public PanelRedirecionar(String operacao, String listagem) {
-		// inst�cio eventos da tela
+		// instacia eventos da tela
 		this.operacao = operacao;
 		this.listagem = listagem;
 
-		// Defino caracter�sticas da tela
+		// Defino caracteristicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -75,7 +75,7 @@ public class PanelRedirecionar extends JPanel {
 		lblMsg.setBounds(153, 56, 213, 61);
 		panel.add(lblMsg);
 
-		// Defino o panel de cadastro que � utilizado como bot�o
+		// Defino o panel de cadastro que e utilizado como botao
 		panelCadastro = new JPanel();
 		panelCadastro.setLayout(null);
 		panelCadastro.setBackground(new Color(135, 148, 192));
@@ -125,9 +125,9 @@ public class PanelRedirecionar extends JPanel {
 
 	/**
 	 * 
-	 * @author Kau� Vin�cius
+	 * @author Kaua Vinicius
 	 *
-	 *         Defino a classe que � utilizada para padronizar os pseudoBot�es da
+	 *         Defino a classe que e utilizada para padronizar os pseudoBotoes da
 	 *         tela. Herdo elementos da classe MouseAdapter
 	 *
 	 * @see MouseAdapter
@@ -139,11 +139,11 @@ public class PanelRedirecionar extends JPanel {
 		String operacao;
 
 		/**
-		 * Constutor da classe para inst�nciar a tela, id e o opera��o
+		 * Constutor da classe para instanciar a tela, id e o operacao
 		 * 
-		 * @param panel    Jpanel onde est� sendo realizado as opera��es
-		 * @param id       Int que cont�m o id do bot�o
-		 * @param operacao String contendo a opera��o desejada
+		 * @param panel    Jpanel onde esta sendo realizado as operacoes
+		 * @param id       Int que contem o id do botao
+		 * @param operacao String contendo a operacao desejada
 		 */
 		public AcaoPerformada(JPanel panel, int id, String operacao) {
 			this.panel = panel;

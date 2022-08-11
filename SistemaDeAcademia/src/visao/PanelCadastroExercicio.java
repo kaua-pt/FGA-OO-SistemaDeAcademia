@@ -23,11 +23,11 @@ import controladores.ControladorTelaCadastroExercicio;
 import modelo.TipoDeGrupamento;
 
 /**
- * @author Kauã Vinícius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para cadastro de exerc�cio.Herda
+ *         Classe em que e implementado a tela para cadastro de exercicio.Herda
  *         a classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botões
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -63,7 +63,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 	 * @see ControladorTelaCadastroExercicio
 	 */
 	public PanelCadastroExercicio() {
-		// Defino as caracter�sticas da tela
+		// Defino as caracteristicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -84,27 +84,27 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		panel.add(panel1);
 		panel1.setLayout(null);
 
-		// Defino textfield onde ser� inserido o nome do exerc�cio
+		// Defino textfield onde sera inserido o nome do exercicio
 		nomeExercicio = new JTextField();
 		nomeExercicio.setFont(new Font("Fira Code Light", Font.PLAIN, 12));
 		nomeExercicio.setBounds(0, 11, 290, 25);
 		panel1.add(nomeExercicio);
 		nomeExercicio.setColumns(10);
 
-		// Defino a label onde � inserido a mensagem principal de exer�cio
+		// Defino a label onde e inserido a mensagem principal de exercicio
 		mainMessagem = new JLabel("Cadastro de Exerc\u00EDcio");
 		mainMessagem.setFont(new Font("Fira Code Light", Font.BOLD, 20));
 		mainMessagem.setHorizontalAlignment(SwingConstants.CENTER);
 		mainMessagem.setBounds(128, 33, 279, 26);
 		panel.add(mainMessagem);
 
-		// Defino a faixa utilizada para design da p�gina
+		// Defino a faixa utilizada para design da pagina
 		faixa = new JPanel();
 		faixa.setBackground(new Color(216, 205, 176));
 		faixa.setBounds(0, 28, 529, 31);
 		panel.add(faixa);
 
-		// Defino a label de ajuda para o usu�rio
+		// Defino a label de ajuda para o usuario
 		lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblNome.setBounds(59, 112, 63, 26);
@@ -124,7 +124,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		panel.add(faixa2);
 		faixa2.setLayout(null);
 
-		// Defino o bot�o para voltar para o in�cio
+		// Defino o botao para voltar para o inicio
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -133,7 +133,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		btnVoltar.setBackground(new Color(226, 71, 43));
 		faixa2.add(btnVoltar);
 
-		// Defino o bot�o para realizar o cadastro
+		// Defino o botao para realizar o cadastro
 		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setForeground(Color.BLACK);
 		btnCadastrar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -142,7 +142,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		btnCadastrar.setBackground(new Color(43, 226, 71));
 		faixa2.add(btnCadastrar);
 
-		// Defino a label onde fica o �cone do nome
+		// Defino a label onde fica o icone do nome
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(10, 102, 40, 41);
 		lblIconNome.setIcon(new ImageIcon(
@@ -150,33 +150,33 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconNome);
 
-		// Defino a combobox onde � inserido o grupamento muscular do exerc�cio
+		// Defino a combobox onde e inserido o grupamento muscular do exercicio
 		comboBoxExercicio = new JComboBox();
 		comboBoxExercicio.setModel(new DefaultComboBoxModel(TipoDeGrupamento.values()));
 		comboBoxExercicio.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		comboBoxExercicio.setBounds(168, 173, 310, 31);
 		panel.add(comboBoxExercicio);
 
-		// Defino a label de ajuda para o usu�rio
+		// Defino a label de ajuda para o usuario
 		lbltipo = new JLabel("Tipo:");
 		lbltipo.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lbltipo.setBounds(59, 181, 113, 14);
 		panel.add(lbltipo);
 
-		// Defino a label de ajuda para o usu�rio
+		// Defino a label de ajuda para o usuario
 		lblNewLabel = new JLabel("Descri\u00E7\u00E3o:");
 		lblNewLabel.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblNewLabel.setBounds(59, 237, 100, 20);
 		panel.add(lblNewLabel);
 
-		// Defino o panel para armazenar a textArea de descri��o
+		// Defino o panel para armazenar a textArea de descricao
 		panelDescricao = new JPanel();
 		panelDescricao.setLayout(null);
 		panelDescricao.setBackground(new Color(255, 255, 255));
 		panelDescricao.setBounds(168, 243, 324, 78);
 		panel.add(panelDescricao);
 
-		// Defino a textArea para ser inserido as descri��es dos exerc�cios
+		// Defino a textArea para ser inserido as descricoes dos exercicios
 		textArea = new JTextArea();
 		textArea.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		textArea.setTabSize(4);
@@ -186,7 +186,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 		textArea.setBounds(0, 0, 324, 78);
 		panelDescricao.add(textArea);
 
-		// Defino o local onde � inserido o icone de tipo
+		// Defino o local onde e inserido o icone de tipo
 		lblIconTipo = new JLabel("");
 		lblIconTipo.setBounds(10, 163, 40, 41);
 		lblIconTipo.setIcon(
@@ -194,7 +194,7 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconTipo);
 
-		// Defino o local onde � inserido o icone de exerc�cios
+		// Defino o local onde e inserido o icone de exercicios
 		lblIconDescricao = new JLabel("");
 		lblIconDescricao.setBounds(10, 229, 40, 41);
 		lblIconDescricao.setIcon(
@@ -202,14 +202,14 @@ public class PanelCadastroExercicio extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panel.add(lblIconDescricao);
 
-		// Defino o controlador que realiza a conec��o entre o backend e o frontend
+		// Defino o controlador que realiza a coneccaoo entre o backend e o frontend
 		controladorTela = new ControladorTelaCadastroExercicio(this);
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {

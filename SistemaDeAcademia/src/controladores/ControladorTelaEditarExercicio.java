@@ -5,11 +5,11 @@ import modelo.TipoDeGrupamento;
 import visao.PanelEditarExercicio;
 
 /**
- * @author Kauã Vinícius
- * @version 1.0	
+ * @author Kaua Vinicius
+ * @version 1.0
  * 
- * 		Classe criada com o intuito de controlar as ações
- * 		da tela de consulta de treinos.
+ *          Classe criada com o intuito de controlar as acoes da tela de
+ *          consulta de treinos.
  * 
  * @see PanelEditarExercicio
  */
@@ -19,27 +19,26 @@ public class ControladorTelaEditarExercicio {
 	private PanelEditarExercicio panel;
 	private Exercicio exercicioAux;
 	private String exercicioNome;
-	
+
 	/**
-	 * 	Construtor em que inicializa o controlador e integra
-	 * o frontend e o backend da respectiva tela.
+	 * Construtor em que inicializa o controlador e integra o frontend e o backend
+	 * da respectiva tela.
 	 * 
 	 * @param tela PanelEditarExercicio panel que chamou o controlador
 	 */
 	public ControladorTelaEditarExercicio(PanelEditarExercicio panel) {
 		this.panel = panel;
 	}
-	
+
 	/**
-	 * Método que irá realizar uma ação para cada botão prescionado 
-	 * pelo usuário.
+	 * Metodo que ira realizar uma acao para cada botao prescionado pelo usuario.
 	 * 
-	 * Caso o usuário deseje retornar ao início, apenas será chamado o 
-	 * controlador redirecionar. Caso o usuário queria editar, será feita
-	 * uma nova instância de exercicio na qual irá substituir a instância que 
-	 * será editada no banco de dados.
+	 * Caso o usuario deseje retornar ao inicio, apenas sera chamado o controlador
+	 * redirecionar. Caso o usuario queria editar, sera feita uma nova instancia de
+	 * exercicio na qual ira substituir a instancia que sera editada no banco de
+	 * dados.
 	 * 
-	 * @param e Object contendo a informações do botão precionado 
+	 * @param e Object contendo a informacoes do botao precionado
 	 * 
 	 * @see TipoDeGrupamento
 	 * @see ControladorRedirecionar
@@ -58,12 +57,12 @@ public class ControladorTelaEditarExercicio {
 		}
 
 	}
-	
+
 	/**
-	 * Método que mostra as informações na tela 
+	 * Metodo que mostra as informacoes na tela
 	 * 
-	 * @param exercicio Exercicio no qual terá as informações do exercicio
-	 * a ser editado
+	 * @param exercicio Exercicio no qual tera as informacoes do exercicio a ser
+	 *                  editado
 	 * @see Exercicio
 	 */
 	public void iniciarCampos(Exercicio exercicio) {

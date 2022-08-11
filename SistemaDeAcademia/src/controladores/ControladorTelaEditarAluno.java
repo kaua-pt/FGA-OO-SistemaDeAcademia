@@ -4,11 +4,11 @@ import modelo.Aluno;
 import visao.PanelEditarAluno;
 
 /**
- * @author Kauã Vinícius
- * @version 1.0	
+ * @author Kaua Vinicius
+ * @version 1.0
  * 
- * 		Classe criada com o intuito de controlar as ações
- * 		da tela de consulta de treinos.
+ *          Classe criada com o intuito de controlar as acoes da tela de
+ *          consulta de treinos.
  * 
  * @see PanelEditarAluno
  */
@@ -18,25 +18,23 @@ public class ControladorTelaEditarAluno {
 	private String nomeAluno;
 
 	/**
-	 * 	Construtor em que inicializa o controlador e integra
-	 * o frontend e o backend da respectiva tela.
+	 * Construtor em que inicializa o controlador e integra o frontend e o backend
+	 * da respectiva tela.
 	 * 
 	 * @param tela PanelEditarAluno panel que chamou o controlador
 	 */
 	public ControladorTelaEditarAluno(PanelEditarAluno panel) {
 		this.panel = panel;
 	}
-	
+
 	/**
-	 * Método que irá realizar uma ação para cada botão prescionado 
-	 * pelo usuário.
+	 * Metodo que ira realizar uma acao para cada botao prescionado pelo usuario.
 	 * 
-	 * Caso o usuário deseje retornar ao início, apenas será chamado o 
-	 * controlador redirecionar. Caso o usuário queria editar, será feita
-	 * uma nova instância de aluno na qual irá substituir a instância que 
-	 * será editada no banco de dados.
+	 * Caso o usuario deseje retornar ao inicio, apenas sera chamado o controlador
+	 * redirecionar. Caso o usuario queria editar, sera feita uma nova instancia de
+	 * aluno na qual ira substituir a instancia que sera editada no banco de dados.
 	 * 
-	 * @param e Object contendo a informações do botão precionado 
+	 * @param e Object contendo a informacoes do botao precionado
 	 * 
 	 * @see Aluno
 	 * @see ControladorRedirecionar
@@ -53,10 +51,9 @@ public class ControladorTelaEditarAluno {
 	}
 
 	/**
-	 * Método que mostra as informações na tela 
+	 * Metodo que mostra as informacoes na tela
 	 * 
-	 * @param aluno Aluno no qual terá as informações do exercicio
-	 * a ser editado
+	 * @param aluno Aluno no qual tera as informacoes do exercicio a ser editado
 	 * @see Aluno
 	 */
 	public void setarInformacoes(Aluno aluno) {

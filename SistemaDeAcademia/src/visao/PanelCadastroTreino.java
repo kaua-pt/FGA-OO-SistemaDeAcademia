@@ -25,11 +25,11 @@ import controladores.ControladorTelaCadastroTreino;
 import modelo.Aluno;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para cadastro de Treino.Herda a
+ *         Classe em que e implementado a tela para cadastro de Treino.Herda a
  *         classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botões
+ *         ActionListener para a iteração dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -69,12 +69,12 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 	private JLabel lblIconTipo;
 
 	/**
-	 * Construtor que realiza a inicializa��o da tela
+	 * Construtor que realiza a inicializacao da tela
 	 * 
 	 * @see ControladorTelaCadastroTreino
 	 */
 	public PanelCadastroTreino() {
-		// Defino as caracter�sticas base da tela
+		// Defino as caracteristicas base da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
@@ -87,7 +87,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		add(panel);
 		panel.setLayout(null);
 
-		// Defino primeiro panel que aparecer� para o usu�rio
+		// Defino primeiro panel que aparecera para o usuario
 		panelMain1 = new JPanel();
 		panelMain1.setVisible(true);
 		panelMain1.setBounds(0, 70, 529, 266);
@@ -114,7 +114,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		panel.add(faixa2);
 		faixa2.setLayout(null);
 
-		// Defino o bot�o para retornar para o in�cio
+		// Defino o botao para retornar para o inicio
 		btnInicio = new JButton("Inicio");
 		btnInicio.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnInicio.setBounds(96, 0, 117, 31);
@@ -122,7 +122,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		btnInicio.setBackground(new Color(226, 71, 43));
 		faixa2.add(btnInicio);
 
-		// Defino o bot�o para retornar para o cadastrar
+		// Defino o botao para retornar para o cadastrar
 		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnCadastrar.setBounds(311, 0, 117, 31);
@@ -130,7 +130,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		btnCadastrar.addActionListener(this);
 		faixa2.add(btnCadastrar);
 
-		// Defino a label para direcionar o usu�rio em rela��o ao nome
+		// Defino a label para direcionar o usuario em relacao ao nome
 		lblAjudaNome = new JLabel("Nome:");
 		lblAjudaNome.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblAjudaNome.setBounds(64, 52, 63, 26);
@@ -156,13 +156,13 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		comboAluno.setModel(new DefaultComboBoxModel<String>(Aluno.getTodosAlunos()));
 		panelMain1.add(comboAluno);
 
-		// Defino o label para direcionar usu�rio em rela��o ao aluno
+		// Defino o label para direcionar usuario em relacao ao aluno
 		lblAjudaAluno = new JLabel("Aluno:");
 		lblAjudaAluno.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblAjudaAluno.setBounds(64, 124, 75, 14);
 		panelMain1.add(lblAjudaAluno);
 
-		// Defino o label para direcionar o usu�rio em rela��o ao tipo
+		// Defino o label para direcionar o usuario em relacao ao tipo
 		lblAjudaTipo = new JLabel("Tipo:");
 		lblAjudaTipo.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblAjudaTipo.setBounds(64, 195, 63, 26);
@@ -176,7 +176,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 				"B- Costa e B\u00EDceps", "C- Perna", "D- Aer\u00F3bico" }));
 		panelMain1.add(comboGrupo);
 
-		// Defino o bot�o para mostrar a tela de exerc�cios
+		// Defino o botao para mostrar a tela de exercicios
 		btnExercicios = new JButton("Exercicios");
 		btnExercicios.setBounds(204, 235, 117, 31);
 		panelMain1.add(btnExercicios);
@@ -191,7 +191,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		lblInsiraOsDados.setBounds(126, 0, 279, 26);
 		panelMain1.add(lblInsiraOsDados);
 
-		// Defino a label onde haver� o icone de nome
+		// Defino a label onde havera o icone de nome
 		lblIconNome = new JLabel("");
 		lblIconNome.setBounds(14, 37, 40, 41);
 		lblIconNome.setIcon(new ImageIcon(
@@ -199,7 +199,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelMain1.add(lblIconNome);
 
-		// Defino a label onde haver� o icone de aluno
+		// Defino a label onde havera o icone de aluno
 		lblIconAluno = new JLabel("");
 		lblIconAluno.setBounds(14, 114, 40, 41);
 		lblIconAluno.setIcon(new ImageIcon(
@@ -207,7 +207,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelMain1.add(lblIconAluno);
 
-		// Defino a label onde haver� o icone de tipo
+		// Defino a label onde havera o icone de tipo
 		lblIconTipo = new JLabel("");
 		lblIconTipo.setBounds(14, 180, 40, 41);
 		lblIconTipo.setIcon(
@@ -215,7 +215,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelMain1.add(lblIconTipo);
 
-		// Defino o panel onde ficar� a segunda parte de informa��es principais
+		// Defino o panel onde ficara a segunda parte de informacoes principais
 		panelMain2 = new JPanel();
 		panelMain2.setBounds(0, 61, 529, 277);
 		panel.add(panelMain2);
@@ -228,31 +228,31 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		lblTexto.setBounds(100, 11, 361, 30);
 		panelMain2.add(lblTexto);
 
-		// Defino a label de ajuda para as s�ries
+		// Defino a label de ajuda para as series
 		lblSeries = new JLabel("S\u00E9ries:");
 		lblSeries.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblSeries.setBounds(375, 68, 91, 20);
 		panelMain2.add(lblSeries);
 
-		// Defino o spin para inserir as s�ries
+		// Defino o spin para inserir as series
 		spinSerie = new JSpinner();
 		spinSerie.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinSerie.setBounds(375, 99, 65, 20);
 		panelMain2.add(spinSerie);
 
-		// Defino a label de repeti��es
+		// Defino a label de repeticoes
 		lblRepeticoes = new JLabel("Repeti\u00E7\u00F5es:");
 		lblRepeticoes.setFont(new Font("Fira Code Light", Font.PLAIN, 16));
 		lblRepeticoes.setBounds(375, 139, 121, 29);
 		panelMain2.add(lblRepeticoes);
 
-		// Defino o spin para inserir as repeti��es
+		// Defino o spin para inserir as repeticoes
 		spinRep = new JSpinner();
 		spinRep.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 		spinRep.setBounds(375, 179, 65, 20);
 		panelMain2.add(spinRep);
 
-		// Defino a lista onde estar� os exercicios que devem ser selecionados
+		// Defino a lista onde estara os exercicios que devem ser selecionados
 		listExerciciosTreino = new JList();
 		listExerciciosTreino.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listExerciciosTreino.setVisibleRowCount(80);
@@ -260,7 +260,7 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		listExerciciosTreino.setBounds(27, 44, 338, 189);
 		panelMain2.add(listExerciciosTreino);
 
-		// Defino o bot�o para voltar
+		// Defino o botao para voltar
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
 		btnVoltar.setBounds(204, 244, 117, 31);
@@ -269,15 +269,15 @@ public class PanelCadastroTreino extends JPanel implements ActionListener {
 		btnVoltar.setForeground(Color.BLACK);
 		panelMain2.add(btnVoltar);
 
-		// Controlador que realiza a conec��o entre o front e o backend
+		// Controlador que realiza a coneccao entre o front e o backend
 		controladorTela = new ControladorTelaCadastroTreino(this);
 
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {

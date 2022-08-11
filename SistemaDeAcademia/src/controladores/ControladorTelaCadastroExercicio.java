@@ -5,42 +5,40 @@ import modelo.TipoDeGrupamento;
 import visao.PanelCadastroExercicio;
 
 /**
- * @author Kauã Vinícius
- * @version 1.0	
+ * @author Kaua Vinicius
+ * @version 1.0
  * 
- * 		Classe criada com o intuito de controlar as ações
- * 		da tela de cadastro de exercício.
+ *          Classe criada com o intuito de controlar as acoes da tela de
+ *          cadastro de exercicio.
  * 
  * @see PanelCadastroExercicio
  */
 public class ControladorTelaCadastroExercicio {
 
 	private PanelCadastroExercicio tela;
-	
+
 	/**
-	 * Construtor do controlador que irá receber a tela que o chamou
-	 * realizando a integração entre o frontend e o backend da respectiva
-	 * tela. 
+	 * Construtor do controlador que ira receber a tela que o chamou realizando a
+	 * integracao entre o frontend e o backend da respectiva tela.
 	 * 
 	 * @param tela PanelCadastroExercicio que chamou a tela
 	 */
 	public ControladorTelaCadastroExercicio(PanelCadastroExercicio tela) {
 		this.tela = tela;
 	}
-	
+
 	/**
-	 * Método que irá realizar uma ação a cada vez que o usuário apertar 
-	 * um botão.
+	 * Metodo que ira realizar uma acao a cada vez que o usuario apertar um botao.
 	 * 
-	 * Caso o usuário deseje voltar para a tela inicial, ele será direcionado
-	 * para a tela de inicio por meio do controladorRedirecionar;Caso deseje
-	 * cadastrar um Exercicio, os elementos da tela competentes a receber dados
-	 * serão solicitadas para serem enviadas ao banco de dados, antes de efetivamente
-	 * cadastrar o exercício, é feito uma validação para analisar se o campo de nome
-	 * de exercicio está vazio ou se o exercicio já está cadastrado no sistema.
+	 * Caso o usuario deseje voltar para a tela inicial, ele sera direcionado para a
+	 * tela de inicio por meio do controladorRedirecionar;Caso deseje cadastrar um
+	 * Exercicio, os elementos da tela competentes a receber dados serao solicitadas
+	 * para serem enviadas ao banco de dados, antes de efetivamente cadastrar o
+	 * exercicio, e feito uma validacao para analisar se o campo de nome de
+	 * exercicio esta vazio ou se o exercicio ja esta cadastrado no sistema.
 	 *
 	 * 
-	 * @param e Object contendo qual botão o usuário apertou
+	 * @param e Object contendo qual botão o usuario apertou
 	 * @see Exercicio
 	 * @see ControladorRedirecionar
 	 */
@@ -58,18 +56,18 @@ public class ControladorTelaCadastroExercicio {
 			ControladorRedirecionar.caminho(1);
 		}
 	}
-	
+
 	/**
-	 * Método responsável por cadastrar o Exercício.
+	 * Metodo responsavel por cadastrar o Exercicio.
 	 * 
-	 * É criado uma instância de exercicio no qual será utilizado
-	 * o método de cadastro para envia-lo ao banco de dados, para 
-	 * ser criado a instância, é utilizado a função pegarTipo para 
-	 * realizar a conversão do id para o grupamento muscular correspondente.
+	 * E criado uma instancia de exercicio no qual sera utilizado o metodo de
+	 * cadastro para envia-lo ao banco de dados, para ser criado a instancia, E
+	 * utilizado a funcao pegarTipo para realizar a conversao do id para o
+	 * grupamento muscular correspondente.
 	 * 
-	 * @param nome String contendo o nome do exercicio
-	 * @param tipo 	Int contendo o id do grupamento muscular do exercício
-	 * @param descricao String contendo a descrição do exercício
+	 * @param nome      String contendo o nome do exercicio
+	 * @param tipo      Int contendo o id do grupamento muscular do exercício
+	 * @param descricao String contendo a descricao do exercicio
 	 * 
 	 * @see Exercicio
 	 * @see TipoDeGrupamento

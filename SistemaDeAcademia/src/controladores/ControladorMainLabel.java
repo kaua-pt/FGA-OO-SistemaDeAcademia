@@ -3,6 +3,8 @@
  */
 package controladores;
 
+import java.awt.Panel;
+
 import javax.swing.JPanel;
 
 import visao.PanelInicio;
@@ -10,11 +12,10 @@ import visao.PanelMenu;
 import visao.PanelRedirecionar;
 
 /**
- * @author Kauã Vinícius
- * @version 1.0	
+ * @author Kaua Vinicius
+ * @version 1.0
  * 
- * 		Classe criada com o intuito de controlar 
- * 		as ações no panel menu
+ *          Classe criada com o intuito de controlar as acoes no panel menu
  * 
  * @see PanelMenu
  */
@@ -26,20 +27,20 @@ public class ControladorMainLabel {
 	/**
 	 * Construtor no qual inicializa com a tela Menu
 	 * 
-	 * @param painelMenu Tela em que serão adicionada as subtelas
+	 * @param painelMenu Tela em que serao adicionada as subtelas
 	 * @see PanelMenu
 	 */
 	public ControladorMainLabel(PanelMenu painelMenu) {
 		this.tela = painelMenu;
 	}
-	
+
 	/**
-	 * Método que irá redirecionar o usuário para as diversas funções
-	 * do programa, que está separada entre alunos, exercícios e treinos.
+	 * Metodo que ira redirecionar o usuario para as diversas funcoes do programa,
+	 * que esta separada entre alunos, exercicios e treinos.
 	 * 
-	 * No método, é chamado a função esconder telas, após isso, é inicializada 
-	 * a tela com o respectivo id, no qual será adicionada a tela de painel menu
-	 * e adicionada em uma array
+	 * No metodo, e chamado a funcao esconder telas, apos isso, e inicializada a
+	 * tela com o respectivo id, no qual sera adicionada a tela de painel menu e
+	 * adicionada em uma array
 	 * 
 	 * @param id Int contendo o id da tela que deseja chamar.
 	 * @see esconderTelas
@@ -69,28 +70,26 @@ public class ControladorMainLabel {
 			tela.dispose();
 		}
 	}
-	
+
 	/**
-	 * Método no qual irá adicionar a tela criada em uma array e adiciona-la
-	 * a tela de menu, isso deve ocorrer para a tela ser sobrescrita a cada 
-	 * vez que o usuário apertar um botão
+	 * Metodo no qual ira adicionar a tela criada em uma array e adiciona-la a tela
+	 * de menu, isso deve ocorrer para a tela ser sobrescrita a cada vez que o
+	 * usuario apertar um botao
 	 * 
-	 * @param id Int contendo o id da tela 
-	 * @param elemento JPanel  tela em que será operada
+	 * @param id       Int contendo o id da tela
+	 * @param elemento JPanel tela em que sera operada
 	 */
 	public void operarTela(int id, JPanel elemento) {
 		telas[id - 1] = elemento;
 		this.tela.getPanelMainMenu().add(elemento);
 		elemento.setVisible(true);
 	}
-	
-	
+
 	/**
-	 * Método em que irá deixar todas as JPanels salvas no array
-	 * invisíveis.
+	 * Metodo em que ira deixar todas as JPanels salvas no array invisiveis.
 	 * 
-	 * É utilizado um loop for para percorrer as tela, e para cada
-	 * tela sua visibilidade se torna falsa.
+	 * E utilizado um loop for para percorrer as tela, e para cada tela sua
+	 * visibilidade se torna falsa.
 	 */
 	public void esconderTelas() {
 		for (JPanel telaCriada : telas) {

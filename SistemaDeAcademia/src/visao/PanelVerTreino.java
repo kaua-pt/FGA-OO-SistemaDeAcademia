@@ -17,11 +17,11 @@ import controladores.ControladorVerTreino;
 import modelo.Treino;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para visualizar um treino.Herda
- *         a classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botões
+ *         Classe em que e implementado a tela para visualizar um treino.Herda a
+ *         classe JPanel pra confeccionar a tela e implementa a interface
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener
@@ -46,25 +46,25 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 	private JPanel panelBaseGeral;
 
 	/**
-	 * Construitor em que é gerado a tela de visualiza��o de treino juntamente com
-	 * seus componentes. Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela de visualizacao de treino juntamente com
+	 * seus componentes. Metodos atrelados aos botoes estao no backend
 	 * 
 	 * @see ControladorVerTreino
 	 */
 	public PanelVerTreino(Treino treino) {
-		// Defino caracter�sticas da tela
+		// Defino caracteristicas da tela
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(Color.WHITE);
 		setSize(529, 403);
 		setLayout(null);
 
-		// Defino o panel que � utilizado como base para todos os elementos
+		// Defino o panel que e utilizado como base para todos os elementos
 		panelBaseGeral = new JPanel();
 		panelBaseGeral.setBounds(0, 11, 529, 374);
 		add(panelBaseGeral);
 		panelBaseGeral.setLayout(null);
 
-		// Defino o panel que � utilizado como base para os bot�es
+		// Defino o panel que e utilizado como base para os botoes
 		panelBase = new JPanel();
 		panelBase.setBounds(0, 346, 527, 28);
 		panelBaseGeral.add(panelBase);
@@ -72,7 +72,7 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		panelBase.setBackground(new Color(216, 205, 176));
 		panelBase.setAlignmentY(1.0f);
 
-		// Defino o bot�o para voltar para o in�cio
+		// Defino o botao para voltar para o inicio
 		btnVoltar = new JButton("Inicio");
 		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -81,7 +81,7 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		btnVoltar.addActionListener(this);
 		panelBase.add(btnVoltar);
 
-		// Defino o bot�o para editar o treino
+		// Defino o botao para editar o treino
 		btnEditar = new JButton("Editar");
 		btnEditar.setForeground(Color.BLACK);
 		btnEditar.setFont(new Font("Fira Code Light", Font.BOLD, 12));
@@ -90,7 +90,7 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		btnEditar.addActionListener(this);
 		panelBase.add(btnEditar);
 
-		// Defino o panel que � utilizado como base
+		// Defino o panel que e utilizado como base
 		panel = new JPanel();
 		panel.setBounds(0, 0, 529, 28);
 		panelBaseGeral.add(panel);
@@ -98,32 +98,32 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		panel.setBackground(new Color(216, 205, 176));
 		panel.setAlignmentY(1.0f);
 
-		// Defino o label onde ser� inserido o nome
+		// Defino o label onde sera inserido o nome
 		lblNome = new JLabel();
 		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNome.setBounds(122, 0, 290, 26);
 		panel.add(lblNome);
 		lblNome.setFont(new Font("Fira Code Light", Font.BOLD, 16));
 
-		// Defino o label onde ser� inserido o aluno
+		// Defino o label onde sera inserido o aluno
 		lblAluno = new JLabel();
 		lblAluno.setBounds(10, 59, 254, 14);
 		panelBaseGeral.add(lblAluno);
 		lblAluno.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 
-		// Defino o label onde ser� inserido o numero de s�ries
+		// Defino o label onde sera inserido o numero de series
 		lblSeries = new JLabel();
 		lblSeries.setBounds(10, 188, 254, 20);
 		panelBaseGeral.add(lblSeries);
 		lblSeries.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 
-		// Defino o label onde ser� inserido o numero de repeti��es
+		// Defino o label onde sera inserido o numero de repeticoes
 		lblRepeticoes = new JLabel();
 		lblRepeticoes.setBounds(10, 247, 254, 29);
 		panelBaseGeral.add(lblRepeticoes);
 		lblRepeticoes.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 
-		// Defino o label onde ser� inserido os exerc�cios
+		// Defino o label onde sera inserido os exercicios
 		listExerciciosTreino = new JList();
 		listExerciciosTreino.setBounds(274, 86, 245, 235);
 		panelBaseGeral.add(listExerciciosTreino);
@@ -131,7 +131,7 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		listExerciciosTreino.setFont(new Font("Fira Code Light", Font.PLAIN, 14));
 		listExerciciosTreino.setBorder(new LineBorder(new Color(0, 0, 0)));
 
-		// Defino a label indicando os exerc�cios
+		// Defino a label indicando os exercicios
 		lblExercicios = new JLabel("Exercicios:");
 		lblExercicios.setBounds(274, 52, 110, 26);
 		panelBaseGeral.add(lblExercicios);
@@ -145,16 +145,17 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		textTipo.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		textTipo.setEditable(false);
 
-		// Defino o controlador que realizar� a conec��o entre o backend e o frontend
+		// Defino o controlador que realizara a coneccao entre o backend e o
+		// frontend
 		controladorTela = new ControladorVerTreino(this, treino);
 		controladorTela.inicializar();
 
 	}
 
 	/**
-	 * M�todo respons�vel por conectar o backend e o frontend
+	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um bot�o
+	 * @param event Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

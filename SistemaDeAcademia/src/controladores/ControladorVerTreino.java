@@ -5,10 +5,10 @@ import visao.PanelEditarTreino;
 import visao.PanelVerTreino;
 
 /**
- * @author Kauã Vinícius
+ * @author Kaua Vinicius
  * @version 1.0
  * 
- *          Classe criada com o intuito de controlar as ações da tela de
+ *          Classe criada com o intuito de controlar as acoes da tela de
  *          consulta de treinos.
  * 
  * @see PanelverTreino
@@ -30,14 +30,13 @@ public class ControladorVerTreino {
 	}
 
 	/**
-	 * Método que irá realizar uma ação para cada botão prescionado pelo
-	 * usuário.
+	 * Metodo que ira realizar uma acao para cada botao prescionado pelo usuario.
 	 * 
-	 * Caso o usuário deseje retornar ao início, apenas será chamado o
-	 * controlador redirecionar. Caso o usuário deseje editar algum treino, ele
-	 * será redirecionado para uma tela específica para editar o aluno.
+	 * Caso o usuario deseje retornar ao inicio, apenas sera chamado o controlador
+	 * redirecionar. Caso o usuario deseje editar algum treino, ele sera
+	 * redirecionado para uma tela especifica para editar o aluno.
 	 * 
-	 * @param e Object contendo a informações do botão precionado
+	 * @param e Object contendo a informacoes do botao precionado
 	 * 
 	 * @see PanelEditarTreino
 	 * @see ControladorRedirecionar
@@ -53,7 +52,7 @@ public class ControladorVerTreino {
 	}
 
 	/**
-	 * Método que mostra as informações na tela
+	 * Metodo que mostra as informacoes na tela
 	 * 
 	 */
 	public void inicializar() {

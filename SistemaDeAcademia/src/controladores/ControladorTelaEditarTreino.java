@@ -6,10 +6,10 @@ import modelo.Treino;
 import visao.PanelEditarTreino;
 
 /**
- * @author Kauã Vinícius
+ * @author Kaua Vinicius
  * @version 1.0
  * 
- *          Classe criada com o intuito de controlar as ações da tela de
+ *          Classe criada com o intuito de controlar as acoes da tela de
  *          consulta de treinos.
  * 
  * @see PanelEditarTreino
@@ -31,21 +31,20 @@ public class ControladorTelaEditarTreino {
 	}
 
 	/**
-	 * Método que irá realizar uma ação para cada botão prescionado pelo
-	 * usuário.
+	 * Metodo que ira realizar uma acao para cada botao prescionado pelo usuario.
 	 * 
-	 * Caso o usuário deseje voltar para a tela inicial, ele será direcionado para
-	 * a tela de inicio por meio do controladorRedirecionar;Caso deseje editar um
-	 * treino, os elementos da tela competentes a receber dados serão solicitadas
-	 * para serem reinstânciadas em um novo objeto no qual será enviado ao banco
-	 * de dado.Há também a função para alternar oque o usuário verá na tela em
-	 * questão, caso o botão exercício seje apertado, o programa irá mostrar
-	 * para o usuário elementos como a lista de exercícios compatíveis com o
-	 * grupamento do treino nos quais poderá escolhar um número de repetições e
-	 * séries, entretanto, caso deseje voltar para a tela inicial de cadastro de
-	 * exercício, o botão voltar deve ser acionado.
+	 * Caso o usuario deseje voltar para a tela inicial, ele sera direcionado para a
+	 * tela de inicio por meio do controladorRedirecionar;Caso deseje editar um
+	 * treino, os elementos da tela competentes a receber dados serao solicitadas
+	 * para serem reinstanciadas em um novo objeto no qual sera enviado ao banco de
+	 * dado.Ha tambem a funcao para alternar oque o usuario vera na tela em questao,
+	 * caso o botao exercicio seje apertado, o programa ira mostrar para o usuario
+	 * elementos como a lista de exercicios compataveis com o grupamento do treino
+	 * nos quais podera escolhar um numero de repeticoes e series, entretanto, caso
+	 * deseje voltar para a tela inicial de cadastro de exercicio, o botao voltar
+	 * deve ser acionado.
 	 * 
-	 * @param e Object contendo a informações do botão precionado
+	 * @param e Object contendo a informacoes do botao precionado
 	 * 
 	 * @see TipoDeGrupamento
 	 * @see Exercicio
@@ -76,9 +75,9 @@ public class ControladorTelaEditarTreino {
 	}
 
 	/**
-	 * Método que mostra as informações na tela
+	 * Metodo que mostra as informacoes na tela
 	 * 
-	 * @param treino Treino que conterá as informações do treino a ser editado
+	 * @param treino Treino que contera as informacoes do treino a ser editado
 	 * @see Treino
 	 */
 	public void iniciarTela(Treino treino) {

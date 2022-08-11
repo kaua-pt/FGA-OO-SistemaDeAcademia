@@ -18,9 +18,9 @@ import javax.swing.border.EmptyBorder;
 import controladores.ControladorMainLabel;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  * 
- *         Classe em que é implementado a tela para cadastro de Treino. Herda a
+ *         Classe em que e implementado a tela para cadastro de Treino. Herda a
  *         classe JPanel pra confeccionar a tela
  * 
  * @see JPanel
@@ -52,15 +52,15 @@ public class PanelMenu extends JFrame {
 	private JLabel lblSairIcone;
 
 	/**
-	 * Construitor em que é gerado a tela base juntamente com seus componentes.
-	 * Métodos atrelados aos botões estão no backend
+	 * Construitor em que e gerado a tela base juntamente com seus componentes.
+	 * Metodos atrelados aos botoes estao no backend
 	 * 
-	 * @param titulo String que ser� o t�tulo da p�gina
+	 * @param titulo String que sera o titulo da pagina
 	 * @see ControladorMainLabel
 	 */
 	public PanelMenu(String titulo) {
 
-		// Defino as caracter�sticas da tela
+		// Defino as caracteristicas da tela
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 464);
 		contentPane = new JPanel();
@@ -70,25 +70,25 @@ public class PanelMenu extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 
-		// Defino o t�tulo da p�gina
+		// Defino o titulo da pagina
 		labelTitulo = new JLabel(titulo);
 		add(labelTitulo);
 
-		// Defino o panel b�sico de menu
+		// Defino o panel basico de menu
 		panelMenu = new JPanel();
 		panelMenu.setBackground(new Color(23, 28, 45));
 		panelMenu.setBounds(0, 0, 185, 464);
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
 
-		// Defino o local onde as informa��es aparecer�o
+		// Defino o local onde as informacoes aparecerao
 		panelMainMenu = new JPanel();
 		panelMainMenu.setBackground(new Color(231, 233, 238));
 		panelMainMenu.setBounds(195, 11, 529, 403);
 		contentPane.add(panelMainMenu);
 		panelMainMenu.setLayout(null);
 
-		// Defino a label onde estar� o icone principal do programa
+		// Defino a label onde estara o icone principal do programa
 		lblMainIcone = new JLabel("");
 		lblMainIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMainIcone.setBounds(10, 11, 165, 98);
@@ -97,7 +97,7 @@ public class PanelMenu extends JFrame {
 						.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
 		panelMenu.add(lblMainIcone);
 
-		// Defino o panel Inicio que serve como bot�o
+		// Defino o panel Inicio que serve como botao
 		panelInicio = new JPanel();
 		panelInicio.setBounds(0, 119, 185, 48);
 		panelInicio.setBackground(new Color(231, 233, 238));
@@ -113,7 +113,7 @@ public class PanelMenu extends JFrame {
 		lblNomeInicio.setBounds(84, 11, 38, 26);
 		panelInicio.add(lblNomeInicio);
 
-		// Defino a label com o icone de in�cio
+		// Defino a label com o icone de inicio
 		lblInicioIcone = new JLabel("");
 		lblInicioIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInicioIcone.setBackground(Color.WHITE);
@@ -123,7 +123,7 @@ public class PanelMenu extends JFrame {
 		lblInicioIcone.setBounds(10, 0, 53, 48);
 		panelInicio.add(lblInicioIcone);
 
-		// Defino o panel alunos que serve como bot�o
+		// Defino o panel alunos que serve como botao
 		panelAlunos = new JPanel();
 		panelAlunos.setBounds(0, 178, 185, 48);
 		panelAlunos.setBackground(new Color(231, 233, 238));
@@ -149,7 +149,7 @@ public class PanelMenu extends JFrame {
 		lblAlunosIcone.setBounds(10, 0, 53, 48);
 		panelAlunos.add(lblAlunosIcone);
 
-		// Defino o panel Exercicios que serve como bot�o
+		// Defino o panel Exercicios que serve como botao
 		panelExercicios = new JPanel();
 		panelExercicios.setBounds(0, 237, 185, 48);
 		panelExercicios.setBackground(new Color(231, 233, 238));
@@ -165,7 +165,7 @@ public class PanelMenu extends JFrame {
 		lblExerccios.setBounds(84, 11, 75, 26);
 		panelExercicios.add(lblExerccios);
 
-		// Defino a label onde estar� o icone de exercicios
+		// Defino a label onde estara o icone de exercicios
 		lblExerciciosIcone = new JLabel("");
 		lblExerciciosIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblExerciciosIcone.setBackground(Color.WHITE);
@@ -175,7 +175,7 @@ public class PanelMenu extends JFrame {
 		lblExerciciosIcone.setBounds(10, 0, 53, 48);
 		panelExercicios.add(lblExerciciosIcone);
 
-		// Defino o panel treino que serve como bot�o
+		// Defino o panel treino que serve como botao
 		panelTreino = new JPanel();
 		panelTreino.setBounds(0, 296, 185, 48);
 		panelTreino.setBackground(new Color(231, 233, 238));
@@ -183,7 +183,7 @@ public class PanelMenu extends JFrame {
 		panelMenu.add(panelTreino);
 		panelTreino.setLayout(null);
 
-		// Defino a label onde estar� o nome treino
+		// Defino a label onde estara o nome treino
 		lblTreino = new JLabel("Treino");
 		lblTreino.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTreino.setForeground(Color.BLACK);
@@ -191,7 +191,7 @@ public class PanelMenu extends JFrame {
 		lblTreino.setBounds(84, 11, 45, 26);
 		panelTreino.add(lblTreino);
 
-		// Defino a label onde estar� o icone de teino
+		// Defino a label onde estara o icone de teino
 		lblTreinoIcone = new JLabel("");
 		lblTreinoIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTreinoIcone.setBackground(Color.WHITE);
@@ -201,7 +201,7 @@ public class PanelMenu extends JFrame {
 		lblTreinoIcone.setBounds(10, 0, 53, 48);
 		panelTreino.add(lblTreinoIcone);
 
-		// Defino o panel sair que serve como bot�o
+		// Defino o panel sair que serve como botao
 		panelSair = new JPanel();
 		panelSair.setBounds(0, 355, 185, 48);
 		panelSair.setBackground(new Color(231, 233, 238));
@@ -209,7 +209,7 @@ public class PanelMenu extends JFrame {
 		panelMenu.add(panelSair);
 		panelSair.setLayout(null);
 
-		// Defino a label onde estar� escrito sair
+		// Defino a label onde estara escrito sair
 		lblSair = new JLabel("Sair");
 		lblSair.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSair.setForeground(Color.BLACK);
@@ -217,7 +217,7 @@ public class PanelMenu extends JFrame {
 		lblSair.setBounds(84, 11, 27, 26);
 		panelSair.add(lblSair);
 
-		// Defino a label onde estar� o icone de saida
+		// Defino a label onde estara o icone de saida
 		lblSairIcone = new JLabel("");
 		lblSairIcone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSairIcone.setBackground(Color.WHITE);
@@ -227,7 +227,7 @@ public class PanelMenu extends JFrame {
 						.getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 		panelSair.add(lblSairIcone);
 
-		// Defino o controlador que realiza a conec��o entre backend e frontend
+		// Defino o controlador que realiza a coneccao entre backend e frontend
 		controlador = new ControladorMainLabel(this);
 		controlador.caminho(1);
 
@@ -235,9 +235,9 @@ public class PanelMenu extends JFrame {
 
 	/**
 	 * 
-	 * @author Kau� Vin�cius
+	 * @author Kaua Vinicius
 	 *
-	 *         Defino a classe que � utilizada para padronizar os pseudoBot�es da
+	 *         Defino a classe que e utilizada para padronizar os pseudoBotoes da
 	 *         tela. Herdo elementos da classe MouseAdapter
 	 *
 	 * @see MouseAdapter
@@ -248,10 +248,10 @@ public class PanelMenu extends JFrame {
 		int id;
 
 		/**
-		 * Constutor da classe para inst�nciar a tela, id e o opera��o
+		 * Constutor da classe para instanciar a tela, id e o operacao
 		 * 
-		 * @param panel Jpanel onde est� sendo realizado as opera��es
-		 * @param id    Int que cont�m o id do bot�o
+		 * @param panel Jpanel onde esta sendo realizado as operacoes
+		 * @param id    Int que contem o id do botao
 		 */
 		public AcaoPerformada(JPanel panel, int id) {
 			this.panel = panel;
