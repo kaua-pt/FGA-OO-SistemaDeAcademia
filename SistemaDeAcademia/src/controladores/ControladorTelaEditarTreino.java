@@ -7,10 +7,10 @@ import visao.PanelEditarTreino;
 
 /**
  * @author Kauã Vinícius
- * @version 1.0	
+ * @version 1.0
  * 
- * 		Classe criada com o intuito de controlar as ações
- * 		da tela de consulta de treinos.
+ *          Classe criada com o intuito de controlar as ações da tela de
+ *          consulta de treinos.
  * 
  * @see PanelEditarTreino
  */
@@ -19,10 +19,10 @@ public class ControladorTelaEditarTreino {
 
 	private PanelEditarTreino tela;
 	private String nomeTreino;
-	
+
 	/**
-	 * 	Construtor em que inicializa o controlador e integra
-	 * o frontend e o backend da respectiva tela.
+	 * Construtor em que inicializa o controlador e integra o frontend e o backend
+	 * da respectiva tela.
 	 * 
 	 * @param tela PanelEditarTreino panel que chamou o controlador
 	 */
@@ -31,20 +31,21 @@ public class ControladorTelaEditarTreino {
 	}
 
 	/**
-	 * Método que irá realizar uma ação para cada botão prescionado 
-	 * pelo usuário.
+	 * Método que irá realizar uma ação para cada botão prescionado pelo
+	 * usuário.
 	 * 
-	 * Caso o usuário deseje voltar para a tela inicial, ele será direcionado
-	 * para a tela de inicio por meio do controladorRedirecionar;Caso deseje
-	 * editar um treino, os elementos da tela competentes a receber dados
-	 * serão solicitadas para serem reinstânciadas em um novo objeto no qual será 
-	 * enviado ao banco de dado.Há também a função para alternar oque o usuário verá na
-	 * tela em questão, caso o botão exercício seje apertado, o programa irá mostrar para 
-	 * o usuário elementos como a lista de exercícios compatíveis com o grupamento do treino 
-	 * nos quais poderá escolhar um número de repetições e séries, entretanto, caso deseje
-	 * voltar para a tela inicial de cadastro de exercício, o botão voltar deve ser acionado.
+	 * Caso o usuário deseje voltar para a tela inicial, ele será direcionado para
+	 * a tela de inicio por meio do controladorRedirecionar;Caso deseje editar um
+	 * treino, os elementos da tela competentes a receber dados serão solicitadas
+	 * para serem reinstânciadas em um novo objeto no qual será enviado ao banco
+	 * de dado.Há também a função para alternar oque o usuário verá na tela em
+	 * questão, caso o botão exercício seje apertado, o programa irá mostrar
+	 * para o usuário elementos como a lista de exercícios compatíveis com o
+	 * grupamento do treino nos quais poderá escolhar um número de repetições e
+	 * séries, entretanto, caso deseje voltar para a tela inicial de cadastro de
+	 * exercício, o botão voltar deve ser acionado.
 	 * 
-	 * @param e Object contendo a informações do botão precionado 
+	 * @param e Object contendo a informações do botão precionado
 	 * 
 	 * @see TipoDeGrupamento
 	 * @see Exercicio
@@ -67,16 +68,17 @@ public class ControladorTelaEditarTreino {
 					TipoDeGrupamento.parearTipos(tela.getComboGrupo().getSelectedIndex()),
 					Exercicio.parearExercicios(tela.getListExerciciosTreino().getSelectedValuesList()),
 					(int) tela.getSpinnerRepeticao().getValue(), (int) tela.getSpinnerSerie().getValue());
+
 			treinoaux.editar(nomeTreino);
+
 			ControladorRedirecionar.caminho(1);
 		}
 	}
-	
+
 	/**
-	 * Método que mostra as informações na tela 
+	 * Método que mostra as informações na tela
 	 * 
-	 * @param treino Treino que conterá as informações do treino 
-	 * a ser editado
+	 * @param treino Treino que conterá as informações do treino a ser editado
 	 * @see Treino
 	 */
 	public void iniciarTela(Treino treino) {

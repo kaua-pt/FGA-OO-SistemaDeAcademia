@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 /**
- * @author Kauã Vinícius
+ * @author Kaua Vinicius
  *
- *         Classe responsável por armazenar informações sobre os treinos.Ela
+ *         Classe responsável por armazenar informacoes sobre os treinos.Ela
  *         implementa a classe operacoes e herda elementos da classe
  *         BaseAcademia
  * 
@@ -43,7 +43,7 @@ public class Treino extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Sobrescrita do método toString que retorna todas as informações do objeto
+	 * Sobrescrita do metodo toString que retorna todas as informacoes do objeto
 	 * treino
 	 * 
 	 * @return String
@@ -54,10 +54,10 @@ public class Treino extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Sobrescreve o método de cadastro vindo da interface operacao no qual:
+	 * Sobrescreve o metodo de cadastro vindo da interface operacao no qual:
 	 * {@inheritDoc}
 	 *
-	 * No presente caso, é apenas adicionado o objeto no banco de dados de treinos.
+	 * No presente caso, e apenas adicionado o objeto no banco de dados de treinos.
 	 * 
 	 * @see BancoDeDados
 	 */
@@ -67,13 +67,13 @@ public class Treino extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Sobrescreve o método de edição indo da interface operacao no qual:
+	 * Sobrescreve o metodo de edicao indo da interface operacao no qual:
 	 * {@inheritDoc}
 	 * 
-	 * No presente caso, é utilizado um loop e uma estutura condicional para
-	 * percorrer todo o banco de dados e ir comparando o parâmetro passado com o
-	 * nome de cada elemento salvo, caso seja encontrado, será substituído o
-	 * elemento atual do loop pelo objeto em que foi chamado.É feito isso para dois
+	 * No presente caso, e utilizado um loop e uma estutura condicional para
+	 * percorrer todo o banco de dados e ir comparando o parametro passado com o
+	 * nome de cada elemento salvo, caso seja encontrado, sera substituído o
+	 * elemento atual do loop pelo objeto em que foi chamado.E feito isso para dois
 	 * banco de dados, o de treino e o de alunos.
 	 * 
 	 * @see BancoDeDados
@@ -81,8 +81,9 @@ public class Treino extends BaseAcademia implements Operacoes {
 	@Override
 	public void editar(String endereco) {
 		// Editar no banco de dados de treinos
+		System.out.println(this.getNome());
 		for (int i = 0; i < BancoDeDados.getTreinos().size(); i++) {
-			if (BancoDeDados.getTreinos().get(i).getNome().contains(this.getNome())) {
+			if (BancoDeDados.getTreinos().get(i).getNome().contains(endereco)) {
 				BancoDeDados.getTreinos().set(i, this);
 			}
 		}
@@ -97,14 +98,14 @@ public class Treino extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Sobrescreve o método deletar vindo da interface operacao no qual :
+	 * Sobrescreve o metodo deletar vindo da interface operacao no qual :
 	 * {@inheritDoc}
 	 * 
-	 * No presente caso, é utilizado um loop e uma estutura condicional para
-	 * percorrer todo o banco de dados e ir comparando o parâmetro passado com o
+	 * No presente caso, e utilizado um loop e uma estutura condicional para
+	 * percorrer todo o banco de dados e ir comparando o parametro passado com o
 	 * nome de cada elemento salvo, caso seja encontrado, o presente elemento do
-	 * loop será excluído.É feito isso paradois banco de dados, o de treino e o
-	 * de alunos.
+	 * loop sera excluido.E feito isso para dois banco de dados, o de treino e o de
+	 * alunos.
 	 * 
 	 * @see BancoDeDados
 	 */
@@ -127,11 +128,11 @@ public class Treino extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Retorna o treino em que tem o seu nome igual ao parâmetro nome.
+	 * Retorna o treino em que tem o seu nome igual ao parametro nome.
 	 * 
-	 * No método é percorrido cada elemento do banco de dados de treino e é
+	 * No metodo e percorrido cada elemento do banco de dados de treino e e
 	 * comparado o nome de cada treino com a string nome, se for encontrado, ele
-	 * retorna o Objeto do treino procurado, caso não, retorna null.
+	 * retorna o Objeto do treino procurado, caso nao, retorna null.
 	 * 
 	 * @param nome String relativo ao nome do treino a ser buscado
 	 * @see BancoDeDados
@@ -149,9 +150,9 @@ public class Treino extends BaseAcademia implements Operacoes {
 	/**
 	 * Retorna uma String contendo os grupamentos do respectivo treino.
 	 * 
-	 * No método é utilizado um loop para percorrer cada elemento da arraylist de
-	 * tipos, então, é feito uma substring com esses elementos na qual é
-	 * retornada sem o primiero caracter de vírgula.
+	 * No metodo e utilizado um loop para percorrer cada elemento da arraylist de
+	 * tipos, entao, e feito uma substring com esses elementos na qual e retornada
+	 * sem o primiero caracter de virgula.
 	 * 
 	 * @see ArrayList
 	 * @return String
@@ -165,11 +166,11 @@ public class Treino extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Retorna uma lista de Strings contendo o nome de todos os exercícios anexados
+	 * Retorna uma lista de Strings contendo o nome de todos os exercicios anexados
 	 * ao presente treino.
 	 * 
-	 * No método é feito um loop dentro da ArrayList de exercicios para cada
-	 * elemento é adicionado uma cópia dele em uma DefaultListModel.
+	 * No metodo e feito um loop dentro da ArrayList de exercicios para cada
+	 * elemento e adicionado uma copia dele em uma DefaultListModel.
 	 * 
 	 * @see ArrayList
 	 * @see DefaultListModel
@@ -185,11 +186,11 @@ public class Treino extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Retorna uma string contendo o nome do aluno em que o treino está anexado
+	 * Retorna uma string contendo o nome do aluno em que o treino esta anexado
 	 * 
-	 * No método é realizado um loop em todo o Banco de dados de alunos, em que,
-	 * para cada aluno é feito um outro loop em cima de seus treinos com a
-	 * finalidade de encontrar qual aluno está anexado ao atual treino.
+	 * No metodo e realizado um loop em todo o Banco de dados de alunos, em que,
+	 * para cada aluno e feito um outro loop em cima de seus treinos com a
+	 * finalidade de encontrar qual aluno esta anexado ao atual treino.
 	 * 
 	 * @see BancoDeDados
 	 * @return String

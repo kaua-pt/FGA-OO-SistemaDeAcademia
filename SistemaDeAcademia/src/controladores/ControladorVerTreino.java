@@ -6,10 +6,10 @@ import visao.PanelVerTreino;
 
 /**
  * @author Kauã Vinícius
- * @version 1.0	
+ * @version 1.0
  * 
- * 		Classe criada com o intuito de controlar as ações
- * 		da tela de consulta de treinos.
+ *          Classe criada com o intuito de controlar as ações da tela de
+ *          consulta de treinos.
  * 
  * @see PanelverTreino
  */
@@ -17,10 +17,10 @@ import visao.PanelVerTreino;
 public class ControladorVerTreino {
 	private PanelVerTreino tela;
 	private Treino treino;
-	
+
 	/**
-	 * 	Construtor em que inicializa o controlador e integra
-	 * o frontend e o backend da respectiva tela.
+	 * Construtor em que inicializa o controlador e integra o frontend e o backend
+	 * da respectiva tela.
 	 * 
 	 * @param tela PanelVerTreino panel que chamou o controlador
 	 */
@@ -30,14 +30,14 @@ public class ControladorVerTreino {
 	}
 
 	/**
-	 * Método que irá realizar uma ação para cada botão prescionado 
-	 * pelo usuário.
+	 * Método que irá realizar uma ação para cada botão prescionado pelo
+	 * usuário.
 	 * 
-	 * Caso o usuário deseje retornar ao início, apenas será chamado o 
-	 * controlador redirecionar. Caso o usuário deseje editar algum treino,
-	 * ele será redirecionado para uma tela específica para editar o aluno.
+	 * Caso o usuário deseje retornar ao início, apenas será chamado o
+	 * controlador redirecionar. Caso o usuário deseje editar algum treino, ele
+	 * será redirecionado para uma tela específica para editar o aluno.
 	 * 
-	 * @param e Object contendo a informações do botão precionado 
+	 * @param e Object contendo a informações do botão precionado
 	 * 
 	 * @see PanelEditarTreino
 	 * @see ControladorRedirecionar
@@ -53,14 +53,14 @@ public class ControladorVerTreino {
 	}
 
 	/**
-	 * Método que mostra as informações na tela 
+	 * Método que mostra as informações na tela
 	 * 
 	 */
 	public void inicializar() {
 		tela.getLblAluno().setText("Aluno: " + treino.getAlunoAnexado());
 		tela.getLblNome().setText(treino.getNome());
-		tela.getLblRepeticoes().setText("Repeti��es: " + treino.getnRepeticao());
-		tela.getLblSeries().setText("S�ries: " + treino.getnSerie());
+		tela.getLblRepeticoes().setText("Repeticoes: " + treino.getnRepeticao());
+		tela.getLblSeries().setText("Series: " + treino.getnSerie());
 		tela.getTextTipo().setText("Tipo: " + treino.getNomesTipo());
 		tela.getListExerciciosTreino().setModel(treino.getNomesExercicios());
 	}

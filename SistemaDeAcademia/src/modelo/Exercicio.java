@@ -9,19 +9,18 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 
 /**
- * @author Kauã Vinícius
- * @version 1.0
- *         Classe respons�vel por armazenar elementos da classe exercício, 
- *         aqui é herdado elementos da classe BaseAcademia e é implementado
- *         a classe Operacoes para o CRUD.
- *         
+ * @author Kaua Vinicius
+ * @version 1.0 Classe responsavel por armazenar elementos da classe exercicio,
+ *          aqui e herdado elementos da classe BaseAcademia e e implementado a
+ *          classe Operacoes para o CRUD.
+ * 
  * @see BaseAcademia
  * @see Operacoes
  */
 public class Exercicio extends BaseAcademia implements Operacoes {
 
 	private String descricao;
-	
+
 	/**
 	 * Construtor da classe
 	 * 
@@ -35,9 +34,9 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Método toString que retorna uma string com todos os elementos do objeto
+	 * Metodo toString que retorna uma string com todos os elementos do objeto
 	 * 
-	 * @return String 
+	 * @return String
 	 */
 	@Override
 	public String toString() {
@@ -45,11 +44,10 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Sobrescreve o método deletar vindo da interface operacao no qual :
+	 * Sobrescreve o metodo deletar vindo da interface operacao no qual :
 	 * {@inheritDoc}
 	 * 
-	 * Apenas é utilizado o método add para adicionar um exercicio no
-	 * banco de dados
+	 * Apenas e utilizado o metodo add para adicionar um exercicio no banco de dados
 	 * 
 	 * @see BancoDeDados
 	 */
@@ -57,15 +55,15 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 	public void cadastro() {
 		BancoDeDados.getExercicios().add(this);
 	}
-	
+
 	/**
-	 * Sobrescreve o método editar vindo da interface operacao no qual :
+	 * Sobrescreve o metodo editar vindo da interface operacao no qual :
 	 * {@inheritDoc}
 	 * 
-	 * No presente caso, é utilizado um loop e uma estutura condicional para 
-	 * percorrer todo o banco de dados e ir comparando o parâmetro passado com
-	 * o nome de cada elemento salvo, caso seja encontrado, o elemento será 
-	 * substituído.É feito isso para dois banco de dados, o de Exercicio e o de 
+	 * No presente caso, e utilizado um loop e uma estutura condicional para
+	 * percorrer todo o banco de dados e ir comparando o parametro passado com o
+	 * nome de cada elemento salvo, caso seja encontrado, o elemento sera
+	 * substituido, feito isso para dois banco de dados, o de Exercicio e o de
 	 * treinos.
 	 * 
 	 * @see BancoDeDados
@@ -80,16 +78,16 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 		}
 		BancoDeDados.getExercicios().add(this);
 	}
-	
+
 	/**
-	 * Sobrescreve o método deletar vindo da interface operacao no qual :
+	 * Sobrescreve o metodo deletar vindo da interface operacao no qual :
 	 * {@inheritDoc}
 	 * 
-	 * No presente caso, é utilizado um loop e uma estutura condicional para 
-	 * percorrer todo o banco de dados e ir comparando o parâmetro passado com
-	 * o nome de cada elemento salvo, caso seja encontrado, o presente elemento
-	 * do loop será excluído.É feito isso paradois banco de dados, o de Exercicio e 
-	 * o de Treinos.
+	 * No presente caso, e utilizado um loop e uma estutura condicional para
+	 * percorrer todo o banco de dados e ir comparando o parametro passado com o
+	 * nome de cada elemento salvo, caso seja encontrado, o presente elemento do
+	 * loop sera excluido.E feito isso paradois banco de dados, o de Exercicio e o
+	 * de Treinos.
 	 * 
 	 * @see BancoDeDados
 	 */
@@ -111,12 +109,12 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 	}
 
 	/**
-	 * Método de retorna uma lista de exercícios com base no que se foi solicitado no
-	 * parâmetro tipo.
+	 * Metodo de retorna uma lista de exercicios com base no que se foi solicitado
+	 * no parametro tipo.
 	 * 
-	 * É percorrido todo o enum de TipoDeGrupamentos, e todo o banco de dados de exercícios 
-	 * simultaneamente, caso seja encontrado o grupo muscular desejado em um exercício, 
-	 * o nome do mesmo é anexado dentro de uma Arraylist.
+	 * E percorrido todo o enum de TipoDeGrupamentos, e todo o banco de dados de
+	 * exercicios simultaneamente, caso seja encontrado o grupo muscular desejado em
+	 * um exercicio, o nome do mesmo e anexado dentro de uma Arraylist.
 	 * 
 	 * @see ArrayList
 	 * @param tipos Arraylist de todos os tipos que se deseja encontrar
@@ -134,13 +132,13 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 		}
 		return retorno;
 	}
-	
+
 	/**
-	 * Retorna o objeto do exercício desejado com base no seu nome
+	 * Retorna o objeto do exercicio desejado com base no seu nome
 	 * 
-	 * É percorrido todo o banco de dados e caso o nome do exercicio
-	 * seja igual a String passada como parâmetro, o objeto do exercicio
-	 * é retornado.Retorna nulo se não for encontrado.
+	 * E percorrido todo o banco de dados e caso o nome do exercicio seja igual a
+	 * String passada como parametro, o objeto do exercicio e retornado.Retorna nulo
+	 * se nao for encontrado.
 	 * 
 	 * @param nome String com o nome do exercicio que se quer achar
 	 * @return Exercicio
@@ -153,15 +151,15 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 		}
 		return null;
 	}
-	
+
 	/**
-	 * Retorna uma lista de todos os exercícios requeridos
+	 * Retorna uma lista de todos os exercicios requeridos
 	 * 
-	 * Utiliza-se do método getExercicioPorTipo para obter uma Arraylist
-	 * de todos os exercicios em que se deseja abstrair do banco de dados,
-	 * e após isso é convertido todos os valores para uma Lista
+	 * Utiliza-se do metodo getExercicioPorTipo para obter uma Arraylist de todos os
+	 * exercicios em que se deseja abstrair do banco de dados, e apos isso e
+	 * convertido todos os valores para uma Lista
 	 * 
-	 * @param index valor do index para ser pareado com os Grupamentos 
+	 * @param index valor do index para ser pareado com os Grupamentos
 	 * @see Arraylist
 	 * @see TipoDeGrupamento
 	 * @return DefaultListModel
@@ -178,11 +176,11 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 
 		return listaModelo;
 	}
-	
+
 	/**
 	 * Todo o ArrayList vira uma Lista comum.
 	 * 
-	 * @param nomes Lista com os nomes dos exercícios
+	 * @param nomes Lista com os nomes dos exercicios
 	 * @return ArrayList
 	 */
 	public static ArrayList<Exercicio> parearExercicios(List<String> nomes) {

@@ -6,34 +6,33 @@ package modelo;
 import java.util.ArrayList;
 
 /**
- * @author Kau� Vin�cius
+ * @author Kaua Vinicius
  *
- *         Enumeração para padronizar os tipos de agrupamento muscular.
- *         Pode ser escolhido grupamentos como: PEITO, COSTA, BICEPS, 
- *         TRICEPS, OMBRO, QUADRICEPS, POSTERIOR, PANTURRILHA, AEROBICO
+ *         Enumeracao para padronizar os tipos de agrupamento muscular. Pode ser
+ *         escolhido grupamentos como: PEITO, COSTA, BICEPS, TRICEPS, OMBRO,
+ *         QUADRICEPS, POSTERIOR, PANTURRILHA, AEROBICO
  */
 public enum TipoDeGrupamento {
-	
+
 	PEITO(1), COSTA(2), BICEPS(3), TRICEPS(4), OMBRO(5), QUADRICEPS(6), POSTERIOR(7), PANTURRILHA(8), AEROBICO(9);
 
 	private final int ID;
-	
+
 	/**
-	 * Espécie de construtor do enum, utilizado para criar a relação id/nome
+	 * Especie de construtor do enum, utilizado para criar a relacao id/nome
 	 * 
-	 * @param id inteiro que será utilizado para identificar um grupamento
+	 * @param id inteiro que sera utilizado para identificar um grupamento
 	 */
 	TipoDeGrupamento(int id) {
 		this.ID = id;
 	}
 
 	/**
-	 * Método no qual retorna um objeto único de TipoDeGrupamento
-	 * em forma de ArrayList
+	 * Metodo no qual retorna um objeto unico de TipoDeGrupamento em forma de
+	 * ArrayList
 	 * 
-	 * É feito uma busca dentro do enum e para cada tipo é analizado
-	 * se o id é igual o valor, se o valor for encontrado, reporta o 
-	 * TipoDeGrupamento em questão.
+	 * E feito uma busca dentro do enum e para cada tipo e analizado se o id e igual
+	 * o valor, se o valor for encontrado, reporta o TipoDeGrupamento em questao.
 	 * 
 	 * @see ArrayList
 	 * @param valor inteiro com o index vindo do controlador
@@ -50,13 +49,12 @@ public enum TipoDeGrupamento {
 		}
 		return null;
 	}
-	
+
 	/**
-	 * Método no qual retorna uma lista de TipoDeGrupamento
+	 * Metodo no qual retorna uma lista de TipoDeGrupamento
 	 * 
-	 * O método em questao adquire o índice indo o Frontend e
-	 * realiza o pareamento já pre-settado, com isso, ele apenas
-	 * transforma esses valores para os enums.
+	 * O metodo em questao adquire o indice indo o Frontend e realiza o pareamento
+	 * ja pre-settado, com isso, ele apenas transforma esses valores para os enums.
 	 * 
 	 * @see ArrayList
 	 * @param index inteiro vindo do controlador
@@ -96,8 +94,8 @@ public enum TipoDeGrupamento {
 		}
 		return grupos;
 	}
-	
-	//getter
+
+	// getter
 	public int getId() {
 		return ID;
 	}

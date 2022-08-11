@@ -12,9 +12,10 @@ import javax.swing.ListModel;
  *
  * @author Kauã Vinícius
  * @version 1.0
- *  
- * 	Classe responsável por armazenar as informações de um aluno e suas operações
- * tal classe implementa a interface Operacoes responsável pelo CRUD.
+ * 
+ *          Classe responsavel por armazenar as informacoes de um aluno e suas
+ *          operacoes tal classe implementa a interface Operacoes responsavel
+ *          pelo CRUD.
  *
  * @see Operacoes
  */
@@ -25,14 +26,14 @@ public class Aluno implements Operacoes {
 	private double altura;
 	private double peso;
 	private ArrayList<Treino> treinos = new ArrayList<Treino>();
-	
+
 	/**
 	 * Constutor do aluno.
 	 * 
-	 * @param nome
-	 * @param idade
-	 * @param altura
-	 * @param peso
+	 * @param nome   String contendo o nome do aluno
+	 * @param idade  Int contendo a idade do aluno
+	 * @param altura Double contendo a altura do aluno
+	 * @param peso   Double contendo o peso do aluno
 	 */
 	public Aluno(String nome, int idade, double altura, double peso) {
 		this.nome = nome;
@@ -42,26 +43,26 @@ public class Aluno implements Operacoes {
 	}
 
 	/**
-	 * Método no qual é calculado o IMC do aluno.
+	 * Metodo no qual e calculado o IMC do aluno.
 	 * 
-	 * É utilizado a formula padrão para obter o imc, no qual
-	 * pode ser expressa como a divisao do pelo pela altura ao quadrado
-	 * 	
+	 * E utilizado a formula padrao para obter o imc, no qual pode ser expressa como
+	 * a divisao do pelo pela altura ao quadrado
+	 * 
 	 * @return double
 	 */
 	public double calcularImc() {
 		return this.peso / ((this.altura * this.altura) / 10000);
 	}
-	
+
 	/**
-	 * Método no qual,abstrai o número do IMC do aluno em sua condição de 
-	 * gordura corporal.
+	 * Metodo no qual,abstrai o numero do IMC do aluno em sua condicao de gordura
+	 * corporal.
 	 * 
-	 * No método, é calculado novamente o imc da pessoa e com base em 
-	 * outros parâmetros, é retorado uma String com a condição da pessoa.
+	 * No metodo, e calculado novamente o imc da pessoa e com base em outros
+	 * parametros, e retorado uma String com a condicao da pessoa.
 	 * 
 	 * @see calcularIMC
-	 * @return String 
+	 * @return String
 	 */
 	public String calcularParametro() {
 		double imc = calcularImc();
@@ -77,33 +78,31 @@ public class Aluno implements Operacoes {
 	}
 
 	/**
-	 * Sobrescreve o método toString , constroi uma String
-	 * com todos os valores de aluno.
+	 * Sobrescreve o metodo toString , constroi uma String com todos os valores de
+	 * aluno.
 	 * 
 	 * @return String
 	 */
+	@Override
 	public String toString() {
 		return "Aluno: " + this.getNome() + "Com peso: " + this.getPeso() + "Kg e altura: " + this.getAltura();
 	}
-	
+
 	/**
-	 * Sobrescreve o método cadastro vindo a interface operacao
-	 * {@inheritDoc}
+	 * Sobrescreve o metodo cadastro vindo a interface operacao {@inheritDoc}
 	 * 
-	 * No método é apenas adicionado o aluno ao banco de dados.
+	 * No metodo e apenas adicionado o aluno ao banco de dados.
 	 */
 	@Override
 	public void cadastro() {
 		BancoDeDados.getAlunos().add(this);
 	}
-	
+
 	/**
-	 * Sobrescreve o método cadastro vindo a interface operacao.
-	 * {@inheritDoc}
+	 * Sobrescreve o metodo cadastro vindo a interface operacao. {@inheritDoc}
 	 * 
-	 * No método, é percorrido todo o banco de dados de alunos, e caso
-	 * o nome do aluno seja igual  a algum nome do banco de dados, este 
-	 * objeto é substituido.
+	 * No metodo, e percorrido todo o banco de dados de alunos, e caso o nome do
+	 * aluno seja igual a algum nome do banco de dados, este objeto e substituido.
 	 */
 	@Override
 	public void editar(String endereco) {
@@ -115,14 +114,13 @@ public class Aluno implements Operacoes {
 		}
 		BancoDeDados.getAlunos().add(this);
 	}
-	
+
 	/**
-	 * Sobrescreve o método cadastro vindo a interface operacao.
-	 * {@inheritDoc}
+	 * Sobrescreve o metodo cadastro vindo a interface operacao. {@inheritDoc}
 	 * 
-	 * No método, é percorrido todo o banco de dados de aluno para encontrar
-	 * o aluno que será removido, em paralelo, é removido os treinos associados
-	 * a este aluno.
+	 * No metodo, e percorrido todo o banco de dados de aluno para encontrar o aluno
+	 * que sera removido, em paralelo, e removido os treinos associados a este
+	 * aluno.
 	 */
 	@Override
 	public void deletar() {
@@ -140,11 +138,12 @@ public class Aluno implements Operacoes {
 			}
 		}
 	}
-	
+
 	/**
-	 * Método no tal retorna o nome de todos os treinos anexados ao aluno em questão.
+	 * Metodo no tal retorna o nome de todos os treinos anexados ao aluno em
+	 * questão.
 	 * 
-	 * No método é percorrido todos os treinos do aluno em questão e abstraídos os 
+	 * No metodo e percorrido todos os treinos do aluno em questao e abstrai�dos os
 	 * respectivos nomes.
 	 * 
 	 * @return ListModel<Object>
@@ -156,24 +155,24 @@ public class Aluno implements Operacoes {
 		}
 		return retorno;
 	}
-	
+
 	/**
-	 * Método que retorna o primeiro nome do Aluno.
+	 * Metodo que retorna o primeiro nome do Aluno.
 	 * 
-	 * É utilizado o método split para retirar o primiero nome e
-	 * retornado o primeiro index da array.
+	 * E utilizado o metodo split para retirar o primiero nome e retornado o
+	 * primeiro index da array.
 	 * 
 	 * @return String
 	 */
 	public String getPrimeiroNome() {
 		return this.nome.split(" ")[0];
 	}
-	
+
 	/**
-	 * Método que retorna o nome de todos os alunos cadastrados.
+	 * Metodo que retorna o nome de todos os alunos cadastrados.
 	 * 
-	 * Neste método, é percorrido todo o banco de dados de alunos, e cada
-	 * posição nome de aluno é anexado a um vetor 
+	 * Neste metodo, e percorrido todo o banco de dados de alunos, e cada posicao
+	 * nome de aluno e anexado a um vetor
 	 * 
 	 * @return String[]
 	 */
@@ -184,10 +183,10 @@ public class Aluno implements Operacoes {
 		}
 		return retornoAluno;
 	}
-	
+
 	/**
-	 * Método que retorna o objeto aluno com base no nome passado como 
-	 * parâmetro, retorna nulo caso o aluno não seja encontrado.
+	 * Metodo que retorna o objeto aluno com base no nome passado como parametro,
+	 * retorna nulo caso o aluno não seja encontrado.
 	 * 
 	 * @param nome String referente ao nome do aluno que deve ser encotrado
 	 * @return Aluno
@@ -200,7 +199,7 @@ public class Aluno implements Operacoes {
 		}
 		return null;
 	}
-	
+
 	// Getters e Setters
 	public int getIdade() {
 		return idade;
