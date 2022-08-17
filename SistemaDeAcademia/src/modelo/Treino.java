@@ -198,7 +198,7 @@ public class Treino extends BaseAcademia implements Operacoes {
 	public String getAlunoAnexado() {
 		for (Aluno aluno : BancoDeDados.getAlunos()) {
 			for (int i = 0; i < aluno.getTreinos().size(); i++) {
-				if (aluno.getTreinos().get(0).getNome().equals(this.getNome())) {
+				if (aluno.getTreinos().get(i).getNome().equals(this.getNome())) {
 					return aluno.getNome();
 				}
 			}
