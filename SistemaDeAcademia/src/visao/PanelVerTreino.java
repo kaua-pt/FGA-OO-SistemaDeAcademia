@@ -142,6 +142,7 @@ public class PanelVerTreino extends JPanel implements ActionListener {
 		textTipo.setBounds(10, 110, 254, 43);
 		panelBaseGeral.add(textTipo);
 		textTipo.setLineWrap(true);
+		textTipo.setBackground(panelBaseGeral.getBackground());
 		textTipo.setFont(new Font("Fira Code Light", Font.BOLD, 14));
 		textTipo.setEditable(false);
 
