@@ -234,7 +234,7 @@ public class PanelEditarTreino extends JPanel implements ActionListener {
 	/**
 	 * Metodo responsavel por conectar o backend e o frontend
 	 * 
-	 * @param event Evento no qual representa o clique de um botao
+	 * @param e Evento no qual representa o clique de um botao
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

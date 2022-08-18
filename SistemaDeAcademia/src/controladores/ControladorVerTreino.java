@@ -11,7 +11,7 @@ import visao.PanelVerTreino;
  *          Classe criada com o intuito de controlar as acoes da tela de
  *          consulta de treinos.
  * 
- * @see PanelverTreino
+ * @see PanelVerTreino
  */
 @SuppressWarnings("unchecked")
 public class ControladorVerTreino {

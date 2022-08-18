@@ -21,7 +21,7 @@ public class ControladorTelaEditarAluno {
 	 * Construtor em que inicializa o controlador e integra o frontend e o backend
 	 * da respectiva tela.
 	 * 
-	 * @param tela PanelEditarAluno panel que chamou o controlador
+	 * @param panel PanelEditarAluno panel que chamou o controlador
 	 */
 	public ControladorTelaEditarAluno(PanelEditarAluno panel) {
 		this.panel = panel;

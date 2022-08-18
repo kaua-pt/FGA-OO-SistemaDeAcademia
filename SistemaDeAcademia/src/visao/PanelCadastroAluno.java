@@ -64,7 +64,7 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 	 * Construtor no qual cria a tela e suas dependencias, acao dos botoes atrelado
 	 * ao BackEnd
 	 * 
-	 * @see ControladorPanelCadastroAluno
+	 * @see ControladorTelaCadastroAluno
 	 */
 	@SuppressWarnings("removal")
 	public PanelCadastroAluno() {
@@ -89,7 +89,7 @@ public class PanelCadastroAluno extends JPanel implements ActionListener {
 		panel.add(panelNome);
 		panelNome.setLayout(null);
 
-		// Defino o campo onde é inserido o nome do aluno
+		// Defino o campo onde ï¿½ inserido o nome do aluno
 		textNomeAluno = new JTextField();
 		textNomeAluno.setFont(new Font("Fira Code", Font.PLAIN, 14));
 		textNomeAluno.setBounds(10, 11, 322, 31);

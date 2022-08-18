@@ -20,7 +20,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		PanelMenu frame = new PanelMenu("Dale");
+		PanelMenu frame = new PanelMenu("VASCO DA GAMA IMENSO");
 		frame.setVisible(true);
 
 	}

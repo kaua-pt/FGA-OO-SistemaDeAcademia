@@ -26,7 +26,7 @@ public class ControladorListarExercicios {
 	 * Construtor em que inicializa o controlador e integra o frontend e o backend
 	 * da respectiva tela.
 	 * 
-	 * @param tela PanelListarExercicios panel que chamou o controlador
+	 * @param panel PanelListarExercicios panel que chamou o controlador
 	 */
 	public ControladorListarExercicios(PanelListarExercicios panel) {
 		this.panel = panel;
@@ -52,7 +52,7 @@ public class ControladorListarExercicios {
 	 * @see Exercicio
 	 * @see DefaultListModel
 	 * @see BancoDeDados
-	 * @see PanelEditarExercicios
+	 * @see PanelEditarExercicio
 	 * @see TipoDeGrupamento
 	 * @see ControladorRedirecionar
 	 */

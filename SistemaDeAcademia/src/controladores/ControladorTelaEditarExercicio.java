@@ -24,7 +24,7 @@ public class ControladorTelaEditarExercicio {
 	 * Construtor em que inicializa o controlador e integra o frontend e o backend
 	 * da respectiva tela.
 	 * 
-	 * @param tela PanelEditarExercicio panel que chamou o controlador
+	 * @param panel PanelEditarExercicio panel que chamou o controlador
 	 */
 	public ControladorTelaEditarExercicio(PanelEditarExercicio panel) {
 		this.panel = panel;

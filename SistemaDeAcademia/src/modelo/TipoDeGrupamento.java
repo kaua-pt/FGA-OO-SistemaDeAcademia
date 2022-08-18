@@ -36,7 +36,7 @@ public enum TipoDeGrupamento {
 	 * 
 	 * @see ArrayList
 	 * @param valor inteiro com o index vindo do controlador
-	 * @return ArrayList<TipoDeGrupamento>
+	 * @return ArrayList
 	 */
 	public static ArrayList<TipoDeGrupamento> pegarTipo(int valor) {
 
@@ -58,7 +58,7 @@ public enum TipoDeGrupamento {
 	 * 
 	 * @see ArrayList
 	 * @param index inteiro vindo do controlador
-	 * @return ArrayList<TipoDeGrupamento>
+	 * @return ArrayList
 	 */
 	public static ArrayList<TipoDeGrupamento> parearTipos(int index) {
 		ArrayList<Integer> pareador = new ArrayList<Integer>();

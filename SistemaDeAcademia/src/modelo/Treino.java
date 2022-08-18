@@ -174,7 +174,7 @@ public class Treino extends BaseAcademia implements Operacoes {
 	 * 
 	 * @see ArrayList
 	 * @see DefaultListModel
-	 * @return DefaultListModel<String>
+	 * @return DefaultListModel
 	 */
 	public DefaultListModel<String> getNomesExercicios() {
 		DefaultListModel<String> listaRetorno = new DefaultListModel<String>();

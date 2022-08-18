@@ -160,7 +160,7 @@ public class Exercicio extends BaseAcademia implements Operacoes {
 	 * convertido todos os valores para uma Lista
 	 * 
 	 * @param index valor do index para ser pareado com os Grupamentos
-	 * @see Arraylist
+	 * @see ArrayList
 	 * @see TipoDeGrupamento
 	 * @return DefaultListModel
 	 */

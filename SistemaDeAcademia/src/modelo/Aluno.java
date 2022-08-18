@@ -61,7 +61,6 @@ public class Aluno implements Operacoes {
 	 * No metodo, e calculado novamente o imc da pessoa e com base em outros
 	 * parametros, e retorado uma String com a condicao da pessoa.
 	 * 
-	 * @see calcularIMC
 	 * @return String
 	 */
 	public String calcularParametro() {
@@ -143,10 +142,10 @@ public class Aluno implements Operacoes {
 	 * Metodo no tal retorna o nome de todos os treinos anexados ao aluno em
 	 * questÃ£o.
 	 * 
-	 * No metodo e percorrido todos os treinos do aluno em questao e abstrai­dos os
+	 * No metodo e percorrido todos os treinos do aluno em questao e abstraiï¿½dos os
 	 * respectivos nomes.
 	 * 
-	 * @return ListModel<Object>
+	 * @return ListModel
 	 */
 	public ListModel<Object> pegarNomesTreino() {
 		DefaultListModel<Object> retorno = new DefaultListModel<Object>();
