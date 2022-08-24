@@ -10,7 +10,7 @@ import javax.swing.ListModel;
 
 /**
  *
- * @author Kauã Vinícius
+ * @author Kaua Vinicius
  * @version 1.0
  * 
  *          Classe responsavel por armazenar as informacoes de um aluno e suas
@@ -142,7 +142,7 @@ public class Aluno implements Operacoes {
 	 * Metodo no tal retorna o nome de todos os treinos anexados ao aluno em
 	 * questão.
 	 * 
-	 * No metodo e percorrido todos os treinos do aluno em questao e abstrai�dos os
+	 * No metodo e percorrido todos os treinos do aluno em questao e abstraidos os
 	 * respectivos nomes.
 	 * 
 	 * @return ListModel

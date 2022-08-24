@@ -10,7 +10,9 @@ import javax.swing.DefaultListModel;
 
 /**
  * @author Kaua Vinicius
- * @version 1.0 Classe responsavel por armazenar elementos da classe exercicio,
+ * @version 1.0
+ *  
+ * 			Classe responsavel por armazenar elementos da classe exercicio,
  *          aqui e herdado elementos da classe BaseAcademia e e implementado a
  *          classe Operacoes para o CRUD.
  * 
