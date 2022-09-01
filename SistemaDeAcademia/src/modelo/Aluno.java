@@ -127,7 +127,7 @@ public class Aluno implements Operacoes {
 			if (BancoDeDados.getAlunos().get(i).getNome().contains(this.nome)) {
 				for (Treino treino : BancoDeDados.getAlunos().get(i).getTreinos()) {
 					for (Treino treinoaux : BancoDeDados.getTreinos()) {
-						if (treinoaux.getNome().contains(treino.getNome())) {
+						if (treinoaux.getNome().equals(treino.getNome())) {
 							BancoDeDados.getTreinos().remove(treinoaux);
 						}
 					}
@@ -140,7 +140,7 @@ public class Aluno implements Operacoes {
 
 	/**
 	 * Metodo no tal retorna o nome de todos os treinos anexados ao aluno em
-	 * questão.
+	 * questao.
 	 * 
 	 * No metodo e percorrido todos os treinos do aluno em questao e abstraidos os
 	 * respectivos nomes.
@@ -185,7 +185,7 @@ public class Aluno implements Operacoes {
 
 	/**
 	 * Metodo que retorna o objeto aluno com base no nome passado como parametro,
-	 * retorna nulo caso o aluno não seja encontrado.
+	 * retorna nulo caso o aluno nao seja encontrado.
 	 * 
 	 * @param nome String referente ao nome do aluno que deve ser encotrado
 	 * @return Aluno

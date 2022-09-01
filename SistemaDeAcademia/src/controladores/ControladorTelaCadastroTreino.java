@@ -51,7 +51,7 @@ public class ControladorTelaCadastroTreino {
 	 * inicial de cadastro de exercicio, o botao voltar deve ser acionado.
 	 *
 	 * 
-	 * @param e Object contendo qual botão o usuário apertou
+	 * @param e Object contendo qual botao o usuario apertou
 	 * @see Aluno
 	 * @see Treino
 	 * @see Exercicio
@@ -90,7 +90,7 @@ public class ControladorTelaCadastroTreino {
 	 * 
 	 * E criado uma instancia de treino no qual sera utilizado o metodo de cadastro
 	 * para envia-lo ao banco de dados, para ser criado a instancia, e utilizado a
-	 * funcao parearTipos para realizar a conversão do id para o grupamento
+	 * funcao parearTipos para realizar a conversao do id para o grupamento
 	 * muscular correspondente. Logo apos, e realizado a anexacao do aluno ao treino
 	 * cadastrado.
 	 * 

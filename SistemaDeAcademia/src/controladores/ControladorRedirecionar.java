@@ -100,7 +100,7 @@ public class ControladorRedirecionar {
 	/**
 	 * Metodo no qual ira adicionar a tela criada em uma array e adiciona-la a tela
 	 * de menu, isso deve ocorrer para a tela ser sobrescrita a cada vez que o
-	 * usuario apertar um botão
+	 * usuario apertar um botao
 	 * 
 	 * @param id       Int contendo o id da tela
 	 * @param elemento JPanel tela em que sera operada

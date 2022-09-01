@@ -18,7 +18,7 @@ import visao.PanelRedirecionar;
  * 
  * @author Kaua Vinicius
  * 
- *         Classe responsável pelos testes relacionados aos alunos
+ *         Classe responsï¿½vel pelos testes relacionados aos alunos
  *
  */
 public class TestesAlunos {
@@ -205,4 +205,5 @@ public class TestesAlunos {
 		editarA.getBtnCadastrar().doClick();
 		assertTrue(BancoDeDados.getAlunos().get(0).toString().contains("58"));
 	}
+	
 }

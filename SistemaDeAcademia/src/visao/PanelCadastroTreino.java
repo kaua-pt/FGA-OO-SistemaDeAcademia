@@ -29,7 +29,7 @@ import modelo.Aluno;
  * 
  *         Classe em que e implementado a tela para cadastro de Treino.Herda a
  *         classe JPanel pra confeccionar a tela e implementa a interface
- *         ActionListener para a iteração dos botoes
+ *         ActionListener para a iteracao dos botoes
  * 
  * @see JPanel
  * @see ActionListener

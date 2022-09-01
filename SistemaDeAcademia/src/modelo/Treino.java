@@ -10,7 +10,7 @@ import javax.swing.DefaultListModel;
 /**
  * @author Kaua Vinicius
  *
- *         Classe responsável por armazenar informacoes sobre os treinos.Ela
+ *         Classe responsavel por armazenar informacoes sobre os treinos.Ela
  *         implementa a classe operacoes e herda elementos da classe
  *         BaseAcademia
  * 

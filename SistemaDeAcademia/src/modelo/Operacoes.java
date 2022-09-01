@@ -15,7 +15,7 @@ public interface Operacoes {
 	 * Editar o objeto em questao em que tem uma caracteristica unica passada como
 	 * endereco nos params.
 	 * 
-	 * @param endereco Sting contendo a característica unica do objeto que deve ser
+	 * @param endereco Sting contendo a caracteristica unica do objeto que deve ser
 	 *                 trocado.
 	 */
 	void editar(String endereco);

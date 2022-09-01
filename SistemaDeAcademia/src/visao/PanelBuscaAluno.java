@@ -25,7 +25,6 @@ import modelo.Aluno;
  * @author Kaua Vinicius
  *
  *         Classe em que e implementada a tela de busca de aluno
- * 
  *         Herda a classe JPanel pra confeccionar a tela e implementa a
  *         interface ActionListener para a iteracao dos botoes
  *
