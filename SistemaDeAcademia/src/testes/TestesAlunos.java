@@ -6,12 +6,14 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import controladores.ControladorMainLabel;
 import modelo.BancoDeDados;
 import visao.PanelBuscaAluno;
 import visao.PanelCadastroAluno;
 import visao.PanelCadastroExercicio;
 import visao.PanelCadastroTreino;
 import visao.PanelEditarAluno;
+import visao.PanelMenu;
 import visao.PanelRedirecionar;
 
 /**
@@ -204,6 +206,27 @@ public class TestesAlunos {
 		editarA.getSpinPeso().setValue(58.0);
 		editarA.getBtnCadastrar().doClick();
 		assertTrue(BancoDeDados.getAlunos().get(0).toString().contains("58"));
+	}
+	
+	@Test
+	void deletarPreCadastrados() {
+		/**
+		 * Aqui ha o teste de deletar um aluno preCadastrado
+		 */
+		new PanelRedirecionar("Alunos", "Consultar ");
+		PanelMenu menu =  new PanelMenu(null);
+		ControladorMainLabel controlador = new ControladorMainLabel(menu);
+		controlador.iniciarValores();
+		assertEquals(8,BancoDeDados.getTreinos().size());
+		
+		PanelBuscaAluno buscaAluno = new PanelBuscaAluno();
+		buscaAluno.getTextField().setText("Paulo Muzy");
+		buscaAluno.getBtnBuscar().doClick();
+		buscaAluno.getBtnDeletar().doClick();
+		
+		assertEquals(4, BancoDeDados.getAlunos().size());
+		assertEquals(0,BancoDeDados.getTreinos().size());
+		
 	}
 	
 }

@@ -123,19 +123,27 @@ public class Aluno implements Operacoes {
 	 */
 	@Override
 	public void deletar() {
-		for (int i = 0; i <= BancoDeDados.getAlunos().size(); i++) {
+		ArrayList<Treino> bancoAux = new ArrayList<Treino>();
+		int aux;
+		
+		for (int i = 0; i < BancoDeDados.getAlunos().size(); i++) {
 			if (BancoDeDados.getAlunos().get(i).getNome().contains(this.nome)) {
-				for (Treino treino : BancoDeDados.getAlunos().get(i).getTreinos()) {
-					for (Treino treinoaux : BancoDeDados.getTreinos()) {
-						if (treinoaux.getNome().equals(treino.getNome())) {
-							BancoDeDados.getTreinos().remove(treinoaux);
+				for (Treino treinoaux: BancoDeDados.getTreinos()) {
+					aux = 0;
+					for (Treino treino : BancoDeDados.getAlunos().get(i).getTreinos()) {
+						if(!(treinoaux.getNome().equals(treino.getNome()))) {
+							aux++;
 						}
+					}	
+					if(aux == BancoDeDados.getAlunos().get(i).getTreinos().size()) {
+						bancoAux.add(treinoaux);
 					}
 				}
-
 				BancoDeDados.getAlunos().remove(i);
 			}
 		}
+		BancoDeDados.getTreinos().clear();
+		BancoDeDados.getTreinos().addAll(bancoAux);
 	}
 
 	/**
