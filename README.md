@@ -1,18 +1,7 @@
 # Sistema_De_Academia
 
 ## Orientação a objetos - Trabalho final
-#### UnB-Gama
-#### Profa Fabiana Freitas Mendes
+#### Projeto final da disciplina de orientação a objetos na UnB, professora Fabiana Freitas. Tal projeto se refere a um sistema de academia no qual realiza operações com alunos, exercícios e treinos
 
-## Sistema de Academia 
-#### T1.1
-
-#### 1-Lista de objetos:
-
-##### 1.1 - Aluno
-##### 1.2 - Treino
-##### 1.3 - Exercicio
-
-#### 2- Lista de funcionalidade do software:
 
 
