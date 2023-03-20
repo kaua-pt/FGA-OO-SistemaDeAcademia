@@ -37,7 +37,7 @@
 Este projeto é feito com o intuito de estudar o conceito de orientação a objetos, diagramação, testes e documentação. 
 
 <!-- construct -->
-### :hammer: Construído com
+## :hammer: Construído com
 
 ![Tecnologias](https://skillicons.dev/icons?i=java)
 
@@ -52,7 +52,5 @@ O projeto pode ser aplicado por uma academia para administrar seus alunos, exerc
 ## :dash: Lisença
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
